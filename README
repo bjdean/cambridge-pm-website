@@ -5,6 +5,44 @@ This is going to be the place that the cambridge-pm website source is maintained
 I'm just setting things up at the moment. When I have a dump of the source I'll
 import it and we'll be underway.
 
+This project uses git for change control. To work on the source code:
+
+    * Register for an account on http://github.com/
+
+    * Grab the latest copy of the repository.  With git you can
+      use:
+
+        git clone git://github.com/bjdean/cambridge-pm-website.git 
+
+      If you've got your commit-bit already, you can use:
+
+        git clone git@github.com:bjdean/cambridge-pm-website.git 
+
+      If you're working without git, you can download the master
+      branch files at:
+
+        http://github.com/bjdean/cambridge-pm-website/tarball/master
+
+    * Do all your work on the a branch.
+
+      If you're working on an already existing branch check it out
+      as follows:
+
+        git checkout -b branch-name origin/branch-name
+        git merge master
+        git push origin branch-name
+
+      Replace branch-name with the branch name.  The 'git merge master' will
+      make sure you've got the latest changes.  The push line will make sure
+      your changes go back to the main repo.
+
+      To create a new branch:
+
+        git checkout master
+        git pull
+        git branch branch-name
+        git push origin branch-name
+
 References:
 
  * The site:
@@ -17,3 +55,6 @@ References:
    http://www.ohloh.net/projects/cambridge-pm-website
 
 Bradley Dean <bjdean@bjdean.id.au>
+
+(With thanks to Paul Fenwick for a place to start on this README - big
+chunks copied from http://github.com/pfenwick/perl589delta)

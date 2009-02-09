@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Parrot...
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000217.html">
+   <LINK REL="Next"  HREF="000220.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Parrot...
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Parrot...">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 11 Sep 2001 11:59:29 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000217.html">[cam.pm] Simon Cozens is the Source Pumpking (fwd)
+</A></li>
+        <LI> Next message: <A HREF="000220.html">[cam.pm] Parrot...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#219">[ date ]</a>
+              <a href="thread.html#219">[ thread ]</a>
+              <a href="subject.html#219">[ subject ]</a>
+              <a href="author.html#219">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all...
+
+As people may be aware, the first release of Parrot (the bytecode
+interpreter which will be used as the backend for Perl 6) was released
+yesterday - see
+<A HREF="http://archive.develooper.com/perl6-announce%40perl.org/msg00293.html">http://archive.develooper.com/perl6-announce%40perl.org/msg00293.html</A>
+for details.
+
+Has anyone else tried this yet? I can some results from test.pasm, but
+test2.pasm and test3.pasm both coredump on me:
+
+cass30:pak:~/data2/parrot$ perl assemble.pl t/test2.pasm &gt; test2.pbc 
+cass30:pak:~/data2/parrot$ ./test_prog test2.pbc 
+Bus Error (core dumped)
+
+this on:
+
+cass30:pak:~/data2/parrot$ uname -a
+SunOS cass30 5.8 Generic_108528-10 sun4u sparc SUNW,Ultra-4
+
+Is this just me and my system?
+
+Phil
+
+-- 
+  Philip Kendall &lt;<A HREF="mailto:pak21@srcf.ucam.org">pak21@srcf.ucam.org</A>&gt;
+  <A HREF="http://www.srcf.ucam.org/~pak21/">http://www.srcf.ucam.org/~pak21/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000217.html">[cam.pm] Simon Cozens is the Source Pumpking (fwd)
+</A></li>
+	<LI> Next message: <A HREF="000220.html">[cam.pm] Parrot...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#219">[ date ]</a>
+              <a href="thread.html#219">[ thread ]</a>
+              <a href="subject.html#219">[ subject ]</a>
+              <a href="author.html#219">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

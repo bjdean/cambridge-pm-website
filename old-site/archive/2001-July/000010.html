@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> map
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000008.html">
+   <LINK REL="Next"  HREF="000016.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>map
+   </H1>
+    <B>Stephen Turner
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="map">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 5 Jul 2001 10:50:59 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000008.html">map
+</A></li>
+        <LI> Next message: <A HREF="000016.html">map
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#10">[ date ]</a>
+              <a href="thread.html#10">[ thread ]</a>
+              <a href="subject.html#10">[ subject ]</a>
+              <a href="author.html#10">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, 4 Jul 2001, Tim Cutts wrote:
+&gt;<i> 
+</I>&gt;<i> I have C code to do the same thing which is a couple of hundred lines
+</I>&gt;<i> long
+</I>
+While I of course agree that Perl is the only choice for your task, I think
+that you're being a _bit_ unfair on C. Here's a first pass:
+
+typedef struct { char *from; char to; } Table;
+
+Table convert[] = {{&quot;AAA&quot;, 'K'}, {&quot;AAC&quot;, 'N'}, {&quot;AAG&quot;, 'K'}, {&quot;AAT&quot;, 'N'},
+		   {&quot;ACA&quot;, 'T'}, {&quot;ACC&quot;, 'T'}, {&quot;ACG&quot;, 'T'}, {&quot;ACT&quot;, 'T'},
+		   {&quot;AGA&quot;, 'R'}, {&quot;AGC&quot;, 'S'}, {&quot;AGG&quot;, 'R'}, {&quot;AGT&quot;, 'S'},
+		   {&quot;ATA&quot;, 'I'}, {&quot;ATC&quot;, 'I'}, {&quot;ATG&quot;, 'M'}, {&quot;ATT&quot;, 'I'},
+		   
+		   {&quot;CAA&quot;, 'Q'}, {&quot;CAC&quot;, 'H'}, {&quot;CAG&quot;, 'Q'}, {&quot;CAT&quot;, 'H'},
+		   {&quot;CCA&quot;, 'P'}, {&quot;CCC&quot;, 'P'}, {&quot;CCG&quot;, 'P'}, {&quot;CCT&quot;, 'P'},
+		   {&quot;CGA&quot;, 'R'}, {&quot;CGC&quot;, 'R'}, {&quot;CGG&quot;, 'R'}, {&quot;CGT&quot;, 'R'},
+		   {&quot;CTA&quot;, 'L'}, {&quot;CTC&quot;, 'L'}, {&quot;CTG&quot;, 'L'}, {&quot;CTT&quot;, 'L'},
+                
+		   {&quot;GAA&quot;, 'E'}, {&quot;GAC&quot;, 'D'}, {&quot;GAG&quot;, 'E'}, {&quot;GAT&quot;, 'D'},
+		   {&quot;GCA&quot;, 'A'}, {&quot;GCC&quot;, 'A'}, {&quot;GCG&quot;, 'A'}, {&quot;GCT&quot;, 'A'},
+		   {&quot;GGA&quot;, 'G'}, {&quot;GGC&quot;, 'G'}, {&quot;GGG&quot;, 'G'}, {&quot;GGT&quot;, 'G'},
+		   {&quot;GTA&quot;, 'V'}, {&quot;GTC&quot;, 'V'}, {&quot;GTG&quot;, 'V'}, {&quot;GTT&quot;, 'V'},
+                
+		   {&quot;TAA&quot;, '*'}, {&quot;TAC&quot;, 'Y'}, {&quot;TAG&quot;, '*'}, {&quot;TAT&quot;, 'Y'},
+		   {&quot;TCA&quot;, 'S'}, {&quot;TCC&quot;, 'S'}, {&quot;TCG&quot;, 'S'}, {&quot;TCT&quot;, 'S'},
+		   {&quot;TGA&quot;, '*'}, {&quot;TGC&quot;, 'C'}, {&quot;TGG&quot;, 'W'}, {&quot;TGT&quot;, 'C'},
+		   {&quot;TTA&quot;, 'L'}, {&quot;TTC&quot;, 'F'}, {&quot;TTG&quot;, 'L'}, {&quot;TTT&quot;, 'F'},
+
+		   {&quot;XXX&quot;, 'X'}};
+
+char *translate(char *from) {
+  char *c, *ans = (char *)calloc(1, strlen(from) / 3 + 1);
+  int i, j, done;
+
+  for (c = from, j = 0; *c &amp;&amp; *(c + 1) &amp;&amp; *(c + 2); c += 3) {
+    for (i = 0, done = 0; !done; i++) {
+      if ((*c == convert[i].from[0] &amp;&amp; *(c + 1) == convert[i].from[1] &amp;&amp;
+	   *(c + 2) == convert[i].from[2]) || convert[i].from[0] == 'X') {
+	ans[j++] = convert[i].to;
+	done = 1;
+      }
+    }
+  }
+  return(ans);
+}
+
+
+-- 
+Stephen Turner               <A HREF="http://www.statslab.cam.ac.uk/~sret1/">http://www.statslab.cam.ac.uk/~sret1/</A>
+  Statistical Laboratory, Wilberforce Road, Cambridge, CB3 0WB, England
+&quot;This is Henman's 8th Wimbledon, and he's only lost 7 matches.&quot; BBC, 2/Jul/01
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000008.html">map
+</A></li>
+	<LI> Next message: <A HREF="000016.html">map
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#10">[ date ]</a>
+              <a href="thread.html#10">[ thread ]</a>
+              <a href="subject.html#10">[ subject ]</a>
+              <a href="author.html#10">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Programming guidlines
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:sret1%40ntlworld.com">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000894.html">
+   <LINK REL="Next"  HREF="000901.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Programming guidlines
+   </H1>
+    <B>Stephen Turner
+    </B> 
+    <A HREF="mailto:sret1%40ntlworld.com"
+       TITLE="[cam.pm] Programming guidlines">sret1@ntlworld.com
+       </A><BR>
+    <I>Sun, 15 Sep 2002 10:21:05 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000894.html">[cam.pm] Programming guidlines
+</A></li>
+        <LI> Next message: <A HREF="000901.html">[cam.pm] Programming guidlines
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#899">[ date ]</a>
+              <a href="thread.html#899">[ thread ]</a>
+              <a href="subject.html#899">[ subject ]</a>
+              <a href="author.html#899">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Lucy McWilliam wrote:
+&gt;<i> 
+</I>&gt;<i> I came across this on openchallenge.org and it set me wondering.
+</I>&gt;<i> 
+</I>&gt;<i> &quot;The challenge consists of writing coding guidelines for experienced
+</I>&gt;<i> programmers wishing to adopt Perl. These guidelines are not intended for
+</I>&gt;<i> &quot;Perl hackers&quot;, but for the  ones who are most used to programming in C or
+</I>&gt;<i> other not-so-idiomatic languages. Those guidelines should be short
+</I>&gt;<i> enough, so that half an hour should be sufficient for a medium-level
+</I>&gt;<i> programmer to understand and be abble to use  them. They should give
+</I>&gt;<i> examples of clean way of implementing common operations and things to
+</I>&gt;<i> avoid.&quot;
+</I>&gt;<i> 
+</I>
+Perl idioms for C programmers? OK.
+
+1) Regular expressions are usually the most efficient way of doing things,
+even if they can be a little impenetrable.
+
+2) $_ is very useful. Normally you try and get the variable you're working
+on into $_, so that you can edit it, print it, etc. without having to keep
+stating the variable name explicitly.
+
+3) Use of short-circuiting operators.
+  $a&amp;&amp;print
+is more idiomatic than 
+  print if$a
+or
+  if($b){print}
+
+4) Never use semi-colons at the end of blocks or your program.
+  for$i(1..10){$_*=$i;print}
+not
+  for$i(1..10){$_*=$i;print;}
+
+5) Leave out any superfluous space. Save whitespace for Python. So in the
+previous example, you should never write anything like
+  for $i (1..10) {
+    $_ *= $i;
+    print
+  }
+
+6) Never use tr///. y/// is always one stroke better.
+
+
+
+(Cc:'ed to <A HREF="mailto:golf@perl.org.">golf@perl.org.</A> Just in case anyone doesn't know me well enough
+to have got the joke yet. :-)
+
+-- 
+Stephen Turner, Cambridge, UK    <A HREF="http://homepage.ntlworld.com/adelie/stephen/">http://homepage.ntlworld.com/adelie/stephen/</A>
+&quot;This is Henman's 8th Wimbledon, and he's only lost 7 matches.&quot; BBC, 2/Jul/01
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000894.html">[cam.pm] Programming guidlines
+</A></li>
+	<LI> Next message: <A HREF="000901.html">[cam.pm] Programming guidlines
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#899">[ date ]</a>
+              <a href="thread.html#899">[ thread ]</a>
+              <a href="subject.html#899">[ subject ]</a>
+              <a href="author.html#899">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

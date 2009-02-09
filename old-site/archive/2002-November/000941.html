@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Bioperl install probs
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:B.Smith%40organon.co.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   
+   <LINK REL="Next"  HREF="000942.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Bioperl install probs
+   </H1>
+    <B>Smith, B. (Brian)
+    </B> 
+    <A HREF="mailto:B.Smith%40organon.co.uk"
+       TITLE="[cam.pm] Bioperl install probs">B.Smith@organon.co.uk
+       </A><BR>
+    <I>Thu, 7 Nov 2002 10:29:48 +0100</I>
+    <P><UL>
+        
+        <LI> Next message: <A HREF="000942.html">[cam.pm] Bioperl install probs
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#941">[ date ]</a>
+              <a href="thread.html#941">[ thread ]</a>
+              <a href="subject.html#941">[ subject ]</a>
+              <a href="author.html#941">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>This message is in MIME format. Since your mail reader does not understand
+this format, some or all of this message may not be legible.
+
+------_=_NextPart_001_01C28640.379CB140
+Content-Type: text/plain;
+	charset=&quot;iso-8859-1&quot;
+
+Hi all,
+
+Im having a bit of a problem when trying to install bioperl.
+
+During the make test the following occurs:-
+
+############################################################################
+
+PERL_DL_NONLAZY=1 /usr/bin/perl &quot;-MExtUtils::Command::MM&quot; &quot;-e&quot;
+
+&quot;test_harness(0, 'blib/lib', 'blib/arch')&quot; t/*.t
+
+t/AAChange................ok
+
+t/AAReverseMutate.........ok
+
+t/AlignIO.................ok
+
+t/Allele..................ok
+
+t/Alphabet................ok
+
+t/Annotation..............ok
+
+t/Biblio..................ok
+
+t/Biblio_biofetch.........ok 3/13
+
+-------------------- WARNING ---------------------
+
+MSG: 500 (Internal Server Error) Can't connect to www.ebi.ac.uk:80
+
+(Bad hostname 'www.ebi.ac.uk')
+
+Client-Date: Tue, 05 Nov 2002 22:50:49 GMT
+
+ 
+
+ 
+
+---------------------------------------------------
+
+Warning: Couldn't connect to BioFetch server with Bio::DB::Medline.pm!
+
+t/Biblio_biofetch.........ok 14/13 
+
+############################################################################
+
+And so on-
+
+I have set my environment variable to point to my proxy and using the
+
+tests in libwww and libnet all is well and I can get access to the
+
+outside world.
+
+It appears that env_proxy variable is not being picked up in
+
+LWP::UserAgent.
+
+When I generate scripts using:-
+
+############################################################
+
+my $ua = new LWP::UserAgent;
+
+$ua-&gt;proxy('http', '<A HREF="http://gatekeeper.xxx.xxxxx.xx:80/'">http://gatekeeper.xxx.xxxxx.xx:80/'</A>);
+
+$ua-&gt;no_proxy('xxx.xxxxx.xx');
+
+$ua-&gt;timeout(900); 
+
+############################################################
+
+All is well and I can get to the outside world.
+
+ 
+
+Can anyone advise on why or how to force the LWP::UserAgent to use the
+
+proxy environment variables?
+
+Many thanks,
+
+Brian
+
+..............................................................
+
+Operating system:Linux 2.4.2-2 Redhat 7.3
+
+Modules:bioperl-1.0.2 libnet-1.12 libwww-perl-5.65
+
+--------------------------------------------------------------------
+This message, including attached files, may contain confidential
+information and is intended only for the use by the individual
+and/or the entity to which it is addressed. Any unauthorized use,
+dissemination of, or copying of the information contained herein is
+not allowed and may lead to irreparable harm and damage for which
+you may be held liable. If you receive this message in error or if
+it is intended for someone else please notify the sender by
+returning this e-mail immediately and delete the message.
+--------------------------------------------------------------------
+
+------_=_NextPart_001_01C28640.379CB140
+Content-Type: text/html;
+	charset=&quot;iso-8859-1&quot;
+
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0 Transitional//EN&quot;&gt;
+&lt;HTML&gt;&lt;HEAD&gt;
+&lt;META HTTP-EQUIV=&quot;Content-Type&quot; CONTENT=&quot;text/html; charset=iso-8859-1&quot;&gt;
+
+
+&lt;META content=&quot;MSHTML 6.00.2715.400&quot; name=GENERATOR&gt;&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;DIV&gt;
+&lt;P&gt;&lt;FONT face=Arial&gt;&lt;FONT size=2&gt;&lt;SPAN class=025032809-07112002&gt;Hi 
+all,&lt;/SPAN&gt;&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial&gt;&lt;FONT size=2&gt;&lt;SPAN class=025032809-07112002&gt;&lt;/SPAN&gt;Im having 
+a bit of a problem when trying to install bioperl.&lt;/FONT&gt;&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;During the make test the following 
+occurs:-&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial 
+size=2&gt;############################################################################&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;PERL_DL_NONLAZY=1 /usr/bin/perl 
+&quot;-MExtUtils::Command::MM&quot; &quot;-e&quot;&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;&quot;test_harness(0, 'blib/lib', 'blib/arch')&quot; 
+t/*.t&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;t/AAChange................ok&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;t/AAReverseMutate.........ok&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;t/AlignIO.................ok&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;t/Allele..................ok&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;t/Alphabet................ok&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;t/Annotation..............ok&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;t/Biblio..................ok&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;t/Biblio_biofetch.........ok 3/13&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;-------------------- WARNING 
+---------------------&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;MSG: 500 (Internal Server Error) Can't connect to 
+www.ebi.ac.uk:80&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;(Bad hostname 'www.ebi.ac.uk')&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;Client-Date: Tue, 05 Nov 2002 22:50:49 GMT&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial 
+size=2&gt;---------------------------------------------------&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;Warning: Couldn't connect to BioFetch server with 
+Bio::DB::Medline.pm!&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;t/Biblio_biofetch.........ok 14/13 &lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial 
+size=2&gt;############################################################################&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;And so on-&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;I have set my environment variable to point to my 
+proxy and using the&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;tests in libwww and libnet all is well and I can get 
+access to the&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;outside world.&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;It appears that env_proxy variable is not being 
+picked up in&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;LWP::UserAgent.&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;When I generate scripts using:-&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial 
+size=2&gt;############################################################&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;my $ua = new LWP::UserAgent;&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;$ua-&amp;gt;proxy('http', 
+'<A HREF="http://gatekeeper.xxx.xxxxx.xx:80/'">http://gatekeeper.xxx.xxxxx.xx:80/'</A>);&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;$ua-&amp;gt;no_proxy('xxx.xxxxx.xx');&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;$ua-&amp;gt;timeout(900); &lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial 
+size=2&gt;############################################################&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;All is well and I can get to the outside 
+world.&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;&lt;/FONT&gt;&amp;nbsp;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;Can anyone advise on why or how to force the 
+LWP::UserAgent to use the&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;proxy environment variables?&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;Many thanks,&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;Brian&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;SPAN class=025032809-07112002&gt;&lt;FONT face=Arial 
+size=2&gt;..............................................................&lt;/FONT&gt;&lt;/SPAN&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;Operating system:Linux 2.4.2-2 Redhat 7.3&lt;/FONT&gt;&lt;/P&gt;
+&lt;P&gt;&lt;FONT face=Arial size=2&gt;Modules:bioperl-1.0.2 libnet-1.12 
+libwww-perl-5.65&lt;/FONT&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;
+
+&lt;P&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot;&gt;--------------------------------------------------------------------&lt;/FONT&gt;&lt;/P&gt;
+
+&lt;P&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot;&gt;This message, including attached files, may contain confidential&lt;/FONT&gt;&lt;/P&gt;
+
+&lt;P&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot;&gt;information and is intended only for the use by the individual&lt;/FONT&gt;&lt;/P&gt;
+
+&lt;P&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot;&gt;and/or the entity to which it is addressed. Any unauthorized use,&lt;/FONT&gt;&lt;/P&gt;
+
+&lt;P&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot;&gt;dissemination of, or copying of the information contained herein is&lt;/FONT&gt;&lt;/P&gt;
+
+&lt;P&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot;&gt;not allowed and may lead to irreparable harm and damage for which&lt;/FONT&gt;&lt;/P&gt;
+
+&lt;P&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot;&gt;you may be held liable. If you receive this message in error or if&lt;/FONT&gt;&lt;/P&gt;
+
+&lt;P&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot;&gt;it is intended for someone else please notify the sender by&lt;/FONT&gt;&lt;/P&gt;
+
+&lt;P&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot;&gt;returning this e-mail immediately and delete the message.&lt;/FONT&gt;&lt;/P&gt;
+
+&lt;P&gt;&lt;FONT SIZE=2 FACE=&quot;Arial&quot;&gt;--------------------------------------------------------------------&lt;/FONT&gt;&lt;/P&gt;
+
+------_=_NextPart_001_01C28640.379CB140--
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI> Next message: <A HREF="000942.html">[cam.pm] Bioperl install probs
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#941">[ date ]</a>
+              <a href="thread.html#941">[ thread ]</a>
+              <a href="subject.html#941">[ subject ]</a>
+              <a href="author.html#941">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

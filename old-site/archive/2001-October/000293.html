@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Trivial perl question
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000295.html">
+   <LINK REL="Next"  HREF="000294.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Trivial perl question
+   </H1>
+    <B>Tony Finch
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Trivial perl question">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Fri, 05 Oct 2001 13:21:55 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000295.html">[cam.pm] Trivial perl question
+</A></li>
+        <LI> Next message: <A HREF="000294.html">[cam.pm] Trivial perl question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#293">[ date ]</a>
+              <a href="thread.html#293">[ thread ]</a>
+              <a href="subject.html#293">[ subject ]</a>
+              <a href="author.html#293">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>In article &lt;<A HREF="mailto:20011005113649.B6381@trill.eu.incyte.com">20011005113649.B6381@trill.eu.incyte.com</A>&gt; you write:
+&gt;<i>
+</I>&gt;<i>It may be slow, but something like:
+</I>&gt;<i>
+</I>&gt;<i>$foo-&gt;set_nr_list([ values %nr_hash ]);
+</I>&gt;<i>
+</I>&gt;<i>is a lot more readable for other people than:
+</I>&gt;<i>
+</I>&gt;<i>my $arr = [];
+</I>&gt;<i>while ((undef, $value) = each %nr_hash) {
+</I>&gt;<i>    push @$arr, $value;
+</I>&gt;<i>}
+</I>&gt;<i>$foo-&gt;set_nr_list($arr);
+</I>
+Why would you ever do the latter? They are both copying every value,
+but with values the copying loop is compiled whereas with each it
+is interpreted.
+
+Tony.
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000295.html">[cam.pm] Trivial perl question
+</A></li>
+	<LI> Next message: <A HREF="000294.html">[cam.pm] Trivial perl question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#293">[ date ]</a>
+              <a href="thread.html#293">[ thread ]</a>
+              <a href="subject.html#293">[ subject ]</a>
+              <a href="author.html#293">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] evil regular expression wanted
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000324.html">
+   <LINK REL="Next"  HREF="000326.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] evil regular expression wanted
+   </H1>
+    <B>Ashton, Bruce
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] evil regular expression wanted">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 17 Oct 2001 16:55:56 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000324.html">[cam.pm] test
+</A></li>
+        <LI> Next message: <A HREF="000326.html">[cam.pm] evil regular expression wanted
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#325">[ date ]</a>
+              <a href="thread.html#325">[ thread ]</a>
+              <a href="subject.html#325">[ subject ]</a>
+              <a href="author.html#325">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+	A regular expression brain teaser for anyone is interested  (well,
+it might not be a brain teaser to someone more expert than I)
+	I have to parse a line of text which is a list of comma separated
+values.  I started out using a simple split function
+
+@foo = split /,/, $bar;
+
+Then I discovered that some of the values were strings of text containing
+commas.  They can be distinguished as single values by the fact that they
+are delimited by double quotes e.g.
+
+&quot;This is a sentence, with a comma&quot;, &lt;value&gt;, &lt;value&gt;
+
+I wondered if anyone could see a way to split this list using *one* regular
+expression?  (i.e. continue using the split function)
+Any ideas please cc directly to <A HREF="mailto:bruce.ashton@metoffice.com">bruce.ashton@metoffice.com</A> as I've only just
+subscribed to this list, and I haven't received any sign on email or
+anything.
+
+If I can't find such a regular expression I may yet be forced to write a new
+subroutine...
+
+
+
+Bruce Ashton
+Java Developer
+Product Development Branch
+Commercial Division
+ext. 4560
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000324.html">[cam.pm] test
+</A></li>
+	<LI> Next message: <A HREF="000326.html">[cam.pm] evil regular expression wanted
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#325">[ date ]</a>
+              <a href="thread.html#325">[ thread ]</a>
+              <a href="subject.html#325">[ subject ]</a>
+              <a href="author.html#325">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

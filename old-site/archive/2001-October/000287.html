@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Trivial perl question
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000286.html">
+   <LINK REL="Next"  HREF="000288.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Trivial perl question
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Trivial perl question">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 4 Oct 2001 16:22:11 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000286.html">[cam.pm] Apocalypse 3 is out...
+</A></li>
+        <LI> Next message: <A HREF="000288.html">[cam.pm] Trivial perl question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#287">[ date ]</a>
+              <a href="thread.html#287">[ thread ]</a>
+              <a href="subject.html#287">[ subject ]</a>
+              <a href="author.html#287">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I'm probably suffering from brain failure, here, but I'm looking for an
+elegant way to do turn something like:
+
+$before = { foo =&gt; [ $a, $b, $c ], bar =&gt; [ $d, $e, $f ], ... }
+
+into
+
+[ $a, $b, $c, $d, $e, $f ... ]
+
+The size of each array reference may vary.  Obviously, I can do
+something like:
+
+$after = [];
+
+foreach (values %$before) {
+    push @$after, @$_;
+}
+
+But I was wondering if there was a more elegant way that doesn't involve
+so much data movement (I suspect the above could get very slow if
+$before is a large data structure).
+
+Any ideas?
+
+Tim.
+
+-- 
+Tim Cutts PhD                    Tel: +44 1223 454918
+Senior Bioinformatics Scientist
+Incyte Genomics
+Botanic House, 100 Hills Road, Cambridge, CB2 1FF, UK
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000286.html">[cam.pm] Apocalypse 3 is out...
+</A></li>
+	<LI> Next message: <A HREF="000288.html">[cam.pm] Trivial perl question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#287">[ date ]</a>
+              <a href="thread.html#287">[ thread ]</a>
+              <a href="subject.html#287">[ subject ]</a>
+              <a href="author.html#287">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

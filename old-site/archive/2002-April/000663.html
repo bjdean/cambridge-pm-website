@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Being lazy
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:mca-pm%40grantadesign.com">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000662.html">
+   <LINK REL="Next"  HREF="000664.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Being lazy
+   </H1>
+    <B>Matthew Astley
+    </B> 
+    <A HREF="mailto:mca-pm%40grantadesign.com"
+       TITLE="[cam.pm] Being lazy">mca-pm@grantadesign.com
+       </A><BR>
+    <I>Tue, 9 Apr 2002 18:21:56 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000662.html">[cam.pm] Being lazy
+</A></li>
+        <LI> Next message: <A HREF="000664.html">[cam.pm] Being lazy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#663">[ date ]</a>
+              <a href="thread.html#663">[ thread ]</a>
+              <a href="subject.html#663">[ subject ]</a>
+              <a href="author.html#663">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Apr 09, 2002 at 03:57:18PM +0100, Martin Oldfield wrote:
+&gt;<i> &gt;&gt;&gt;&gt;&gt; &quot;Lucy&quot; == Lucy McWilliam &lt;<A HREF="mailto:lejm3@hermes.cam.ac.uk">lejm3@hermes.cam.ac.uk</A>&gt; writes:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; [...] get one script to do some stuff and set off lots of other
+</I>&gt;<i> &gt; (complex) scripts (with several different parameters for each).
+</I>&gt;<i> &gt; I've tried both system and require and neither worked properly but
+</I>&gt;<i> &gt; that was probably just me messing up the syntax. Any advice is
+</I>&gt;<i> &gt; appreciated, I bow to the knowledge of cam.pm.
+</I>
+If they're scripts and they expect arguments, 'require' isn't really
+suitable because a) you would need to poke the arguments into @ARGV
+first, b) it will only run the thing the first time you called it and
+c) it may well call exit() when it finishes. You probably want to run
+another perl interpreter with system(), like you said.
+
+&gt;<i> Did you try something like this:
+</I>&gt;<i> 
+</I>&gt;<i> 	#! /usr/bin/perl -w
+</I>&gt;<i> 
+</I>&gt;<i> 	use strict;
+</I>&gt;<i> 
+</I>&gt;<i> 	my $cmd = &quot;echo&quot;;
+</I>&gt;<i> 	my @args = qw(alpha beta gamma);
+</I>&gt;<i> 
+</I>&gt;<i> 	foreach my $arg (@args)
+</I>&gt;<i> 	{
+</I>&gt;<i> 	  system(&quot;$cmd $arg&quot;);
+</I>
+At this point you should { warn &quot;Command '$cmd $arg' return code was
+$?&quot; if $? } or something similar.
+
+&gt;<i> 	}
+</I>
+Also you should know that system(&quot;string with spaces&quot;) is equivalent
+to system(qw(string with spaces)) . If you want shell pipes or whatnot
+you have to use the first form. If you want spaces in arguments you're
+better off using the second form because there's no worrying about
+where the words are split.
+
+Like it says in 'perldoc -f system',
+
+  See &quot;`STRING`&quot; in perlop and &quot;exec&quot; for details.
+
+If you need the output from the scripts, you'll have to delve in the
+perlipc pages.
+
+
+Matthew  #8-)
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000662.html">[cam.pm] Being lazy
+</A></li>
+	<LI> Next message: <A HREF="000664.html">[cam.pm] Being lazy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#663">[ date ]</a>
+              <a href="thread.html#663">[ thread ]</a>
+              <a href="subject.html#663">[ subject ]</a>
+              <a href="author.html#663">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

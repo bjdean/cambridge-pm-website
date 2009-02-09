@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] $_
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000390.html">
+   <LINK REL="Next"  HREF="000393.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] $_
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] $_">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Mon, 12 Nov 2001 01:20:34 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000390.html">[cam.pm] Pub!
+</A></li>
+        <LI> Next message: <A HREF="000393.html">[cam.pm] $_
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#392">[ date ]</a>
+              <a href="thread.html#392">[ thread ]</a>
+              <a href="subject.html#392">[ subject ]</a>
+              <a href="author.html#392">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Do other people find this behaviour very counter-intuitive:
+
+---cut here---
+#!/usr/bin/perl -w
+
+use strict;
+
+sub get_home ($) {
+    my( $id ) = shift;
+
+    open( PASSWD, &quot;&lt; /etc/passwd&quot; ) or die $!;
+
+    while( &lt;PASSWD&gt; ) {
+	my( $id2, $passwd, $uid, $gid, $gecos, $home, $shell ) = split /:/;
+
+	if( $id eq $id2 ) {
+	    close( PASSWD ) or die $!;
+	    return $home;
+	}
+
+    }
+
+    close( PASSWD ) or die $!;
+    return &quot;User `$id' not found&quot;;
+}
+
+my @users = ( 'root', 'bin' );
+
+my @homes = map { get_home( $_ ) } @users;
+
+print &quot;@users&quot;;
+---cut here---
+
+(Yes, I know there are better ways of doing this :-) )
+
+If you can predict what output that will produce, you're doing better
+than I did for an hour...
+
+Phil
+
+-- 
+  Philip Kendall &lt;<A HREF="mailto:pak21@srcf.ucam.org">pak21@srcf.ucam.org</A>&gt;
+  <A HREF="http://www.srcf.ucam.org/~pak21/">http://www.srcf.ucam.org/~pak21/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000390.html">[cam.pm] Pub!
+</A></li>
+	<LI> Next message: <A HREF="000393.html">[cam.pm] $_
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#392">[ date ]</a>
+              <a href="thread.html#392">[ thread ]</a>
+              <a href="subject.html#392">[ subject ]</a>
+              <a href="author.html#392">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

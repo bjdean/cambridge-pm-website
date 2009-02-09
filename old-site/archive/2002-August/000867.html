@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] problem with multiple sort...
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:simonw%40simonwilcox.co.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000866.html">
+   <LINK REL="Next"  HREF="000868.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] problem with multiple sort...
+   </H1>
+    <B>Simon Wilcox
+    </B> 
+    <A HREF="mailto:simonw%40simonwilcox.co.uk"
+       TITLE="[cam.pm] problem with multiple sort...">simonw@simonwilcox.co.uk
+       </A><BR>
+    <I>Wed, 21 Aug 2002 01:24:12 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000866.html">[cam.pm] problem with multiple sort...
+</A></li>
+        <LI> Next message: <A HREF="000868.html">[cam.pm] problem with multiple sort...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#867">[ date ]</a>
+              <a href="thread.html#867">[ thread ]</a>
+              <a href="subject.html#867">[ subject ]</a>
+              <a href="author.html#867">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, 20 Aug 2001, Richard Harrington wrote:
+
+&gt;<i> Hi there, I'm having a problem with a type of file I deal with... here's the
+</I>&gt;<i> story...
+</I>
+[story snipped]
+
+As Phillip pointed out, use strict; is your friend as it catches a lot of 
+typos and thinko's.
+
+Here's my solution to the problem. My assumption is that, in the second 
+part, you want to produce answers sorted by id, then start position with a 
+total for that combination.
+
+#! /usr/bin/perl -w
+
+use strict;
+
+my @data = ();
+my %ids = ();
+my %idpos = ();
+
+while (&lt;DATA&gt;) {
+
+    # use next rather than if for controlling execution in
+    # while, for &amp; foreach loops, less braces to trip you up :)
+    next unless /^\d/; 
+    chomp;
+    my ($score, $start, $end, $id) = split /\s+/;
+
+    next unless ( $id =~ /ENSP/ &amp;&amp; $score &lt; 0.0005 );
+
+    # push an anonymous hashref onto the data array
+    push @data, { score =&gt; $score,
+                  start =&gt; $start,
+                  end   =&gt; $end,
+                  id    =&gt; $id
+                };
+
+    # increment total per id counter
+    $ids{$id}++;
+
+    # increment total per id/position counter
+    # This creates keys like ENSP000002180920280
+    # You may need to increase %04d if you expect start
+    # positions over 9999
+    $idpos{ sprintf(&quot;%15s%04d&quot;,$id, $start) }++; 
+}
+
+# Totals for each identifier are now easy
+
+print &quot;Hits per id\n\n&quot;;
+foreach my $match ( sort keys %ids ) {
+    print &quot;$match: $ids{$match} hits.\n\n&quot;;
+}
+
+# Then I think you were trying to report the number of matches
+# for each combination of id and start position ?
+# You don't seem to actually count that anywhere.
+# Counting in the parsing loop makes it trivially easy.
+
+print &quot;Hits per start position per id\n\n&quot;;
+foreach my $match ( sort keys %idpos ) {
+    my ($id, $start) = unpack &quot;a15a4&quot;, $match;
+    my $s = $idpos{$match} == 1 ? '' : 's';
+    print &quot;$id ($start): $idpos{$match} hit$s.\n\n&quot;;
+}
+ 
+
+# Alternatively, you could sort the @data array, then iterate
+# over it to do the presentation
+
+# Sort using a variant of the Schwartzian Transform
+my @sorted = map { $_-&gt;[0] }
+             sort { $a-&gt;[1] cmp $b-&gt;[1] }
+             map { [$_ , sprintf(&quot;%15s%04d&quot;,$_-&gt;{id}, $_-&gt;{start})] }
+             @data;
+
+my $displayid = '';
+my $displaystart = 0;
+my $count = 0;
+
+print &quot;Hits per start position per id (alternative)\n\n&quot;;
+foreach my $line (@sorted) {
+    my $change = 0;
+    $change++ if ( $displayid ne $line-&gt;{id} );
+    $change++ if ( $displaystart != $line-&gt;{start} );
+    if ($displayid &amp;&amp; $change) { # i.e. not on the first pass
+        my $s = $count == 1 ? '' : 's';
+        print &quot;$displayid ($displaystart): $count hit$s.\n\n&quot;;
+        $count = 0;
+    }
+    $displayid = $line-&gt;{id};
+    $displaystart = $line-&gt;{start};
+    $count++;
+}
+# Print count of final combination
+my $s = $count == 1 ? '' : 's';
+print &quot;$displayid ($displaystart): $count hit$s.\n\n&quot;;
+
+__END__
+
+__DATA__
+score   start  end  identifier
+9e-63    285    1001 ENSP00000218091
+3e-58    293    996  ENSP00000218091
+1e-57    280    1003 ENSP00000218091
+1e-42    280    1003 ENSP00000218091
+1e-42    280    1003 ENSP00000218092
+1e-42    284    1004 ENSP00000218092
+
+Note - the alternative is really just an example of sorting the array of 
+hashes we made in the first part of the code. It is actually quite a lot 
+slower than doing the count during the data parsing phase.
+
+If you were unable to count during the parsing phase, maybe you need to do 
+it several times with very large data sets and can't hold that many sets 
+in memory, you would be marginaly better off to repeat the foreach loop 
+to setup %idpos.
+
+Running the three approaches through Benchmark gives:
+
+Benchmark: timing 50000 iterations of Early Count, Late Count, Mid Count..
+              Rate  Late Count   Mid Count Early Count
+Late Count  1067/s          --        -11%        -30%
+Mid Count   1205/s         13%          --        -21%
+Early Count 1527/s         43%         27%          --
+
+Where Early Count is counting during parsing, Mid Count repeats the 
+foreach loop to set up %idpos and Late Count does the maths on the fly as 
+per the alternate solution.
+
+Well, I've waffled on for long enough. I hope that helped somehow.
+
+Data Munging with Perl is very good for this kind of thing (and Dave 
+didn't pay me to say so either :).
+
+Simon.
+
+-- 
+&quot;Do earwigs make chutney? Do spiders make gravy?&quot;
+ 
+
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000866.html">[cam.pm] problem with multiple sort...
+</A></li>
+	<LI> Next message: <A HREF="000868.html">[cam.pm] problem with multiple sort...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#867">[ date ]</a>
+              <a href="thread.html#867">[ thread ]</a>
+              <a href="subject.html#867">[ subject ]</a>
+              <a href="author.html#867">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> Hello
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000045.html">
+   <LINK REL="Next"  HREF="000048.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>Hello
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="Hello">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Fri, 20 Jul 2001 12:06:49 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000045.html">Hello
+</A></li>
+        <LI> Next message: <A HREF="000048.html">Hello
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, Jul 20, 2001 at 11:55:37AM +0100, Matthew Byng-Maddick wrote:
+&gt;<i> 
+</I>&gt;<i> | sub UNIVERSAL::AUTOLOAD {
+</I>&gt;<i> |     $UNIVERSAL::AUTOLOAD =~ s/::/ /;
+</I>&gt;<i> |     print &quot;$UNIVERSAL::AUTOLOAD &quot;;
+</I>&gt;<i> | }
+</I>&gt;<i> | 
+</I>&gt;<i> | hacker perl another just;
+</I>&gt;<i> 
+</I>&gt;<i> the value of $UNIVERSAL::AUTOLOAD will be (like every other autoloader)
+</I>&gt;<i> the name of the function: (in this case, potentially, ::just ::another, etc).
+</I>&gt;<i> 
+</I>&gt;<i> we parse this as
+</I>&gt;<i> 
+</I>&gt;<i> | hacker(perl(another(just())));
+</I>
+Do we?
+
+I tried:
+
+|<i> sub UNIVERSAL::AUTOLOAD {
+</I>|<i>     die &quot;$UNIVERSAL::AUTOLOAD&quot;;
+</I>|<i> }
+</I>|<i> 
+</I>|<i> hacker perl another just;
+</I>
+which gave:
+
+$ perl japh.pl
+cass26:pak:~/tmp$ perl japh.pl 
+just::another at japh.pl line 2.
+
+where as using the bracketed form hacker(perl(another(just()))) gives:
+
+$ perl japh.pl
+cass26:pak:~/tmp$ perl japh.pl 
+main::just at japh.pl line 2.
+
+This is where I got confused :-) (In fact, using the
+`hacker(perl(another(just()))))' form in the original program gives an
+output of `main just main another main perl main hacker', which I
+understand...).
+
+Is this something to do with indirect objects again?
+
+Phil
+
+-- 
+  Philip Kendall &lt;<A HREF="mailto:pak21@srcf.ucam.org">pak21@srcf.ucam.org</A>&gt;
+  <A HREF="http://www.srcf.ucam.org/~pak21/">http://www.srcf.ucam.org/~pak21/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000045.html">Hello
+</A></li>
+	<LI> Next message: <A HREF="000048.html">Hello
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

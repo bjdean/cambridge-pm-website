@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] $_
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000394.html">
+   <LINK REL="Next"  HREF="000402.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] $_
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] $_">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 13 Nov 2001 10:01:10 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000394.html">[cam.pm] $_
+</A></li>
+        <LI> Next message: <A HREF="000402.html">[cam.pm] $_
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#401">[ date ]</a>
+              <a href="thread.html#401">[ thread ]</a>
+              <a href="subject.html#401">[ subject ]</a>
+              <a href="author.html#401">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Nov 12, 2001 at 12:04:38PM +0000, Philip Kendall wrote:
+&gt;<i> I haven't done a complete investigation of it yet, but basically I think
+</I>&gt;<i> it comes down to the aliasing of $_ in map { }. Something like
+</I>&gt;<i> 
+</I>&gt;<i> @list = ( 'abcde', 'fghij' );
+</I>&gt;<i> map { $_ = substr $_, 2, 2 } ( &quot;abcde&quot;, &quot;fghij&quot; ) @list;
+</I>&gt;<i> print &quot;@list&quot;;
+</I>&gt;<i> 
+</I>&gt;<i> will give you
+</I>&gt;<i> 
+</I>&gt;<i> cd hi
+</I>&gt;<i> 
+</I>&gt;<i> which I can see is a useful feature. The problem now occurs because
+</I>&gt;<i> get_home in my example uses while( &lt;PASSWD&gt; ), which sets $_, and thus
+</I>&gt;<i> modifies the original list.
+</I>
+Simply adding a
+
+local $_
+
+to get_home() solves the problem, of course.
+
+I think one of the confusing things about $_ is that it is a global
+variable, but some perl syntax implicitly localises it, and some does
+not.
+
+Tim.
+
+-- 
+Tim Cutts PhD                    Tel: +44 1223 454918
+Senior Bioinformatics Scientist
+Incyte Genomics
+Botanic House, 100 Hills Road, Cambridge, CB2 1FF, UK
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000394.html">[cam.pm] $_
+</A></li>
+	<LI> Next message: <A HREF="000402.html">[cam.pm] $_
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#401">[ date ]</a>
+              <a href="thread.html#401">[ thread ]</a>
+              <a href="subject.html#401">[ subject ]</a>
+              <a href="author.html#401">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

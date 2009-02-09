@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Numbers
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000442.html">
+   <LINK REL="Next"  HREF="000446.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Numbers
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Numbers">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 5 Dec 2001 16:25:44 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000442.html">[cam.pm] Numbers
+</A></li>
+        <LI> Next message: <A HREF="000446.html">[cam.pm] Numbers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#443">[ date ]</a>
+              <a href="thread.html#443">[ thread ]</a>
+              <a href="subject.html#443">[ subject ]</a>
+              <a href="author.html#443">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Dec 05, 2001 at 04:17:17PM +0000, Philip Kendall wrote:
+&gt;<i> On Wed, Dec 05, 2001 at 02:19:58PM +0000, Lucy McWilliam wrote:
+</I>&gt;<i> &gt; &quot;Know of any comprehensive descriptions of when Perl uses integers to
+</I>&gt;<i> &gt; represent numbers, when it uses floats,
+</I>&gt;<i> Internally, Perl represents all numbers as floats. Perl 6 will have
+</I>&gt;<i> native integer types.
+</I>
+I know it's your birthday, but that's just plain bollocks! :-)
+
+man perlguts and look for SvIV and SvNV.
+
+&gt;<i> &gt; how to get between them
+</I>&gt;<i> int(...) will truncate a number towards zero.
+</I>
+Will turn it into an SV with a set SvIOK.
+
+&gt;<i> POSIX::floor and POSIX::ceil give you (respectively) the integers less
+</I>&gt;<i> than or equal to and greater than or equal to a number.
+</I>
+Yes, and they return something which will set SvIOK.
+
+&gt;<i> &gt; and what various operators (eg bitwise) do in each case?
+</I>
+Bitwise ops will only work on SvIV parts. So an SvNV part will be cast
+to an integer (and the SV will become SvIOK).
+
+Perl's internal representations of things are really not for the
+faint-hearted and the way the string and atoi() etc magic are done is
+absolutely horrid.
+
+&gt;<i> Generally, The Right Thing(tm). Those operators for which a fractional
+</I>&gt;<i> part makes no sense will have it removed.
+</I>
+And the SV SvNOK flag unset, and the SvIOK flag set.
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000442.html">[cam.pm] Numbers
+</A></li>
+	<LI> Next message: <A HREF="000446.html">[cam.pm] Numbers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#443">[ date ]</a>
+              <a href="thread.html#443">[ thread ]</a>
+              <a href="subject.html#443">[ subject ]</a>
+              <a href="author.html#443">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

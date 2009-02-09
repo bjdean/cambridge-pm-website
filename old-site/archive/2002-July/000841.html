@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Perl 5.8.0 is released
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:pete%40flatline.org.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000840.html">
+   <LINK REL="Next"  HREF="000842.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Perl 5.8.0 is released
+   </H1>
+    <B>Peter Clay
+    </B> 
+    <A HREF="mailto:pete%40flatline.org.uk"
+       TITLE="[cam.pm] Perl 5.8.0 is released">pete@flatline.org.uk
+       </A><BR>
+    <I>Mon, 22 Jul 2002 14:24:35 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000840.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+        <LI> Next message: <A HREF="000842.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#841">[ date ]</a>
+              <a href="thread.html#841">[ thread ]</a>
+              <a href="subject.html#841">[ subject ]</a>
+              <a href="author.html#841">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, 22 Jul 2002, Martin Keegan wrote:
+
+&gt;<i> Careful, in Cambridge all criticism of Debian is (rightly, IMO) out of
+</I>&gt;<i> order.
+</I>
+Indeed. Any software that works is &quot;obsolete&quot;, anyway.
+
+&gt;<i> Anyway, should a semantic error like this (on Debian woody's perl) really
+</I>&gt;<i> give me a SEGV? Is there a good reason why the parser can't say &quot;Error,
+</I>&gt;<i> you have transfunged the first two arguments?&quot;
+</I>
+It can, you just have to ask it to :)
+
+pan:~$ perl -w -e 'use strict; read( $x, X, 10 )'
+Global symbol &quot;$x&quot; requires explicit package name at -e line 1.
+Bareword &quot;X&quot; not allowed while &quot;strict subs&quot; in use at -e line 1.
+Execution of -e aborted due to compilation errors.
+
+Presumably it SEGVs in your case because it regards filehandles as just a
+funny kind of scalar, and tries to write into the memory referenced by it.
+I thought it might be converting the bareword X into a string, but I don't
+think that's what's happening.
+
+Pete
+-- 
+Peter Clay                                         | Campaign for   _  _| .__
+                                                   | Digital       /  / | |
+                                                   | Rights!       \_ \_| |
+                                                   | <A HREF="http://uk.eurorights.org">http://uk.eurorights.org</A>
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000840.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+	<LI> Next message: <A HREF="000842.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#841">[ date ]</a>
+              <a href="thread.html#841">[ thread ]</a>
+              <a href="subject.html#841">[ subject ]</a>
+              <a href="author.html#841">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

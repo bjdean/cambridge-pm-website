@@ -1,0 +1,766 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+
+
+
+ 
+ 
+
+<html>
+ <head>
+  <title>
+   CAM.PM:
+    - {
+   $projects
+   -&gt; CPMBOPPC
+   ; }
+  </title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <table border="0" cellpadding="2" cellspacing="2">
+   <tr>
+    <td valign="center">
+     <img src="/images/dollar-underscore.jpg" alt="" />
+    </td>
+    <td valign="center">
+     <h1>
+      <tt>require "<font color="#009900">cam</font>.<font color="#009900">pm</font>" ;</tt>
+     </h1>
+     <h1>
+      <tt>
+       {
+       $<font color="#cc0000">projects</font>
+       -&gt; <font color="#660099">CPMBOPPC</font>
+       ; }</tt>
+     </h1>
+    </td>
+   </tr>
+   <tr>
+    <td valign="top">
+     <!-- begin nav -->
+     <table border="0" cellpadding="0" width="128" cellspacing="1">
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/index.shtml"><b>$?</b></a></td>
+       <td valign="top"><a href="/index.shtml">about cam.pm</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/list_signup.shtml"><b>$*</b></a></td>
+       <td valign="top"><a href="/list_signup.shtml">the cam.pm list</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/meets_when.shtml"><b>$@</b></a></td>
+       <td valign="top"><a href="/meets_when.shtml">cam.pm meetings</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><b>$_</b></td>
+       <td valign="top">cam.pm projects</td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/projects_home.shtml">home</a></td>
+      </tr>
+
+
+     </table>
+     <!-- end nav -->
+    </td>
+    <td valign="top">
+
+<p>
+In the reformattings that are posted below, the variable and function
+names have been kept the same, but '"."' has been squashed and the code
+has been reformatted with spaces to make subroutines more readable.
+</p>
+
+<a name="Matthew_Byng-Maddick" />
+<p>
+In the order in which the solutions were entered, <b><font color="red">Matthew
+Byng-Maddick</font></b> sent in the draining beer glass as a non-entry (given
+that he was going to judge the competition):
+</p>
+
+<p>
+<b>Requirements</b>: ANSI terminal
+</p>
+<pre>
+          <i><font color="green">/Cam.pm_-_Program_with_Beer/</font></i>;<font color="blue">sub</font>
+          r{<b>$d</b>=~<i><font color="red">s/^(..)//</font></i>;<font color="blue">return</font>(<font color="blue">hex</font><b>$1</b>)};<font color="green">#</font>
+         <b>$e</b>                              =<font color="purple">"
+         02                              0A
+        10                                00
+        02                                09
+        02                                0F
+         03                              08
+         02                              10
+         03                              09
+          02                            0F
+          04                            0A
+          020E040B020D040C020C040D020B020E
+          020A020E0C00"</font>;<b>$e</b>=~<i><font color="red">s/\s+//g</font></i>;1;<font color="blue">sub</font>
+           g{<b>$l</b>=<font color="blue">shift</font>;<b>$d</b>=<b>$e</b>;<font color="blue">while</font>(<font color="blue">length</font>(
+           <b>$d</b>)){(<b>$n</b>,<b>$s1</b>,<b>$h</b>,<b>$s2</b>)=(r,r,r,r)
+           ;<font color="blue">for</font>(1..<b>$n</b>){<b>$s</b>++;<b>$a</b>=(31-<b>$l</b>)&gt;<b>$s</b>
+           ?<font color="blue">chr</font>(32):<font color="purple">"@"</font>;<font color="blue">print</font>(<font color="blue">chr</font>(32)x<b>$s1</b>
+            ,<font color="purple">"#"</font>x<b>$h</b>,<b>${a}</b>x(<b>$s2</b>*2),<font color="purple">"#"</font>x<b>$h</b>,
+            <font color="purple">"\n"</font>)}}}<font color="blue">print</font><font color="purple">"\e[2J"</font>;<font color="blue">for</font><b>$t</b>((
+            <font color="blue">reverse</font>(2..28))){<b>$s</b>=0;<font color="blue">sleep</font>(
+            1);<font color="blue">print</font><font color="purple">"\e[0;0H"</font>;g(<b>$t</b>);}<b>$_</b>=
+             <font color="purple">"Qevax*Orre,*Cebtenz*Crey"</font>
+             .<font color="purple">",*Pnz.cz\n"</font>;<i><font color="red">s/\*/chr(32)
+             /eg</font></i>;<i><font color="purple">tr/a-zA-Z/n-za-mN-ZA-M
+             /</font></i>;<font color="blue">print</font>;<i><font color="green">m{Cam.pm_for_info_
+              see_our_website_at:.....
+              .http://www.cam.pm.org/.
+              Real_Perl_mongers_drink_
+              Real_Beer._Join_CAMRA!!}</font></i>
+</pre>
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+<p>
+    For those that didn't try it, it prints the same pint glass, full, and
+    empties it at a rate of one line per second. At the end it prints
+    "Drink Beer, Program Perl, Cam.pm". The way it works is pretty simple,
+    the shape of the glass is encoded in the scalar $e, in groups of 4
+    bytes. The first byte in each group is the number of lines, then the
+    number of spaces, then the number of hashes, and the number of spaces
+    to the midline of the glass. The function g() prints out the glass,
+    using this data, and also prints `@' in the bottom $l lines of the
+    glass. r() reads the top hex digit on the encoding, modifying it as
+    it goes. The end is just a simple rot13 and substitute. The comments
+    are, of course, just regexp matches in null context. This trick is
+    thanks to BooK in his Postscript and Perl TPJ entry.
+</p>
+
+<p>
+    Rewritten, it looks something like:
+</p>
+</td></tr></table>
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+sub r {
+    $d=~s/^(..)//;
+    return(hex$1)
+}
+
+$e="020A1000
+    0209020F
+    03080210
+    0309020F
+    040A020E
+    040B020D
+    040C020C
+    040D020B
+    020E020A
+    020E0C00";
+
+$e=~s/\s+//g;
+
+sub g {
+    $l=shift;
+    $d=$e;
+    while(length($d)) {
+        ($n,$s1,$h,$s2)=(r,r,r,r);
+        for(1..$n) {
+            $s++;
+            $a=(31-$l)&gt;$s?chr(32):"@";
+            print(chr(32)x$s1,"#"x$h,${a}x($s2*2),"#"x$h,"\n")
+        }
+    }
+}
+
+print"\e[2J";
+
+for$t((reverse(2..28))) {
+    $s=0;
+    sleep(1);
+    print"\e[0;0H";
+    g($t);
+}
+
+$_="Qevax*Orre,*Cebtenz*Crey,*Pnz.cz\n";
+
+s/\*/chr(32)/eg;
+tr/a-zA-Z/n-za-mN-ZA-M/;
+print;
+</pre>
+</td></tr></table>
+
+<a name="Andy_Wardley" />
+<p>
+<b><font color="red">Andy Wardley</font></b> posted his to
+<a href="http://www.london.pm.org/">london.pm</a>, and
+not with any seriousness, but it is included here for completeness:
+</p>
+
+<p>
+<b>Requirements</b>: run from a file
+</p>
+<pre>
+#!/usr/bin/perl
+           <font color="green">################################</font>
+           <font color="green">################################</font>
+          <font color="green">##                              ##</font>
+          <font color="green">##                              ##</font>
+         <font color="green">##                                ##</font>
+         <font color="green">##                                ##</font>
+         <font color="green">##                                ##</font>
+          <font color="green">##                              ##</font>
+          <font color="green">##                              ##</font>
+          <font color="green">##                              ##</font>
+           <font color="green">##                            ##</font>
+           <font color="green">##                            ##</font>
+           <font color="green">################################</font>
+           <font color="green">################################</font>
+            <font color="green">##############################</font>
+            <font color="green">##############################</font>
+            <font color="green">##############################</font>
+            <font color="green">##############################</font>
+             <font color="green">############################</font>
+             <font color="blue">open</font>(<font color="red">ALE</font>,<b>$0</b>);&lt;<font color="red">ALE</font>&gt;;<b>$/</b>=<font color="blue">undef</font>;
+             <font color="green">############################</font>
+             <b>$beer</b>=&lt;<font color="red">ALE</font>&gt;;<b>$beer</b>=~<i><font color="red">s/\S/#/g</font></i>;
+              <font color="green">##########################</font>
+              <font color="blue">print</font>(<b>$beer</b>);<font color="green">#############</font>
+              <font color="green">##########################</font>
+              <font color="green">##########################</font>
+               <font color="green">########################</font>
+               <font color="green">########################</font>
+               <font color="green">########################</font>
+               <font color="green">########################</font>
+</pre>
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+<p>
+    Not a huge amount can be said about this, it's pretty self
+    explanatory.
+</p>
+</td></tr></table>
+
+<a name="Dave_Cantrell" />
+<p>
+<b><font color="red">Dave Cantrell</font></b> submitted this calculator
+for great circle distances next:
+</p>
+
+<p>
+<b>Requirements</b>: Two command line arguments
+</p>
+<pre>
+          <b>$foo</b>=<font color="purple">'$spc=chr(32);$pi&amp;=&amp;4*atan2
+          (1,1);$radius=6367000;sub&amp;deg2ra
+         d{                              $_
+         [0                              ]*
+        $p                                i/
+        18                                0}
+        su                                b&amp;
+         ac                              os
+         {a                              ta
+         n2                              (s
+          qr                            t(
+          1-                            $_
+          [0]*$_[0]),$_[0])}($l1,$l3)=&amp;dms
+          2degs(shift);($l2,$l4)=&amp;dms2degs
+           (shift);printf("%8d${spc}km\n"
+           ,distance($l1,$l3,$l2,$l4)/100
+           0);printf("%8d${spc}miles\n",d
+           istance($l1,$l3,$l2,$l4)/1609.
+            344);sub&amp;distance{$radius*ac
+            os(sin($_[0])*sin($_[2])+cos
+            ($_[0])*&amp;cos($_[2])*cos($_[1
+            ]-$_[3]));}sub&amp;dms2degs{$_[0
+             ]=~/(\d?\d\d):(\d\d):(\d\d
+             )([NS]),(\d?\d\d):(\d\d):(
+             \d\d)([EW])/i;deg2rad(($1+
+             $2/60+$3/3600)*(($4eq"N")?
+              1:-1)),&amp;deg2rad(($5+$6/6
+              0+$7/3600)*(($8eq"E")?1:
+              -1));}'</font>;<b>$foo</b>=~<i><font color="red">s/\s//gi</font></i>;<b>$
+              foo</b>=~<i><font color="purple">y/&amp;/\t/</font></i>;<font color="blue">eval</font>(<b>$foo</b>);
+</pre>
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+<p>
+    Dave commented in his submission that he didn't think it was "that
+    obfuscated" and this seems fairly clear. In order to understand the
+    format for entry it needed to be de-obfuscated. Dave's approach,
+    however, to the problem of whitespace was the one that was expected to
+    turn up most, but was the only one of its kind. Basically, he put
+    most of his code into a scalar ($foo) and then applied some
+    substitutions on it, first to get rid of the space, and then to
+    turn `&amp;' into a tab (the reason he chose tab is obvious in this
+    case, but it would have been possible to have the last line as
+    being ``<tt>foo=~y/&amp;/\040/;eval$foo;</tt>'' and that would have
+    been just as correct. In order to run it two coordinates in
+    degree minutes and seconds (eg. 51:31:47N,00:02:54W) are needed on the
+    command line. I'm slightly surprised that Dave didn't make more
+    use of the $spc variable at the beginning, but on the whole, the
+    program is pretty self-explanatory. Amazingly, Dave doesn't seem
+    to have needed comments at all.
+</p>
+</td></tr></table>
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+$spc=chr(32);
+$pi=4*atan2(1,1);
+$radius=6367000;
+
+sub deg2rad {
+    $_[0]*$pi/180
+}
+
+sub acos {
+    atan2(sqrt(1-$_[0]*$_[0]),$_[0])
+}
+
+($l1,$l3)= dms2degs(shift);
+($l2,$l4)= dms2degs(shift);
+printf("%8d${spc}km\n",distance($l1,$l3,$l2,$l4)/1000);
+printf("%8d${spc}miles\n",distance($l1,$l3,$l2,$l4)/1609.344);
+
+sub distance {
+    $radius*acos(sin($_[0])*sin($_[2])+cos($_[0])*cos($_[2])*cos($_[1]-$_[3]));
+}
+
+sub dms2degs {
+    $_[0]=~/(\d?\d\d):(\d\d):(\d\d)([NS]),(\d?\d\d):(\d\d):(\d\d)([EW])/i;
+    deg2rad(($1+$2/60+$3/3600)*(($4eq"N")?1:-1)),
+    deg2rad(($5+$6/60+$7/3600)*(($8eq"E")?1:-1));
+}
+</pre>
+</td></tr></table>
+
+<a name="Sebastian_Bleasdale" />
+<p>
+And then <b><font color="red">Sebastian Bleasdale</font></b> submitted a
+program which fitted the classic PONG game into the pint glass:
+</p>
+
+<p>
+<b>Requirements</b>: ANSI terminal in cbreak and noecho mode (<tt>stty cbreak -echo</tt>)
+</p>
+<pre>
+          <font color="green">#Please_Turn_Off_Text_Buffering#</font>
+          <font color="blue">print</font><font color="purple">"\e[H\e[J"</font>;<b>$a</b>=<b>$b</b>=<b>$n</b>=<b>$m</b>=<font color="green">#sfb</font>
+         10                              ;<font color="green">#</font>
+         <b>$_</b>                              =<font color="purple">"
+        "</font><font color="green">#                                #"</font>
+        .<font color="purple">"                                "</font><font color="green">#</font>
+        .<font color="purple">"                                #"</font>
+         ;<font color="green">#                              "|</font>
+         <b>$#</b>                              =<font color="green">#</font>
+         <b>$_</b>                              x<font color="green">#</font>
+          24                            ,<font color="green">#</font>
+          <b>$c</b>                            =<font color="green">#</font>
+          <b>$d</b>=.03;<font color="blue">for</font>(;;++<b>$-</b>&gt;5**4?<b>$-</b>=0:<font color="blue">do</font>{<font color="green">#</font>
+          (<font color="blue">select</font><b>$_</b>=<font color="blue">chr</font>(1),<font color="purple">""</font>,<font color="purple">""</font>,0)[0]||<font color="green">#$</font>
+           <font color="blue">next</font>;<font color="blue">sysread</font>(<font color="red">STDIN</font>,<b>$_</b>,1)}){<i><font color="green">/k/</font></i>
+           ?<b>$n</b>-=(<b>$n</b>&gt;5):<i><font color="green">/a/</font></i>?<b>$m</b>-=(<b>$m</b>&gt;5):<i><font color="green">/s/</font></i>
+           ?<b>$m</b>+=(<b>$m</b>&lt;69):<i><font color="green">/l/</font></i>?<b>$n</b>+=(<b>$n</b>&lt;69):1
+           ;((<b>$a</b>+=<b>$c</b>)&lt;2<font color="blue">and</font><b>$a</b>=2)|(<b>$a</b>&gt;72<font color="blue">and</font>
+            <b>$a</b>=72)<font color="blue">and</font><b>$c</b>=-<b>$c</b>;(<b>$b</b>+=<b>$d</b>)&lt;1&amp;<font color="green">#</font>
+            <font color="blue">abs</font>(<b>$a</b>-<b>$m</b>)&lt;4<font color="blue">and</font><b>$b</b>=1.1,<b>$d</b>=-<b>$d</b>
+            ,<b>$c</b>+=(<b>$a</b>-<b>$m</b>)/50;<b>$b</b>&gt;23&amp;<font color="blue">abs</font>(<b>$a</b>
+            -<b>$n</b>)&lt;4<font color="blue">and</font><b>$b</b>=22.9,<b>$d</b>=-<b>$d</b>,<b>$c</b>+=
+            (<b>$a</b>-<b>$n</b>)/50;<b>$c</b>*=0.9<font color="blue">while</font><font color="green">#Pong</font>
+             <font color="blue">abs</font>(<b>$c</b>)&gt;.09;<b>$b</b>&gt;=1&amp;<b>$b</b>&lt;23<font color="blue">or</font><font color="green">#</font>
+             <font color="blue">die</font>;<font color="blue">substr</font>((<b>$o</b>=<b>$#</b>),1698+<b>$n</b>
+             ,8)=<font color="purple">"~k~~~~l~"</font>;<font color="blue">substr</font>(<b>$o</b>,<font color="green">#</font>
+              <font color="blue">int</font>(<b>$b</b>)*74+<b>$a</b>,2)=<font color="purple">"()"</font>;<font color="green">#$</font>
+              <font color="blue">substr</font>(<b>$o</b>,<b>$m</b>-4,8)=<font color="purple">"_a__"</font>
+              .<font color="purple">"__s_"</font>;<font color="blue">print</font><font color="purple">"\e[;H<b>$o</b>"</font>};
+</pre>
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+<p>
+    This entry is great, though it's not the easiest code in the world
+    to decipher. Having worked out how the code works doesn't make the
+    feat less impressive.
+</p>
+<p>
+    The recommended run command is (where pintpong.pl should be renamed by
+    the filename to which the program is saved):
+</p>
+<p>
+        <tt>stty cbreak -echo; perl <i>pintpong.pl</i>; stty sane</tt>
+</p>
+<p>
+    The fact that this couldn't set the terminal itself was a bit of a
+    problem, and there was a version which did manage it, but it didn't
+    quite conform to the rules. The use of the enforced spaces to draw
+    the playing area was cunning, and Sebastian is the only person who
+    really used those spaces. The commented version may help understanding.
+</p>
+</td></tr></table>
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+# clear the screen
+print"\e[H\e[J";
+$a=$b=$n=$m=10;
+$_="\n                                   ".
+   "                                     #";
+
+# work out our playing area (contained in $#)
+$#=$_ x24;
+
+$c=$d=.03;
+
+# this bit is complicated. after every iteration of the loop, add 1 to
+# $- (starts at 0) if it reaches 625 then reset it. otherwise select on
+# STDIN, and if there is something to read, then read it.
+for( ; ;
+    ++$-&gt;5**4 ?
+        $-=0 :
+        do {
+            (select$_=chr(1),"","",0)[0] || next;
+            sysread(STDIN,$_,1)
+        }
+    ) {
+    # $a is the horizontal position of the ball
+    # $b is the vertical position of the ball
+    # $c is the horizontal velocity of the ball
+    # $d is the vertical velocity of the ball
+    # $_ contains the current keystroke, if there is one or a ^A if not.
+
+    # this makes the most sense written out like this, and handles the
+    # keystroke as necessary
+    /k/?$n-=($n&gt;5):
+    /a/?$m-=($m&gt;5):
+    /s/?$m+=($m&lt;69):
+    /l/?$n+=($n&lt;69):1;
+
+    # bounce it at left and right if necessary with the side effect of
+    # moving the ball with the ($a+=$c)
+    # the (a and b) construction is just an expanded $a&lt;=2 and $a&gt;=72
+    # the bitwise or is like a logical or.
+    (($a+=$c)&lt;2 and $a=2) | ($a&gt;72 and $a=72) and $c=-$c;
+
+    # bounce it at the top if necessary (with the side effect of moving
+    # the ball with the ($b+=$d))
+    ($b+=$d)&lt;1 &amp; abs($a-$m)&lt;4 and $b=1.1, $d=-$d ,$c+=($a-$m)/50;
+
+    # bounce it at the bottom if necessary
+    $b&gt;23 &amp; abs($a-$n)&lt;4 and $b=22.9, $d=-$d, $c+=($a-$n)/50;
+
+    # make sure it doesn't fly off wildly to the side.
+    $c*=0.9 while abs($c)&gt;.09;
+
+    # make sure the ball is in the playing area.
+    $b&gt;=1 &amp; $b&lt;23 or die;
+
+    # draw out the current playing area.
+    # first the player two bat: 1698=(23*74)-4
+    substr(($o=$#),1698+$n,8)="~k~~~~l~";
+    # then the ball
+    substr($o,int($b)*74+$a,2)="()";
+    # then the player one bat
+    substr($o,$m-4,8)="_a____s_";
+
+    # reset the cursor, and draw the playing area
+    print"\e[;H$o"
+};
+</pre>
+</td></tr></table>
+
+<a name="Jonathan_Amery" />
+<p>
+<b><font color="red">Jonathan Amery</font></b> then came up with a Mandelbrot set grapher:
+</p>
+
+<p>
+<b>Requirements</b>: ANSI terminal upon which <tt>stty size</tt> will work
+</p>
+<pre>
+          <font color="blue">open</font>(<font color="red">S</font>,<font color="purple">"stty\040size\040|"</font>);<b>$_</b>=<font color="green">#</font>
+          &lt;<font color="red">S</font>&gt;;<i><font color="green">/(\w*)</font></i><font color="green">#cam.pmBFOPerlPContest</font>
+         <i><font color="green">\W                              (</font></i><font color="green">#</font>
+         <i><font color="green">\w                              *)</font></i>
+        <i><font color="green">/x</font></i>                                ;<font color="green">#</font>
+        <b>$s</b>                                =<font color="green">#</font>
+        <b>$1</b>                                &lt;(
+         <b>$2</b>                              -1
+         )/                              2?
+         <b>$1</b>                              *2
+          :<font color="green">#                            :)</font>
+          <b>$2</b>                            -1
+          ;<b>$si</b>=<font color="purple">"\e[0;3"</font>;<b>$sij</b>=<font color="purple">"\e[1;3"</font>;<b>@st</b>=
+          (<b>$si</b>.<font color="purple">"1m"</font>,<b>$si</b>.<font color="purple">"2m"</font>,<b>$si</b>.<font color="purple">"3m"</font>,<b>$si</b>.
+           <font color="purple">"4m"</font>,<b>$si</b>.<font color="purple">"5m"</font>,<b>$si</b>.<font color="purple">"6m"</font>,<b>$si</b>.<font color="green">###</font>
+           <font color="purple">"7m"</font>,<b>$sij</b>.<font color="purple">"0m"</font>,<b>$sij</b>.<font color="purple">"1m"</font>,<b>$sij</b>.
+           <font color="purple">"2m"</font>,<b>$sij</b>.<font color="purple">"3m"</font>,<b>$sij</b>.<font color="purple">"4m"</font>,<b>$sij</b>.
+           <font color="purple">"5m"</font>,<b>$sij</b>.<font color="purple">"6m"</font>,<b>$sij</b>.<font color="purple">"7m"</font>);<font color="blue">for</font>(
+            ;<b>$a</b>&lt;<b>$s</b>/2;<b>$a</b>++){<font color="blue">print</font><font color="purple">"\n"</font>;<font color="blue">for</font>
+            (<b>$b</b>=0;<b>$b</b>&lt;<b>$s</b>;<b>$b</b>++){<b>$r</b>=0;<b>$c</b>=0;
+            <font color="blue">for</font>(<b>$d</b>=0;<b>$d</b>&lt;<b>@st</b>;<b>$d</b>++){<b>$nr</b>=<b>$r</b>
+            *<b>$r</b>-<b>$c</b>*<b>$c</b>;<b>$c</b>=2*<b>$r</b>*<b>$c</b>+<b>$a</b>*(5/<font color="green">#</font>
+             <b>$s</b>)-1.25;<b>$r</b>=<b>$nr</b>+<b>$b</b>*(2.5/<b>$s</b>
+             )-2;<font color="blue">if</font>(<b>$r</b>*<b>$r</b>+<b>$c</b>*<b>$c</b>&gt;4){<font color="green">#JDA</font>
+             <font color="blue">print</font>((<b>@st</b>)[<b>$d</b>].<font color="purple">"@"</font>);<font color="blue">last</font>;
+             }}<font color="blue">if</font>(<b>$d</b>==<b>@st</b>){<font color="blue">print</font><b>$si</b>.<font color="green">###</font>
+              <font color="purple">"0m@"</font>;}}}<b>$_</b>=&lt;&gt;;<font color="green">#Best.run</font>
+              <font color="green">#in.an.ANSI.colour.term#</font>
+              <font color="green">##as.large.as.possible##</font>
+              <font color="green">#Press&lt;return&gt;to.finish#</font>
+</pre>
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+<p>
+    This one is fairly neat. The use of the size variable to work out how
+    to fit the output into the terminal is clever. Jonathan had lots of
+    space for comments, and there are some particularly nice ones: ``<tt># :)</tt>''.
+    In a similar way to part of Sebastian's entry, and unlike the others,
+    he just works round the space. The use of the <tt>/x</tt> modifier on
+    the regexp for the output of the size was fairly predictable, but clever.
+    The use of the colour code array both as the output and the number of
+    iterations was obvious, but good. The use of "<tt>\040</tt>" was another
+    space trick that other people could have seen more. It would possibly
+    have been better to build the map in a more interesting way, such as:
+</p>
+<p>
+        <tt>@st=map{"$si$_m"}(1..7),map{"$sij$_m"}(0..7);</tt>
+</p>
+<p>
+    but Jon's way is totally reasonable. As it was, he was left with a lot
+    of space to use. Given that he's a mathematician, it is surprising that
+    he used $c rather than $i for the "imaginary part" of the complex
+    number, but the algorithm is pretty simple.
+</p>
+</td></tr></table>
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+open(S,"stty\040size\040|");
+$_=&lt;S&gt;;
+
+/(\w*)\W(\w*)/x;
+
+$s=$1&lt;($2-1)/2?$1*2:$2-1;
+$si="\e[0;3";
+$sij="\e[1;3";
+
+@st=(
+    $si."1m",
+    $si."2m",
+    $si."3m",
+    $si."4m",
+    $si."5m",
+    $si."6m",
+    $si."7m",
+    $sij."0m",
+    $sij."1m",
+    $sij."2m",
+    $sij."3m",
+    $sij."4m",
+    $sij."5m",
+    $sij."6m",
+    $sij."7m"
+    );
+
+for( ; $a&lt;$s/2 ; $a++) {
+    print "\n";
+    for($b=0 ; $b&lt;$s ; $b++) {
+        $r=0;
+        $c=0;
+        for($d=0 ; $d&lt;@st ; $d++) {
+            $nr=$r*$r-$c*$c;
+            $c=2*$r*$c+$a*(5/$s)-1.25;
+            $r=$nr+$b*(2.5/$s)-2;
+            if($r*$r+$c*$c&gt;4) {
+                print((@st)[$d]."@");
+                last;
+            }
+        }
+        if($d==@st) {
+            print $si."0m@";
+        }
+    }
+}
+
+$_=&lt;&gt;;
+</pre>
+</td></tr></table>
+
+<a name="Colin_Watson" />
+<p>
+And then, just as it was all about to go quiet, <b><font color="red">Colin
+Watson</font></b> came up with his Star Wars style vector graphics.
+</p>
+
+<p>
+<b>Requirements</b>: ANSI terminal with exported <tt>LINES</tt> and <tt>COLUMNS</tt> environment
+variables
+</p>
+<pre>
+          (<b>$.</b>,<b>$;</b>)=<b>@ENV</b>{LINES,COLUMNS};<b>$_</b>=<font color="purple">'
+          .2:2/5.=:2.69A..6:9D..6&gt;.G;1.29J
+         ..                              6;
+         .M                              ;1
+        .2                                9P
+        ..                                6;
+        .S                                6.
+         .6                              9V
+         ..                              0&gt;
+         .Z                              :2
+          .6                            9a
+          ..                            6&gt;
+          .d;1.29g..6;.j;1.29m..6;'</font>;<font color="blue">for</font><b>$w</b>(
+          0..29){<b>$#</b>=<font color="purple">"\e[H"</font>;<font color="blue">for</font>(<b>$i</b>=<b>$.</b>*2;<b>$i</b>;
+           --<b>$i</b>){<b>$@</b>=(B^b)x<b>$;</b><font color="blue">if</font>--<b>$|</b>;<b>$h</b>=<b>$.</b>*
+           2/(<b>$.</b>*2-<b>$i</b>+1);<i><font color="red">s/\s//g</font></i>;<b>$v</b>=(<b>$h</b>-1
+           )*<b>$.</b>/2;<font color="blue">while</font>(<i><font color="green">/(.{6})/g</font></i>){(<b>$t</b>,<b>$x</b>
+           ,<b>$y</b>,<b>$r</b>,<b>$k</b>,<b>$l</b>)=<font color="blue">map</font>-46+<b>$_</b>,<font color="blue">unpack</font>
+            c6,<b>$1</b>;<b>$p</b>=<b>$t</b>?+<b>$k</b>:<b>$y</b>;<b>$q</b>=<b>$t</b>?<b>$l</b>:
+            <b>$y</b>;<b>$z</b>=<b>$r</b>+.8;(<font color="blue">next</font>)<font color="blue">if</font><b>$v</b>&lt;<b>$w</b>+<b>$p</b>
+            -<b>$z</b>||<b>$v</b>&gt;<b>$w</b>+<b>$q</b>+<b>$z</b>;<b>$y</b>+=<b>$w</b>;<font color="blue">for</font>(
+            0..<b>$;</b>*2-1){<b>$u</b>=(<b>$h</b>*(<b>$_</b>-<b>$;</b>)+<b>$;</b>
+             )*32/<b>$;</b>;(<font color="blue">next</font>)<font color="blue">if</font><b>$u</b>&lt;<b>$x</b>-<b>$z</b>||
+             <b>$u</b>&gt;<b>$x</b>+<b>$z</b>;<font color="blue">if</font>(!<b>$t</b>){<b>$d</b>=<font color="blue">sqrt</font>((
+             <b>$v</b>-<b>$y</b>)**2+(<b>$u</b>-<b>$x</b>)**2);<font color="blue">next</font>
+             <font color="blue">if</font><b>$d</b>&lt;<b>$r</b>-.8||<b>$z</b>&lt;<b>$d</b>;<b>$d</b>=<font color="blue">atan2</font>
+              (<b>$y</b>-<b>$v</b>,<b>$x</b>-<b>$u</b>)/<font color="blue">atan2</font>(0,-1
+              )*4+4;(<font color="blue">next</font>)<font color="blue">if</font><b>$d</b>&lt;<b>$k</b>||<b>$l</b>&lt;
+              <b>$d</b>}<font color="blue">substr</font><b>$@</b>,<b>$_</b>/2,1,<font color="purple">'*'</font>}}
+              <b>$|</b>||(<b>$#</b>.=<b>$@</b>.<b>$/</b>)}<font color="blue">print</font><b>$#</b>}
+</pre>
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+<p>
+    This is hard to understand if you aren't up on the maths for vector
+    graphics. Colin's program calculates many different values for the
+    scaling factors. He also used the same trick as some of the others,
+    namely to have a datastream that ignored spaces in the enforced space
+    area of the glass.  He also used a number of tricks common to the Perl
+    Golf community <tt>--$|</tt> being the most obvious, for getting the
+    alternate lines.  He also looked at a completely different way of
+    encoding the space. Rather than chr(32) or "\040", Colin went for an
+    out-of-the-box approach ``(B^b)''. In the submission he offered to give
+    the judges his commented version, but this has been left for him to
+    publish to the list. A few brackets have been added and removed below,
+    in the interests of clarity.
+</p>
+<p>
+    Run this as:
+</p>
+<p>
+    <tt>LINES=$LINES COLUMNS=$COLUMNS perl <i>colin.pl</i></tt>
+</p>
+</td></tr></table>
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+($.,$;)=@ENV{LINES,COLUMNS};
+
+$_='.2:2/5.=:2.69A..6:9D..6&gt;.G;1.29J..6;.M;1.29P..6;'.
+   '.S6..69V..0&gt;.Z:2.69a..6&gt;.d;1.29g..6;.j;1.29m..6;';
+
+# $w is our framecounter
+for $w (0..29) {
+    # $# is our output variable, the first thing to do is to reset the
+    # cursor to 0
+    $#="\e[H";
+    
+    # $| starts off as 0, so:
+    for($i=$.*2 ; $i ; --$i) {
+        # this will get executed every second time through the loop
+        # (there's no assign to $| anywhere else)
+        # so on the 1st, 3rd, 5th iteration, set $@ to linewidth
+        # spaces
+        $@=(B^b) x $; if --$|;
+
+        # $h has a (slightly shifted) inverse relationship to $i
+        $h= $.*2 / ($.*2 -$i +1);
+
+        # turn our data into something useful
+        s/\s//g;
+
+        # $v is a scaled version of $h
+        $v=($h-1) * $./2;
+
+        # our data is:
+        # ( 0, 4,12, 4, 1, 7) ( 0,15,12, 4, 0, 8) (11,19, 0, 0, 8,12)
+        # (11,22, 0, 0, 8,16) ( 0,25,13, 3, 0, 4) (11,28, 0, 0, 8,13)
+        # ( 0,31,13, 3, 0, 4) (11,34, 0, 0, 8,13) ( 0,37, 8, 0, 0, 8)
+        # (11,40, 0, 0, 2,16) ( 0,44,12, 4, 0, 8) (11,51, 0, 0, 8,16)
+        # ( 0,54,13, 3, 0, 4) (11,57, 0, 0, 8,13) ( 0,60,13, 3, 0, 4)
+        # (11,63, 0, 0, 8,13)
+
+        while(/(.{6})/g) {
+            # actually do the read. This trick works because of the /g
+            # modifier, which means that the regexp keeps track of where
+            # the last match was.
+            ($t,$x,$y,$r,$k,$l)=map {$_-46} unpack c6,$1;
+            # for each datapoint
+            # $t is 0 for a circle and has a value for a rectangle
+            # $p is either the 5th or the 3rd digit
+            #   (The top of the object?)
+            $p=$t?$k:$y;
+            # $q is either the 6th or the 3rd digit
+            #   (The bottom of the object?)
+            $q=$t?$l:$y;
+            # $z is the 4th digit + 0.8
+            $z=$r+.8;
+
+            # this condition is true if the current scanline (represented
+            # by $v) is outside the bounding box of the object
+            next if $v&lt;$w+$p-$z || $v&gt;$w+$q+$z;
+
+            $y+=$w;
+
+            # note that the for implicitly localises the loop variable,
+            # so $_ at the end of the loop is our dataset
+            # iterate $_ over twice the width of the screen
+            for (0 .. $;*2-1) {
+                # $u is a step in increments of $h*32/&lt;width&gt;, from
+                # negative to positive.
+                $u=($h*($_-$;)+$;) * 32/$; ;
+
+                # don't do anything if we're to the left or to the right
+                # of this object
+                next if $u&lt;$x-$z || $u&gt;$x+$z;
+
+                # if $t is 0 then it's a circle, rather than a rectangle,
+                # so use it as one.
+                if(!$t) {
+                    # this is an ellipse formula at ($x,$y), but scaled by
+                    # $u and $v in the x and y directions
+                    $d=sqrt(($v-$y)**2 + ($u-$x)**2);
+
+                    # draws if it's in the circle which has a hole in it.
+                    next if $d&lt;$r-.8 || $z&lt;$d;
+
+                    # $d is in the range 0,8 (scaling by 4/pi)
+                    # this allows us to draw only an arc of a circle,
+                    # instead of the full thing (hence the ``c'' and
+                    # the tops of the ``m''s)
+                    $d=atan2($y-$v, $x-$u) / atan2(0, -1) *4 +4;
+                    next if $d&lt;$k || $l&lt;$d
+                }
+                # replace item at position $_/2 with a * (remember that
+                # $_ is going to twice the width of the screen)
+                substr $@, $_/2, 1, '*'
+            }
+        }
+        # on every second line, append the contents of $# (our output)
+        # with $@.$/ ($/ is a "\n" by default).
+        $| || ($#.=$@.$/)
+    }
+    print $#
+}
+</pre>
+</td></tr></table>
+    </td>
+   </tr>
+  </table>
+  
+  <hr />
+  <small>
+   $Id: cpmboppc-summary.shtml,v 1.3 2002/06/02 15:16:37 mbm Exp $
+  </small>
+  
+ </body>
+</html>
+

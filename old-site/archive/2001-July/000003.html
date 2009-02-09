@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> Personal perl irritations (Re: Web application survey)
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000002.html">
+   <LINK REL="Next"  HREF="000004.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>Personal perl irritations (Re: Web application survey)
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="Personal perl irritations (Re: Web application survey)">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 3 Jul 2001 16:17:52 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000002.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+        <LI> Next message: <A HREF="000004.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Jul 03, 2001 at 02:44:30PM +0100, Tim Cutts wrote:
+&gt;<i> On Mon, Jul 02, 2001 at 08:58:30PM +0100, Matthew Byng-Maddick wrote:
+</I>&gt;<i> &gt; Seconded that these are horrific. However,
+</I>&gt;<i> &gt; use English;
+</I>&gt;<i> &gt; helps...
+</I>&gt;<i> It only makes them more readable.  They're still an abomination.  $/ and
+</I>&gt;<i> $$ are about the only ones I ever use, although I have had occasion to use $,
+</I>
+$$ is useful. $/ is very useful if you're playing with record-like files.
+I occasionally use $., which is the current record number. $&gt; and $&lt; are
+also useful, as they allow you to do the userid operations. I occasionally
+use $_ too, $0, occasionally, and often $!.[1]
+
+&gt;<i> and $&gt;, as in snippets like the following:
+</I>&gt;<i>   ($user, undef, $uid, undef) = getpwuid($&gt;);
+</I>&gt;<i> 
+</I>&gt;<i>   unless (scalar(grep(/$user/<A HREF="mailto:,@Gap4">,@Gap4</A>::Cfg::rebuild_users)) &gt; 0) {
+</I>&gt;<i>     die &quot;You do not have permission to run this program - Contact Tim.\n&quot;;
+</I>&gt;<i>   }
+</I>&gt;<i> Oops.  I've just spotted a bug in that.  The regexp should be /^$user$/.
+</I>
+erm. /^\Q$user\E$/, I think.
+
+&gt;<i> &gt; &gt; &gt; Ok, so how do I get a global variable when I need one then?
+</I>&gt;<i> &gt; &gt; Just give its complete name including namespace, so:
+</I>&gt;<i> &gt; &gt; %main::somehash = ();
+</I>&gt;<i> &gt; or the shorthand 
+</I>&gt;<i> &gt; %::somehash, which then looks a bit neater.
+</I>&gt;<i> If you say so.  :-)
+</I>
+I think so, if you're talking about globals...
+
+&gt;<i> &gt; I thought that $_ was supposed to be a package global, but a bit of
+</I>&gt;<i> &gt; experimentation shows that this isn't actually the case. :-(
+</I>&gt;<i> $_ has all sorts of horrible magic associated with it though, doesn't it?
+</I>
+No. Builtin functions will often try to use $_ if they can't find other
+arguments. There's no real magic associated with it. There's also no &quot;magic&quot;
+in the perl sense, either, IIRC.
+
+&gt;<i> Things like foreach automatically localize it, for example.  I'm not
+</I>
+That's not magic. That's using local.
+
+&gt;<i> surprised if it behaves oddly in other contexts as well.  It's another
+</I>&gt;<i> thing I avoid using apart from in very small inner loops, where it's
+</I>&gt;<i> obvious what sort of thing $_ is.
+</I>
+using it with map is probably my main use.
+
+MBM
+
+[1] for those who don't know and can't be bothered to look it up:
+    $$ - process id
+    $/ - record separator, useful with &lt;filehandle&gt; operators
+    $. - current record number
+    $&gt; - effective uid
+    $) - effective gid
+    $&lt; - real uid
+    $( - real gid
+    $_ - erm. well, too many meanings
+    $0 - the argv[0] of this script
+    $! - errno or strerror(errno)
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000002.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+	<LI> Next message: <A HREF="000004.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

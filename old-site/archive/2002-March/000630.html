@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Option parsing modules
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:simonw%40simonwilcox.co.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000631.html">
+   <LINK REL="Next"  HREF="000633.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Option parsing modules
+   </H1>
+    <B>Simon Wilcox
+    </B> 
+    <A HREF="mailto:simonw%40simonwilcox.co.uk"
+       TITLE="[cam.pm] Option parsing modules">simonw@simonwilcox.co.uk
+       </A><BR>
+    <I>Wed, 13 Mar 2002 20:49:08 +0000 (GMT)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000631.html">[cam.pm] Option parsing modules
+</A></li>
+        <LI> Next message: <A HREF="000633.html">[cam.pm] Option parsing modules
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#630">[ date ]</a>
+              <a href="thread.html#630">[ thread ]</a>
+              <a href="subject.html#630">[ subject ]</a>
+              <a href="author.html#630">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, 13 Mar 2002, LNR wrote:
+
+&gt;<i> The Camel book documents the Getopt::Std module, and I've been trying to
+</I>&gt;<i> use that.
+</I>&gt;<i>
+</I>&gt;<i> I can't seem to get the former to work (any ideas where I might be
+</I>&gt;<i> messing up?).
+</I>
+I tried this and it worked ok for me. Watch out for the difference
+betwen getopt &amp; getopts. Code something like this:
+
+#! /usr/bin/perl -w
+
+use strict;
+use Getopt::Std;
+
+my %opts = ();
+
+getopts('oD:I', \%opts);
+
+foreach (keys %opts) {
+    print &quot;$_ : $opts{$_}\n&quot;;
+}
+
+Gives output of:
+
+[<A HREF="mailto:simonw@neo">simonw@neo</A> perl]$ perl getopt -o -I -D three
+o : 1
+I : 1
+D : three
+
+&gt;<i> Is there a better module out there?  Or am I just going to have to carry
+</I>&gt;<i> on not using strict (current workaround)?  Or should I just do it
+</I>&gt;<i> myself?  I mean it's only half a dozen options, it shouldn't be too hard
+</I>&gt;<i> to do.
+</I>
+&gt;<i>From the man page:
+</I>
+       Note that, if your code is running under the recommended
+       `use strict 'vars'' pragma, you will need to declare these
+       package variables with &quot;our&quot;:
+
+           our($opt_foo, $opt_bar);
+
+HTH,
+
+Simon.
+
+-- 
+&quot;Bambleweeny 57 Submeson Brain&quot;
+
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000631.html">[cam.pm] Option parsing modules
+</A></li>
+	<LI> Next message: <A HREF="000633.html">[cam.pm] Option parsing modules
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#630">[ date ]</a>
+              <a href="thread.html#630">[ thread ]</a>
+              <a href="subject.html#630">[ subject ]</a>
+              <a href="author.html#630">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

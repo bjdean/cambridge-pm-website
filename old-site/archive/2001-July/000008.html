@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> map
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000007.html">
+   <LINK REL="Next"  HREF="000010.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>map
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="map">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 4 Jul 2001 17:01:30 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000007.html">map
+</A></li>
+        <LI> Next message: <A HREF="000010.html">map
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Jul 04, 2001 at 04:14:42PM +0100, Tim Cutts wrote:
+&gt;<i> Thinking about map has just enabled me to write an absolute gem.  A
+</I>&gt;<i> routine to translate DNA sequence into its protein equivalent using
+</I>&gt;<i> three lines of code and one lookup table:
+</I>&gt;<i> 
+</I>&gt;<i> my %convert = ( &quot;AAA&quot;, &quot;K&quot;, &quot;AAC&quot;, &quot;N&quot;, &quot;AAG&quot;, &quot;K&quot;, &quot;AAT&quot;, &quot;N&quot;,
+</I>[...]
+&gt;<i> 		&quot;TTA&quot;, &quot;L&quot;, &quot;TTC&quot;, &quot;F&quot;, &quot;TTG&quot;, &quot;L&quot;, &quot;TTT&quot;, &quot;F&quot; ) ;
+</I>
+Firstly, as a style thing (especially for hashes), can I recommend '=&gt;' as
+a synonym for ',' ('=&gt;' also has the nice side effect of quoting the word
+to its left)
+
+ie 
+
+my %convert = ( AAA =&gt; &quot;K&quot;, AAC =&gt; &quot;N&quot;, AAG =&gt; &quot;K&quot;, AAT =&gt; &quot;N&quot;
+...
+
+&gt;<i> sub translate {
+</I>&gt;<i>   my $seq = uc(shift);
+</I>&gt;<i>   my @codons = $seq =~ /\G.../g;
+</I>
+That's an interesting way of writing that, I'd have probably done
+
+my @codons = split /(...)/, $seq;
+
+or
+
+my @codons=();
+push(@codons, substr($seq,0,3)), $seq=substr($seq,3) while length $seq;
+
+Not sure, though...
+
+&gt;<i>   join('', map { $convert{$_} || 'X' } @codons);
+</I>&gt;<i> }
+</I>
+That's pretty neat.
+
+&gt;<i> I'm quite pleased with that.  :-)  There are probably faster but more
+</I>&gt;<i> long-winded methods though.
+</I>
+Not sure. That's going to be pretty fast with the hash lookup.
+
+&gt;<i> I have C code to do the same thing which is a couple of hundred lines
+</I>&gt;<i> long (although it does use various tricks to translate all six reading
+</I>&gt;<i> frames simultaneously - the above routine only translates the first
+</I>&gt;<i> forward frame).
+</I>
+OK. This bit is a bit beyond me... Although, I can imagine with the memory
+allocation etc, the C would have to be bigger.
+
+&gt;<i> Ooh, I can go home a happy man today.
+</I>
+Cool. :-)
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000007.html">map
+</A></li>
+	<LI> Next message: <A HREF="000010.html">map
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

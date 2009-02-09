@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Trivial perl question
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000288.html">
+   <LINK REL="Next"  HREF="000290.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Trivial perl question
+   </H1>
+    <B>Stephen Cardie
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Trivial perl question">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Fri, 5 Oct 2001 10:14:59 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000288.html">[cam.pm] Trivial perl question
+</A></li>
+        <LI> Next message: <A HREF="000290.html">[cam.pm] Trivial perl question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#289">[ date ]</a>
+              <a href="thread.html#289">[ thread ]</a>
+              <a href="subject.html#289">[ subject ]</a>
+              <a href="author.html#289">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thursday 04 October 2001 16:22 pm, the mighty poet Tim Cutts said on 
+the wire:
+&quot;&quot; [cut]
+&quot;&quot; But I was wondering if there was a more elegant way that doesn't
+ involve &quot;&quot; so much data movement (I suspect the above could get very
+ slow if &quot;&quot; $before is a large data structure).
+&quot;&quot;
+&quot;&quot; Any ideas?
+&quot;&quot;
+
+For a very large data structure, each() is a better bet than values(), 
+as it doesn't have to create the entire list:
+
+while( my $ref = ( each %{$before} )[-1] ) {
+	push @{$after}, @{$ref};
+}
+
+You still have the overhead of the de-reference, which may be 
+significant if the hash value is large.  It's still not what anyone 
+might describe as 'elegant', though.
+
+Cheers,
+
+Steve
+
+-- 
+Stephen Cardie | Web Developer | PA Sporting Life Ltd
+Tel: +44 113 220 4906
+Std Disclaimers Apply
+All through with the niceness and negotiation stuff
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000288.html">[cam.pm] Trivial perl question
+</A></li>
+	<LI> Next message: <A HREF="000290.html">[cam.pm] Trivial perl question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#289">[ date ]</a>
+              <a href="thread.html#289">[ thread ]</a>
+              <a href="subject.html#289">[ subject ]</a>
+              <a href="author.html#289">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

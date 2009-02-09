@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Numbers
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000441.html">
+   <LINK REL="Next"  HREF="000443.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Numbers
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Numbers">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 5 Dec 2001 16:17:17 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000441.html">[cam.pm] Numbers
+</A></li>
+        <LI> Next message: <A HREF="000443.html">[cam.pm] Numbers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#442">[ date ]</a>
+              <a href="thread.html#442">[ thread ]</a>
+              <a href="subject.html#442">[ subject ]</a>
+              <a href="author.html#442">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Dec 05, 2001 at 02:19:58PM +0000, Lucy McWilliam wrote:
+&gt;<i> 
+</I>&gt;<i> &quot;Know of any comprehensive descriptions of when Perl uses integers to
+</I>&gt;<i> represent numbers, when it uses floats,
+</I>
+Internally, Perl represents all numbers as floats. Perl 6 will have
+native integer types.
+
+&gt;<i> how to get between them
+</I>
+int(...) will truncate a number towards zero.
+POSIX::floor and POSIX::ceil give you (respectively) the integers less
+than or equal to and greater than or equal to a number.
+
+&gt;<i> and what various operators (eg bitwise) do in each case?
+</I>
+Generally, The Right Thing(tm). Those operators for which a fractional
+part makes no sense will have it removed.
+
+Phil
+
+-- 
+  Philip Kendall &lt;<A HREF="mailto:pak21@srcf.ucam.org">pak21@srcf.ucam.org</A>&gt;
+  <A HREF="http://www.srcf.ucam.org/~pak21/">http://www.srcf.ucam.org/~pak21/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000441.html">[cam.pm] Numbers
+</A></li>
+	<LI> Next message: <A HREF="000443.html">[cam.pm] Numbers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#442">[ date ]</a>
+              <a href="thread.html#442">[ thread ]</a>
+              <a href="subject.html#442">[ subject ]</a>
+              <a href="author.html#442">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

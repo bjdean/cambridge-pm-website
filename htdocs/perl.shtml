@@ -1,0 +1,127 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+
+
+
+ 
+ 
+
+<html>
+ <head>
+  <title>
+   CAM.PM:
+   $? - {
+   $perl
+   -&gt; what
+   ; }
+  </title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <table border="0" cellpadding="2" cellspacing="2">
+   <tr>
+    <td valign="center">
+     <img src="/images/dollar-qmark.jpg" alt="$?" />
+    </td>
+    <td valign="center">
+     <h1>
+      <tt>require "<font color="#009900">cam</font>.<font color="#009900">pm</font>" ;</tt>
+     </h1>
+     <h1>
+      <tt>
+       {
+       $<font color="#cc0000">perl</font>
+       -&gt; <font color="#660099">what</font>
+       ; }</tt>
+     </h1>
+    </td>
+   </tr>
+   <tr>
+    <td valign="top">
+     <!-- begin nav -->
+     <table border="0" cellpadding="0" width="128" cellspacing="1">
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><b>$?</b></td>
+       <td valign="top">what is cam.pm</td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/index.shtml">about cam.pm</a></td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/why.shtml">why the name</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/list_signup.shtml"><b>$*</b></a></td>
+       <td valign="top"><a href="/list_signup.shtml">the cam.pm list</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/meets_when.shtml"><b>$@</b></a></td>
+       <td valign="top"><a href="/meets_when.shtml">cam.pm meetings</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/projects_home.shtml"><b>$_</b></a></td>
+       <td valign="top"><a href="/projects_home.shtml">cam.pm projects</a></td>
+      </tr>
+
+
+     </table>
+     <!-- end nav -->
+    </td>
+    <td valign="top">
+
+<p>
+Perl (<a href="http://www.perl.com/">www.perl.com</a>) is
+the computer language that binds us all together.
+It is written by Larry Wall (originally of <tt>patch(1)</tt>
+fame, and was originally intended as a scripting language
+to replace <tt>sed</tt>, <tt>awk</tt>, <tt>sh</tt> and
+<tt>C</tt>, and it has inherited constructs from all of
+these, as well as some of its own extra bits and pieces.
+</p>
+<p>
+Despite being regarded, rather dismissively, as a scripting
+language, perl is actually a proper programming language,
+with a separate compile and run stage. This has been its
+strength, and has helped its success, as it is very
+versatile to use as just a scripting language, and it is also
+possible to write large projects where code is long-lived,
+and fast.
+</p>
+<p>
+The other thing Perl has done for programmers is to create the
+<a href="http://www.cpan.org/">CPAN</a> or <b>C</b>omprehensive
+<b>P</b>erl <b>A</b>rchive <b>N</b>etwork. This has allowed
+developers to upload their code classes and libraries for
+people to use and improve. This means a great deal of code
+reuse is possible. Of course this has its downside, which is
+that the quality of the code on the CPAN varies wildly. There
+is, though, in the Perl world, a plan to combat even this, by
+the CPANTS (<b>CPAN T</b>esting <b>S</b>ervice), led by Michael
+G Schwern. This is helpful for Perl in general.
+</p>
+    </td>
+   </tr>
+  </table>
+  
+  <hr />
+  <small>
+   $Id: perl.shtml,v 1.2 2002/03/04 21:45:58 mbm Exp $
+  </small>
+  
+ </body>
+</html>
+

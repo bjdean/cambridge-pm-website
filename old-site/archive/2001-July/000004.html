@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> Personal perl irritations (Re: Web application survey)
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000003.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>Personal perl irritations (Re: Web application survey)
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="Personal perl irritations (Re: Web application survey)">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 4 Jul 2001 10:00:22 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000003.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+        <LI> Next message: <A HREF="000005.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Jul 03, 2001 at 04:17:52PM +0100, Matthew Byng-Maddick wrote:
+&gt;<i> $$ is useful. $/ is very useful if you're playing with record-like files.
+</I>
+Which I do.  A lot.  FASTA format nucleic sequence database?
+
+local $/ = &quot;\n&gt;&quot;;
+
+SWISSPROT-style protein databases?
+
+local $/ = &quot;\n//\n&quot;;
+
+&gt;<i> I occasionally use $., which is the current record number. $&gt; and $&lt; are
+</I>&gt;<i> also useful, as they allow you to do the userid operations. I occasionally
+</I>&gt;<i> use $_ too, $0, occasionally, and often $!.[1]
+</I>
+Indeed.
+
+$fh-&gt;open(&quot;&lt;foo&quot;) or die &quot;Could not open foo : $!\n&quot;;
+
+&gt;<i> &gt; and $&gt;, as in snippets like the following:
+</I>&gt;<i> &gt;   ($user, undef, $uid, undef) = getpwuid($&gt;);
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;   unless (scalar(grep(/$user/<A HREF="mailto:,@Gap4">,@Gap4</A>::Cfg::rebuild_users)) &gt; 0) {
+</I>&gt;<i> &gt;     die &quot;You do not have permission to run this program - Contact Tim.\n&quot;;
+</I>&gt;<i> &gt;   }
+</I>&gt;<i> &gt; Oops.  I've just spotted a bug in that.  The regexp should be /^$user$/.
+</I>&gt;<i> 
+</I>&gt;<i> erm. /^\Q$user\E$/, I think.
+</I>
+Oh, I see.  Is that to stop the $ in $user being interpreted in the
+usual regexp way?  None of our users have perl metacharacters in their
+user IDs, but I suppose it doesn't hurt to be safe.
+
+&gt;<i> &gt; Things like foreach automatically localize it, for example.  I'm not
+</I>&gt;<i> 
+</I>&gt;<i> That's not magic. That's using local.
+</I>
+Yes, but it's using local without your explicitly asking for it.  I call
+that magic.
+
+&gt;<i> using it with map is probably my main use.
+</I>
+I only just started using map.  Can't imagine why I overlooked it before
+- stunningly useful!
+
+&gt;<i> [1] for those who don't know and can't be bothered to look it up:
+</I>&gt;<i>     $$ - process id
+</I>&gt;<i>     $/ - record separator, useful with &lt;filehandle&gt; operators
+</I>      $, - output record separator.  Useful for creating tab-delimited
+           files and the like from array references without cluttering
+	   your code with 'join'.
+&gt;<i>     $. - current record number
+</I>&gt;<i>     $&gt; - effective uid
+</I>&gt;<i>     $) - effective gid
+</I>&gt;<i>     $&lt; - real uid
+</I>&gt;<i>     $( - real gid
+</I>&gt;<i>     $_ - erm. well, too many meanings
+</I>&gt;<i>     $0 - the argv[0] of this script
+</I>&gt;<i>     $! - errno or strerror(errno)
+</I>
+-- 
+Tim Cutts PhD                    Tel: +44 1223 454918
+Senior Bioinformatics Scientist
+Incyte Genomics
+Botanic House, 100 Hills Road, Cambridge, CB2 1FF, UK
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000003.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+	<LI> Next message: <A HREF="000005.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

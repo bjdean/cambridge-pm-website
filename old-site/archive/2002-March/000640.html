@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Option parsing modules
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:nick%40unfortu.net">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000639.html">
+   <LINK REL="Next"  HREF="000641.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Option parsing modules
+   </H1>
+    <B>Nicholas Clark
+    </B> 
+    <A HREF="mailto:nick%40unfortu.net"
+       TITLE="[cam.pm] Option parsing modules">nick@unfortu.net
+       </A><BR>
+    <I>Thu, 14 Mar 2002 19:55:34 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000639.html">[cam.pm] Option parsing modules
+</A></li>
+        <LI> Next message: <A HREF="000641.html">[cam.pm] Option parsing modules
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#640">[ date ]</a>
+              <a href="thread.html#640">[ thread ]</a>
+              <a href="subject.html#640">[ subject ]</a>
+              <a href="author.html#640">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, Mar 14, 2002 at 05:18:21PM +0000, LNR wrote:
+&gt;<i> Nicholas Clark  wrote:
+</I>
+&gt;<i> &gt;Where and how does it fail?
+</I>&gt;<i> 
+</I>&gt;<i> Falling over when I tried to run make.  It was finding some include
+</I>&gt;<i> files but failing others.  Telling it to look for include files in
+</I>&gt;<i> /usr/include instead of in /usr/local/include seems to have fixed the
+</I>&gt;<i> problem.
+</I>
+Ah good that it works.
+Not good that it didn't work first time, and your description doesn't ring
+any bells as to what the problem is. Are you using gcc, or the pay-for
+HP-UX ANSI C compiler?
+
+&gt;<i> Not yet got as far as make install since I'm being encouraged to build
+</I>&gt;<i> it on a less crucial machine and neither of the ones available currenly
+</I>&gt;<i> has enough space in /opt but at least make now runs and make test
+</I>&gt;<i> passed, which I'm taking as a good sign :-)
+</I>
+It usually is.
+
+&gt;<i> &gt;Also, does the development 5.7.3 snapshot fail to compile?
+</I>&gt;<i> &gt;It is worth investigating that, because if you don't, you'll find that in
+</I>&gt;<i> &gt;a few weeks you'll have &quot;stable&quot; 5.8 that doesn't compile.
+</I>&gt;<i> 
+</I>&gt;<i> Is that expected soon then?  There's nothing on the downloads page to
+</I>&gt;<i> hint at that sort of thing.
+</I>
+Yes. 5.7.3 is out. There's a link on www.perl.com (I think) as &quot;devel is
+5.7.3&quot; Jarkko wants to freeze for 5.8 in a week or two, so hopefully it
+won't be forever. It is *development* perl so you're really not advised to
+install it on machines in place of whatever you're using currently. But (by
+default) it won't install as /usr/bin/perl or /usr/local/bin/perl, just
+/usr/local/bin/perl5.7.3. This means that you can use it to test your
+systems without buggering the machine's regular perl. (Although, still, it
+would be foolish to do this on anything other than a development system)
+
+It would be really useful if everyone on cam.pm could test 5.7.3.
+
+[Yes, I realise that not everyone will be able to, but if you could, please
+do]
+
+Simply because if perl5-porters doesn't learn of the bugs in 5.7.3 with your
+real-world scripts, then 5.8 will still have those bugs, and that's not in
+your interest.
+
+[it's not in perl5-porters' either, really, but I'm appealing to your
+selfishness]
+
+Nicholas Clark
+-- 
+Even better than the real thing:	<A HREF="http://nms-cgi.sourceforge.net/">http://nms-cgi.sourceforge.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000639.html">[cam.pm] Option parsing modules
+</A></li>
+	<LI> Next message: <A HREF="000641.html">[cam.pm] Option parsing modules
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#640">[ date ]</a>
+              <a href="thread.html#640">[ thread ]</a>
+              <a href="subject.html#640">[ subject ]</a>
+              <a href="author.html#640">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

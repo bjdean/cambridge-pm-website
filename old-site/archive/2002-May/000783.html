@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] University Term dates
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam-pm%40lists.colondot.net">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000782.html">
+   <LINK REL="Next"  HREF="000784.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] University Term dates
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam-pm%40lists.colondot.net"
+       TITLE="[cam.pm] University Term dates">cam-pm@lists.colondot.net
+       </A><BR>
+    <I>Thu, 30 May 2002 18:13:14 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000782.html">[cam.pm] University Term dates
+</A></li>
+        <LI> Next message: <A HREF="000784.html">[cam.pm] University Term dates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#783">[ date ]</a>
+              <a href="thread.html#783">[ thread ]</a>
+              <a href="subject.html#783">[ subject ]</a>
+              <a href="author.html#783">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, May 30, 2002 at 05:41:18PM +0100, Ian Wells wrote:
+&gt;<i> &gt; containing the dates.  The TermDates module won't need a net connection 
+</I>&gt;<i> &gt; and won't need the weight of LWP and HTML::Parser.
+</I>&gt;<i> ... although it will need them installed to facilitate the build, surely?
+</I>
+Not necessarily, you could easily test for them in your build, and warn
+and use a static file if they're not present.
+
+Makefile.PL:
+|<i> #!/usr/bin/perl -w
+</I>|<i> 
+</I>|<i> use strict;
+</I>|<i>
+</I>|<i> my $html_parser=eval&quot;use HTML::Parser;1&quot;;
+</I>|<i> my $LWP=eval&quot;use LWP;1&quot;;
+</I>|<i> 
+</I>[...]
+|<i> my $got_file=0;
+</I>|<i> if($html_parser &amp;&amp; $LWP) {
+</I>[... go get the file and parse it ...]
+[... build module from downloaded file ...]
+|<i>     $got_file=1
+</I>|<i> }
+</I>|<i> 
+</I>|<i> if(!$got_file) {
+</I>|<i>     warn &quot;Using built-in defaults - errors are possible...\n&quot;;
+</I>[... build module from distributed file ...]
+|<i> }
+</I>
+That's what I'd do, in this situation, anyway.
+
+This also has the advantage that you can look for programs like fetch(1)
+(under BSD) or wget(1) and then try and use those too.
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000782.html">[cam.pm] University Term dates
+</A></li>
+	<LI> Next message: <A HREF="000784.html">[cam.pm] University Term dates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#783">[ date ]</a>
+              <a href="thread.html#783">[ thread ]</a>
+              <a href="subject.html#783">[ subject ]</a>
+              <a href="author.html#783">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

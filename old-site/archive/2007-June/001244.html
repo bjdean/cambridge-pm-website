@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Compensatory typos
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org?Subject=%5Bcam.pm%5D%20Compensatory%20typos&In-Reply-To=4664093E.9040200%40robbiebow.co.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001243.html">
+   <LINK REL="Next"  HREF="001245.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Compensatory typos</H1>
+    <B>Roy Chaudhuri</B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org?Subject=%5Bcam.pm%5D%20Compensatory%20typos&In-Reply-To=4664093E.9040200%40robbiebow.co.uk"
+       TITLE="[cam.pm] Compensatory typos">rrc22 at cam.ac.uk
+       </A><BR>
+    <I>Mon Jun  4 15:39:07 BST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001243.html">[cam.pm] Map oops
+</A></li>
+        <LI>Next message: <A HREF="001245.html">[cam.pm] cam.pm IRC channel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1244">[ date ]</a>
+              <a href="thread.html#1244">[ thread ]</a>
+              <a href="subject.html#1244">[ subject ]</a>
+              <a href="author.html#1244">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+Sorry to abuse the mailing list by talking about Perl, but I made a 
+vaguely entertaining discovery the other day. I was writing a one-liner 
+to print out lines from a tab-delimited file which had a last field of 
+less than 0. Obviously I wanted to write something like:
+
+perl -ne '@a=split /\t/, $_; print if $a[-1]&lt;0' myfile
+
+but because it was a Friday and my brain was firmly in neutral I managed 
+to type this instead:
+
+perl -ne '$a=split /\t/, $_; print if $_[-1]&lt;0' myfile
+
+Weird thing was, one typo cancelled out the other and it still worked. 
+Took me a fair amount of trawling through perldoc to work out why.
+
+Anyway, ignore me, back to talking about pubs. Osborne Arms sounds good 
+to me.
+
+Roy.
+
+</PRE>
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001243.html">[cam.pm] Map oops
+</A></li>
+	<LI>Next message: <A HREF="001245.html">[cam.pm] cam.pm IRC channel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1244">[ date ]</a>
+              <a href="thread.html#1244">[ thread ]</a>
+              <a href="subject.html#1244">[ subject ]</a>
+              <a href="author.html#1244">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="http://cam.pm.org/list/listinfo/cam.pm">More information about the Cam.pm
+mailing list</a><br>
+</body></html>

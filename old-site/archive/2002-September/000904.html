@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] In town, but...
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:dot%40dotat.at">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000898.html">
+   <LINK REL="Next"  HREF="000905.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] In town, but...
+   </H1>
+    <B>Tony Finch
+    </B> 
+    <A HREF="mailto:dot%40dotat.at"
+       TITLE="[cam.pm] In town, but...">dot@dotat.at
+       </A><BR>
+    <I>Mon, 16 Sep 2002 04:36:31 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000898.html">[cam.pm] In town, but...
+</A></li>
+        <LI> Next message: <A HREF="000905.html">[cam.pm] In town, but...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#904">[ date ]</a>
+              <a href="thread.html#904">[ thread ]</a>
+              <a href="subject.html#904">[ subject ]</a>
+              <a href="author.html#904">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Lucy McWilliam &lt;<A HREF="mailto:lejm3@hermes.cam.ac.uk">lejm3@hermes.cam.ac.uk</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i>So this has to be asked.  What's a continuation?
+</I>
+I like to think of a continuation as a reified return address. It
+allows you to get extra control over what to do next. In most languages,
+control-flow is expressed by the syntax of the language, so
+
+	int twice(int i) {
+		return 2 * i;
+	}
+
+the return statement is syntax that represents a jump to the return
+address with attached data. It has built-in knowledge that the next to
+do is to continue in the calling function.  But if we make the return
+address into a variable, then
+
+	twice(int i, int_cont ret) {
+		ret(2 * i);
+	}
+
+we've made the return look more like a function call, and we've made
+the implicit return address explicit, and therefore open to manipulation.
+
+Continuations are very powerful, especially when you introduce the
+call-with-current-continuation function, which is usually named callcc.
+In a language where continuations are usually implicit, it allows you
+to make them explicit.
+
+	typedef void (*int_cont)(int);
+	int callcc(int (*f)(cont));
+
+	int wombat(cont c) {
+		return 10;
+	}
+	int echidna(cont c) {
+		c(10);
+	}
+
+The statements callcc(wombat) and callcc(echidna) have the same value:
+calling the continuation is like returning from the function. However,
+if the continuation is passed down to other functions it becomes a
+non-local return, like longjmp in C or die in Perl.  For example you
+can do exception handling with them:
+
+	int myopen(const char *file, int_cont exn) {
+		int fd = open(file, O_RDONLY);
+		if (fd &lt; 0)
+			exn(errno);
+		else
+			return(fd);
+	}
+
+	int doit(int_cont exn) {
+		int fd = myopen(&quot;/etc/passwd&quot;, exn);
+		/* crack some passwords */
+		return 0;
+	}
+
+	if (callcc(doit) == 0) {
+		/* ok */
+	} else {
+		/* we returned directly here from the failed
+		call to open(), skipping the passwd cracking */
+	}
+
+Things get much more hairy if you allow functions to return continuations
+up the call stack (which can't work with a traditional stack for the
+same reasons that int *f() { int i; return &amp;i; } is bad -- you need heap-
+allocated activation frames instead). This allows you to implement things
+like coroutines etc.
+
+Tony.
+-- 
+f.a.n.finch &lt;<A HREF="mailto:dot@dotat.at">dot@dotat.at</A>&gt; <A HREF="http://dotat.at/">http://dotat.at/</A>
+IRISH SEA: NORTHERLY BECOMING VARIABLE 3 OR LESS. FAIR. MODERATE OR GOOD.
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000898.html">[cam.pm] In town, but...
+</A></li>
+	<LI> Next message: <A HREF="000905.html">[cam.pm] In town, but...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#904">[ date ]</a>
+              <a href="thread.html#904">[ thread ]</a>
+              <a href="subject.html#904">[ subject ]</a>
+              <a href="author.html#904">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

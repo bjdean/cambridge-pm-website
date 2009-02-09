@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> Unexpected warning?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000019.html">
+   <LINK REL="Next"  HREF="000021.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>Unexpected warning?
+   </H1>
+    <B>Martin Keegan
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="Unexpected warning?">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Mon, 9 Jul 2001 13:03:54 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000019.html">Unexpected warning?
+</A></li>
+        <LI> Next message: <A HREF="000021.html">Unexpected warning?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, 9 Jul 2001, Philip Kendall wrote:
+
+&gt;<i> print $fh Data::Dumper-&gt;Dump( \@array );
+</I>
+should be
+
+print $fh ( Data::Dumper-&gt;Dump( \@array ) );
+
+It's to do with the weird printing to filehandles &quot;no comma&quot; syntax perl
+has, I believe. Note that it's not print( $fh foo ) or print( $fh, foo ).
+
+Mk
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000019.html">Unexpected warning?
+</A></li>
+	<LI> Next message: <A HREF="000021.html">Unexpected warning?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

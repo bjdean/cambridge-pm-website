@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Christmas Perl Programming
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:david%40cantrell.org.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000960.html">
+   <LINK REL="Next"  HREF="000975.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Christmas Perl Programming
+   </H1>
+    <B>David Cantrell
+    </B> 
+    <A HREF="mailto:david%40cantrell.org.uk"
+       TITLE="[cam.pm] Christmas Perl Programming">david@cantrell.org.uk
+       </A><BR>
+    <I>Sun, 8 Dec 2002 21:46:05 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000960.html">[cam.pm] Christmas Perl Programming
+</A></li>
+        <LI> Next message: <A HREF="000975.html">[cam.pm] Christmas Perl Programming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#961">[ date ]</a>
+              <a href="thread.html#961">[ thread ]</a>
+              <a href="subject.html#961">[ subject ]</a>
+              <a href="author.html#961">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>[beware of the cross-posting]
+
+I decided what I was going to write, wrote it, but then ran out of
+enthusiasm* and couldn't be bothered to munge it to fit the template.
+However, because it may be of interest, what I wrote is below.
+
+* - or more accurately, I had a crack-addled idea for a far less sane way
+of solving this problem, and decided to implement that instead
+
+#!/usr/local/bin/perl
+#
+# Given a list of all connections in a graph like this, this program finds
+# a shortest route between two nodes.  All edges are assumed to be of
+# equal length and bi-directional, and transitting a node is assumed to
+# have zero cost.
+#
+#       London
+#        |  |
+#        |  +---------------------------+
+#        |                              |
+#      Croydon                          |
+#        |  |                           |
+#        |  +----------+                |
+#        |             |                |
+#        |           Lewes              |
+#        |            |  |              |
+#        |  +---------+  |   +--------+ |
+#        |  |            |   |        | |
+#      Brighton       Eastbourne    Hastings
+
+# First, here's a list of all the route segments in the above graph.  Each
+# is map{}ed to itself plus its reverse - that's the bidirectional bit.
+my @routemap = map {
+	($_, [reverse @{$_}])
+} (
+	['London', 'Croydon'],
+	['London', 'Hastings'],
+	['Croydon', 'Brighton'],
+	['Croydon', 'Lewes'],
+	['Brighton', 'Lewes'],
+	['Lewes', 'Eastbourne'],
+	['Eastbourne', 'Hastings']
+);
+
+my($dep, $dest) = @ARGV[0, 1];
+
+# the route() subroutine does the hard work.  We sort its results by length
+my @routes = sort { $#{$a} &lt;=&gt; $#{$b} } route($dep, $dest, []);
+
+# and print out the first one - any others are either the same length or
+# longer, and are of no interest
+print &quot;Preferred route from $dep to $dest is:\n\t&quot;.
+	join(', ', @{shift @routes}).&quot;\n&quot;;
+
+# some recursive magic to do the hard work.  It's really surprisingly
+# simple and very little code is needed.  Thank Saint Larry for saving
+# us from the hell that is memory management
+#
+# params:
+#   1 - STRING: the current node
+#   2 - STRING: desired destination node
+#   3 - ARRAYREF: all previously visited nodes
+# returns:
+#   ARRAY of ARRAYREFs: list of routes found
+sub route {
+	my($dep, $dest, $nodes_so_far) = @_;
+	my @routes_found=();
+	# get a list of all route segments starting at the current node
+	foreach my $route (grep { $_-&gt;[0] eq $dep } @routemap) {
+		# avoid segments which go somewhere we've been already.
+		# this effectively turns the map into a tree by breaking
+		# any loops
+		next if(any(sub { $_[0] eq $route-&gt;[1] }, @{$nodes_so_far}));
+		# return a route if we've reached the destination. We don't
+		# bother trying any other routes from this node as this one
+		# is guaranteed to be the shortest.  If you want to generate
+		# all possible routes, replace the return with a push
+		if($route-&gt;[1] eq $dest) {
+			return @routes_found,
+				[@{$nodes_so_far}, $dep, $route-&gt;[1]];
+		# otherwise recurse
+		} else {
+			push @routes_found,
+				route($route-&gt;[1], $dest,
+					[@{$nodes_so_far}, $dep]);
+		}
+	}
+	@routes_found;
+}
+
+# true if $_[0]-&gt;(each other element) is true at least once
+sub any {
+	my $code = shift;
+	grep { $code-&gt;($_) } @_;
+}
+
+-- 
+David Cantrell | <A HREF="mailto:david@cantrell.org.uk">david@cantrell.org.uk</A> | <A HREF="http://www.cantrell.org.uk/david">http://www.cantrell.org.uk/david</A>
+
+    Considering the number of wheels Microsoft has found reason
+    to invent, one never ceases to be baffled by the minuscule
+    number whose shape even vaguely resembles a circle.
+                                                      -- anon, on Usenet
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000960.html">[cam.pm] Christmas Perl Programming
+</A></li>
+	<LI> Next message: <A HREF="000975.html">[cam.pm] Christmas Perl Programming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#961">[ date ]</a>
+              <a href="thread.html#961">[ thread ]</a>
+              <a href="subject.html#961">[ subject ]</a>
+              <a href="author.html#961">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

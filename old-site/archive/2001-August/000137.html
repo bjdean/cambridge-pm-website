@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] LALR(1) parser for Perl?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000136.html">
+   <LINK REL="Next"  HREF="000146.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] LALR(1) parser for Perl?
+   </H1>
+    <B>Richard Kettlewell
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] LALR(1) parser for Perl?">cam.pm@cam.pm.org
+       </A><BR>
+    <I>15 Aug 2001 11:19:50 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000136.html">[cam.pm] LALR(1) parser for Perl?
+</A></li>
+        <LI> Next message: <A HREF="000146.html">[cam.pm] LALR(1) parser for Perl?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#137">[ date ]</a>
+              <a href="thread.html#137">[ thread ]</a>
+              <a href="subject.html#137">[ subject ]</a>
+              <a href="author.html#137">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dan Sheppard &lt;<A HREF="mailto:dans@colon.colondot.net">dans@colon.colondot.net</A>&gt; writes:
+
+&gt;<i> I've got a Perl script that needs to parse a LALR(1) language. In C
+</I>&gt;<i> I'd use lex and yacc, what's the best way to do this in Perl? I
+</I>&gt;<i> realise that there are other weird parsing methods more suited to
+</I>&gt;<i> perl (like bag grammars, and so on) but it would be nice if there
+</I>&gt;<i> was something that would just take a BNF grammar and do the right
+</I>&gt;<i> thing. Is there something people can recommend in the standard
+</I>&gt;<i> distribution or on CPAN?
+</I>
+I typed &quot;yacc perl&quot; into Google.
+
+1) The Perl FAQ says...
+
+<A HREF="http://language.perl.com/faq/v2/Q3.3.html">http://language.perl.com/faq/v2/Q3.3.html</A>
+
+  Is there a yacc for Perl?
+
+  Yes!! It's a version of Berkeley yacc that outputs Perl code instead
+  of C code! You can get this from
+  <A HREF="ftp://ftp.sterling.com/local/perl-byacc1.8.2.tar.Z,">ftp://ftp.sterling.com/local/perl-byacc1.8.2.tar.Z,</A> or send the
+  author mail for details.
+
+...but the link doesn't work for me.  You might be able to track down
+an alternative copy by googling or digging around mirrors.  (Does
+archie still work?)
+
+2) At <A HREF="http://perl.plover.com/py/">http://perl.plover.com/py/</A> you will find a GPL'd program which
+   uses Bison to do the hard work and eventually produces something
+   usable from Perl.
+
+-- 
+<A HREF="http://www.greenend.org.uk/rjk/">http://www.greenend.org.uk/rjk/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000136.html">[cam.pm] LALR(1) parser for Perl?
+</A></li>
+	<LI> Next message: <A HREF="000146.html">[cam.pm] LALR(1) parser for Perl?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#137">[ date ]</a>
+              <a href="thread.html#137">[ thread ]</a>
+              <a href="subject.html#137">[ subject ]</a>
+              <a href="author.html#137">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

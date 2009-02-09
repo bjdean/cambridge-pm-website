@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Christmas Perl Programming
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:liyang%40nerv.cx">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000961.html">
+   <LINK REL="Next"  HREF="000980.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Christmas Perl Programming
+   </H1>
+    <B>Liyang HU
+    </B> 
+    <A HREF="mailto:liyang%40nerv.cx"
+       TITLE="[cam.pm] Christmas Perl Programming">liyang@nerv.cx
+       </A><BR>
+    <I>Wed, 11 Dec 2002 04:35:36 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000961.html">[cam.pm] Christmas Perl Programming
+</A></li>
+        <LI> Next message: <A HREF="000980.html">[cam.pm] Christmas Perl Programming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#975">[ date ]</a>
+              <a href="thread.html#975">[ thread ]</a>
+              <a href="subject.html#975">[ subject ]</a>
+              <a href="author.html#975">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>--UugvWAfsgieZRqgk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sun, Dec 08, 2002 at 09:46:05PM +0000, David Cantrell wrote:
+&gt;<i> I decided what I was going to write, wrote it, but then ran out of
+</I>&gt;<i> enthusiasm* and couldn't be bothered to munge it to fit the template.
+</I>&gt;<i> However, because it may be of interest, what I wrote is below.
+</I>[snip]
+&gt;<i> 		# otherwise recurse
+</I>&gt;<i> 		} else {
+</I>&gt;<i> 			push @routes_found,
+</I>&gt;<i> 				route($route-&gt;[1], $dest,
+</I>&gt;<i> 					[@{$nodes_so_far}, $dep]);
+</I>&gt;<i> 		}
+</I>
+Recursion is overrated, man. And I thought Perl programmers were all
+about being lazy...
+
+----8&lt;----
+
+#! /usr/bin/perl
+
+use strict;
+
+my @routemap =3D map {
+	($_, [reverse @{$_}])
+} (
+	['London', 'Croydon'],
+	['London', 'Hastings'],
+	['Croydon', 'Brighton'],
+	['Croydon', 'Lewes'],
+	['Brighton', 'Lewes'],
+	['Lewes', 'Eastbourne'],
+	['Eastbourne', 'Hastings']
+);
+
+my ($dep, $dest) =3D @ARGV[0, 1];
+# undef means infinite/not reachable.
+my %cost_to =3D ( $dep =3D&gt; 0 );
+my %came_from;
+
+my $changed =3D 0;
+while(1)
+{
+	$changed =3D 0;
+	for my $route (@routemap)
+	{
+		my ($here, $there) =3D @{$route};
+		if(defined($cost_to{$here})
+			&amp;&amp; (not defined($cost_to{$there})
+				|| ($cost_to{$there} &gt; $cost_to{$here} + 1)))
+		{
+			$cost_to{$there} =3D $cost_to{$here} + 1;
+			$came_from{$there} =3D $here;
+			$changed =3D 1;
+		}
+	}
+	last unless $changed;
+}
+
+unless(defined($cost_to{$dest}))
+{
+	print &quot;can't get to $dest from $dep\n&quot;;
+	exit 1;
+}
+
+print &quot;Preferred route from $dep to $dest is: ($cost_to{$dest} jumps)\n\t&quot;;
+my @route =3D ( $dest );
+while(defined($came_from{$dest}))
+{
+	$dest =3D $came_from{$dest};
+	unshift @route, $dest;
+}
+print join(&quot; -&gt; &quot;, @route). &quot;\n&quot;;
+
+----8&lt;----
+
+Rough estimate: O(l*n) average, O(n^2) worst case time and O(n) space,
+where l is the length of the shortest route and n the size of @routemap.
+I make no guarantees I've checked this claim thoroughly...
+
+Hmm. For some reason this reminded me I've still this week's ISIHAC[0]
+to listen to. Better make use of the fat JANET pipes while I'm still
+here, I suppose... ^_^
+
+later,
+/Liyang gets a strange notion about subscribing to London.pm ...
+[0] I'm sorry I haven't a clue.
+--=20
+=2E--{ Liyang HU }--{ <A HREF="http://nerv.cx/">http://nerv.cx/</A> }--{ <A HREF="mailto:Caius@Cam">Caius@Cam</A> }--{ PGP: 7B632CB8 }--.
+|<i> Real programmers don't bring brownbag lunches. If the vending machines |
+</I>|<i> don't sell it, they don't eat it. Vending machines don't sell quiche.  |
+</I>
+--UugvWAfsgieZRqgk
+Content-Type: application/pgp-signature
+Content-Disposition: inline
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.0 (GNU/Linux)
+Comment: moo! (ID: 7B632CB8)
+
+iD8DBQE99sCX1QR4EHtjLLgRAgzvAJ9p2YLa2/tzNwcstF7gej8+BD2cDgCggSld
+FfHoeoNdEbGKNE2e1hBHrXI=
+=/WfS
+-----END PGP SIGNATURE-----
+
+--UugvWAfsgieZRqgk--
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000961.html">[cam.pm] Christmas Perl Programming
+</A></li>
+	<LI> Next message: <A HREF="000980.html">[cam.pm] Christmas Perl Programming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#975">[ date ]</a>
+              <a href="thread.html#975">[ thread ]</a>
+              <a href="subject.html#975">[ subject ]</a>
+              <a href="author.html#975">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

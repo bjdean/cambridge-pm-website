@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Trivial perl question
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000291.html">
+   <LINK REL="Next"  HREF="000295.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Trivial perl question
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Trivial perl question">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Fri, 5 Oct 2001 12:28:10 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000291.html">[cam.pm] Trivial perl question
+</A></li>
+        <LI> Next message: <A HREF="000295.html">[cam.pm] Trivial perl question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#292">[ date ]</a>
+              <a href="thread.html#292">[ thread ]</a>
+              <a href="subject.html#292">[ subject ]</a>
+              <a href="author.html#292">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, Oct 05, 2001 at 11:36:49AM +0100, Tim Cutts wrote:
+
+[ each vs keys ]
+
+&gt;<i> Well, it becomes a speed issue as well.  Certainly with large data
+</I>&gt;<i> structures (such as wot I have here!)
+</I>&gt;<i> 
+</I>&gt;<i> while (($key, undef) = each %$hash) {
+</I>&gt;<i>     ...
+</I>&gt;<i> }
+</I>&gt;<i> 
+</I>&gt;<i> is *much* faster than
+</I>&gt;<i> 
+</I>&gt;<i> foreach (keys %$hash) {
+</I>&gt;<i>     ...
+</I>&gt;<i> }
+</I>
+Obviously, I don't know how large `large' is, but on one of our Sparcs
+here:
+
+use Benchmark;
+
+$foo = {};
+
+for (1..100000) {
+  $foo-&gt;{$_} = $_;
+}
+
+timethese( 50,
+           { keys =&gt; 'foreach( keys %$foo ) { $foo-&gt;{$_}=$_ }',
+             each =&gt; 'while( ($key,undef) = each %$foo ) { $foo-&gt;{$key}=$_ }'
+           } );
+
+I get:
+
+Benchmark: timing 50 iterations of each, keys...
+each: 68 wallclock secs (67.90 usr +  0.00 sys = 67.90 CPU) @ 0.74/s (n=50)
+keys: 35 wallclock secs (34.76 usr +  0.01 sys = 34.77 CPU) @ 1.44/s (n=50)
+
+Am I missing something here?
+
+Phil
+
+-- 
+  Philip Kendall &lt;<A HREF="mailto:pak21@srcf.ucam.org">pak21@srcf.ucam.org</A>&gt;
+  <A HREF="http://www.srcf.ucam.org/~pak21/">http://www.srcf.ucam.org/~pak21/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000291.html">[cam.pm] Trivial perl question
+</A></li>
+	<LI> Next message: <A HREF="000295.html">[cam.pm] Trivial perl question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#292">[ date ]</a>
+              <a href="thread.html#292">[ thread ]</a>
+              <a href="subject.html#292">[ subject ]</a>
+              <a href="author.html#292">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

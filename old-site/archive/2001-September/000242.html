@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Recursion
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000239.html">
+   <LINK REL="Next"  HREF="000227.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Recursion
+   </H1>
+    <B>Richard Kettlewell
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Recursion">cam.pm@cam.pm.org
+       </A><BR>
+    <I>23 Sep 2001 23:08:34 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000239.html">[cam.pm] Recursion
+</A></li>
+        <LI> Next message: <A HREF="000227.html">[cam.pm] Recursion
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#242">[ date ]</a>
+              <a href="thread.html#242">[ thread ]</a>
+              <a href="subject.html#242">[ subject ]</a>
+              <a href="author.html#242">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dan Sheppard &lt;<A HREF="mailto:dans@colon.colondot.net">dans@colon.colondot.net</A>&gt; writes:
+&gt;<i> Richard Kettlewell wrote:
+</I>
+&gt;&gt;<i> Actually gcc 3 can do tail call optimization (not just for
+</I>&gt;&gt;<i> recursion, either; notice the &quot;jmp printf&quot; at the end).
+</I>&gt;<i> 
+</I>&gt;<i> That's interesting. Is it just a peephole optimisation for call/ret
+</I>&gt;<i> pairs, or part of an eventual grand scheme of tail recursion. I'm
+</I>&gt;<i> interested for the sake of these compile-to-GCC-source
+</I>&gt;<i> non-imperitive languages.
+</I>
+Looking at calls.c:expand_call() (a mere 1400 lines, though that's
+with the insane GNU indent style), it would appear to be the latter.
+
+-- 
+<A HREF="http://www.greenend.org.uk/rjk/">http://www.greenend.org.uk/rjk/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000239.html">[cam.pm] Recursion
+</A></li>
+	<LI> Next message: <A HREF="000227.html">[cam.pm] Recursion
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#242">[ date ]</a>
+              <a href="thread.html#242">[ thread ]</a>
+              <a href="subject.html#242">[ subject ]</a>
+              <a href="author.html#242">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

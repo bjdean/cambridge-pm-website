@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Backup / archive format handling?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="001089.html">
+   <LINK REL="Next"  HREF="001091.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Backup / archive format handling?
+   </H1>
+    <B>Ian Jackson
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Backup / archive format handling?">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 13 Jul 2004 12:26:07 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="001089.html">[cam.pm] Backup / archive format handling?
+</A></li>
+        <LI> Next message: <A HREF="001091.html">[cam.pm] Backup / archive format handling?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1090">[ date ]</a>
+              <a href="thread.html#1090">[ thread ]</a>
+              <a href="subject.html#1090">[ subject ]</a>
+              <a href="author.html#1090">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Matthew Astley writes (&quot;Re: [cam.pm] Backup / archive format handling?&quot;):
+&gt;<i> Will the users be happy with writing a ~/.backup-list.pl script which
+</I>&gt;<i> generates the filename list for what to include?  That's the ultimate
+</I>&gt;<i> flexibility, and trustworthy if you su per user and maybe post-filter
+</I>&gt;<i> the output.
+</I>
+If you use userv then you could have an easy to use default
+implementation which users could override.
+
+&lt;/plug&gt;
+
+&gt;<i> [Peter Clay:]
+</I>&gt;<i> &gt; I had the idea to deduplicate files on the tape by e.g. MD5sum. But
+</I>&gt;<i> &gt; I don't know of a standard archive format that supports that.
+</I>
+Sorting the filename list will help here, but you'd better make sure
+you're using LVM snapshots or similar.  Otherwise the backups are
+likely to be quite skew and of course you'll get lots of errors which
+will be hard to tell apart from real errors.
+
+Ian.
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="001089.html">[cam.pm] Backup / archive format handling?
+</A></li>
+	<LI> Next message: <A HREF="001091.html">[cam.pm] Backup / archive format handling?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1090">[ date ]</a>
+              <a href="thread.html#1090">[ thread ]</a>
+              <a href="subject.html#1090">[ subject ]</a>
+              <a href="author.html#1090">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Stupid question?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="001047.html">
+   <LINK REL="Next"  HREF="001049.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Stupid question?
+   </H1>
+    <B>Richard Fuller
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Stupid question?">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 2 Jul 2003 02:16:41 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="001047.html">[cam.pm] Stupid question?
+</A></li>
+        <LI> Next message: <A HREF="001049.html">[cam.pm] Re: Stupid question?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1048">[ date ]</a>
+              <a href="thread.html#1048">[ thread ]</a>
+              <a href="subject.html#1048">[ subject ]</a>
+              <a href="author.html#1048">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wednesday 02 Jul 2003 1:57 am, Lucy McWilliam wrote:
+&gt;<i> #!/usr/bin/perl -w
+</I>&gt;<i> use strict;
+</I>&gt;<i> my ($line);
+</I>&gt;<i>
+</I>&gt;<i> open(FILE, &quot;file&quot;);
+</I>&gt;<i> while (&lt;FILE&gt;) {
+</I>&gt;<i>     $line = &lt;FILE&gt;;
+</I>&gt;<i>     if ($line =~ /^\&gt;/) {
+</I>&gt;<i>        print $line;
+</I>&gt;<i>    }
+</I>&gt;<i> }
+</I>&gt;<i>
+</I>&gt;<i> If a file contains the sequence data below, what is it about $line  =
+</I>&gt;<i> &lt;FILE&gt; that makes the script above not print out the lines starting with a
+</I>&gt;<i> '&gt;' ?
+</I>
+The &lt;FILE&gt; in while(&lt;FILE&gt;) reads in a line, the &lt;FILE&gt; in $line=&lt;FILE&gt; reads 
+in the next. So $line only ever gets to be every other line, only the lines 
+without the &gt;.
+
+- Richard
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="001047.html">[cam.pm] Stupid question?
+</A></li>
+	<LI> Next message: <A HREF="001049.html">[cam.pm] Re: Stupid question?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1048">[ date ]</a>
+              <a href="thread.html#1048">[ thread ]</a>
+              <a href="subject.html#1048">[ subject ]</a>
+              <a href="author.html#1048">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

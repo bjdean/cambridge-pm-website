@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Perl 5.8.0 is released
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:nick%40ccl4.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000842.html">
+   <LINK REL="Next"  HREF="000844.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Perl 5.8.0 is released
+   </H1>
+    <B>Nicholas Clark
+    </B> 
+    <A HREF="mailto:nick%40ccl4.org"
+       TITLE="[cam.pm] Perl 5.8.0 is released">nick@ccl4.org
+       </A><BR>
+    <I>Mon, 22 Jul 2002 14:45:40 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000842.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+        <LI> Next message: <A HREF="000844.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#843">[ date ]</a>
+              <a href="thread.html#843">[ thread ]</a>
+              <a href="subject.html#843">[ subject ]</a>
+              <a href="author.html#843">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jul 22, 2002 at 02:28:17PM +0100, Matthew Byng-Maddick wrote:
+&gt;<i> On Mon, Jul 22, 2002 at 02:03:37PM +0100, Martin Keegan wrote:
+</I>&gt;<i> &gt; On Mon, 22 Jul 2002, Ian Wells wrote:
+</I>&gt;<i> &gt; &gt; &gt; Perl 5.8.0 *and* Debian 3.0.  Mmm, toys.
+</I>&gt;<i> &gt; &gt; Or, put another way, &quot;How to render Debian 3.0 obsolete in one easy step&quot;...
+</I>&gt;<i> &gt; Anyway, should a semantic error like this (on Debian woody's perl) really
+</I>&gt;<i> &gt; give me a SEGV? Is there a good reason why the parser can't say &quot;Error,
+</I>&gt;<i> &gt; you have transfunged the first two arguments?&quot;
+</I>&gt;<i> &gt; <A HREF="mailto:mk270@ooh">mk270@ooh</A> ~&gt; perl -e 'read( $x, X, 10 )'
+</I>&gt;<i> &gt; Segmentation fault
+</I>&gt;<i> 
+</I>&gt;<i> That seems very bad.
+</I>
+It is. All SEGVs are very bad and should not happen.
+Although SEGVs due to stack exhaustion caused by very large amounts of
+recursion in the regexp engine are very hard not to prevent.
+
+&gt;<i> on 5.005_03, I get:
+</I>&gt;<i> | [<A HREF="mailto:mbm@mallard">mbm@mallard</A>]:~$ perl -we 'read($x,X,10)'
+</I>&gt;<i> | Can't modify constant item in read at -e line 1, at end of line
+</I>&gt;<i> | Execution of -e aborted due to compilation errors.
+</I>&gt;<i> on 5.6.0 (linux SuSE?):
+</I>
+5.6.0 seems very bad full stop. (Well, that's my opinion)
+
+&gt;<i> Nick, care to clarify this? should this be one of the tests ?
+</I>
+5.6.1 (and presumably 5.6.0) seems to have a lot of SEGV bugs which all seem
+to be variants of doing something naughty with barewords. I believe all the
+know (ie reported or discovered by p5p) ones are fixed in 5.8.0.
+
+Nicholas Clark 
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000842.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+	<LI> Next message: <A HREF="000844.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#843">[ date ]</a>
+              <a href="thread.html#843">[ thread ]</a>
+              <a href="subject.html#843">[ subject ]</a>
+              <a href="author.html#843">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

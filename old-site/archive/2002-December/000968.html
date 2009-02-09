@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Christmas Perl Programming
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:nick%40unfortu.net">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000966.html">
+   <LINK REL="Next"  HREF="000969.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Christmas Perl Programming
+   </H1>
+    <B>Nicholas Clark
+    </B> 
+    <A HREF="mailto:nick%40unfortu.net"
+       TITLE="[cam.pm] Christmas Perl Programming">nick@unfortu.net
+       </A><BR>
+    <I>Tue, 10 Dec 2002 11:38:05 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000966.html">[cam.pm] Christmas Perl Programming
+</A></li>
+        <LI> Next message: <A HREF="000969.html">[cam.pm] Christmas Perl Programming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#968">[ date ]</a>
+              <a href="thread.html#968">[ thread ]</a>
+              <a href="subject.html#968">[ subject ]</a>
+              <a href="author.html#968">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Dec 10, 2002 at 10:53:15AM +0000, Matthew Byng-Maddick wrote:
+&gt;<i> On Tue, Dec 10, 2002 at 10:50:03AM +0000, Philip Kendall wrote:
+</I>&gt;<i> &gt; On Sat, Dec 07, 2002 at 02:40:09AM +0000, Matthew Byng-Maddick wrote:
+</I>&gt;<i> &gt; &gt; * a valid programme entry (such as the example below) can be overlaid by
+</I>&gt;<i> &gt; &gt;   the template below in such a way that the characters in the entry are
+</I>&gt;<i> &gt; &gt;   non-whitespace if the corresponding character in the template is a &quot;#&quot;
+</I>&gt;<i> &gt; &gt;   and that they are whitespace if the corresponding character is a &quot; &quot;.
+</I>&gt;<i> &gt; &gt;   Trailing space will be ignored.
+</I>&gt;<i> &gt; How are 'character' and 'whitespace' defined?
+</I>&gt;<i> 
+</I>&gt;<i> I feel &quot;codepoint&quot; and &quot;thing that matches /\s/&quot; respectively, is probably
+</I>&gt;<i> appropriate, if you're going to bring Unicode madness into it...
+</I>
+I've forgotten if there was an acceptable list of perl versions published in
+the rules. The UTF8 regexp code is not perfect, and several bugs have been
+fixed in the development version, and merged across into 5.8.1-to-be.
+
+Mainly bugs to do with matches and other upper/lower casing on $1 (etc) from a
+previous match, such as this code:
+
+#!/usr/bin/perl -w
+
+for my $a (0,1) {
+  $_ = 'readin,database,readout';
+  if ($ARGV[0])  {
+    $_ .= chr 256;
+    chop;
+  }
+  /(.+)/;
+
+  my @d = split /[,]/,$1;
+  print join (':'<A HREF="mailto:,@d">,@d</A>), &quot;\n&quot;;
+}
+__END__
+
+Without any arguments (not utf8) I see:
+
+readin:database:readout
+readin:database:readout
+
+with $ARGV[1] true, in 5.8.0 I see:
+
+#adin:database:readout
+readin:database:readout
+
+The bug has been found and fixed by AMS in the development tree. They seem to
+related to how things like uppercase tables get initialised the first time
+they are used.
+
+Nicholas Clark
+-- 
+Brainfuck better than perl?	<A HREF="http://www.perl.org/advocacy/spoofathon/">http://www.perl.org/advocacy/spoofathon/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000966.html">[cam.pm] Christmas Perl Programming
+</A></li>
+	<LI> Next message: <A HREF="000969.html">[cam.pm] Christmas Perl Programming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#968">[ date ]</a>
+              <a href="thread.html#968">[ thread ]</a>
+              <a href="subject.html#968">[ subject ]</a>
+              <a href="author.html#968">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

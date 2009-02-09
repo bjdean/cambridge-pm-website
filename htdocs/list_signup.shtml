@@ -1,0 +1,184 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+<html>
+ <head>
+  <title>
+   CAM.PM:
+   $* - {
+   $list
+   -&gt; sign_up
+   ; }
+  </title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <table border="0" cellpadding="2" cellspacing="2">
+   <tr>
+    <td valign="center">
+     <img src="/images/dollar-star.jpg" alt="$*" />
+    </td>
+    <td valign="center">
+     <h1>
+      <tt>require "<font color="#009900">cam</font>.<font color="#009900">pm</font>" ;</tt>
+     </h1>
+     <h1>
+      <tt>
+       {
+       $<font color="#cc0000">list</font>
+       -&gt; <font color="#660099">sign_up</font>
+       ; }</tt>
+     </h1>
+    </td>
+   </tr>
+   <tr>
+    <td valign="top">
+     <!-- begin nav -->
+     <table border="0" cellpadding="0" width="128" cellspacing="1">
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/index.shtml"><b>$?</b></a></td>
+       <td valign="top"><a href="/index.shtml">about cam.pm</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><b>$*</b></td>
+       <td valign="top">the cam.pm list</td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/list_signup.shtml">signing up</a></td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/list_archives.shtml">archives</a></td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/list_ettiquette.shtml">ettiquette</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/meets_when.shtml"><b>$@</b></a></td>
+       <td valign="top"><a href="/meets_when.shtml">cam.pm meetings</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/projects_home.shtml"><b>$_</b></a></td>
+       <td valign="top"><a href="/projects_home.shtml">cam.pm projects</a></td>
+      </tr>
+
+
+     </table>
+     <!-- end nav -->
+    </td>
+    <td valign="top">
+
+<p>
+One of the main points of <tt>cam.pm</tt> is the <tt>cam.pm</tt> mailing list.
+The list doesn't have to be about perl, and is often about genetics,
+probability, beer and other things for which perl can be used.
+</p>
+
+<p>
+We've recently changed list server from our own to one on pm.org's servers.
+The new list can be joined at
+<a href="http://mail.pm.org/mailman/listinfo/cam-pm">http://mail.pm.org/mailman/listinfo/cam-pm</a>.
+</p>
+<p>
+I'll try to get the old membership migrated over if possible.
+</p>
+<p>
+Or join us on IRC - #cam.pm on irc.perl.org
+</p>
+
+
+<!-- <form action="/list/subscribe/cam.pm" method="POST">
+ <table border="0" cellpadding="1" cellspacing="2">
+  <tr>
+   <td valign="middle">
+    <b>Email Address</b>
+   </td>
+   <td valign="middle">
+    <input chars="50" name="email" />
+   </td>
+  </tr>
+  <tr>
+   <td valign="middle">
+    <b>Password (1)</b>
+   </td>
+   <td valign="middle">
+    <input type="password" length="50" name="pw" />
+   </td>
+  </tr>
+  <tr>
+   <td valign="middle">
+    <b>Password (2)</b>
+   </td>
+   <td valign="middle">
+    <input type="password" length="50" name="pw-conf" />
+   </td>
+  </tr>
+  <tr>
+   <td valign="middle">
+    <b>Digest?</b>
+   </td>
+   <td valign="middle">
+    <input type=radio name="digest" value="0" checked="1" /> No<br/>
+    <input type=radio name="digest" value="1" /> Yes
+   </td>
+  </tr>
+  <tr>
+   <td colspan="2">
+    <input type="submit" name="email-button" value="Subscribe" />
+   </td>
+  </tr>
+ </table>
+</form>
+<p>
+ You can also change your list subscription options by typing in your email
+ address below, and clicking on the "Edit Options" button.
+</p>
+<form action="/list/options/cam.pm" method="POST">
+ <table border="0" cellpadding="1" cellspacing="2">
+  <tr>
+   <td valign="middle">
+    <b>Email Address</b>
+   </td>
+   <td valign="middle">
+    <input chars="50" name="email" />
+   </td>
+  </tr>
+  <tr>
+   <td colspan="2">
+    <input type="submit" name="UserOptions" value="Edit Options" />
+   </td>
+  </tr>
+ </table>
+</form>
+//-->
+    </td>
+   </tr>
+  </table>
+
+  <hr />
+  <small>
+   $Id: list_signup.shtml,v 1.4 2008/01/17 09:58:28 mbm Exp $
+  </small>
+
+ </body>
+</html>
+

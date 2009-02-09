@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Beginning Perl for Bioinformatics
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000457.html">
+   <LINK REL="Next"  HREF="000464.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Beginning Perl for Bioinformatics
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Beginning Perl for Bioinformatics">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Mon, 17 Dec 2001 11:57:59 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000457.html">[cam.pm] Beginning Perl for Bioinformatics
+</A></li>
+        <LI> Next message: <A HREF="000464.html">[cam.pm] Beginning Perl for Bioinformatics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#463">[ date ]</a>
+              <a href="thread.html#463">[ thread ]</a>
+              <a href="subject.html#463">[ subject ]</a>
+              <a href="author.html#463">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, Dec 13, 2001 at 11:07:47PM +0000, Dan Sheppard wrote:
+&gt;<i> On Thu, Dec 13, 2001 at 04:54:18PM +0000, Lucy McWilliam wrote:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Erm...yes, we were going to have a December meeting.  Um.
+</I>&gt;<i> 
+</I>&gt;<i> If people want to come to my house slightly-warming, then they're welcome.
+</I>
+And various cam.pm types did actually make their way there, resulting in
+at least one bit of Perl:
+
+#!/bin/sh
+perl -le'$&quot;=&quot;&quot;;$;=&quot;@ARGV&quot;;@_=map{$;=~s;$_;;gi||0}qw(l o v e s);do{@_=split&quot;&quot;,
+&quot;@_&quot;;$_[$_]=$_[$_]+$_[$_+1]foreach <A HREF="mailto:0..@_-2">0..@_-2</A>;$#_--}while(&quot;@_&quot;&gt;100);print &quot;@_%&quot;' $*
+
+Exactly what that does may require some explanation... do you remember
+being at primary school and trying to work out how much person X loves
+person Y using various scientific methods? The above will use the
+following well-known[1] method:
+
+* Write down both names (eg `Philip Kendall' and `his ego')
+* Write down (in order) the number of `l's, `o's, `v's, `e's and `s's in
+  both words:             [ 3 1 0 2 1 ]
+* Add up adjacent digits: [  4 1 2 3  ]
+* Repeat                  [   5 3 5   ]
+                          [    8 8    ]
+* Treat as a percentage =&gt; 88%
+
+(If the sum of two digits is greater than 10, just treat the two digits
+ as two separate entries in the array. This can cause the the procedure
+ not to converge...)
+
+[1] FSVO `well-known'.
+
+Phil
+
+-- 
+  Philip Kendall &lt;<A HREF="mailto:pak21@srcf.ucam.org">pak21@srcf.ucam.org</A>&gt;
+  <A HREF="http://www.srcf.ucam.org/~pak21/">http://www.srcf.ucam.org/~pak21/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000457.html">[cam.pm] Beginning Perl for Bioinformatics
+</A></li>
+	<LI> Next message: <A HREF="000464.html">[cam.pm] Beginning Perl for Bioinformatics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#463">[ date ]</a>
+              <a href="thread.html#463">[ thread ]</a>
+              <a href="subject.html#463">[ subject ]</a>
+              <a href="author.html#463">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

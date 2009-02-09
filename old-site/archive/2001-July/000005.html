@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> Personal perl irritations (Re: Web application survey)
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000004.html">
+   <LINK REL="Next"  HREF="000006.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>Personal perl irritations (Re: Web application survey)
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="Personal perl irritations (Re: Web application survey)">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 4 Jul 2001 10:37:55 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000004.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+        <LI> Next message: <A HREF="000006.html">map
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Jul 04, 2001 at 10:00:22AM +0100, Tim Cutts wrote:
+&gt;<i> On Tue, Jul 03, 2001 at 04:17:52PM +0100, Matthew Byng-Maddick wrote:
+</I>&gt;<i> &gt; $$ is useful. $/ is very useful if you're playing with record-like files.
+</I>&gt;<i> Which I do.  A lot.  FASTA format nucleic sequence database?
+</I>&gt;<i> local $/ = &quot;\n&gt;&quot;;
+</I>&gt;<i> SWISSPROT-style protein databases?
+</I>&gt;<i> local $/ = &quot;\n//\n&quot;;
+</I>
+erm. Ok. Whatever. :-)
+
+&gt;<i> &gt; I occasionally use $., which is the current record number. $&gt; and $&lt; are
+</I>&gt;<i> &gt; also useful, as they allow you to do the userid operations. I occasionally
+</I>&gt;<i> &gt; use $_ too, $0, occasionally, and often $!.[1]
+</I>&gt;<i> Indeed.
+</I>&gt;<i> $fh-&gt;open(&quot;&lt;foo&quot;) or die &quot;Could not open foo : $!\n&quot;;
+</I>
+Absolutely - I hadn't thought of doing that with open... That's very neat.
+
+&gt;<i> &gt; &gt; and $&gt;, as in snippets like the following:
+</I>&gt;<i> &gt; &gt;   ($user, undef, $uid, undef) = getpwuid($&gt;);
+</I>&gt;<i> &gt; &gt;   unless (scalar(grep(/$user/<A HREF="mailto:,@Gap4">,@Gap4</A>::Cfg::rebuild_users)) &gt; 0) {
+</I>&gt;<i> &gt; &gt;     die &quot;You do not have permission to run this program - Contact Tim.\n&quot;;
+</I>&gt;<i> &gt; &gt;   }
+</I>&gt;<i> &gt; &gt; Oops.  I've just spotted a bug in that.  The regexp should be /^$user$/.
+</I>&gt;<i> &gt; erm. /^\Q$user\E$/, I think.
+</I>&gt;<i> Oh, I see.  Is that to stop the $ in $user being interpreted in the
+</I>&gt;<i> usual regexp way?  None of our users have perl metacharacters in their
+</I>
+Yes.
+
+&gt;<i> user IDs, but I suppose it doesn't hurt to be safe.
+</I>
+Defensive programming. :-)
+
+&gt;<i> &gt; &gt; Things like foreach automatically localize it, for example.  I'm not
+</I>&gt;<i> &gt; That's not magic. That's using local.
+</I>&gt;<i> Yes, but it's using local without your explicitly asking for it.  I call
+</I>&gt;<i> that magic.
+</I>
+Erm. sort of.
+
+&gt;<i> &gt; using it with map is probably my main use.
+</I>&gt;<i> I only just started using map.  Can't imagine why I overlooked it before
+</I>&gt;<i> - stunningly useful!
+</I>
+Indeed. :-)
+
+I often use it for dereferencing things:
+
+ $foo= [
+         {
+           bar =&gt; &quot;d&quot;,
+           baz =&gt; &quot;f&quot; 
+         },
+         {
+           bar =&gt; &quot;a&quot;,
+           baz =&gt; &quot;b&quot; 
+         },
+         {
+           bar =&gt; &quot;z&quot;,
+           baz =&gt; &quot;x&quot; 
+         }
+       ];
+@z = map { $_-&gt;{&quot;bar&quot;} } @$foo;
+
+&gt;<i>       $, - output record separator.  Useful for creating tab-delimited
+</I>&gt;<i>            files and the like from array references without cluttering
+</I>&gt;<i> 	   your code with 'join'.
+</I>
+Ah, I've never been very fond of this one, I'd prefer my own output to be
+explicitly what I ask for, but then TMTOWTDI. :-)
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000004.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+	<LI> Next message: <A HREF="000006.html">map
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

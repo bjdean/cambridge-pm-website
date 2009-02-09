@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Numbers
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000446.html">
+   <LINK REL="Next"  HREF="000444.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Numbers
+   </H1>
+    <B>Nicholas Clark
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Numbers">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 5 Dec 2001 21:05:10 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000446.html">[cam.pm] Numbers
+</A></li>
+        <LI> Next message: <A HREF="000444.html">[cam.pm] Numbers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#447">[ date ]</a>
+              <a href="thread.html#447">[ thread ]</a>
+              <a href="subject.html#447">[ subject ]</a>
+              <a href="author.html#447">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Dec 05, 2001 at 04:25:44PM +0000, Matthew Byng-Maddick wrote:
+&gt;<i> On Wed, Dec 05, 2001 at 04:17:17PM +0000, Philip Kendall wrote:
+</I>
+&gt;<i> &gt; POSIX::floor and POSIX::ceil give you (respectively) the integers less
+</I>&gt;<i> &gt; than or equal to and greater than or equal to a number.
+</I>&gt;<i> 
+</I>&gt;<i> Yes, and they return something which will set SvIOK.
+</I>
+If it is in range for an VI, else:
+
+ perl5.6.1 -MPOSIX -MDevel::Peek -e '$a = 2**32 + 3.7; $b = floor ($a); Dump $a; Dump $b'
+SV = PVNV(0x169048) at 0x1f55d8
+  REFCNT = 1
+  FLAGS = (NOK,pNOK)
+  IV = 0
+  NV = 4294967299.7
+  PV = 0
+SV = NV(0xfa958) at 0x195758
+  REFCNT = 1
+  FLAGS = (NOK,pNOK)
+  NV = 4294967299
+
+oh, hangon, even if it  is in range for an IV:
+
+perl5.6.1 -MPOSIX -MDevel::Peek -e '$a = 2**30 + 3.7; $b = floor ($a); Dump $a; Dump $b'
+SV = PVNV(0x169048) at 0x1f55d8
+  REFCNT = 1
+  FLAGS = (NOK,pNOK)
+  IV = 0
+  NV = 1073741827.7
+  PV = 0
+SV = NV(0xfa958) at 0x195758
+  REFCNT = 1
+  FLAGS = (NOK,pNOK)
+  NV = 1073741827
+
+5.8 doesn't actually change this much for floor.
+
+&gt;<i> &gt; &gt; and what various operators (eg bitwise) do in each case?
+</I>&gt;<i> 
+</I>&gt;<i> Bitwise ops will only work on SvIV parts. So an SvNV part will be cast
+</I>&gt;<i> to an integer (and the SV will become SvIOK).
+</I>
+on 5.6.x and earlier.
+5.8 will only mark this scalar as publicly IOK if it was really exactly an
+integer.
+
+&gt;<i> Perl's internal representations of things are really not for the
+</I>&gt;<i> faint-hearted and the way the string and atoi() etc magic are done is
+</I>&gt;<i> absolutely horrid.
+</I>
+Does 5.7.x still count as absolutely horrid?
+If so, how could it be done less horribly and still work?
+
+Win a prize:
+
+I'll buy a pint (of bitter or cider or maybe even lager if you sweet talk me)
+for anyone who finds a bug in the 5.7.2 numeric code.
+I'll buy (at least) another pint if you supply a patch to fix it.
+
+Nicholas Clark
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000446.html">[cam.pm] Numbers
+</A></li>
+	<LI> Next message: <A HREF="000444.html">[cam.pm] Numbers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#447">[ date ]</a>
+              <a href="thread.html#447">[ thread ]</a>
+              <a href="subject.html#447">[ subject ]</a>
+              <a href="author.html#447">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Selecting array elements based on another array
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="001051.html">
+   <LINK REL="Next"  HREF="001053.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Selecting array elements based on another array
+   </H1>
+    <B>Dave Cross
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Selecting array elements based on another array">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Mon, 14 Jul 2003 05:20:07 -0700</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="001051.html">[cam.pm] Selecting array elements based on another array
+</A></li>
+        <LI> Next message: <A HREF="001053.html">[cam.pm] Selecting array elements based on another array
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1052">[ date ]</a>
+              <a href="thread.html#1052">[ thread ]</a>
+              <a href="subject.html#1052">[ subject ]</a>
+              <a href="author.html#1052">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>From: Philip Kendall &lt;<A HREF="mailto:pak21-campm@srcf.ucam.org">pak21-campm@srcf.ucam.org</A>&gt;
+Date: 7/14/03 11:58:26 AM
+
+&gt;<i> Assume I have an array containing data, an (equally-sized)
+</I>&gt;<i> array containing whether each data point is valid or not 
+</I>&gt;<i> and I wish to select all elements from the data for which 
+</I>&gt;<i> the selector is true
+</I>&gt;<i>
+</I>&gt;<i> eg from 
+</I>&gt;<i>
+</I>&gt;<i> @data = ( 1, 2, 3, 4 )
+</I>&gt;<i> @selector = ( 0, 1, 1, 0 )
+</I>&gt;<i>
+</I>&gt;<i> I wish to obtain @valid = ( 2, 3 )
+</I>
+Something like this perhaps:
+
+#!/usr/local/bin/perl
+
+use strict;
+use warnings;
+
+my @data = ( 1, 2, 3, 4 );
+my @selector = ( 0, 1, 1, 0 );
+
+my @valid = @data[ grep { $selector[$_] } 0 .. $#selector ];
+
+print &quot;@valid\n&quot;;
+
+
+Dave...
+
+-- 
+&lt;<A HREF="http://www.dave.org.uk">http://www.dave.org.uk</A>&gt;
+
+&quot;Let me see you make decisions, without your television&quot;
+   - Depeche Mode (Stripped)
+
+
+
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="001051.html">[cam.pm] Selecting array elements based on another array
+</A></li>
+	<LI> Next message: <A HREF="001053.html">[cam.pm] Selecting array elements based on another array
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1052">[ date ]</a>
+              <a href="thread.html#1052">[ thread ]</a>
+              <a href="subject.html#1052">[ subject ]</a>
+              <a href="author.html#1052">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

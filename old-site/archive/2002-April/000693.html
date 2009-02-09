@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Number vs. string
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:nick%40ccl4.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000692.html">
+   <LINK REL="Next"  HREF="000694.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Number vs. string
+   </H1>
+    <B>Nicholas Clark
+    </B> 
+    <A HREF="mailto:nick%40ccl4.org"
+       TITLE="[cam.pm] Number vs. string">nick@ccl4.org
+       </A><BR>
+    <I>Fri, 12 Apr 2002 11:00:45 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000692.html">[cam.pm] Number vs. string
+</A></li>
+        <LI> Next message: <A HREF="000694.html">[cam.pm] Number vs. string
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#693">[ date ]</a>
+              <a href="thread.html#693">[ thread ]</a>
+              <a href="subject.html#693">[ subject ]</a>
+              <a href="author.html#693">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, Apr 12, 2002 at 10:49:19AM +0100, Peter Clay wrote:
+&gt;<i> 
+</I>&gt;<i> What's the most efficient way of determining whether a scalar contains an
+</I>&gt;<i> integer or a string?
+</I>
+  ^^^^^^^
+
+probably a regexp. something like /^-?[1-9]\d*\z/
+
+(note \z not $, as $ will let you have a trailing \n, which isn't part of
+a number)
+
+But the more question for a number is a classic mess. :-(
+
+And maybe the above should be /^-?[1-9][0-9]*\z/ as Unicode or locales
+may mean that \d matches a few other digit characters that maybe you
+weren't expecting.
+
+Nicholas Clark
+
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000692.html">[cam.pm] Number vs. string
+</A></li>
+	<LI> Next message: <A HREF="000694.html">[cam.pm] Number vs. string
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#693">[ date ]</a>
+              <a href="thread.html#693">[ thread ]</a>
+              <a href="subject.html#693">[ subject ]</a>
+              <a href="author.html#693">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

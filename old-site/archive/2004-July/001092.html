@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Backup / archive format handling?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="001091.html">
+   <LINK REL="Next"  HREF="001093.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Backup / archive format handling?
+   </H1>
+    <B>Chris Ball
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Backup / archive format handling?">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 13 Jul 2004 14:12:29 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="001091.html">[cam.pm] Backup / archive format handling?
+</A></li>
+        <LI> Next message: <A HREF="001093.html">[cam.pm] Backup / archive format handling?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1092">[ date ]</a>
+              <a href="thread.html#1092">[ thread ]</a>
+              <a href="subject.html#1092">[ subject ]</a>
+              <a href="author.html#1092">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Peter,
+
+&gt;&gt;<i> On Tue, 13 Jul 2004 13:59:19, Peter Clay &lt;<A HREF="mailto:pete@flatline.org.uk">pete@flatline.org.uk</A>&gt; said:
+</I>
+   &gt; Which versions of Perl are largefile-clean?
+
+All of them since 5.6.0, which was released four-ish years ago.  
+Your glibc will need to support O_LARGEFILE.
+
+   &gt; Do I need to do anything special to get largefiles to work?
+
+perl -V | grep USE_LARGE_FILES will tell you whether it's compiled in;
+you'd need to compile with -Duselargefiles if it wasn't.  The configure
+script always enables it (if the platform supports it) by default.
+
+- Chris.
+-- 
+Chris Ball   &lt;<A HREF="mailto:cjb@mrao.cam.ac.uk">cjb@mrao.cam.ac.uk</A>&gt;    &lt;<A HREF="http://www.mrao.cam.ac.uk/~cjb/">http://www.mrao.cam.ac.uk/~cjb/</A>&gt;
+  Inference Group:            &lt;<A HREF="http://www.inference.phy.cam.ac.uk/is/">http://www.inference.phy.cam.ac.uk/is/</A>&gt;
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="001091.html">[cam.pm] Backup / archive format handling?
+</A></li>
+	<LI> Next message: <A HREF="001093.html">[cam.pm] Backup / archive format handling?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1092">[ date ]</a>
+              <a href="thread.html#1092">[ thread ]</a>
+              <a href="subject.html#1092">[ subject ]</a>
+              <a href="author.html#1092">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

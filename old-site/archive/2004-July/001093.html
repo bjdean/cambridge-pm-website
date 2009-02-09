@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Backup / archive format handling?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="001092.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Backup / archive format handling?
+   </H1>
+    <B>Richard Kettlewell
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Backup / archive format handling?">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 14 Jul 2004 00:33:22 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="001092.html">[cam.pm] Backup / archive format handling?
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1093">[ date ]</a>
+              <a href="thread.html#1093">[ thread ]</a>
+              <a href="subject.html#1093">[ subject ]</a>
+              <a href="author.html#1093">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Peter Clay &lt;<A HREF="mailto:pete@flatline.org.uk">pete@flatline.org.uk</A>&gt; writes:
+&gt;<i> I'm looking at writing a backup script to replace Amanda, as Amanda is
+</I>&gt;<i> rather inflexible. There are some very specific requirements I'm
+</I>&gt;<i> trying to implement:
+</I>&gt;<i>
+</I>&gt;<i> - most of the target is source checkouts in people's home directories,
+</I>&gt;<i>   therefore consists of many, many identical small files;
+</I>&gt;<i> - but some of the files are very large (although none over 2Gb yet)
+</I>&gt;<i> - total area is up to about 250Gb
+</I>&gt;<i> - we want to fit as much of that as possible onto one 20/40Gb tape
+</I>&gt;<i> - we want users to be able to select what gets backed up, defaulting to on
+</I>&gt;<i> - we want to identify users with disproportionate backup requirements
+</I>&gt;<i> - maybe implement quotas on the above
+</I>&gt;<i>
+</I>&gt;<i> I had the idea to deduplicate files on the tape by e.g. MD5sum. But I
+</I>&gt;<i> don't know of a standard archive format that supports that. Ideally I'd
+</I>&gt;<i> like the tape format to be reconstructable with standard tools for obvious
+</I>&gt;<i> reasons. Failing that, I'll stick a copy of the restore script on the
+</I>&gt;<i> front of every tape.
+</I>
+Here is a quick and dirty approach that assumes file with similar
+contents will have similar basenames:
+
+  * Generate the full filename list
+  * Sort the filename list as follows:
+    1) all directories precede all regular files
+    2) directories precede their subdirectories
+    3) for regular files, filenames are transformed by reversing the
+       order of filename components before being sorted lexically
+       (i.e. /home/pete/dir/file.c becomes file.c/dir/pete/home/)
+  * Create a tarball (or whatever), and filter that through gzip or
+    bzip2 (or whatever)
+
+Making similar-content files likely to be near one another gives an
+ordinary compressor more chance to take advantage of their
+similarity.
+
+Compared to your per-file de-duping it loses on files with same
+content but different-enough basenames; but wins on files with similar
+names and similar but not identical content (which seems like a useful
+kind of thing for mostly duplicate source trees).
+
+It probably loses on the very big files too, depending on the details
+of the compression program; how significant this is will depend on how
+many there are.
+
+Compressed backups make me a little twitchy, but you're basically
+proposing to compress them anyway...
+
+-- 
+<A HREF="http://www.greenend.org.uk/rjk/">http://www.greenend.org.uk/rjk/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="001092.html">[cam.pm] Backup / archive format handling?
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1093">[ date ]</a>
+              <a href="thread.html#1093">[ thread ]</a>
+              <a href="subject.html#1093">[ subject ]</a>
+              <a href="author.html#1093">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

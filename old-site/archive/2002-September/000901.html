@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Programming guidlines
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:Ian.Phillipps%40mail.com">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000899.html">
+   <LINK REL="Next"  HREF="000903.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Programming guidlines
+   </H1>
+    <B>Ian Phillipps
+    </B> 
+    <A HREF="mailto:Ian.Phillipps%40mail.com"
+       TITLE="[cam.pm] Programming guidlines">Ian.Phillipps@mail.com
+       </A><BR>
+    <I>Sun, 15 Sep 2002 15:17:58 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000899.html">[cam.pm] Programming guidlines
+</A></li>
+        <LI> Next message: <A HREF="000903.html">[cam.pm] Programming guidlines
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#901">[ date ]</a>
+              <a href="thread.html#901">[ thread ]</a>
+              <a href="subject.html#901">[ subject ]</a>
+              <a href="author.html#901">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sun, 15 Sep 2002 at 10:21:05 +0100, Stephen Turner wrote:
+&gt;<i> Lucy McWilliam wrote:
+</I>
+&gt;<i> Perl idioms for C programmers? OK.
+</I>
+&gt;<i> 1) Regular expressions are usually the most efficient way of doing things,
+</I>&gt;<i> even if they can be a little impenetrable.
+</I>
+Assuming that (1) wasn't part of the joke, I'd put the number one rule
+as &quot;use hashes&quot; (&quot;use regexs&quot; is number two).
+
+A C programmer will think of linked lists, pointers etc etc. Throw them
+all away and use a hash. Linked list? Nah - use a hash. Tree? Nah - use
+a hash.
+
+The other rule of thumb is if you find yourself writing a C-style 'for'
+loop, there is probably a better way to do what you want.
+
+But there are a number of culture shocks. I can just about remember some
+of mine:
+
+Strings can have nulls in, and don't end with nulls.
+
+Scalars are numbers and/or strings, whichever you want and you don't
+need to worry about which they are (bitwise operators excepted).
+
+&quot;Local&quot; isn't like C dynamic storage (I learned perl before &quot;my&quot;
+existed. Simpler rule nowadays is to ignore &quot;local&quot;.)
+
+Beware that 0 is false. (Applies to all perl programers :-)
+
+Ian
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000899.html">[cam.pm] Programming guidlines
+</A></li>
+	<LI> Next message: <A HREF="000903.html">[cam.pm] Programming guidlines
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#901">[ date ]</a>
+              <a href="thread.html#901">[ thread ]</a>
+              <a href="subject.html#901">[ subject ]</a>
+              <a href="author.html#901">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

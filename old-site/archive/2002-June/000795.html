@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Perl poser
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:andrewm%40chiark.greenend.org.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000794.html">
+   <LINK REL="Next"  HREF="000797.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Perl poser
+   </H1>
+    <B>Andrew Mobbs
+    </B> 
+    <A HREF="mailto:andrewm%40chiark.greenend.org.uk"
+       TITLE="[cam.pm] Perl poser">andrewm@chiark.greenend.org.uk
+       </A><BR>
+    <I>Wed, 05 Jun 2002 09:40:52 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000794.html">[cam.pm] Perl poser
+</A></li>
+        <LI> Next message: <A HREF="000797.html">[cam.pm] Perl poser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#795">[ date ]</a>
+              <a href="thread.html#795">[ thread ]</a>
+              <a href="subject.html#795">[ subject ]</a>
+              <a href="author.html#795">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>In article &lt;<A HREF="mailto:Pine.SOL.4.44.0206050613140.2076-100000@yellow.csi.cam.ac.uk">Pine.SOL.4.44.0206050613140.2076-100000@yellow.csi.cam.ac.uk</A>&gt; you write:
+&gt;<i>Soooo. I've tried putting it all in a hash, but there's too much data.
+</I>&gt;<i>My current mediocre approach is to go throught the file once for each gene
+</I>&gt;<i>and print to n intermediary files (where n is total number of genes), which
+</I>&gt;<i>frankly takes far too long.  Shall swap beer for useful ideas.
+</I>
+Use Sleepycat libdb? 
+<A HREF="http://search.cpan.org/search?module=BerkeleyDB">http://search.cpan.org/search?module=BerkeleyDB</A>
+
+This should be able to handle hashes bigger than RAM size. If not,
+it's broken. The libdb C API certainly allows it.
+
+Alternatively, sort your file by gene1, and keep a hash of offsets into
+the file by gene1. When looking for a (gene1,gene2,score) tuple, jump
+to the appropriate place in the file for gene1, and do a sequential scan
+from that point. The OS buffer cache should help.
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000794.html">[cam.pm] Perl poser
+</A></li>
+	<LI> Next message: <A HREF="000797.html">[cam.pm] Perl poser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#795">[ date ]</a>
+              <a href="thread.html#795">[ thread ]</a>
+              <a href="subject.html#795">[ subject ]</a>
+              <a href="author.html#795">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

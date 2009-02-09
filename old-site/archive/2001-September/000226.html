@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Recursion
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000225.html">
+   <LINK REL="Next"  HREF="000236.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Recursion
+   </H1>
+    <B>Colin Watson
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Recursion">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 19 Sep 2001 16:35:51 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000225.html">[cam.pm] Recursion
+</A></li>
+        <LI> Next message: <A HREF="000236.html">[cam.pm] Recursion
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#226">[ date ]</a>
+              <a href="thread.html#226">[ thread ]</a>
+              <a href="subject.html#226">[ subject ]</a>
+              <a href="author.html#226">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Sep 19, 2001 at 04:20:29PM +0100, Matthew Byng-Maddick wrote:
+&gt;<i> On Wed, Sep 19, 2001 at 04:04:36PM +0100, Philip Kendall wrote:
+</I>&gt;<i> &gt; &lt;fx: looks around. Where's everybody gone?&gt;
+</I>&gt;<i> &gt; Does anyone know if there are any artifical limits on how deep Perl
+</I>&gt;<i> &gt; subroutines can recurse? (Some of my simulations may be of the same
+</I>&gt;<i> &gt; order of magnitude as 2^16 in the near future, and I don't want them to
+</I>&gt;<i> &gt; blow up after 12 hours of runtime :-) )
+</I>&gt;<i> 
+</I>&gt;<i> Perl will certainly warn, and possibly blow up after 100 levels of
+</I>&gt;<i> stack with the same function.
+</I>
+I just tried it with:
+
+#! /usr/bin/perl -w
+
+sub recurse ($)
+{
+    print &quot;$_[0] &quot;;
+    recurse ($_[0] + 1);
+}
+
+recurse 0;
+
+It seems only to warn (&quot;Deep recursion on subroutine &quot;main::recurse&quot; at
+./recurse.pl line 6.&quot;). At &gt;200000 levels of recursion, though, it was
+taking up ~80Mb of memory just with stack frames.
+
+&gt;<i> Doing O(2^16) sounds incredibly worrying, and possibly better solved
+</I>&gt;<i> in some other way than recursion, as you'll need a stack frame for
+</I>&gt;<i> each level.
+</I>
+I'd agree with that. You can unfold any recursion into iteration
+(trivially, using your own stack, or perhaps in some cleverer way).
+Recursive code is often very elegant and easy to understand, but at that
+kind of depth it's unlikely to be efficient unless the language is built
+for it.
+
+Since Perl didn't optimize away the tail-recursion in my code above, I'd
+guess that it's not the best language to use for deeply recursive code.
+
+-- 
+Colin Watson                                  [<A HREF="mailto:cjwatson@flatline.org.uk">cjwatson@flatline.org.uk</A>]
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000225.html">[cam.pm] Recursion
+</A></li>
+	<LI> Next message: <A HREF="000236.html">[cam.pm] Recursion
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#226">[ date ]</a>
+              <a href="thread.html#226">[ thread ]</a>
+              <a href="subject.html#226">[ subject ]</a>
+              <a href="author.html#226">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Option parsing modules
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:dave%40dave.org.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000634.html">
+   <LINK REL="Next"  HREF="000636.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Option parsing modules
+   </H1>
+    <B>Dave Cross
+    </B> 
+    <A HREF="mailto:dave%40dave.org.uk"
+       TITLE="[cam.pm] Option parsing modules">dave@dave.org.uk
+       </A><BR>
+    <I>Thu, 14 Mar 2002 06:37:24 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000634.html">[cam.pm] Option parsing modules
+</A></li>
+        <LI> Next message: <A HREF="000636.html">[cam.pm] Option parsing modules
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#635">[ date ]</a>
+              <a href="thread.html#635">[ thread ]</a>
+              <a href="subject.html#635">[ subject ]</a>
+              <a href="author.html#635">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Mar 13, 2002 at 08:17:16PM +0000, LNR (<A HREF="mailto:lnr@lspace.org">lnr@lspace.org</A>) wrote:
+&gt;<i> OK so suppose you're writing a small command line program which you want
+</I>&gt;<i> to take a few options, and you don't fancy doing to option handling by
+</I>&gt;<i> hand unless you really need to, what do you use?
+</I>&gt;<i> 
+</I>&gt;<i> The Camel book documents the Getopt::Std module, and I've been trying to
+</I>&gt;<i> use that.  It has a couple of functions, one which takes a reference to
+</I>&gt;<i> a hash and is supposed to populate the hash with the results, and
+</I>&gt;<i> another which stores the results in a bunch of global variables.
+</I>&gt;<i> 
+</I>&gt;<i> I can't seem to get the former to work (any ideas where I might be
+</I>&gt;<i> messing up?).  Ad I don't like the latter because global variables
+</I>&gt;<i> aren't really appreciated by use strict and I can't get 'our' to work
+</I>&gt;<i> (is this part of perl introduced later than 5.004?  Still trying to get
+</I>&gt;<i> current stable version of perl to compile on our HPUX machines with no
+</I>&gt;<i> success: IO've not had a huge amount of experience compiling things and
+</I>&gt;<i> I tend to run out of ideas when it doens't just work :-).
+</I>
+Which version of Perl are you using? I seem to remember that the version
+of Getopt::Std whch fills in a hash is a relatively new thing (one of the
+5.005 series perhaps).
+
+And if you can't use &quot;our&quot; because you're not using 5,6.x, then the 
+alternative is to use &quot;use vars&quot; to predeclare your package variables.
+
+use vars qw($a $set %of @variables);
+
+&gt;<i> Is there a better module out there?  Or am I just going to have to carry
+</I>&gt;<i> on not using strict (current workaround)?  Or should I just do it
+</I>&gt;<i> myself?  I mean it's only half a dozen options, it shouldn't be too hard
+</I>&gt;<i> to do.
+</I>
+Well there's Getopt::Long - but that's more complicated.
+
+Perhaps you should just download and install a more up to date version
+of Getopt::Std.
+
+Dave...
+
+-- 
+
+  .sig missing...
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000634.html">[cam.pm] Option parsing modules
+</A></li>
+	<LI> Next message: <A HREF="000636.html">[cam.pm] Option parsing modules
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#635">[ date ]</a>
+              <a href="thread.html#635">[ thread ]</a>
+              <a href="subject.html#635">[ subject ]</a>
+              <a href="author.html#635">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

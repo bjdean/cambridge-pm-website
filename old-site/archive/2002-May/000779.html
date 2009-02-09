@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] University Term dates
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam-pm%40lists.colondot.net">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000778.html">
+   <LINK REL="Next"  HREF="000780.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] University Term dates
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam-pm%40lists.colondot.net"
+       TITLE="[cam.pm] University Term dates">cam-pm@lists.colondot.net
+       </A><BR>
+    <I>Thu, 30 May 2002 14:44:47 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000778.html">[cam.pm] University Term dates
+</A></li>
+        <LI> Next message: <A HREF="000780.html">[cam.pm] University Term dates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#779">[ date ]</a>
+              <a href="thread.html#779">[ thread ]</a>
+              <a href="subject.html#779">[ subject ]</a>
+              <a href="author.html#779">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, May 30, 2002 at 02:29:26PM +0100, Michael Gray wrote:
+&gt;<i> On Thu, 30 May 2002, Ian Wells wrote:
+</I>&gt;<i> &gt; &gt; Just in case I'm in the middle of reinventing the wheel:
+</I>&gt;<i> &gt; &gt; Has anyone written any modules to encapsulate and apply the 
+</I>&gt;<i> &gt; &gt; information 
+</I>&gt;<i> &gt; &gt; at:
+</I>&gt;<i> &gt; &gt;  <A HREF="http://www.cam.ac.uk/cambuniv/termdates.html">http://www.cam.ac.uk/cambuniv/termdates.html</A>
+</I>&gt;<i> &gt; &gt; If not, I'll press on.  Thanks.
+</I>&gt;<i> &gt; I seem to remember that the information there is not quite algorithmically
+</I>&gt;<i> &gt; derived.  You may well get a better solution by hardcoding those numbers
+</I>&gt;<i> &gt; into your module...
+</I>&gt;<i> Indeed, my plan is to hardcode the non-algorithmic dates, by sucking them
+</I>&gt;<i> off the web-page.  In fact, I've already done that bit 'cause it seemed 
+</I>&gt;<i> like a fun way of playing with LWP and HTML::Parser.
+</I>
+I think a slightly better way of doing it would be to include something in
+your Makefile.PL that generates the module's text in this way, and provides
+it as data. This ensures that your module, when linked, is effectively
+static, and doesn't require a Net connection, but also provides a nice way
+to update it, and an easier way to keep it up-to-date when the format
+changes.
+
+My tuppence.
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000778.html">[cam.pm] University Term dates
+</A></li>
+	<LI> Next message: <A HREF="000780.html">[cam.pm] University Term dates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#779">[ date ]</a>
+              <a href="thread.html#779">[ thread ]</a>
+              <a href="subject.html#779">[ subject ]</a>
+              <a href="author.html#779">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Beginning Perl for Bioinformatics
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000471.html">
+   <LINK REL="Next"  HREF="000466.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Beginning Perl for Bioinformatics
+   </H1>
+    <B>LNR
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Beginning Perl for Bioinformatics">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Mon, 17 Dec 2001 14:06:12 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000471.html">[cam.pm] Beginning Perl for Bioinformatics
+</A></li>
+        <LI> Next message: <A HREF="000466.html">[cam.pm] Beginning Perl for Bioinformatics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#465">[ date ]</a>
+              <a href="thread.html#465">[ thread ]</a>
+              <a href="subject.html#465">[ subject ]</a>
+              <a href="author.html#465">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Philip Kendall  wrote:
+&gt;<i>
+</I>&gt;<i>(If the sum of two digits is greater than 10, just treat the two digits
+</I>&gt;<i> as two separate entries in the array. This can cause the the procedure
+</I>&gt;<i> not to converge...)
+</I>
+What you need to do now is something to stop i going on forever if it's
+not showing any sign of converging.
+
+I've been picking this apart by email with Phil already :-)
+
+ 9   9   9
+  1 8 1 8
+ 1 9 9 9 8
+
+is a good example of a fragment which will never converge and get longer
+and longer.  Other bits get into loops where you go round the same few
+lines over and over again.  It's harder to just make an example of that
+up off the top of my head I'm afraid.
+
+I spent a week one boring summer doing lots of examples on paper and
+seeing where problems were likely to occur.  There were certainly some
+patterns, where specific things would make a sequence less likely to
+converge.  The more of each letter there is the worse, more so if
+they're in the middle than if they're at the ends.  My full name with 4
+Es in is awkward.  But there were some that just failed despite looking
+perfectly likley to succeed.
+
+I can't remember any details though unfortunately.
+
+-- 
+<A HREF="mailto:lnr@lspace.org">lnr@lspace.org</A>                 <A HREF="http://www.chiark.greenend.org.uk/~eleanorb/">http://www.chiark.greenend.org.uk/~eleanorb/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000471.html">[cam.pm] Beginning Perl for Bioinformatics
+</A></li>
+	<LI> Next message: <A HREF="000466.html">[cam.pm] Beginning Perl for Bioinformatics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#465">[ date ]</a>
+              <a href="thread.html#465">[ thread ]</a>
+              <a href="subject.html#465">[ subject ]</a>
+              <a href="author.html#465">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

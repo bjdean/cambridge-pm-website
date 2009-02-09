@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Option parsing modules
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cjwatson%40flatline.org.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000627.html">
+   <LINK REL="Next"  HREF="000631.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Option parsing modules
+   </H1>
+    <B>Colin Watson
+    </B> 
+    <A HREF="mailto:cjwatson%40flatline.org.uk"
+       TITLE="[cam.pm] Option parsing modules">cjwatson@flatline.org.uk
+       </A><BR>
+    <I>Wed, 13 Mar 2002 20:40:32 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000627.html">[cam.pm] Option parsing modules
+</A></li>
+        <LI> Next message: <A HREF="000631.html">[cam.pm] Option parsing modules
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#628">[ date ]</a>
+              <a href="thread.html#628">[ thread ]</a>
+              <a href="subject.html#628">[ subject ]</a>
+              <a href="author.html#628">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Mar 13, 2002 at 08:17:16PM +0000, LNR wrote:
+&gt;<i> The Camel book documents the Getopt::Std module, and I've been trying to
+</I>&gt;<i> use that.  It has a couple of functions, one which takes a reference to
+</I>&gt;<i> a hash and is supposed to populate the hash with the results, and
+</I>&gt;<i> another which stores the results in a bunch of global variables.
+</I>&gt;<i> 
+</I>&gt;<i> I can't seem to get the former to work (any ideas where I might be
+</I>&gt;<i> messing up?).
+</I>
+You'll want something like this:
+
+  #! /usr/bin/perl -w
+  use strict;
+  use Getopt::Std;
+  my %opts;
+  getopts('abc', \%opts);
+  print &quot;a is set\n&quot; if defined $opts{a};
+  print &quot;b is set\n&quot; if defined $opts{b};
+  print &quot;c is set\n&quot; if defined $opts{c};
+
+Put a colon after any letter in the first argument to getopts() if you
+want that option to take an argument.
+
+&gt;<i> Ad I don't like the latter because global variables aren't really
+</I>&gt;<i> appreciated by use strict and I can't get 'our' to work (is this part
+</I>&gt;<i> of perl introduced later than 5.004?
+</I>
+'our' turned up in Perl 5.6. The usual way of using global variables
+before then was 'use vars', so you would do something like:
+
+  use vars qw($opt_a);
+
+... if you wanted the strict module to keep quiet about $opt_a.
+
+-- 
+Colin Watson                                  [<A HREF="mailto:cjwatson@flatline.org.uk">cjwatson@flatline.org.uk</A>]
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000627.html">[cam.pm] Option parsing modules
+</A></li>
+	<LI> Next message: <A HREF="000631.html">[cam.pm] Option parsing modules
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#628">[ date ]</a>
+              <a href="thread.html#628">[ thread ]</a>
+              <a href="subject.html#628">[ subject ]</a>
+              <a href="author.html#628">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

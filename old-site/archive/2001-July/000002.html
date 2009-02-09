@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> Personal perl irritations (Re: Web application survey)
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000001.html">
+   <LINK REL="Next"  HREF="000003.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>Personal perl irritations (Re: Web application survey)
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="Personal perl irritations (Re: Web application survey)">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 3 Jul 2001 14:44:30 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000001.html">Simon Cozens' Perl6 emulator
+</A></li>
+        <LI> Next message: <A HREF="000003.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jul 02, 2001 at 08:58:30PM +0100, Matthew Byng-Maddick wrote:
+&gt;<i> 
+</I>&gt;<i> Seconded that these are horrific. However,
+</I>&gt;<i> use English;
+</I>&gt;<i> helps...
+</I>
+It only makes them more readable.  They're still an abomination.  $/ and
+$$ are about the only ones I ever use, although I have had occasion to use $,
+and $&gt;, as in snippets like the following:
+
+  ($user, undef, $uid, undef) = getpwuid($&gt;);
+
+  unless (scalar(grep(/$user/<A HREF="mailto:,@Gap4">,@Gap4</A>::Cfg::rebuild_users)) &gt; 0) {
+    die &quot;You do not have permission to run this program - Contact Tim.\n&quot;;
+  }
+
+Oops.  I've just spotted a bug in that.  The regexp should be /^$user$/.
+
+&gt;<i> &gt; &gt; Ok, so how do I get a global variable when I need one then?
+</I>&gt;<i> &gt; Just give its complete name including namespace, so:
+</I>&gt;<i> &gt; %main::somehash = ();
+</I>&gt;<i> 
+</I>&gt;<i> or the shorthand 
+</I>&gt;<i> %::somehash, which then looks a bit neater.
+</I>
+If you say so.  :-)
+
+&gt;<i> I thought that $_ was supposed to be a package global, but a bit of
+</I>&gt;<i> experimentation shows that this isn't actually the case. :-(
+</I>
+$_ has all sorts of horrible magic associated with it though, doesn't it?
+Things like foreach automatically localize it, for example.  I'm not
+surprised if it behaves oddly in other contexts as well.  It's another
+thing I avoid using apart from in very small inner loops, where it's
+obvious what sort of thing $_ is.
+
+Tim.
+
+-- 
+Tim Cutts PhD                    Tel: +44 1223 454918
+Senior Bioinformatics Scientist
+Incyte Genomics
+Botanic House, 100 Hills Road, Cambridge, CB2 1FF, UK
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000001.html">Simon Cozens' Perl6 emulator
+</A></li>
+	<LI> Next message: <A HREF="000003.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

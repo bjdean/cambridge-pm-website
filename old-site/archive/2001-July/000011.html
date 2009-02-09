@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> SQL and CGI
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000009.html">
+   <LINK REL="Next"  HREF="000012.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>SQL and CGI
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="SQL and CGI">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 5 Jul 2001 11:03:34 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000009.html">SQL and CGI
+</A></li>
+        <LI> Next message: <A HREF="000012.html">SQL and CGI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#11">[ date ]</a>
+              <a href="thread.html#11">[ thread ]</a>
+              <a href="subject.html#11">[ subject ]</a>
+              <a href="author.html#11">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, Jul 05, 2001 at 10:33:21AM +0100, Martin Keegan wrote:
+&gt;<i> Hello Happy Cam.pers!
+</I>
+eek!!! :-)
+
+&gt;<i> A lot of the perlish stuff I do involves web-based access to SQL
+</I>&gt;<i> databases. I use the CGI and DBI modules, and am pretty happy with them.
+</I>&gt;<i> There are four things that I am missing:
+</I>&gt;<i>   a wrapper function which sprintfs correctly $dbh-&gt;quoted() arguments
+</I>&gt;<i>   into a query string
+</I>
+I'm not sure I understand what you mean here... Why would you want to do
+this?
+
+&gt;<i>   wrapper functions for sql queries which return single values, etc
+</I>
+eg:
+
+sub get_single {
+    my $dbh=shift;
+    my $sql=shift;
+
+    my $sth=$dbh-&gt;prepare($sql);
+    if($sth-&gt;execute(@_) &amp;&amp; $sth-&gt;rows()) {
+        my($ret)=$sth-&gt;fetchrow_array();
+        $sth-&gt;finish();
+        return $ret;
+    }
+    $sth-&gt;finish();
+    return undef;
+    }
+
+&gt;<i>   a 2 dimensional SQL result -&gt; 2 dimensional HTML table + style system
+</I>
+this is similar to the below...
+
+&gt;<i>   a SQL table schema -&gt; CGI form system
+</I>
+My last boss attempted to do this. It was ugly and crap.
+
+&gt;<i> I plead ignorance. Does any of these things actually exist?
+</I>
+Well, some are trivial to write yourself, others I have yet to find an
+implementation of that I like, and that works in every situation (by which
+I mean that I have some way of tweaking it if it doesn't work).
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000009.html">SQL and CGI
+</A></li>
+	<LI> Next message: <A HREF="000012.html">SQL and CGI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#11">[ date ]</a>
+              <a href="thread.html#11">[ thread ]</a>
+              <a href="subject.html#11">[ subject ]</a>
+              <a href="author.html#11">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

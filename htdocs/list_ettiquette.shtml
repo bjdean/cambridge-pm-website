@@ -1,0 +1,120 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+
+
+
+ 
+ 
+
+<html>
+ <head>
+  <title>
+   CAM.PM:
+   $* - {
+   $list
+   -&gt; ettiquette
+   ; }
+  </title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <table border="0" cellpadding="2" cellspacing="2">
+   <tr>
+    <td valign="center">
+     <img src="/images/dollar-star.jpg" alt="$*" />
+    </td>
+    <td valign="center">
+     <h1>
+      <tt>require "<font color="#009900">cam</font>.<font color="#009900">pm</font>" ;</tt>
+     </h1>
+     <h1>
+      <tt>
+       {
+       $<font color="#cc0000">list</font>
+       -&gt; <font color="#660099">ettiquette</font>
+       ; }</tt>
+     </h1>
+    </td>
+   </tr>
+   <tr>
+    <td valign="top">
+     <!-- begin nav -->
+     <table border="0" cellpadding="0" width="128" cellspacing="1">
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/index.shtml"><b>$?</b></a></td>
+       <td valign="top"><a href="/index.shtml">about cam.pm</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><b>$*</b></td>
+       <td valign="top">the cam.pm list</td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/list_signup.shtml">signing up</a></td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/list_archives.shtml">archives</a></td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/list_ettiquette.shtml">ettiquette</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/meets_when.shtml"><b>$@</b></a></td>
+       <td valign="top"><a href="/meets_when.shtml">cam.pm meetings</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/projects_home.shtml"><b>$_</b></a></td>
+       <td valign="top"><a href="/projects_home.shtml">cam.pm projects</a></td>
+      </tr>
+
+
+     </table>
+     <!-- end nav -->
+    </td>
+    <td valign="top">
+
+<p>
+The mailing list is fairly free-form, however, certain things should be
+noted.
+</p>
+<p>
+Any message posted to the cam.pm list will have [cam.pm] prepended to its subject
+line unless the subject line matches <tt>/\[cam\.pm\]/</tt>.
+</p>
+<p>
+Any job advert should be posted with "[JOB]" in the subject line to aid filtering
+by those people who are unwilling to recieve job adverts on the cam.pm list. Anyone
+violating this principle will be summarily removed from the membership of cam.pm.
+Someone repeatedly violating this could potentially find themselves facing candidacy
+for the MAPS RBL (see <a href="http://mail-abuse.com/rbl/">http://mail-abuse.com/rbl/</a>).
+</p>
+<p>
+Along similar lines, if you would like to post your latest CV, please could you
+make sure that your subject line contains the text "[CV]".
+</p>
+    </td>
+   </tr>
+  </table>
+  
+  <hr />
+  <small>
+   $Id: list_ettiquette.shtml,v 1.3 2002/03/08 01:46:04 pak21 Exp $
+  </small>
+  
+ </body>
+</html>
+

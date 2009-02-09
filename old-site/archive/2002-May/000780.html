@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] University Term dates
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:mjg17%40eng.cam.ac.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000779.html">
+   <LINK REL="Next"  HREF="000781.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] University Term dates
+   </H1>
+    <B>Michael Gray
+    </B> 
+    <A HREF="mailto:mjg17%40eng.cam.ac.uk"
+       TITLE="[cam.pm] University Term dates">mjg17@eng.cam.ac.uk
+       </A><BR>
+    <I>Thu, 30 May 2002 15:00:35 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000779.html">[cam.pm] University Term dates
+</A></li>
+        <LI> Next message: <A HREF="000781.html">[cam.pm] University Term dates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#780">[ date ]</a>
+              <a href="thread.html#780">[ thread ]</a>
+              <a href="subject.html#780">[ subject ]</a>
+              <a href="author.html#780">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, 30 May 2002, Matthew Byng-Maddick wrote:
+
+&gt;<i> On Thu, May 30, 2002 at 02:29:26PM +0100, Michael Gray wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Indeed, my plan is to hardcode the non-algorithmic dates, by sucking them
+</I>&gt;<i> &gt; off the web-page.  In fact, I've already done that bit 'cause it seemed 
+</I>&gt;<i> &gt; like a fun way of playing with LWP and HTML::Parser.
+</I>&gt;<i> 
+</I>&gt;<i> I think a slightly better way of doing it would be to include something in
+</I>&gt;<i> your Makefile.PL that generates the module's text in this way, and provides
+</I>&gt;<i> it as data. This ensures that your module, when linked, is effectively
+</I>&gt;<i> static, and doesn't require a Net connection, but also provides a nice way
+</I>&gt;<i> to update it, and an easier way to keep it up-to-date when the format
+</I>&gt;<i> changes.
+</I>
+Ah, my fault for not explaining further.  That is exactly what I'm 
+planning, and what I abbreviated into 'hardcode'.  A stand-alone script 
+will generate the code for an internal submodule which is simply an object 
+containing the dates.  The TermDates module won't need a net connection 
+and won't need the weight of LWP and HTML::Parser.
+
+-- 
+Michael
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000779.html">[cam.pm] University Term dates
+</A></li>
+	<LI> Next message: <A HREF="000781.html">[cam.pm] University Term dates
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#780">[ date ]</a>
+              <a href="thread.html#780">[ thread ]</a>
+              <a href="subject.html#780">[ subject ]</a>
+              <a href="author.html#780">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

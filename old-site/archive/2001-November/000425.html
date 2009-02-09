@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] CPANisation
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000424.html">
+   <LINK REL="Next"  HREF="000427.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] CPANisation
+   </H1>
+    <B>Peter Clay
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] CPANisation">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 21 Nov 2001 17:30:55 +0000 (GMT)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000424.html">[cam.pm] CPANisation
+</A></li>
+        <LI> Next message: <A HREF="000427.html">[cam.pm] CPANisation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#425">[ date ]</a>
+              <a href="thread.html#425">[ thread ]</a>
+              <a href="subject.html#425">[ subject ]</a>
+              <a href="author.html#425">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, 21 Nov 2001, Matthew Byng-Maddick wrote:
+
+&gt;<i> Indeed, in this case you are &quot;expect&quot;ing on the content of the page, not
+</I>&gt;<i> the rest of the request. The idea being that you could look for various
+</I>&gt;<i> forms, and fill them in automatically, while keeping any session identifiers
+</I>&gt;<i> or cookies.
+</I>
+Cookies being the important thing. People have basically abandoned HTTP
+authentication for professional websites because they can't override its
+user interface in browsers.
+
+&gt;<i> (this was the early implementation I saw of Pete's 8 or 9 months ago)
+</I>
+Yes, that arose from an all-nighter :) I'd dug it up, removed the
+reimplementation of HTML::Form, changed it from a hideous state machine
+into a reasonable language, and made it follow redirects transparently.
+
+my $wex = new Wex();
+
+# Go to a page (similar to javascript).
+$wex-&gt;location(&quot;<A HREF="http://www.orange.net/"">http://www.orange.net/&quot;</A>);
+
+# Set a couple of inputs, as if they were typed in.
+$wex-&gt;input('usr', $USER);
+$wex-&gt;input('pwd', $PASSWORD);
+
+# Click on the first submit button found in the form last
+# touched. Note that there are two forms on the orange page,
+# the first of which is a search one which we don't want.
+$wex-&gt;click();
+
+etc.
+
+Pete
+-- 
+Undiscovered band of the minute: The Secreted Shoeing of Event
+Today's Big Number: $5,806,732,894,990.90
+
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000424.html">[cam.pm] CPANisation
+</A></li>
+	<LI> Next message: <A HREF="000427.html">[cam.pm] CPANisation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#425">[ date ]</a>
+              <a href="thread.html#425">[ thread ]</a>
+              <a href="subject.html#425">[ subject ]</a>
+              <a href="author.html#425">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

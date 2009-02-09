@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Perl poser
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:m%40mjo.tc">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000793.html">
+   <LINK REL="Next"  HREF="000795.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Perl poser
+   </H1>
+    <B>Martin Oldfield
+    </B> 
+    <A HREF="mailto:m%40mjo.tc"
+       TITLE="[cam.pm] Perl poser">m@mjo.tc
+       </A><BR>
+    <I>Wed,  5 Jun 2002 08:00:47 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000793.html">[cam.pm] Perl poser
+</A></li>
+        <LI> Next message: <A HREF="000795.html">[cam.pm] Perl poser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#794">[ date ]</a>
+              <a href="thread.html#794">[ thread ]</a>
+              <a href="subject.html#794">[ subject ]</a>
+              <a href="author.html#794">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>It depends on the data, but I'd try the following:
+
+1. Just throw everything into a database and 
+
+	SELECT MAX(score) FROM scores GROUP BY geneA, geneB;
+
+   or somesuch.
+
+2. If the distribution of genes isn't very correlated then make a hash 
+   from gene name to number and store the best score in
+
+	$best[$h{$gene_a} + $stride * $h{$gene_b}]
+
+   where $stride is larger than the number of genes. There might be a
+   speed win if you preset the size of @best to $stride ^ 2. If that
+   still takes too much memory then you might be able to use PDL to
+   store the array more compactly. I think PDL packs things pretty
+   densely so if you've got N genes and store the score in a four byte
+   float the working size should be about 4 N^2 bytes. In perl I think 
+   a factor of ten is the usual one, so I'd expect a footprint of
+   about 40 N^2 bytes.
+
+3. If PDL is too slow, parse the data with perl then do the max() with
+   C or something, either writing a separate program or use Inline ?
+
+Obviously if the order of the genes isn't important then you can halve
+the memory usage by only storing half the array.
+
+Cheers,
+-- 
+M.
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000793.html">[cam.pm] Perl poser
+</A></li>
+	<LI> Next message: <A HREF="000795.html">[cam.pm] Perl poser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#794">[ date ]</a>
+              <a href="thread.html#794">[ thread ]</a>
+              <a href="subject.html#794">[ subject ]</a>
+              <a href="author.html#794">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

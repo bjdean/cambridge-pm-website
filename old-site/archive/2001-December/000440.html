@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Numbers
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000439.html">
+   <LINK REL="Next"  HREF="000450.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Numbers
+   </H1>
+    <B>Ian Phillipps
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Numbers">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 5 Dec 2001 16:16:45 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000439.html">[cam.pm] Numbers
+</A></li>
+        <LI> Next message: <A HREF="000450.html">[cam.pm] Numbers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#440">[ date ]</a>
+              <a href="thread.html#440">[ thread ]</a>
+              <a href="subject.html#440">[ subject ]</a>
+              <a href="author.html#440">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, 05 Dec 2001 at 14:19:58 +0000, Lucy McWilliam wrote:
+
+&gt;<i> &quot;Know of any comprehensive descriptions of when Perl uses integers to
+</I>&gt;<i> represent numbers, when it uses floats, how to get between them, and what
+</I>&gt;<i> various operators (eg bitwise) do in each case? I've found hints in the
+</I>&gt;<i> perlfaq and other stuff but nothing that fully answers my questions.&quot;
+</I>
+man perlop - /^ *Integer Arithmetic$/
+man integer
+
+Sums it up quite well, but omits to mention 'hex' and 'oct'.
+
+Bitwise ops will work as if a bitstring if each arg is a string.
+Note that  '12'&amp;'8' is different from 12&amp;8.
+
+I detect a misunderstanding of Perl philosophy - most of the time, you
+don't *care* how perl represents things. If you think you do, you're
+making a mistake; if an operand needs an integer, it gets one.
+
+&gt;<i> &quot;Ana samak.&quot;
+</I>Ahh, *that*'s why I didn't recognise you in the pub :-)
+Or maybe you were just drinking like one?
+
+Ian
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000439.html">[cam.pm] Numbers
+</A></li>
+	<LI> Next message: <A HREF="000450.html">[cam.pm] Numbers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#440">[ date ]</a>
+              <a href="thread.html#440">[ thread ]</a>
+              <a href="subject.html#440">[ subject ]</a>
+              <a href="author.html#440">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

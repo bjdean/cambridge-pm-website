@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] [OT] Version control systems?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cjwatson%40flatline.org.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000986.html">
+   <LINK REL="Next"  HREF="000988.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] [OT] Version control systems?
+   </H1>
+    <B>Colin Watson
+    </B> 
+    <A HREF="mailto:cjwatson%40flatline.org.uk"
+       TITLE="[cam.pm] [OT] Version control systems?">cjwatson@flatline.org.uk
+       </A><BR>
+    <I>Mon, 13 Jan 2003 15:24:20 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000986.html">[cam.pm] [OT] Version control systems?
+</A></li>
+        <LI> Next message: <A HREF="000988.html">[cam.pm] [OT] Version control systems?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#987">[ date ]</a>
+              <a href="thread.html#987">[ thread ]</a>
+              <a href="subject.html#987">[ subject ]</a>
+              <a href="author.html#987">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jan 13, 2003 at 02:59:06PM +0000, Peter Clay wrote:
+&gt;<i> CVS is the lowest-common-denominator version control system, and I
+</I>&gt;<i> know a lot of people use it. Does anyone use anything else, especially
+</I>&gt;<i> something that supports atomic commits? In particular, I'm looking at
+</I>&gt;<i> Subversion and trying to decide if it's safe yet.
+</I>
+IME Subversion is excellent; I keep large parts of my home directory in
+it these days. The main outstanding problems I've run into are:
+
+  - doesn't yet version symlinks
+  - no 'cvs annotate' analogue
+  - doesn't do SSL certificate handling (but see below)
+
+Still, for that and the stuff at
+<A HREF="http://subversion.tigris.org/inconveniences.html">http://subversion.tigris.org/inconveniences.html</A> you get atomic commits,
+proper renames and directory metadata, offline operation for a lot more
+things than CVS, and so on. As far as safety is concerned, I've had no
+problems, although I run 'svnadmin dump' from cron nightly just in case.
+
+If you want to avoid the Apache2 dependency, there's a relatively new
+repository access layer called ra_svn, which can be tunnelled over ssh.
+You probably want to be using at least 0.16.1 for this; I haven't tried
+it yet myself.
+
+&lt;/advocacy&gt;
+
+Cheers,
+
+-- 
+Colin Watson                                  [<A HREF="mailto:cjwatson@flatline.org.uk">cjwatson@flatline.org.uk</A>]
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000986.html">[cam.pm] [OT] Version control systems?
+</A></li>
+	<LI> Next message: <A HREF="000988.html">[cam.pm] [OT] Version control systems?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#987">[ date ]</a>
+              <a href="thread.html#987">[ thread ]</a>
+              <a href="subject.html#987">[ subject ]</a>
+              <a href="author.html#987">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

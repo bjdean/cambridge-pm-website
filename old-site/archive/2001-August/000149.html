@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Fun with perl: JAPHs with no unsightly letters or numbers (fwd)
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000145.html">
+   <LINK REL="Next"  HREF="000150.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Fun with perl: JAPHs with no unsightly letters or numbers (fwd)
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Fun with perl: JAPHs with no unsightly letters or numbers (fwd)">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Fri, 17 Aug 2001 10:25:21 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000145.html">[cam.pm] Randals photos of stonehenge etc.
+</A></li>
+        <LI> Next message: <A HREF="000150.html">[cam.pm] Fun with perl: JAPHs with no unsightly letters or numbers (fwd)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#149">[ date ]</a>
+              <a href="thread.html#149">[ thread ]</a>
+              <a href="subject.html#149">[ subject ]</a>
+              <a href="author.html#149">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>This appeared on FunWithPerl... I don't get it. :-/
+
+MBM
+
+-------- Forwarded Message follows ---------
+
+Date: Fri, 17 Aug 2001 10:21:29 +1000
+From: <A HREF="mailto:Andrew.Savige@ir.com">Andrew.Savige@ir.com</A>
+To: <A HREF="mailto:fwp@perl.org">fwp@perl.org</A>
+Subject: RE: JAPHs with no unsightly letters or numbers
+X-Mailer: Internet Mail Service (5.5.2653.19)
+
+Ronald J Kimball wrote:
+&gt;<i> ''=~(&quot;(?{&quot;.('}_).} &quot;*}_} }./}(}_ }}_, (}_+}_,*&quot;'&amp;
+</I>&gt;<i> ~'/-  +   *,+ &lt;  + :- /:-   &lt;&lt; :-  @'|
+</I>&gt;<i> '  ``   @     `` `   @  ` `  `   ').&quot;})&quot;);
+</I>&gt;<i>
+</I>&gt;<i> Inspired by Abigail and Japhy's recent postings.
+</I>&gt;<i>
+</I>&gt;<i> Ronald
+</I>
+Ronald, that was very impressive! Using your trick
+and ideas from Jas' delightful Acme::Smirch CPAN
+module, I have come up with two program generators:
+
+ob2.pl (Program generator based on Ronald's trick)
+--------------------------------------------------
+my %C;my $q;
+# Default values.
+$C{+chr} = &quot;'&quot; . chr() . &quot;'&quot; for 32..126;
+# Sorry, can't handle these punctuation symbols.
+$C{$_}=&quot;' '&quot; for ('&quot;',&quot;'&quot;,'$','@','\\');
+$C{&quot;\n&quot;} = q^'\\\\'.('`'|'.')^;
+$C{'p'}  = q#(']'^'-')#;
+# 'a' to 'o'
+$C{chr($_+64)}=q^('`'|^.($q=$_==39?'&quot;':&quot;'&quot;).chr().&quot;$q)&quot; for 33..47;
+# 'q'..'z'
+$C{chr($_+80)}=q#((']'^'-')|#.($q=$_==39?'&quot;':&quot;'&quot;).chr().&quot;$q)&quot;
+   for 33..42;
+# 'A'..'Z'.
+$C{+uc}=qq^($C{$_}&amp;~\' ')^ for 'a'..'z';
+print q^''=~('(?{'.^;
+print qq^$C{p}.$C{r}.$C{i}.$C{n}.$C{t}.'&quot;'^;
+print map{'.'.$C{$_}}map/./gs,&lt;&gt;;
+print q^.'&quot;'.'})')^;
+
+ob3.pl (uses older `$_` trick to write to stderr)
+-------------------------------------------------
+my %C;my $q;
+# Default values.
+$C{+chr} = &quot;'&quot; . chr() . &quot;'&quot; for 32..126;
+# Sorry, can't handle these punctuation symbols.
+$C{$_}=&quot;' '&quot; for ('&quot;',&quot;'&quot;,'`','&amp;','&lt;','&gt;','|','^','$','@','\\');
+$C{' '}  = q^$&quot;^;
+$C{&quot;\n&quot;} = q^'\\\\'.($;|'.')^;
+$C{'p'}  = '$:';
+# 'a' to 'o'
+$C{chr($_+64)}='($;|'.($q=$_==39?'&quot;':&quot;'&quot;).chr().&quot;$q)&quot; for 33..47;
+# 'q'..'z'
+$C{chr($_+80)}='($:|'.($q=$_==39?'&quot;':&quot;'&quot;).chr().&quot;$q)&quot; for 33..42;
+# 'A'..'Z'.
+$C{+uc}=qq^($C{$_}&amp;~\$&quot;)^ for 'a'..'z';
+my $e = q^$&quot;.'-'.($;|'%').'&quot;'^;
+print q^$#='#';$;='`';$:=$;|$%;$_=^;
+print qq^$C{p}.$C{e}.$C{r}.$C{l}.$e.$C{w}.$C{a}.$C{r}.$C{n}.'\\&quot;'^;
+print map{'.'.$C{$_}}map/./gs,&lt;&gt;;
+print q^.'\\&quot;&quot;';`$_`^;
+
+Example usage:
+  perl ob2.pl fred.txt &gt;fred.pl
+where fred.txt contains, say:
+  Just another Perl hacker
+will generate a Perl program, fred.pl, containing
+no alphnumeric characters. fred.pl can be manually
+shaped into various animals or other things.
+
+Andrew.
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000145.html">[cam.pm] Randals photos of stonehenge etc.
+</A></li>
+	<LI> Next message: <A HREF="000150.html">[cam.pm] Fun with perl: JAPHs with no unsightly letters or numbers (fwd)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#149">[ date ]</a>
+              <a href="thread.html#149">[ thread ]</a>
+              <a href="subject.html#149">[ subject ]</a>
+              <a href="author.html#149">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

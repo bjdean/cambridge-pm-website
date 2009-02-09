@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Trivial perl question
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000290.html">
+   <LINK REL="Next"  HREF="000292.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Trivial perl question
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Trivial perl question">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Fri, 5 Oct 2001 11:36:49 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000290.html">[cam.pm] Trivial perl question
+</A></li>
+        <LI> Next message: <A HREF="000292.html">[cam.pm] Trivial perl question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#291">[ date ]</a>
+              <a href="thread.html#291">[ thread ]</a>
+              <a href="subject.html#291">[ subject ]</a>
+              <a href="author.html#291">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, Oct 05, 2001 at 10:36:01AM +0100, Philip Kendall wrote:
+&gt;<i> On Fri, Oct 05, 2001 at 10:14:59AM +0100, Stephen Cardie wrote:
+</I>&gt;<i> &gt; On Thursday 04 October 2001 16:22 pm, the mighty poet Tim Cutts said on 
+</I>&gt;<i> &gt; the wire:
+</I>&gt;<i> &gt; &quot;&quot; [cut]
+</I>&gt;<i> &gt; &quot;&quot; But I was wondering if there was a more elegant way that doesn't
+</I>&gt;<i> &gt;  involve &quot;&quot; so much data movement (I suspect the above could get very
+</I>&gt;<i> &gt;  slow if &quot;&quot; $before is a large data structure).
+</I>&gt;<i> &gt; &quot;&quot;
+</I>&gt;<i> &gt; &quot;&quot; Any ideas?
+</I>&gt;<i> &gt; &quot;&quot;
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; For a very large data structure, each() is a better bet than values(), 
+</I>&gt;<i> &gt; as it doesn't have to create the entire list:
+</I>&gt;<i> 
+</I>&gt;<i> Isn't that more a memory issue than a speed issue? I interpreted Tim's
+</I>&gt;<i> problem as being a speed one -- he was trying to avoid copying every
+</I>&gt;<i> array element of every value of %$before.
+</I>
+Well, it becomes a speed issue as well.  Certainly with large data
+structures (such as wot I have here!)
+
+while (($key, undef) = each %$hash) {
+    ...
+}
+
+is *much* faster than
+
+foreach (keys %$hash) {
+    ...
+}
+
+I only ever use keys these days for one of the following reasons:
+1)  Order is important (i.e. I need &quot;sort keys&quot;)
+2)  The size of the hash is known to be very small
+3)  I actually need the full array for some reason
+
+'values' I use rather more often for creating non-redundant lists via a
+hash.
+
+It may be slow, but something like:
+
+$foo-&gt;set_nr_list([ values %nr_hash ]);
+
+is a lot more readable for other people than:
+
+my $arr = [];
+while ((undef, $value) = each %nr_hash) {
+    push @$arr, $value;
+}
+$foo-&gt;set_nr_list($arr);
+
+It may even be faster, although I suspect the [ values ] involves
+copying the entire array into the new anonymous array reference.
+
+[ tries a bit of benchmarking ]
+
+Hmm.  Now I'm surprised.  I tried taking a reference to what values
+returned, rather than enclosing it in [], and it's actually *slower*:
+
+use Benchmark;
+
+%foo = ();
+
+for (1..100000) {
+    $foo-&gt;{&quot;key$_&quot;} = &quot;value$_&quot;;
+}
+
+timethese (1000000, {
+    'AnonRef' =&gt; '$a = [ values %foo ]',
+    'Context' =&gt; '$a = \@{values %foo}'
+});
+
+11:28:42 <A HREF="mailto:timc@bio1">timc@bio1</A>:ticut$ perl test.pl
+Benchmark: timing 1000000 iterations of AnonRef, Context...
+   AnonRef:  9 wallclock secs ( 8.98 usr +  0.00 sys =  8.98 CPU)
+   Context: 12 wallclock secs (10.33 usr +  0.01 sys = 10.34 CPU)
+
+Curious.  Perhaps the [ values ] is actually optimised, so that values
+puts its stuff straight into the new array reference.
+
+Tim.
+
+-- 
+Tim Cutts PhD                    Tel: +44 1223 454918
+Senior Bioinformatics Scientist
+Incyte Genomics
+Botanic House, 100 Hills Road, Cambridge, CB2 1FF, UK
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000290.html">[cam.pm] Trivial perl question
+</A></li>
+	<LI> Next message: <A HREF="000292.html">[cam.pm] Trivial perl question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#291">[ date ]</a>
+              <a href="thread.html#291">[ thread ]</a>
+              <a href="subject.html#291">[ subject ]</a>
+              <a href="author.html#291">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

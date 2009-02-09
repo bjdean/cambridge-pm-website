@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Number vs. string
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:timothy.cutts%40ntlworld.com">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000699.html">
+   <LINK REL="Next"  HREF="000700.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Number vs. string
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:timothy.cutts%40ntlworld.com"
+       TITLE="[cam.pm] Number vs. string">timothy.cutts@ntlworld.com
+       </A><BR>
+    <I>Fri, 12 Apr 2002 15:29:10 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000699.html">[cam.pm] Number vs. string
+</A></li>
+        <LI> Next message: <A HREF="000700.html">[cam.pm] Number vs. string
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#698">[ date ]</a>
+              <a href="thread.html#698">[ thread ]</a>
+              <a href="subject.html#698">[ subject ]</a>
+              <a href="author.html#698">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, Apr 12, 2002 at 10:49:19AM +0100, Peter Clay wrote:
+&gt;<i> 
+</I>&gt;<i> What's the most efficient way of determining whether a scalar contains an
+</I>&gt;<i> integer or a string?
+</I>
+This works (and there's an equivalent for floating point numbers):
+
+use POSIX;
+
+$!=0;
+($num, $unparsed) = &amp;POSIX::strtol($str, 10);
+
+if ($!) { print &quot;Not an integer\n&quot; };
+
+This has a few advantages over regexps, such as the ability to specify
+whether the scalar is a number in a particular base, while still
+maintaining locale sensitivity.
+
+I don't find this particularly useful for integers, but the floating
+point equivalent is a lot less cumbersome than the regexp required for
+floating point...
+
+Tim.
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000699.html">[cam.pm] Number vs. string
+</A></li>
+	<LI> Next message: <A HREF="000700.html">[cam.pm] Number vs. string
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#698">[ date ]</a>
+              <a href="thread.html#698">[ thread ]</a>
+              <a href="subject.html#698">[ subject ]</a>
+              <a href="author.html#698">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

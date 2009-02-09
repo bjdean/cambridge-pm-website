@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Parrot...
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000219.html">
+   <LINK REL="Next"  HREF="000221.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Parrot...
+   </H1>
+    <B>Nicholas Clark
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Parrot...">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 11 Sep 2001 12:07:35 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000219.html">[cam.pm] Parrot...
+</A></li>
+        <LI> Next message: <A HREF="000221.html">[cam.pm] Parrot...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#220">[ date ]</a>
+              <a href="thread.html#220">[ thread ]</a>
+              <a href="subject.html#220">[ subject ]</a>
+              <a href="author.html#220">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Sep 11, 2001 at 11:59:29AM +0100, Philip Kendall wrote:
+&gt;<i> Has anyone else tried this yet? I can some results from test.pasm, but
+</I>
+I downloaded it and compiled it (fast) but failed to find the test programs
+(it was late, and I had just spent a couple of hours hacking perl5
+<A HREF="http://www.xray.mpe.mpg.de/mailing-lists/perl5-porters/2001-09/msg00859.html">http://www.xray.mpe.mpg.de/mailing-lists/perl5-porters/2001-09/msg00859.html</A>
+
+Anyone feel like writing more regression tests for &quot;&quot;? I've done as much
+for \x and \x{} as I could think of, but there are lots of other \ escapes
+that aren't tested.
+)
+
+&gt;<i> test2.pasm and test3.pasm both coredump on me:
+</I>&gt;<i> 
+</I>&gt;<i> cass30:pak:~/data2/parrot$ perl assemble.pl t/test2.pasm &gt; test2.pbc 
+</I>&gt;<i> cass30:pak:~/data2/parrot$ ./test_prog test2.pbc 
+</I>&gt;<i> Bus Error (core dumped)
+</I>&gt;<i> 
+</I>&gt;<i> this on:
+</I>&gt;<i> 
+</I>&gt;<i> cass30:pak:~/data2/parrot$ uname -a
+</I>&gt;<i> SunOS cass30 5.8 Generic_108528-10 sun4u sparc SUNW,Ultra-4
+</I>&gt;<i> 
+</I>&gt;<i> Is this just me and my system?
+</I>
+I'd suggest asking on <A HREF="mailto:perl6-internals@perl.org">perl6-internals@perl.org</A>
+
+Without having actually looked at the parrot code my 2 stock answers would be
+
+1: I think that they were talking about it always threading.
+   IIRC bus errors on Solaris can be due to bugs in Sun's threading libraries
+
+or
+
+2: You may well be the first person to compile on an architecture that
+   objects to non-word-aligned access. (Dan has VMS alpha, Simon I think
+   has x86 Linux). In which case your build experience would be useful.
+   (I really must compile my arm linux kernel to SIGBUS a process on
+    misaligned reads/writes. And then hassle 'till the bugs are fixed)
+
+
+Nicholas Clark
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000219.html">[cam.pm] Parrot...
+</A></li>
+	<LI> Next message: <A HREF="000221.html">[cam.pm] Parrot...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#220">[ date ]</a>
+              <a href="thread.html#220">[ thread ]</a>
+              <a href="subject.html#220">[ subject ]</a>
+              <a href="author.html#220">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

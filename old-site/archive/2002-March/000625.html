@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] archives
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:lists%40songtwo.demon.co.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000623.html">
+   <LINK REL="Next"  HREF="000624.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] archives
+   </H1>
+    <B>Paul Mison
+    </B> 
+    <A HREF="mailto:lists%40songtwo.demon.co.uk"
+       TITLE="[cam.pm] archives">lists@songtwo.demon.co.uk
+       </A><BR>
+    <I>Mon, 11 Mar 2002 14:21:28 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000623.html">[cam.pm] archives
+</A></li>
+        <LI> Next message: <A HREF="000624.html">[cam.pm] archives
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#625">[ date ]</a>
+              <a href="thread.html#625">[ thread ]</a>
+              <a href="subject.html#625">[ subject ]</a>
+              <a href="author.html#625">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 11/03/2002 at 13:23 +0000, Nicholas Clark wrote:
+&gt;<i>On Mon, Mar 11, 2002 at 01:16:45PM +0000, Matthew Byng-Maddick wrote:
+</I>&gt;&gt;<i> I doubt it, as I think mailman (and sensible archivers) would treat this
+</I>&gt;&gt;<i> as a file delivery and so only work out the value for this at delivery
+</I>&gt;&gt;<i> time.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The problem with trying to do this is that it is blurring a nice
+</I>&gt;&gt;<i>conceptual
+</I>&gt;&gt;<i> boundary between list manager and archiver which should make the
+</I>&gt;&gt;<i>code nice
+</I>&gt;&gt;<i> and modular...
+</I>&gt;<i>
+</I>&gt;<i>True.
+</I>&gt;<i>
+</I>&gt;<i>I can see two slightly hacky ways to get round that
+</I>&gt;<i>
+</I>&gt;<i>1: mailing list manager adds some sort of monotonic increasing ID to each
+</I>&gt;<i>   message (so it knows it) that the archiver can use as one form of
+</I>&gt;<i>indexing
+</I>&gt;<i>or
+</I>&gt;<i>2: archiver can do lookups by message ID. (maybe not the default way)
+</I>&gt;<i>   which would allow the mailing list manager to provide that form of
+</I>&gt;<i>lookup
+</I>&gt;<i>   URL to get you to the message.
+</I>
+We played about with both of these on (void) last year when I was
+summarising it [0], and richardc, veeg and I were batting around
+various ideas at YAPC::Europe last year.
+
+In the end veeg did make a patch to pipermail so the message-ID was in
+a comment in the HTML of the page, which made tying things together
+much nicer. I think we dediced that the first idea (adding a
+List-Suggests-Archive-URL, or something a little shorter) would have
+been better, in the long run. (It would also have made summarising
+easier.)
+
+[0] I used to read through the mbox, picking out message-IDs and pasting
+    them beneath the relevant block of text, then run a script to pull
+    the message-IDs out of the HTML and cross-reference everything
+    resulting in pages like [1] [2]
+[1] <A HREF="http://husk.org/void/summ/">http://husk.org/void/summ/</A>
+[2] although I think the (void) archives got reset after that summary...
+
+--
+::<i> paul
+</I>::<i> macintosh!
+</I>
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000623.html">[cam.pm] archives
+</A></li>
+	<LI> Next message: <A HREF="000624.html">[cam.pm] archives
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#625">[ date ]</a>
+              <a href="thread.html#625">[ thread ]</a>
+              <a href="subject.html#625">[ subject ]</a>
+              <a href="author.html#625">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

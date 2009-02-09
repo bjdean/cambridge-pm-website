@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Stupid question?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   
+   <LINK REL="Next"  HREF="001048.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Stupid question?
+   </H1>
+    <B>Lucy McWilliam
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Stupid question?">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 2 Jul 2003 01:57:03 +0100 (BST)</I>
+    <P><UL>
+        
+        <LI> Next message: <A HREF="001048.html">[cam.pm] Stupid question?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1047">[ date ]</a>
+              <a href="thread.html#1047">[ thread ]</a>
+              <a href="subject.html#1047">[ subject ]</a>
+              <a href="author.html#1047">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>#!/usr/bin/perl -w
+use strict;
+my ($line);
+
+open(FILE, &quot;file&quot;);
+while (&lt;FILE&gt;) {
+    $line = &lt;FILE&gt;;
+    if ($line =~ /^\&gt;/) {
+       print $line;
+   }
+}
+
+If a file contains the sequence data below, what is it about $line  =
+&lt;FILE&gt; that makes the script above not print out the lines starting with a
+'&gt;' ?
+
+&gt;<i>gene1
+</I>gatgctagctacgtta
+&gt;<i>gene2
+</I>aatcgatcgatca
+&gt;<i>gene3
+</I>agctagcatcga
+
+
+L.
+
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI> Next message: <A HREF="001048.html">[cam.pm] Stupid question?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1047">[ date ]</a>
+              <a href="thread.html#1047">[ thread ]</a>
+              <a href="subject.html#1047">[ subject ]</a>
+              <a href="author.html#1047">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

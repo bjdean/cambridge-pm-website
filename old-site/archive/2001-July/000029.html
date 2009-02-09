@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> perl6
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000028.html">
+   <LINK REL="Next"  HREF="000030.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>perl6
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="perl6">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Mon, 16 Jul 2001 20:25:47 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000028.html">perl6
+</A></li>
+        <LI> Next message: <A HREF="000030.html">perl6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#29">[ date ]</a>
+              <a href="thread.html#29">[ thread ]</a>
+              <a href="subject.html#29">[ subject ]</a>
+              <a href="author.html#29">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jul 16, 2001 at 05:50:11PM +0100, Martin Keegan wrote:
+&gt;<i> On Mon, 16 Jul 2001, Stephen Turner wrote:
+</I>&gt;<i> &gt; &gt; Some of the list members seem to be familiar with the planned direction of
+</I>&gt;<i> &gt; &gt; perl6... can anyone tell me whether it will have anything like C's
+</I>&gt;<i> &gt; &gt; structs?
+</I>&gt;<i> &gt; Why do you need structs when you've got objects?
+</I>&gt;<i> Unless I'm very much mistaken, the way to get objects in perl is to bless
+</I>&gt;<i> a reference to a hash and have that hash's keys &quot;do the Right Thing&quot; when
+</I>
+you can bless() any reference.
+
+I'm not sure that I follow what you mean here. The OO idea is that the
+object methods act on *this object*. So bless() and the -&gt; syntax is all
+you need for OO programming. Of course, &quot;real&quot; OO languages provide ways
+to keep some of the internals of an object class private (and this is
+actually possible in Perl, though slightly horrid syntactically[1]), and
+Perl doesn't make this easy.
+
+However, there's no reason that you need to bless a hashref, it just happens
+to be easiest to do it that way.
+
+&gt;<i> used as accessor/member functions, and I'd prefer it if the whole notion
+</I>&gt;<i> were just built into the syntax.
+</I>
+I'm not sure I follow what you mean here. The -&gt; syntax is part of Perl.
+
+bless($ref, $package) basically says:
+   if I use $ref in a syntax with $ref-&gt;function(@args) then execute
+   &amp;{$package.&quot;::function&quot;}($<A HREF="mailto:ref,@args">ref,@args</A>)
+
+[1] From Damian Conway's Object Oriented Programming in Perl book:
+    (disclaimer: I don't have a copy to hand, and I actually prefer not to
+                 use private-alikes, so I may have got this wrong...)
+|<i> package Foo::Bar;
+</I>|<i>
+</I>|<i> sub new {
+</I>|<i>     my $pack=shift;
+</I>|<i>     return bless {@_}, $pack;
+</I>|<i> }
+</I>|<i>
+</I>|<i> {
+</I>|<i>     sub method1 {
+</I>|<i>         my $self=shift;
+</I>|<i>         # some method here...
+</I>|<i>     }
+</I>|<i>
+</I>|<i>     sub method2 {
+</I>|<i>         my $self=shift;
+</I>|<i>         # a different object method here...
+</I>|<i>     }
+</I>|<i> }
+</I>   the idea being that the method1 and method2 don't appear directly in
+   the symbol table....
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000028.html">perl6
+</A></li>
+	<LI> Next message: <A HREF="000030.html">perl6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#29">[ date ]</a>
+              <a href="thread.html#29">[ thread ]</a>
+              <a href="subject.html#29">[ subject ]</a>
+              <a href="author.html#29">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

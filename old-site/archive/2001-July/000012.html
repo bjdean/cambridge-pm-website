@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> SQL and CGI
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000011.html">
+   <LINK REL="Next"  HREF="000013.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>SQL and CGI
+   </H1>
+    <B>Martin Keegan
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="SQL and CGI">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 5 Jul 2001 11:28:42 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000011.html">SQL and CGI
+</A></li>
+        <LI> Next message: <A HREF="000013.html">SQL and CGI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, 5 Jul 2001, Matthew Byng-Maddick wrote:
+
+&gt;<i> &gt; A lot of the perlish stuff I do involves web-based access to SQL
+</I>&gt;<i> &gt; databases. I use the CGI and DBI modules, and am pretty happy with them.
+</I>&gt;<i> &gt; There are four things that I am missing:
+</I>&gt;<i> &gt;   a wrapper function which sprintfs correctly $dbh-&gt;quoted() arguments
+</I>&gt;<i> &gt;   into a query string
+</I>&gt;<i> 
+</I>&gt;<i> I'm not sure I understand what you mean here... Why would you want to do
+</I>&gt;<i> this?
+</I>
+To avoid the
+
+    $sql_statement = sprintf( &quot;INSERT INTO users VALUES (%s, %s, %s, %S)&quot;,
+                              	$dbh-&gt;quote( $a ),
+				$dbh-&gt;quote( $b ),
+				$dbh-&gt;quote( $c ),
+				$dbh-&gt;quote( $d ) );
+
+Even with map { $dbh-&gt;quote( $_ ) } ( $a, $b, $c, $d ) it's still klunky.
+ 
+&gt;<i> &gt;   wrapper functions for sql queries which return single values, etc
+</I>&gt;<i> 
+</I>&gt;<i> eg:
+</I>&gt;<i> 
+</I>&gt;<i> sub get_single {
+</I>&gt;<i>     my $dbh=shift;
+</I>&gt;<i>     my $sql=shift;
+</I>&gt;<i> 
+</I>&gt;<i>     my $sth=$dbh-&gt;prepare($sql);
+</I>&gt;<i>     if($sth-&gt;execute(@_) &amp;&amp; $sth-&gt;rows()) {
+</I>&gt;<i>         my($ret)=$sth-&gt;fetchrow_array();
+</I>&gt;<i>         $sth-&gt;finish();
+</I>&gt;<i>         return $ret;
+</I>&gt;<i>     }
+</I>&gt;<i>     $sth-&gt;finish();
+</I>&gt;<i>     return undef;
+</I>&gt;<i>     }
+</I>
+Yes, precisely.
+ 
+&gt;<i> &gt;   a 2 dimensional SQL result -&gt; 2 dimensional HTML table + style system
+</I>&gt;<i> 
+</I>&gt;<i> this is similar to the below...
+</I>&gt;<i> 
+</I>&gt;<i> &gt;   a SQL table schema -&gt; CGI form system
+</I>&gt;<i> 
+</I>&gt;<i> My last boss attempted to do this. It was ugly and crap.
+</I>
+Well, there's a demand for a good one.
+ 
+&gt;<i> &gt; I plead ignorance. Does any of these things actually exist?
+</I>&gt;<i> 
+</I>&gt;<i> Well, some are trivial to write yourself, others I have yet to find an
+</I>&gt;<i> implementation of that I like, and that works in every situation (by which
+</I>&gt;<i> I mean that I have some way of tweaking it if it doesn't work).
+</I>
+All of these things are pretty easy to write; the issue for me is that I
+don't to cut and paste the code from project to project, I want it in a
+proper perl module written by someone who understands writing perl modules
+which I can apt-get or download from CPAN, and I want it out there so that
+there's just one fewer hurdle to getting things done for people trying to
+write the sorts of applications which require this functionality. 
+
+I guess I should probably start writing my own perl module then.
+
+Mk
+
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000011.html">SQL and CGI
+</A></li>
+	<LI> Next message: <A HREF="000013.html">SQL and CGI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

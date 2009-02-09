@@ -1,0 +1,224 @@
+
+<HTML>
+<HEAD>
+<LINK REL="SHORTCUT ICON" HREF="/icons/mm-icon.png">
+<META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<TITLE>Create a cam.pm.org Mailing List</TITLE>
+</HEAD>
+<BODY bgcolor="white">
+
+<table WIDTH="100%" BORDER="0">
+  <tr>
+    <td BGCOLOR="#99ccff"><center><strong><font size="+1">Create a cam.pm.org Mailing List</font></strong></center></td>
+  </tr>
+  <tr>
+    <td>You can create a new mailing list by entering the
+    relevant information into the form below.  The name of the mailing list
+    will be used as the primary address for posting messages to the list, so
+    it should be lowercased.  You will not be able to change this once the
+    list is created.
+
+    <p>You also need to enter the email address of the initial list owner.
+    Once the list is created, the list owner will be given notification, along
+    with the initial list password.  The list owner will then be able to
+    modify the password and add or remove additional list owners.
+
+    <p>If you want Mailman to automatically generate the initial list admin
+    password, click on `Yes' in the autogenerate field below, and leave the
+    initial list password fields empty.
+
+    <p>You must have the proper authorization to create new mailing lists.
+    Each site should have a <em>list creator's</em> password, which you can
+    enter in the field at the bottom.  Note that the site administrator's
+    password can also be used for authentication.
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <FORM action="http://cam.pm.org/mailman/create" method="POST" >
+
+          <table CELLPADDING="4" WIDTH="100%" CELLSPACING="3" BORDER="0">
+            <tr>
+              <td COLSPAN="2"><center><em>List Identity</em></center></td>
+            </tr>
+            <tr>
+              <td BGCOLOR="#dddddd"><div align="right">Name of list:</div></td>
+              <td BGCOLOR="#dddddd"><INPUT name="listname" type="TEXT" value="" size="40" ></td>
+            </tr>
+            <tr>
+              <td BGCOLOR="#dddddd"><div align="right">Initial list owner address:</div></td>
+              <td BGCOLOR="#dddddd"><INPUT name="owner" type="TEXT" value="" size="40" ></td>
+            </tr>
+            <tr>
+              <td BGCOLOR="#dddddd"><div align="right">Auto-generate initial list password?</div></td>
+              <td BGCOLOR="#dddddd">
+                  <table CELLSPACING="5">
+                    <tr>
+                      <td><INPUT name="autogen" type="RADIO" value="0" CHECKED >No</td>
+                      <td><INPUT name="autogen" type="RADIO" value="1" >Yes</td>
+                    </tr>
+                  </table>
+</td>
+            </tr>
+            <tr>
+              <td BGCOLOR="#dddddd"><div align="right">Initial list password:</div></td>
+              <td BGCOLOR="#dddddd"><INPUT name="password" type="PASSWORD" value="" size="40" ></td>
+            </tr>
+            <tr>
+              <td BGCOLOR="#dddddd"><div align="right">Confirm initial password:</div></td>
+              <td BGCOLOR="#dddddd"><INPUT name="confirm" type="PASSWORD" value="" size="40" ></td>
+            </tr>
+            <tr>
+              <td COLSPAN="2"><center><em>List Characteristics</em></center></td>
+            </tr>
+            <tr>
+              <td BGCOLOR="#dddddd"><div align="right">Should new members be quarantined before they
+    are allowed to post unmoderated to this list?  Answer <em>Yes</em> to hold
+    new member postings for moderator approval by default.</div></td>
+              <td BGCOLOR="#dddddd">
+                  <table CELLSPACING="5">
+                    <tr>
+                      <td><INPUT name="moderate" type="RADIO" value="0" CHECKED >No</td>
+                      <td><INPUT name="moderate" type="RADIO" value="1" >Yes</td>
+                    </tr>
+                  </table>
+</td>
+            </tr>
+            <tr>
+              <td BGCOLOR="#dddddd"><div align="right">Initial list of supported languages.  <p>Note that if you do not
+        select at least one initial language, the list will use the server
+        default language of English (USA)</div></td>
+              <td BGCOLOR="#dddddd">
+                  <table CELLSPACING="5">
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="ca" >Catalan</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="zh_CN" >Chinese (China)</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="zh_TW" >Chinese (Taiwan)</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="hr" >Croatian</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="cs" >Czech</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="da" >Danish</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="nl" >Dutch</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="en" CHECKED >English (USA)</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="et" >Estonian</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="eu" >Euskara</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="fi" >Finnish</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="fr" >French</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="de" >German</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="hu" >Hungarian</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="it" >Italian</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="ja" >Japanese</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="ko" >Korean</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="lt" >Lithuanian</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="no" >Norwegian</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="pl" >Polish</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="pt" >Portuguese</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="pt_BR" >Portuguese (Brazil)</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="ro" >Romanian</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="ru" >Russian</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="sr" >Serbian</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="sl" >Slovenian</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="es" >Spanish (Spain)</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="sv" >Swedish</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="tr" >Turkish</td>
+                    </tr>
+                    <tr>
+                      <td><INPUT name="langs" type="CHECKBOX" value="uk" >Ukrainian</td>
+                    </tr>
+                  </table>
+</td>
+            </tr>
+            <tr>
+              <td BGCOLOR="#dddddd"><div align="right">Send "list created" email to list owner?</div></td>
+              <td BGCOLOR="#dddddd">
+                  <table CELLSPACING="5">
+                    <tr>
+                      <td><INPUT name="notify" type="RADIO" value="0" >No</td>
+                      <td><INPUT name="notify" type="RADIO" value="1" CHECKED >Yes</td>
+                    </tr>
+                  </table>
+</td>
+            </tr>
+            <tr>
+              <td COLSPAN="2"><hr></td>
+            </tr>
+            <tr>
+              <td BGCOLOR="#dddddd"><div align="right">List creator's (authentication) password:</div></td>
+              <td BGCOLOR="#dddddd"><INPUT name="auth" type="PASSWORD" value="" size="40" ></td>
+            </tr>
+            <tr>
+              <td><center><INPUT name="doit" type="SUBMIT" value="Create List" ></center></td>
+              <td><center><INPUT name="clear" type="SUBMIT" value="Clear Form" ></center></td>
+            </tr>
+          </table>
+
+        </FORM>
+</td>
+  </tr>
+</table>
+<hr>Return to the <a href="http://cam.pm.org/mailman/listinfo">general list overview</a><br>Return to the <a href="http://cam.pm.org/mailman/admin">administrative list overview</a>
+<table WIDTH="100%" BORDER="0">
+  <tr>
+    <td><img src="/icons/mailman.jpg" alt="Delivered by Mailman" border=0><br>version 2.1.6</td>
+    <td><img src="/icons/PythonPowered.png" alt="Python Powered" border=0></td>
+    <td><img src="/icons/powerlogo.gif" alt="Powered by FreeBSD" border=0></td>
+  </tr>
+</table>
+
+</BODY>
+</HTML>

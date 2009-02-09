@@ -1,0 +1,651 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] CPMBOPPC - Summary
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam-pm%40lists.colondot.net">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000788.html">
+   <LINK REL="Next"  HREF="000791.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] CPMBOPPC - Summary
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam-pm%40lists.colondot.net"
+       TITLE="[cam.pm] CPMBOPPC - Summary">cam-pm@lists.colondot.net
+       </A><BR>
+    <I>Sun, 2 Jun 2002 01:54:41 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000788.html">[cam.pm] CPMBOPPC Winner
+</A></li>
+        <LI> Next message: <A HREF="000791.html">[cam.pm] CPMBOPPC - Summary
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#789">[ date ]</a>
+              <a href="thread.html#789">[ thread ]</a>
+              <a href="subject.html#789">[ subject ]</a>
+              <a href="author.html#789">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>This is similar to the one on the website, but is less unedited and has
+more of my personal views of what I thought of the entries.
+
+In the reformattings that I've posted below, I've kept variable and function
+names the same, but I've squashed the '&quot;.&quot;' and reformatted with spaces to
+make subroutines more readable.
+
+In the order in which I got them, I'll start off with an analysis of mine:
+
+Requirements: ANSI terminal
+------------------------------8&lt;------------------------------
+          /Cam.pm_-_Program_with_Beer/;sub
+          r{$d=~s/^(..)//;return(hex$1)};#
+         $e                              =&quot;
+         02                              0A
+        10                                00
+        02                                09
+        02                                0F
+         03                              08
+         02                              10
+         03                              09
+          02                            0F
+          04                            0A
+          020E040B020D040C020C040D020B020E
+          020A020E0C00&quot;;$e=~s/\s+//g;1;sub
+           g{$l=shift;$d=$e;while(length(
+           $d)){($n,$s1,$h,$s2)=(r,r,r,r)
+           ;for(1..$n){$s++;$a=(31-$l)&gt;$s
+           ?chr(32):&quot;@&quot;;print(chr(32)x$s1
+            ,&quot;#&quot;x$h,${a}x($s2*2),&quot;#&quot;x$h,
+            &quot;\n&quot;)}}}print&quot;\e[2J&quot;;for$t((
+            reverse(2..28))){$s=0;sleep(
+            1);print&quot;\e[0;0H&quot;;g($t);}$_=
+             &quot;Qevax*Orre,*Cebtenz*Crey&quot;
+             .&quot;,*Pnz.cz\n&quot;;s/\*/chr(32)
+             /eg;tr/a-zA-Z/n-za-mN-ZA-M
+             /;print;m{Cam.pm_for_info_
+              see_our_website_at:.....
+              .<A HREF="http://www.cam.pm.org/.">http://www.cam.pm.org/.</A>
+              Real_Perl_mongers_drink_
+              Real_Beer._Join_CAMRA!!}
+------------------------------&gt;8------------------------------
+    For those that didn't try it, it prints the same pint glass, full, and
+    empties it at a rate of one line per second. At the end it prints
+    &quot;Drink Beer, Program Perl, Cam.pm&quot;. The way it works is pretty simple,
+    the shape of the glass is encoded in the scalar $e, in groups of 4
+    bytes. The first byte in each group is the number of lines, then the
+    number of spaces, then the number of hashes, and the number of spaces
+    to the midline of the glass. The function g() prints out the glass,
+    using this data, and also prints `@' in the bottom $l lines of the
+    glass. r() reads the top hex digit on the encoding, modifying it as
+    it goes. The end is just a simple rot13 and substitute. The comments
+    are, of course, just regexp matches in null context. This trick is
+    thanks to BooK in his Postscript and Perl TPJ entry.
+
+    Rewritten, it looks something like:
+------------------------------8&lt;------------------------------
+sub r {
+    $d=~s/^(..)//;
+    return(hex$1)
+}
+
+$e=&quot;020A1000
+    0209020F
+    03080210
+    0309020F
+    040A020E
+    040B020D
+    040C020C
+    040D020B
+    020E020A
+    020E0C00&quot;;
+
+$e=~s/\s+//g;
+
+sub g {
+    $l=shift;
+    $d=$e;
+    while(length($d)) {
+	($n,$s1,$h,$s2)=(r,r,r,r);
+	for(1..$n) {
+	    $s++;
+	    $a=(31-$l)&gt;$s?chr(32):&quot;@&quot;;
+	    print(chr(32)x$s1,&quot;#&quot;x$h,${a}x($s2*2),&quot;#&quot;x$h,&quot;\n&quot;)
+	}
+    }
+}
+
+print&quot;\e[2J&quot;;
+
+for$t((reverse(2..28))) {
+    $s=0;
+    sleep(1);
+    print&quot;\e[0;0H&quot;;
+    g($t);
+}
+
+$_=&quot;Qevax*Orre,*Cebtenz*Crey,*Pnz.cz\n&quot;;
+
+s/\*/chr(32)/eg;
+tr/a-zA-Z/n-za-mN-ZA-M/;
+print;
+------------------------------&gt;8------------------------------
+
+Andy Wardley posted his to london.pm, but I'll include it here for
+completeness:
+
+Requirements: run from a file
+------------------------------8&lt;------------------------------
+#!/usr/bin/perl
+           ################################
+           ################################
+          ##                              ##
+          ##                              ##
+         ##                                ##
+         ##                                ##
+         ##                                ##
+          ##                              ##
+          ##                              ##
+          ##                              ##
+           ##                            ##
+           ##                            ##
+           ################################
+           ################################
+            ##############################
+            ##############################
+            ##############################
+            ##############################
+             ############################
+             open(ALE,$0);&lt;ALE&gt;;$/=undef;
+             ############################
+             $beer=&lt;ALE&gt;;$beer=~s/\S/#/g;
+              ##########################
+              print($beer);#############
+              ##########################
+              ##########################
+               ########################
+               ########################
+               ########################
+               ########################
+------------------------------&gt;8------------------------------
+    Not a huge amount I can say about this, it's pretty self
+    explanatory.
+
+Dave Cantrell submitted this calculator for great circle distances next:
+
+Requirements: None
+------------------------------8&lt;------------------------------
+          $foo='$spc=chr(32);$pi&amp;=&amp;4*atan2
+          (1,1);$radius=6367000;sub&amp;deg2ra
+         d{                              $_
+         [0                              ]*
+        $p                                i/
+        18                                0}
+        su                                b&amp;
+         ac                              os
+         {a                              ta
+         n2                              (s
+          qr                            t(
+          1-                            $_
+          [0]*$_[0]),$_[0])}($l1,$l3)=&amp;dms
+          2degs(shift);($l2,$l4)=&amp;dms2degs
+           (shift);printf(&quot;%8d${spc}km\n&quot;
+           ,distance($l1,$l3,$l2,$l4)/100
+           0);printf(&quot;%8d${spc}miles\n&quot;,d
+           istance($l1,$l3,$l2,$l4)/1609.
+            344);sub&amp;distance{$radius*ac
+            os(sin($_[0])*sin($_[2])+cos
+            ($_[0])*&amp;cos($_[2])*cos($_[1
+            ]-$_[3]));}sub&amp;dms2degs{$_[0
+             ]=~/(\d?\d\d):(\d\d):(\d\d
+             )([NS]),(\d?\d\d):(\d\d):(
+             \d\d)([EW])/i;deg2rad(($1+
+             $2/60+$3/3600)*(($4eq&quot;N&quot;)?
+              1:-1)),&amp;deg2rad(($5+$6/6
+              0+$7/3600)*(($8eq&quot;E&quot;)?1:
+              -1));}';$foo=~s/\s//gi;$
+              foo=~y/&amp;/\t/;eval($foo);
+------------------------------&gt;8------------------------------
+    Dave commented in his submission that he didn't think it was &quot;that
+    obfuscated&quot; and I'm inclined to agree. In order to understand the
+    format for entry I needed to de-obfuscate it, certainly. Dave's
+    approach, however, to the problem of whitespace was interesting,
+    and certainly one I was expecting to see more. Basically, he put
+    most of his code into a scalar ($foo) and then applied some
+    substitutions on it, first to get rid of the space, and then to
+    turn `&amp;' into a tab (the reason he chose tab is obvious in this
+    case, but it would have been possible to have the last line as
+    being ``foo=~y/&amp;/\040/;eval$foo;'' and that would have been just
+    as correct. In order to run it you supply two coordinates in
+    degree minutes and seconds (eg. 51:31:47N,00:02:54W) on the
+    command line. I'm slightly surprised that Dave didn't make more
+    use of the $spc variable at the beginning, but on the whole, the
+    program is pretty self-explanatory. Amazingly, Dave doesn't seem
+    to have needed comments at all.
+------------------------------8&lt;------------------------------
+$spc=chr(32);
+$pi=4*atan2(1,1);
+$radius=6367000;
+
+sub deg2rad {
+    $_[0]*$pi/180
+}
+
+sub acos {
+    atan2(sqrt(1-$_[0]*$_[0]),$_[0])
+}
+
+($l1,$l3)= dms2degs(shift);
+($l2,$l4)= dms2degs(shift);
+printf(&quot;%8d${spc}km\n&quot;,distance($l1,$l3,$l2,$l4)/1000);
+printf(&quot;%8d${spc}miles\n&quot;,distance($l1,$l3,$l2,$l4)/1609.344);
+
+sub distance {
+    $radius*acos(sin($_[0])*sin($_[2])+cos($_[0])*cos($_[2])*cos($_[1]-$_[3]));
+}
+
+sub dms2degs {
+    $_[0]=~/(\d?\d\d):(\d\d):(\d\d)([NS]),(\d?\d\d):(\d\d):(\d\d)([EW])/i;
+    deg2rad(($1+$2/60+$3/3600)*(($4eq&quot;N&quot;)?1:-1)),
+    deg2rad(($5+$6/60+$7/3600)*(($8eq&quot;E&quot;)?1:-1));
+}
+------------------------------&gt;8------------------------------
+
+And then Sebastian Bleasdale made me boggle at the way in which he'd
+fitted the PONG game into the pint glass:
+
+Requirements: ANSI terminal in cbreak and noecho mode
+              (stty cbreak -echo)
+------------------------------8&lt;------------------------------
+          #Please_Turn_Off_Text_Buffering#
+          print&quot;\e[H\e[J&quot;;$a=$b=$n=$m=#sfb
+         10                              ;#
+         $_                              =&quot;
+        &quot;#                                #&quot;
+        .&quot;                                &quot;#
+        .&quot;                                #&quot;
+         ;#                              &quot;|
+         $#                              =#
+         $_                              x#
+          24                            ,#
+          $c                            =#
+          $d=.03;for(;;++$-&gt;5**4?$-=0:do{#
+          (select$_=chr(1),&quot;&quot;,&quot;&quot;,0)[0]||#$
+           next;sysread(STDIN,$_,1)}){/k/
+           ?$n-=($n&gt;5):/a/?$m-=($m&gt;5):/s/
+           ?$m+=($m&lt;69):/l/?$n+=($n&lt;69):1
+           ;(($a+=$c)&lt;2and$a=2)|($a&gt;72and
+            $a=72)and$c=-$c;($b+=$d)&lt;1&amp;#
+            abs($a-$m)&lt;4and$b=1.1,$d=-$d
+            ,$c+=($a-$m)/50;$b&gt;23&amp;abs($a
+            -$n)&lt;4and$b=22.9,$d=-$d,$c+=
+            ($a-$n)/50;$c*=0.9while#Pong
+             abs($c)&gt;.09;$b&gt;=1&amp;$b&lt;23or#
+             die;substr(($o=$#),1698+$n
+             ,8)=&quot;~k~~~~l~&quot;;substr($o,#
+              int($b)*74+$a,2)=&quot;()&quot;;#$
+              substr($o,$m-4,8)=&quot;_a__&quot;
+              .&quot;__s_&quot;;print&quot;\e[;H$o&quot;};
+------------------------------&gt;8------------------------------
+    I loved this entry, it took me a while to figure out what Sebi had
+    done, but having worked it out didn't make me any less impressed.
+    In order to run it, I used
+        stty cbreak -echo; perl entry1.pl; stty sane
+    A couple of negative marks go for the fact that it couldn't set
+    that itself, and Sebi did send me a version which didn't quite
+    conform to the rules which manged to do it. In particular, I
+    liked the use of the middle spaces to draw the playing area. Sebi
+    was one of the few people who managed to really use those spaces,
+    rather than having to work around them. I think my commented version
+    below probably explains best how it works, though.
+------------------------------8&lt;------------------------------
+# clear the screen
+print&quot;\e[H\e[J&quot;;
+$a=$b=$n=$m=10;
+$_=&quot;\n                                   &quot;.
+   &quot;                                     #&quot;;
+
+# work out our playing area (contained in $#)
+$#=$_ x24;
+
+$c=$d=.03;
+
+# this bit is complicated. after every iteration of the loop, add 1 to
+# $- (starts at 0) if it reaches 625 then reset it. otherwise select on
+# STDIN, and if there is something to read, then read it.
+for( ; ;
+    ++$-&gt;5**4 ?
+	$-=0 :
+	do {
+	    (select$_=chr(1),&quot;&quot;,&quot;&quot;,0)[0] || next;
+	    sysread(STDIN,$_,1)
+	}
+    ) {
+    # $a is the horizontal position of the ball
+    # $b is the vertical position of the ball
+    # $c is the horizontal velocity of the ball
+    # $d is the vertical velocity of the ball
+    # $_ contains the current keystroke, if there is one or a ^A if not.
+
+    # this makes the most sense written out like this, and handles the
+    # keystroke as necessary
+    /k/?$n-=($n&gt;5):
+    /a/?$m-=($m&gt;5):
+    /s/?$m+=($m&lt;69):
+    /l/?$n+=($n&lt;69):1;
+
+    # bounce it at left and right if necessary with the side effect of
+    # moving the ball with the ($a+=$c)
+    # the (a and b) construction is just an expanded $a&lt;=2 and $a&gt;=72
+    # the bitwise or is like a logical or.
+    (($a+=$c)&lt;2 and $a=2) | ($a&gt;72 and $a=72) and $c=-$c;
+
+    # bounce it at the top if necessary (with the side effect of moving
+    # the ball with the ($b+=$d))
+    ($b+=$d)&lt;1 &amp; abs($a-$m)&lt;4 and $b=1.1, $d=-$d ,$c+=($a-$m)/50;
+
+    # bounce it at the bottom if necessary
+    $b&gt;23 &amp; abs($a-$n)&lt;4 and $b=22.9, $d=-$d, $c+=($a-$n)/50;
+
+    # make sure it doesn't fly off wildly to the side.
+    $c*=0.9 while abs($c)&gt;.09;
+
+    # make sure the ball is in the playing area.
+    $b&gt;=1 &amp; $b&lt;23 or die;
+
+    # draw out the current playing area.
+    # first the player two bat: 1698=(23*74)-4
+    substr(($o=$#),1698+$n,8)=&quot;~k~~~~l~&quot;;
+    # then the ball
+    substr($o,int($b)*74+$a,2)=&quot;()&quot;;
+    # then the player one bat
+    substr($o,$m-4,8)=&quot;_a____s_&quot;;
+
+    # reset the cursor, and draw the playing area
+    print&quot;\e[;H$o&quot;
+};
+------------------------------&gt;8------------------------------
+
+Jonathan Amery then came up with a Mandelbrot set grapher:
+
+Requirements: ANSI terminal upon which stty size will work
+------------------------------8&lt;------------------------------
+          open(S,&quot;stty\040size\040|&quot;);$_=#
+          &lt;S&gt;;/(\w*)#cam.pmBFOPerlPContest
+         \W                              (#
+         \w                              *)
+        /x                                ;#
+        $s                                =#   
+        $1                                &lt;(
+         $2                              -1
+         )/                              2?
+         $1                              *2
+          :#                            :)
+          $2                            -1
+          ;$si=&quot;\e[0;3&quot;;$sij=&quot;\e[1;3&quot;;@st=
+          ($si.&quot;1m&quot;,$si.&quot;2m&quot;,$si.&quot;3m&quot;,$si.
+           &quot;4m&quot;,$si.&quot;5m&quot;,$si.&quot;6m&quot;,$si.###
+           &quot;7m&quot;,$sij.&quot;0m&quot;,$sij.&quot;1m&quot;,$sij.
+           &quot;2m&quot;,$sij.&quot;3m&quot;,$sij.&quot;4m&quot;,$sij.
+           &quot;5m&quot;,$sij.&quot;6m&quot;,$sij.&quot;7m&quot;);for(
+            ;$a&lt;$s/2;$a++){print&quot;\n&quot;;for
+            ($b=0;$b&lt;$s;$b++){$r=0;$c=0;
+            for($d=0;$d&lt;@st;$d++){$nr=$r
+            *$r-$c*$c;$c=2*$r*$c+$a*(5/#
+             $s)-1.25;$r=$nr+$b*(2.5/$s
+             )-2;if($r*$r+$c*$c&gt;4){#JDA
+             print((@st)[$d].&quot;@&quot;);last;
+             }}if($d==@st){print$si.###
+              &quot;0m@&quot;;}}}$_=&lt;&gt;;#Best.run
+              #in.an.ANSI.colour.term#
+              ##as.large.as.possible##
+              #Press&lt;return&gt;to.finish#
+------------------------------&gt;8------------------------------
+    I liked this one too. I especially like the way it tries to fit the set
+    into the terminal. Jon had lots of space for comments, and there are
+    some nice ones like the ``# :)'' comment. Unlike Sebi, Dave or me, he
+    worked round the space, rather than either using it, or just quoting it
+    and then removing it, and I, personally, liked the use of the /x
+    modifier on the regexp. I liked the use of the colour code array and
+    using the size of that array to determine how many iterations to go
+    before giving up. Jon's use of &quot;\040&quot; for &quot; &quot; was nice, too. Personally,
+    I suspect that I would have used a map against the colour array, and
+    built it in a more interesting way, say:
+        @st=map{&quot;$si$_m&quot;}(1..7),map{&quot;$sij$_m&quot;}(0..7);
+    but Jon's way is totally reasonable. As it was, he was left with a lot
+    of space to use. Given that he's a mathematician, I'm surprised that
+    he used $c rather than $i for the &quot;imaginary part&quot; of the complex
+    number, but the algorithm is pretty simple. I have to admit to not
+    being entirely sure about the press return to exit thing, but I guess
+    that is so that you can see the whole screenful of set before quitting.
+------------------------------8&lt;------------------------------
+open(S,&quot;stty\040size\040|&quot;);
+$_=&lt;S&gt;;
+
+/(\w*)\W(\w*)/x;
+
+$s=$1&lt;($2-1)/2?$1*2:$2-1;
+$si=&quot;\e[0;3&quot;;
+$sij=&quot;\e[1;3&quot;;
+
+@st=(
+    $si.&quot;1m&quot;,
+    $si.&quot;2m&quot;,
+    $si.&quot;3m&quot;,
+    $si.&quot;4m&quot;,
+    $si.&quot;5m&quot;,
+    $si.&quot;6m&quot;,
+    $si.&quot;7m&quot;,
+    $sij.&quot;0m&quot;,
+    $sij.&quot;1m&quot;,
+    $sij.&quot;2m&quot;,
+    $sij.&quot;3m&quot;,
+    $sij.&quot;4m&quot;,
+    $sij.&quot;5m&quot;,
+    $sij.&quot;6m&quot;,
+    $sij.&quot;7m&quot;
+    );
+
+for( ; $a&lt;$s/2 ; $a++) {
+    print &quot;\n&quot;;
+    for($b=0 ; $b&lt;$s ; $b++) {
+	$r=0;
+	$c=0;
+	for($d=0 ; $d&lt;@st ; $d++) {
+	    $nr=$r*$r-$c*$c;
+	    $c=2*$r*$c+$a*(5/$s)-1.25;
+	    $r=$nr+$b*(2.5/$s)-2;
+	    if($r*$r+$c*$c&gt;4) {
+		print((@st)[$d].&quot;@&quot;);
+		last;
+	    }
+	}
+	if($d==@st) {
+	    print $si.&quot;0m@&quot;;
+	}
+    }
+}
+
+$_=&lt;&gt;;
+------------------------------&gt;8------------------------------
+
+And then, just as it was all about to go quiet, Colin Watson came
+up with his Star Wars style vector graphics.
+
+Requirements: ANSI terminal with exported LINES and COLUMNS
+------------------------------8&lt;------------------------------
+          ($.,$;)=@ENV{LINES,COLUMNS};$_='
+          .2:2/5.=:2.69A..6:9D..6&gt;.G;1.29J
+         ..                              6;
+         .M                              ;1
+        .2                                9P
+        ..                                6;
+        .S                                6.
+         .6                              9V
+         ..                              0&gt;
+         .Z                              :2
+          .6                            9a
+          ..                            6&gt;
+          .d;1.29g..6;.j;1.29m..6;';for$w(
+          0..29){$#=&quot;\e[H&quot;;for($i=$.*2;$i;
+           --$i){$@=(B^b)x$;if--$|;$h=$.*
+           2/($.*2-$i+1);s/\s//g;$v=($h-1
+           )*$./2;while(/(.{6})/g){($t,$x
+           ,$y,$r,$k,$l)=map-46+$_,unpack
+            c6,$1;$p=$t?+$k:$y;$q=$t?$l:
+            $y;$z=$r+.8;(next)if$v&lt;$w+$p
+            -$z||$v&gt;$w+$q+$z;$y+=$w;for(
+            0..$;*2-1){$u=($h*($_-$;)+$;
+             )*32/$;;(next)if$u&lt;$x-$z||
+             $u&gt;$x+$z;if(!$t){$d=sqrt((
+             $v-$y)**2+($u-$x)**2);next
+             if$d&lt;$r-.8||$z&lt;$d;$d=atan2
+              ($y-$v,$x-$u)/atan2(0,-1
+              )*4+4;(next)if$d&lt;$k||$l&lt;
+              $d}substr$@,$_/2,1,'*'}}
+	      $|||($#.=$@.$/)}print$#}
+------------------------------&gt;8------------------------------
+    This one took me a while to figure out, because I'm not that up on
+    the maths for the vector graphics. In effect, this works by many
+    different variables having the various scaling factors. Colin, like
+    some of the others, used a data stream which ignored spaces. This
+    got him right into the beer area of the glass, bypassing a lot of the
+    problems that the whitespace throws up. Colin used a number of tricks
+    that we haven't seen in other entries, the use of the --$| trick for
+    getting alternate lines. He looked at a completely different way of
+    encoding the space. Rather than chr(32) or &quot;\040&quot;, Colin went for an
+    out-of-the-box approach ``(B^b)''. He offered to provide his own
+    commented version, but I'll put the one that I've produced below, and
+    I'll leave it to him to publish his to the list. In mine, I've
+    actually added and removed a few brackets, in the interests of
+    clarity. Though I did like the ``(next)if&lt;condition&gt;'' trick that
+    Colin used to get round the whitespace restrictions.
+
+------------------------------8&lt;------------------------------
+($.,$;)=@ENV{LINES,COLUMNS};
+
+$_='.2:2/5.=:2.69A..6:9D..6&gt;.G;1.29J..6;.M;1.29P..6;'.
+   '.S6..69V..0&gt;.Z:2.69a..6&gt;.d;1.29g..6;.j;1.29m..6;';
+
+# $w is our framecounter
+for $w (0..29) {
+    # $# is our output variable, the first thing to do is to reset the
+    # cursor to 0
+    $#=&quot;\e[H&quot;;
+    
+    # $| starts off as 0, so:
+    for($i=$.*2 ; $i ; --$i) {
+	# this will get executed every second time through the loop
+	# (there's no assign to $| anywhere else)
+	# so on the 1st, 3rd, 5th iteration, set $@ to linewidth
+	# spaces
+	$@=(B^b) x $; if --$|;
+
+	# $h has a (slightly shifted) inverse relationship to $i
+	$h= $.*2 / ($.*2 -$i +1);
+
+	# turn our data into something useful
+	s/\s//g;
+
+	# $v is a scaled version of $h
+	$v=($h-1) * $./2;
+
+	# our data is:
+	# ( 0, 4,12, 4, 1, 7) ( 0,15,12, 4, 0, 8) (11,19, 0, 0, 8,12)
+	# (11,22, 0, 0, 8,16) ( 0,25,13, 3, 0, 4) (11,28, 0, 0, 8,13)
+	# ( 0,31,13, 3, 0, 4) (11,34, 0, 0, 8,13) ( 0,37, 8, 0, 0, 8)
+	# (11,40, 0, 0, 2,16) ( 0,44,12, 4, 0, 8) (11,51, 0, 0, 8,16)
+	# ( 0,54,13, 3, 0, 4) (11,57, 0, 0, 8,13) ( 0,60,13, 3, 0, 4)
+	# (11,63, 0, 0, 8,13)
+
+	while(/(.{6})/g) {
+	    # actually do the read. This trick works because of the /g
+	    # modifier, which means that the regexp keeps track of where
+	    # the last match was.
+	    ($t,$x,$y,$r,$k,$l)=map {$_-46} unpack c6,$1;
+	    # for each datapoint
+	    # $t is 0 for a circle and has a value for a rectangle
+	    # $p is either the 5th or the 3rd digit
+	    #   (The top of the object?)
+	    $p=$t?$k:$y;
+	    # $q is either the 6th or the 3rd digit
+	    #   (The bottom of the object?)
+	    $q=$t?$l:$y;
+	    # $z is the 4th digit + 0.8
+	    $z=$r+.8;
+
+	    # this condition is true if the current scanline (represented
+	    # by $v) is outside the bounding box of the object
+	    next if $v&lt;$w+$p-$z || $v&gt;$w+$q+$z;
+
+	    $y+=$w;
+
+	    # note that the for implicitly localises the loop variable,
+	    # so $_ at the end of the loop is our dataset
+	    # iterate $_ over twice the width of the screen
+	    for (0 .. $;*2-1) {
+		# $u is a step in increments of $h*32/&lt;width&gt;, from
+		# negative to positive.
+		$u=($h*($_-$;)+$;) * 32/$; ;
+
+		# don't do anything if we're to the left or to the right
+		# of this object
+		next if $u&lt;$x-$z || $u&gt;$x+$z;
+
+		# if $t is 0 then it's a circle, rather than a rectangle,
+		# so use it as one.
+		if(!$t) {
+		    # this is an ellipse formula at ($x,$y), but scaled by
+		    # $u and $v in the x and y directions
+		    $d=sqrt(($v-$y)**2 + ($u-$x)**2);
+
+		    # draws if it's in the circle which has a hole in it.
+		    next if $d&lt;$r-.8 || $z&lt;$d;
+
+		    # $d is in the range 0,8 (scaling by 4/pi)
+		    # this allows us to draw only an arc of a circle,
+		    # instead of the full thing (hence the ``c'' and
+		    # the tops of the ``m''s)
+		    $d=atan2($y-$v, $x-$u) / atan2(0, -1) *4 +4;
+		    next if $d&lt;$k || $l&lt;$d
+		}
+		# replace item at position $_/2 with a * (remember that
+		# $_ is going to twice the width of the screen)
+		substr $@, $_/2, 1, '*'
+	    }
+	}
+	# on every second line, append the contents of $# (our output)
+	# with $@.$/ ($/ is a &quot;\n&quot; by default).
+	$| || ($#.=$@.$/)
+    }
+    print $#
+}
+------------------------------&gt;8------------------------------
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000788.html">[cam.pm] CPMBOPPC Winner
+</A></li>
+	<LI> Next message: <A HREF="000791.html">[cam.pm] CPMBOPPC - Summary
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#789">[ date ]</a>
+              <a href="thread.html#789">[ thread ]</a>
+              <a href="subject.html#789">[ subject ]</a>
+              <a href="author.html#789">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

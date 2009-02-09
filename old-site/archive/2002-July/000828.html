@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Photos/Modules/Social
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:timothy.cutts%40ntlworld.com">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000827.html">
+   <LINK REL="Next"  HREF="000829.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Photos/Modules/Social
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:timothy.cutts%40ntlworld.com"
+       TITLE="[cam.pm] Photos/Modules/Social">timothy.cutts@ntlworld.com
+       </A><BR>
+    <I>Thu, 4 Jul 2002 23:59:44 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000827.html">[cam.pm] Photos/Modules/Social
+</A></li>
+        <LI> Next message: <A HREF="000829.html">[cam.pm] Photos/Modules/Social
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#828">[ date ]</a>
+              <a href="thread.html#828">[ thread ]</a>
+              <a href="subject.html#828">[ subject ]</a>
+              <a href="author.html#828">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Jul 03, 2002 at 11:12:19PM +0100, Lucy McWilliam wrote:
+&gt;<i> 2) So, what are your favourite or most useful modules?
+</I>
+Umm... my very favourite was Pom::PomObject, which was written by a
+colleague at Incyte.  He wanted to open source it, but AFAIK, nothing
+came of that, sadly.  It was a template for object classes which could
+dump themselves as XML, and recreate themselves from XML. Nothing that
+remarkable in that, Boulder::IO does something similar, but this was
+very fast and had the added advantage that it could dump its own DTD,
+and the XML was valid against that DTD, not just well-formed a la
+Boulder::IO.
+
+For sheer perversity I really like DBI::Chart.  Whoever was twisted
+enough to realise that SQL actually makes quite a natural language for
+describing charts really deserves some sort of medal.  What really
+amazed me about it when I tried it was that it really works, and allows
+you to draw really nice graphs, particularly from other DBI objects
+connected to real databases, with extremely concise and clear code.
+
+I'm also quite keen on tied objects as a means of hiding nasty
+implementation details, or as means through tied dbm files of reducing a
+script's memory usage.  Quite useful in my field.  Here be dragons
+though - some DBMs seem to be really bad about creating vast sparse
+files.  We just found one at work today.  The .pag and .dir files were
+0.5 TB and 0.8 TB in 'size' (not sure which way round) and contained a
+mere 40K and 67 MB of real data respectively.  We discovered this when
+trying to move the data onto new storage, and rsync filled the target
+RAID array completely.  Beware of rsync and sparse files!!!  I've never
+had that problem with tied hashes and GDBM files though...
+
+Tim
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000827.html">[cam.pm] Photos/Modules/Social
+</A></li>
+	<LI> Next message: <A HREF="000829.html">[cam.pm] Photos/Modules/Social
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#828">[ date ]</a>
+              <a href="thread.html#828">[ thread ]</a>
+              <a href="subject.html#828">[ subject ]</a>
+              <a href="author.html#828">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> Unexpected warning?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000017.html">
+   <LINK REL="Next"  HREF="000020.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>Unexpected warning?
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="Unexpected warning?">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Mon, 9 Jul 2001 12:49:03 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000017.html">Not entirely off topic...
+</A></li>
+        <LI> Next message: <A HREF="000020.html">Unexpected warning?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I'm probably missing something here, but why does the following:
+
+--- cut here ---
+#!/usr/local/bin/perl
+
+use warnings;
+use strict;
+
+use Data::Dumper;
+use IO::File;
+
+my @array = ( &quot;foo&quot;, &quot;bar&quot; );
+
+my $fh = new IO::File( &quot;&gt; /dev/stdout&quot; ) or die &quot;Couldn't open: $!&quot;;
+
+print $fh Data::Dumper-&gt;Dump( \@array );
+
+$fh-&gt;close or die &quot;Couldn't close: $!&quot;;
+--- cut here ---
+
+give me:
+
+Bareword found where operator expected at ./bar.pl line 13, near &quot;$fh Data::Dumper&quot;
+        (Missing operator before Data::Dumper?)
+
+Cheers,
+
+Phil
+
+-- 
+  Philip Kendall &lt;<A HREF="mailto:pak21@srcf.ucam.org">pak21@srcf.ucam.org</A>&gt;
+  <A HREF="http://www.srcf.ucam.org/~pak21/">http://www.srcf.ucam.org/~pak21/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000017.html">Not entirely off topic...
+</A></li>
+	<LI> Next message: <A HREF="000020.html">Unexpected warning?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

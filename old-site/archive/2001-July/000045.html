@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> Hello
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000044.html">
+   <LINK REL="Next"  HREF="000046.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>Hello
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="Hello">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Fri, 20 Jul 2001 11:55:37 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000044.html">Hello
+</A></li>
+        <LI> Next message: <A HREF="000046.html">Hello
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#45">[ date ]</a>
+              <a href="thread.html#45">[ thread ]</a>
+              <a href="subject.html#45">[ subject ]</a>
+              <a href="author.html#45">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, Jul 20, 2001 at 11:38:42AM +0100, Philip Kendall wrote:
+&gt;<i> On Fri, Jul 20, 2001 at 10:14:53AM +0100, Matthew Byng-Maddick wrote:
+</I>&gt;<i> &gt; (shamelessly nicked from simon c's sigfile. :-)
+</I>&gt;<i> On that subject...
+</I>&gt;<i> sub UNIVERSAL::AUTOLOAD{ $UNIVERSAL::AUTOLOAD =~ s/::/ /; print
+</I>&gt;<i> &quot;$UNIVERSAL::AUTOLOAD &quot;}; hacker perl another just;
+</I>&gt;<i> Anyone willing to give me some hints on how that one works?
+</I>
+UNIVERSAL is a special package, it provides the base function.
+
+so, if no package is specified, it will try ::AUTOLOAD and then
+UNIVERSAL::AUTOLOAD.
+
+so, reformatting:
+
+|<i> sub UNIVERSAL::AUTOLOAD {
+</I>|<i>     $UNIVERSAL::AUTOLOAD =~ s/::/ /;
+</I>|<i>     print &quot;$UNIVERSAL::AUTOLOAD &quot;;
+</I>|<i> }
+</I>|<i> 
+</I>|<i> hacker perl another just;
+</I>
+the value of $UNIVERSAL::AUTOLOAD will be (like every other autoloader)
+the name of the function: (in this case, potentially, ::just ::another, etc).
+
+we parse this as
+
+|<i> hacker(perl(another(just())));
+</I>
+This needs to be evaluated as just() another(just()) perl(another(just())) and
+the above expression.
+
+Hence: just another perl hacker
+
+Does that help?
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000044.html">Hello
+</A></li>
+	<LI> Next message: <A HREF="000046.html">Hello
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#45">[ date ]</a>
+              <a href="thread.html#45">[ thread ]</a>
+              <a href="subject.html#45">[ subject ]</a>
+              <a href="author.html#45">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] [jhi@iki.fi: 5.8.0 RC1 has been released]
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:nick%40unfortu.net">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   
+   <LINK REL="Next"  HREF="000786.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] [jhi@iki.fi: 5.8.0 RC1 has been released]
+   </H1>
+    <B>Nicholas Clark
+    </B> 
+    <A HREF="mailto:nick%40unfortu.net"
+       TITLE="[cam.pm] [jhi@iki.fi: 5.8.0 RC1 has been released]">nick@unfortu.net
+       </A><BR>
+    <I>Sun, 2 Jun 2002 00:10:19 +0100</I>
+    <P><UL>
+        
+        <LI> Next message: <A HREF="000786.html">[cam.pm] CPMBOPPC Now Closed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#787">[ date ]</a>
+              <a href="thread.html#787">[ thread ]</a>
+              <a href="subject.html#787">[ subject ]</a>
+              <a href="author.html#787">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>As you may have already read on use.perl.org, 5.8.0 RC1 is out.
+
+If you have the time, please try to break it.
+
+Nicholas Clark
+----- Forwarded message from Jarkko Hietaniemi &lt;<A HREF="mailto:jhi@iki.fi">jhi@iki.fi</A>&gt; -----
+
+Mailing-List: contact <A HREF="mailto:perl5-porters-help@perl.org">perl5-porters-help@perl.org</A>; run by ezmlm
+list-help: &lt;mailto:<A HREF="mailto:perl5-porters-help@perl.org">perl5-porters-help@perl.org</A>&gt;
+list-unsubscribe: &lt;mailto:<A HREF="mailto:perl5-porters-unsubscribe@perl.org">perl5-porters-unsubscribe@perl.org</A>&gt;
+list-post: &lt;mailto:<A HREF="mailto:perl5-porters@perl.org">perl5-porters@perl.org</A>&gt;
+From: Jarkko Hietaniemi &lt;<A HREF="mailto:jhi@iki.fi">jhi@iki.fi</A>&gt;
+To: <A HREF="mailto:perl5-porters@perl.org">perl5-porters@perl.org</A>
+Cc: <A HREF="mailto:pudge@pobox.com">pudge@pobox.com</A>, <A HREF="mailto:merlyn@stonehenge.com">merlyn@stonehenge.com</A>, <A HREF="mailto:rootbeer@teleport.com">rootbeer@teleport.com</A>
+Subject: 5.8.0 RC1 has been released
+
+Please hold off posting the attached message to further fora
+for one hour so that all the mentioned URLs become valid.
+
+The funet URL is already valid if you want the real RC1.tgz,
+or if you are following APC or the usual snapshot locations,
+get the snapshot <A HREF="mailto:perl@16965">perl@16965</A>, or rsync from the usual funet
+snapshot location.
+
+Have hopefully not too much fun.  I will be travelling and
+offline until Tuesday evening, so if p5p could handle the
+feedback until that, I would be most grateful.
+
+-- 
+$jhi++; # <A HREF="http://www.iki.fi/jhi/">http://www.iki.fi/jhi/</A>
+        # There is this special biologist word we use for 'stable'.
+        # It is 'dead'. -- Jack Cohen
+
+=head1 Perl 5.8.0 Release Candidate 1
+
+The Perl 5 developer team is pleased to announce the Release Candidate 1
+of Perl 5.8.0.
+
+Please test extensively.
+
+Your help in testing the upcoming perl 5.8.0 is much appreciated.
+
+This is a source code release, not a binary release.  You will need a
+C development environment.
+
+Please note that Perl 5.8.0 is a major new release of Perl containing
+many new features, enhancements to existing features and bug fixes.
+This version is &quot;Release Candidate 1&quot;; the purpose of this version is
+to permit and encourage the Perl community to conduct extensive
+testing and to report problems so that we, and the owners of affected
+Perl packages, have an opportunity to correct them.
+
+Because the process of testing the vast quantity of Perl software will
+take time, and because issues uncovered by this testing may result in
+further changes or corrections to Perl 5.8.0 and the various Perl packages,
+WE DO NOT RECOMMEND USING RELEASE CANDIDATE 1 IN A PRODUCTION ENVIRONMENT.
+
+Please wait for the final version of Perl 5.8.0 for production use.
+As always, you should conduct an appropriate level of testing before
+using any new product in your production environment.
+
+As specified in the licenses for Perl (see the files named Artistic
+or Copying), THIS PACKAGE IS PROVIDED WITH ABSOLUTELY NO WARRANTY.
+
+New Release Candidates will come out about weekly until we are
+satisfied with the results, at which point the final 5.8.0 will
+be released.
+
+=head1 Where To Get It
+
+The 5.8.0 RC1 is now available at
+
+	<A HREF="http://mirrors.kernel.org/cpan/src/perl-5.8.0-RC1.tgz">http://mirrors.kernel.org/cpan/src/perl-5.8.0-RC1.tgz</A>
+	<A HREF="http://cpan.valueclick.com/src/perl-5.8.0-RC1.tgz">http://cpan.valueclick.com/src/perl-5.8.0-RC1.tgz</A>
+	<A HREF="ftp://ftp.leo.org/pub/CPAN/src/perl-5.8.0-RC1.tgz">ftp://ftp.leo.org/pub/CPAN/src/perl-5.8.0-RC1.tgz</A>
+	<A HREF="ftp://ftp.funet.fi/pub/CPAN/src/perl-5.8.0-RC1.tgz">ftp://ftp.funet.fi/pub/CPAN/src/perl-5.8.0-RC1.tgz</A>
+
+and as the CPAN mirrors catch up, in the src/ subdirectory of
+your nearest friendly CPAN mirror.
+
+The size of the file is 10913451 bytes and the MD5 checksum for the file is
+
+        f595a07df28eb9e40d4d27281a9b37a9  perl-5.8.0-RC1.tgz
+ 
+This release should work in all UNIX/Linux and Microsoft environments,
+and in other environments which have POSIX/UNIX interfaces, such as
+BeOS, Cygwin, MPE/iX, NetWare, OS/2, QNX, VMS, VOS, and z/OS,
+and the appropriate C compilation environment.
+
+A MacOS Classic port requires a little bit more work but it should
+become available soon-- follow <A HREF="http://dev.macperl.org/">http://dev.macperl.org/</A>
+
+=head1 Why To Get It
+
+For the list of changes in 5.8.0 see the pod/perldelta.pod, available
+separately online at
+
+	<A HREF="http://mirrors.kernel.org/cpan/doc/perldelta.pod">http://mirrors.kernel.org/cpan/doc/perldelta.pod</A>
+	<A HREF="http://cpan.valuelick.com/doc/perldelta.pod">http://cpan.valuelick.com/doc/perldelta.pod</A>
+	<A HREF="ftp://ftp.leo.org/pub/CPAN/doc/perldelta.pod">ftp://ftp.leo.org/pub/CPAN/doc/perldelta.pod</A>
+	<A HREF="ftp://ftp.funet.fi/pub/CPAN/doc/perldelta.pod">ftp://ftp.funet.fi/pub/CPAN/doc/perldelta.pod</A>
+
+(and again, eventually at all CPAN mirrors-- note, though, that these
+URLs are not permanent, they will be removed when the final 5.8.0 is
+released)
+
+The .tgz file will unpack into a directory called &quot;perl-5.8.0-RC1&quot;.
+
+=head1 How To Do It
+
+You will configure, build, and test Perl.  Below is a short summary,
+for the full story read the &quot;INSTALL&quot; file.
+
+=head2 Configuring
+
+If you are in a UNIX-like system, you can setup Perl for compilation
+by changing into the &quot;perl-5.8.0-RC1&quot; directory and issuing the
+following command:
+
+	sh Configure -des
+
+This will simply select all the defaults for your system, INCLUDING
+defaulting to install in the usual location for production software.
+(So don't run make install if you run Configure this way!)
+
+If you are not in a UNIX-like system (say, Win32), please read the
+&quot;INSTALL&quot; file and any possible platform specific README files for
+further instructions, and skip the parts below that don't apply to
+your platform.
+
+If you want to go through Configure interactively (for example
+to change the default installation directories), do just
+
+	sh Configure
+
+=head2 Building
+
+To build Perl issue the command
+
+	make all
+
+Note that the build times can vary considerably.  Perl 5.8.0 is about
+twice the size of 5.6.1, and some source code files are quite large,
+so your compiler might have hard time processing them.  On a fast
+modern system with lots of CPU and memory the build can be a matter of
+ten minutes, but on slower/older/more heavily loaded systems it can
+take up to eight hours, while half an hour to an hour being common.
+
+=head2 Testing
+
+After the build has finished, it's time to test the build.
+
+	make test
+
+Again, testing times vary a lot.  Perl 5.8.0 has more than five times
+the tests of Perl 5.6.1.  Fifteen minutes to half an hour is quite
+normal, but a slow system may easily take an hour or more.  If all
+tests are successful, &quot;make test&quot; will say &quot;All tests successful&quot;
+(unsurprisingly).
+
+If all tests are not successful, you may get a more detailed report
+by changing to the t/ subdirectory and running the &quot;harness&quot; script,
+something like this
+
+	cd t
+	./perl harness
+
+You may need to set up your dynamic library path before that
+(the final message of &quot;make test&quot; should tell all the needed details).
+
+The more detailed report will be very useful when your report problems.
+Knowing your exact configuration is essential, too: usually running the
+&quot;myconfig&quot; script from the build directory produces this information.
+
+Note that some systems or configurations have known problems,
+see perldelta for details, no need to report them.
+
+In case you still see errors, please document them via the perlbug
+system, as detailed in the &quot;INSTALL&quot; file, section &quot;Reporting Problems&quot;.
+
+Finally note that if you happen to have a &quot;less common&quot; platform, like
+some of the rarer UNIXes, or something even more exotic, we will be
+glad to hear even of successes, not just about possible problems.
+
+=head2 Installing
+
+Once you are happy with the test results of Perl itself (or you are
+just feeling extraordinarily brave), you may consider installing it.
+
+The Perl development team has tried to guarantee that popular Perl
+applications like CGI, LWP, mod_perl and DBI/DBD work with 5.8.0.
+Note &quot;work&quot;, not necessarily &quot;work without warnings&quot;: for example
+DBD::Oracle works, but during compilation and testing you may see
+various warnings.  Also in some cases not all the functionality of
+the modules may be available (yet).
+
+However...
+
+THIS IS A REAL NEW PERL RELEASE THAT IS BINARY INCOMPATIBLE WITH ANY
+PREVIOUS PERL RELEASE.  THIS MEANS THAT YOUR OLD EXTENSIONS (.xs code,
+those Perl modules requiring a C compiler) WILL NOT WORK AND WILL HAVE
+TO BE RECOMPILED.  (Pure Perl modules should continue working.)
+
+INSTALLING THIS PERL RELEASE WILL OVERWRITE YOUR CURRENT PERL RELEASE.
+(For example, /usr/bin/perl will become Perl 5.8.0.)
+
+DO NOT INSTALL THIS INTO PRODUCTION USE UNLESS YOU REALLY MEAN IT.
+
+If you still feel like installing this, you can do so by &quot;make install&quot;.
+
+If you want to install this, but want to install it into some less
+dangerous place (and not overwrite your current installation),
+do the following
+
+	make clean
+	sh Configure -des -Dprefix=/test/perl580 -Uinstallusrbinperl
+	make all
+	make test
+
+and then the &quot;make install&quot;.  The -Dprefix will place the Perl
+installation at the said directory (the Perl executable will be
+/test/perl580/bin/perl), and the -Uinstallusrbinperl will avoid
+overwriting /usr/bin/perl with a copy of the Perl 5.8.0 executable.
+
+=head1 Testing The Perl Installation
+
+You should test both your own code, and other code that you use.
+
+=head2 Testing Your Own Code
+
+Test your own code with perl 5.8.0, but in case of surprises read the
+perldelta.pod carefully before judging something as a bug.  In some
+cases the behaviour of Perl has changed.
+
+=head2 Testing Perl Modules
+
+You should try reinstalling your favourite CPAN modules to guarantee
+that they will continue working under Perl 5.8.
+
+Note that if you find some module either failing its tests or you see
+the tests emitting warning messages, please first and foremost report
+these problems to the author of the module.  Advise him/her about the
+impending 5.8.0 release and where to get the RC1 (you might for example
+point the author to this very message).  Since there are hundreds of
+modules available, the Perl 5 developer team is not qualified to be
+experts on all of them; it is much faster if the module author resolves
+any problems.
+
+In some cases you may also consider contacting some mailing lists
+to ask for help (and to spread awareness of the upcoming 5.8.0),
+for example if your operating system or the modules have mailing
+lists of their own.
+
+=head2
+
+That's it.
+
+=head1 AUTHOR
+
+Jarkko Hietaniemi
+on behalf of the Perl 5 developer team
+
+=cut
+
+
+----- End forwarded message -----
+Nicholas Clark
+-- 
+Even better than the real thing:	<A HREF="http://nms-cgi.sourceforge.net/">http://nms-cgi.sourceforge.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI> Next message: <A HREF="000786.html">[cam.pm] CPMBOPPC Now Closed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#787">[ date ]</a>
+              <a href="thread.html#787">[ thread ]</a>
+              <a href="subject.html#787">[ subject ]</a>
+              <a href="author.html#787">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

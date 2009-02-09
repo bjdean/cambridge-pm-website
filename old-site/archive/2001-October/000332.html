@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] evil regular expression wanted
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000331.html">
+   <LINK REL="Next"  HREF="000333.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] evil regular expression wanted
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] evil regular expression wanted">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 18 Oct 2001 12:32:11 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000331.html">[cam.pm] evil regular expression wanted
+</A></li>
+        <LI> Next message: <A HREF="000333.html">[cam.pm] evil regular expression wanted
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#332">[ date ]</a>
+              <a href="thread.html#332">[ thread ]</a>
+              <a href="subject.html#332">[ subject ]</a>
+              <a href="author.html#332">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, Oct 18, 2001 at 12:12:24PM +0100, Matthew Byng-Maddick wrote:
+&gt;<i> On Thu, Oct 18, 2001 at 12:03:55PM +0100, Tim Cutts wrote:
+</I>&gt;<i> &gt; Text::CSV?  Who needs it?  :-)
+</I>&gt;<i> 
+</I>&gt;<i> Apparently, you. :-) I believe that the correct CSV `&quot;'-quoting is `&quot;&quot;'.
+</I>&gt;<i> 
+</I>&gt;<i> (hence the regexp that I chose in my solution. :-)
+</I>
+Ah.  As I said, mine was derived from code to parse ACeDB output which
+escapes quotes in the way that my code deals with.  I suspect other
+program may also quote that way.
+
+My point was rather:  why use split rather than the global pattern
+match?  Is there an efficiency difference?
+
+It occurs to me that my regexp should probably begin with \G as well,
+since all matches in a CSV line should follow each other directly.
+
+Tim.
+
+-- 
+Tim Cutts PhD                    Tel: +44 1223 454918
+Senior Bioinformatics Scientist
+Incyte Genomics
+Botanic House, 100 Hills Road, Cambridge, CB2 1FF, UK
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000331.html">[cam.pm] evil regular expression wanted
+</A></li>
+	<LI> Next message: <A HREF="000333.html">[cam.pm] evil regular expression wanted
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#332">[ date ]</a>
+              <a href="thread.html#332">[ thread ]</a>
+              <a href="subject.html#332">[ subject ]</a>
+              <a href="author.html#332">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,457 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Re: Cam.pm digest, Vol 1 #202 - 4 msgs
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:rah%40mrc-dunn.cam.ac.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Re: Cam.pm digest, Vol 1 #202 - 4 msgs
+   </H1>
+    <B>Richard Harrington
+    </B> 
+    <A HREF="mailto:rah%40mrc-dunn.cam.ac.uk"
+       TITLE="[cam.pm] Re: Cam.pm digest, Vol 1 #202 - 4 msgs">rah@mrc-dunn.cam.ac.uk
+       </A><BR>
+    <I>Tue, 22 Aug 2000 10:30:50 +0100 (BST)</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#871">[ date ]</a>
+              <a href="thread.html#871">[ thread ]</a>
+              <a href="subject.html#871">[ subject ]</a>
+              <a href="author.html#871">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>yeah, thanks everyone, I got it working in the end.....
+
+To reply to Lucy's question, I sure am doing bioinformatics.  At the moment
+I'm just trying to map a whole load of human sequences from blast results
+onto a database of yeast proteins, but the blast data is filled with lots of
+'semi' redundancy (eg. hit1 = ENSP00000012345 from 201-498; hit2 =
+ENSP0000012345 from 204-490).  So I'm just trying to remove them.  It's
+going to help with both my research, which is on protein protein
+interactions, and also with anyone else who uses the blast program we have
+here.....
+
+Thanks again for all your help
+
+Richard
+
+
+
+&gt;<i> Send Cam.pm mailing list submissions to
+</I>&gt;<i> 	<A HREF="mailto:cam.pm@cam.pm.org">cam.pm@cam.pm.org</A>
+</I>&gt;<i>
+</I>&gt;<i> To subscribe or unsubscribe via the World Wide Web, visit
+</I>&gt;<i> 	<A HREF="http://cam.pm.org/list/listinfo/cam.pm">http://cam.pm.org/list/listinfo/cam.pm</A>
+</I>&gt;<i> or, via email, send a message with subject or body 'help' to
+</I>&gt;<i> 	<A HREF="mailto:cam.pm-request@cam.pm.org">cam.pm-request@cam.pm.org</A>
+</I>&gt;<i>
+</I>&gt;<i> You can reach the person managing the list at
+</I>&gt;<i> 	<A HREF="mailto:cam.pm-admin@cam.pm.org">cam.pm-admin@cam.pm.org</A>
+</I>&gt;<i>
+</I>&gt;<i> When replying, please edit your Subject line so it is more specific
+</I>&gt;<i> than &quot;Re: Contents of Cam.pm digest...&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Today's Topics:
+</I>&gt;<i>
+</I>&gt;<i>   1. problem with multiple sort... (Richard Harrington)
+</I>&gt;<i>   2. Re: problem with multiple sort... (Philip Kendall)
+</I>&gt;<i>   3. Re: problem with multiple sort... (Simon Wilcox)
+</I>&gt;<i>   4. Re: problem with multiple sort... (Lucy McWilliam)
+</I>&gt;<i>
+</I>&gt;<i> --__--__--
+</I>&gt;<i>
+</I>&gt;<i> Message: 1
+</I>&gt;<i> Date: Mon, 20 Aug 2001 18:28:48 +0100 (BST)
+</I>&gt;<i> From: &quot;Richard Harrington&quot; &lt;<A HREF="mailto:rah@mrc-dunn.cam.ac.uk">rah@mrc-dunn.cam.ac.uk</A>&gt;
+</I>&gt;<i> To: &lt;<A HREF="mailto:Cam.pm@cam.pm.org">Cam.pm@cam.pm.org</A>&gt;
+</I>&gt;<i> Subject: [cam.pm] problem with multiple sort...
+</I>&gt;<i> Reply-To: <A HREF="mailto:cam.pm@cam.pm.org">cam.pm@cam.pm.org</A>
+</I>&gt;<i>
+</I>&gt;<i> Hi there, I'm having a problem with a type of file I deal with...
+</I>&gt;<i> here's the story...
+</I>&gt;<i>
+</I>&gt;<i> file example
+</I>&gt;<i> ##########################################################
+</I>&gt;<i> score   start  end  identifier
+</I>&gt;<i> 9e-63    285    1001 ENSP00000218091
+</I>&gt;<i> 3e-58    293    996  ENSP00000218091
+</I>&gt;<i> 1e-57    280    1003 ENSP00000218091
+</I>&gt;<i> 1e-42    280    1003 ENSP00000218091
+</I>&gt;<i> 1e-42    280    1003 ENSP00000218092
+</I>&gt;<i> 1e-42    284    1004 ENSP00000218092
+</I>&gt;<i> ##########################################################
+</I>&gt;<i>
+</I>&gt;<i> code:
+</I>&gt;<i> ##########################################################
+</I>&gt;<i> while (&lt;IN&gt;){
+</I>&gt;<i>  @array = ();
+</I>&gt;<i>  if(/^\d/){
+</I>&gt;<i>    chomp $_;
+</I>&gt;<i>    @fields = split(/\s+/,$_);
+</I>&gt;<i>    if ($fields[3] =~ /ENSP/ &amp;&amp; $fields[0] &lt; 0.0005){
+</I>&gt;<i>     push (@array, $fields[0],
+</I>&gt;<i>              $fields[1],
+</I>&gt;<i>              $fields[2],
+</I>&gt;<i>              $fields[3],);
+</I>&gt;<i>    $match = $fields[8];
+</I>&gt;<i>    push (@{$hash{$match}}, [@array]);
+</I>&gt;<i>    }#end if
+</I>&gt;<i>  }#end if
+</I>&gt;<i> close (IN);
+</I>&gt;<i>
+</I>&gt;<i> ############################################################
+</I>&gt;<i> This gives me a hash with each identifier as a new key.  In each value
+</I>&gt;<i> for the key is an array of arrays.  In this case, there are 2 array,
+</I>&gt;<i> one holding 4 array (of the values in the file fields) for all rows
+</I>&gt;<i> that match ENSP00000218091, the other holding 2 arrays for matches to
+</I>&gt;<i> ENSP00000218092.
+</I>&gt;<i>
+</I>&gt;<i> I'm trying to sort firstly by identifier.  This works with:
+</I>&gt;<i>
+</I>&gt;<i> ############
+</I>&gt;<i> code:
+</I>&gt;<i>
+</I>&gt;<i> foreach $match (sort keys %hash){
+</I>&gt;<i> print &quot;\n\n$match: &quot;, scalar(@{$hash{$match}}), &quot;hits.&quot;;
+</I>&gt;<i> }#end foreach.
+</I>&gt;<i>
+</I>&gt;<i> ######################
+</I>&gt;<i>
+</I>&gt;<i> But I'm trying to sort by firstly identifier, and then start position.
+</I>&gt;<i> I used the following code, but it doesn't seem to work.  Can anyone
+</I>&gt;<i> help me?
+</I>&gt;<i>
+</I>&gt;<i> ######################
+</I>&gt;<i>
+</I>&gt;<i> foreach (sort {@{$hash{$match}}-&gt;[$b]-&gt;[1] &lt;=&gt;
+</I>&gt;<i> @{$hash{$match}}-&gt;[$a]-&gt;[1]} keys %hash){
+</I>&gt;<i>  print &quot;\n$match: &quot;, scalar(@{$hash{$match}}), &quot;hits.&quot;;
+</I>&gt;<i> }#end foreach
+</I>&gt;<i>
+</I>&gt;<i> ###########################
+</I>&gt;<i>
+</I>&gt;<i> Is it possible to use the 'or' operator to fit both of these into one
+</I>&gt;<i> command?
+</I>&gt;<i> Thanks
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --__--__--
+</I>&gt;<i>
+</I>&gt;<i> Message: 2
+</I>&gt;<i> Date: Tue, 20 Aug 2002 23:21:48 +0100
+</I>&gt;<i> From: Philip Kendall &lt;<A HREF="mailto:pak21-campm@srcf.ucam.org">pak21-campm@srcf.ucam.org</A>&gt;
+</I>&gt;<i> To: <A HREF="mailto:Cam.pm@cam.pm.org">Cam.pm@cam.pm.org</A>
+</I>&gt;<i> Subject: Re: [cam.pm] problem with multiple sort...
+</I>&gt;<i> Reply-To: <A HREF="mailto:cam.pm@cam.pm.org">cam.pm@cam.pm.org</A>
+</I>&gt;<i>
+</I>&gt;<i> On Mon, Aug 20, 2001 at 06:28:48PM +0100, Richard Harrington wrote:
+</I>&gt;<i>                ****
+</I>&gt;<i>
+</I>&gt;<i> You would appear to have a small error with your clock :-)
+</I>&gt;<i>
+</I>&gt;&gt;<i> code:
+</I>&gt;&gt;<i> ##########################################################
+</I>&gt;&gt;<i> while (&lt;IN&gt;){
+</I>&gt;&gt;<i>   @array = ();
+</I>&gt;&gt;<i>   if(/^\d/){
+</I>&gt;&gt;<i>     chomp $_;
+</I>&gt;&gt;<i>     @fields = split(/\s+/,$_);
+</I>&gt;&gt;<i>     if ($fields[3] =~ /ENSP/ &amp;&amp; $fields[0] &lt; 0.0005){
+</I>&gt;&gt;<i>      push (@array, $fields[0],
+</I>&gt;&gt;<i>               $fields[1],
+</I>&gt;&gt;<i>               $fields[2],
+</I>&gt;&gt;<i>               $fields[3],);
+</I>&gt;&gt;<i>     $match = $fields[8];
+</I>&gt;<i>
+</I>&gt;&gt;<i>From the data you gave, $fields[8] is not defined. Should this be
+</I>&gt;<i> $fields[3]?
+</I>&gt;<i>
+</I>&gt;&gt;<i>     push (@{$hash{$match}}, [@array]);
+</I>&gt;<i>
+</I>&gt;<i> Why not just do ' push (@{$hash{$match}}, [@fields]); '?
+</I>&gt;<i>
+</I>&gt;&gt;<i>     }#end if
+</I>&gt;&gt;<i>   }#end if
+</I>&gt;<i>
+</I>&gt;<i> You're missing a close brace, I presueme here.
+</I>&gt;<i>
+</I>&gt;&gt;<i> close (IN);
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ############################################################
+</I>&gt;<i>
+</I>&gt;<i> [...]
+</I>&gt;<i>
+</I>&gt;&gt;<i> But I'm trying to sort by firstly identifier, and then start position.
+</I>&gt;&gt;<i>  I used the following code, but it doesn't seem to work.  Can anyone
+</I>&gt;&gt;<i> help me?
+</I>&gt;<i>
+</I>&gt;<i> Yes. 'use strict;' is your friend :-)
+</I>&gt;<i>
+</I>&gt;&gt;<i> ######################
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> foreach (sort {@{$hash{$match}}-&gt;[$b]-&gt;[1] &lt;=&gt;
+</I>&gt;&gt;<i> @{$hash{$match}}-&gt;[$a]-&gt;[1]} keys %hash){
+</I>&gt;&gt;<i>   print &quot;\n$match: &quot;, scalar(@{$hash{$match}}), &quot;hits.&quot;;
+</I>&gt;&gt;<i> }#end foreach
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ###########################
+</I>&gt;<i>
+</I>&gt;<i> The instant problem with the above is that $match is not defined when
+</I>&gt;<i> you do your sort comparision; after that, it all gets a bit bizarre.
+</I>&gt;<i>
+</I>&gt;<i> Try something like:
+</I>&gt;<i>
+</I>&gt;<i> --- cut here ---
+</I>&gt;<i> foreach my $match ( keys %hash ) {
+</I>&gt;<i>
+</I>&gt;<i>    my @entries = @{ $hash{$match} };
+</I>&gt;<i>
+</I>&gt;<i>    foreach my $data ( sort { $a-&gt;[1] &lt;=&gt; $b-&gt;[1] } @entries ) {
+</I>&gt;<i> 	print &quot;$match $data-&gt;[1]\n&quot;;
+</I>&gt;<i>    }
+</I>&gt;<i>
+</I>&gt;<i> }
+</I>&gt;<i> --- cut here ---
+</I>&gt;<i>
+</I>&gt;&gt;<i> Is it possible to use the 'or' operator to fit both of these into one
+</I>&gt;&gt;<i> command?
+</I>&gt;<i>
+</I>&gt;<i> I'm not sure quite why you're trying to combine all this into one
+</I>&gt;<i> command; that way tends to lend to highly unreadable Perl...
+</I>&gt;<i>
+</I>&gt;<i> Hope this helps -- please feel free to ask any further questions!
+</I>&gt;<i>
+</I>&gt;<i> Phil
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> &quot;That's great! You're not a praying mantis, are you? Sorry, someone
+</I>&gt;<i> else.&quot;
+</I>&gt;<i>                                           Xander: Buffy: Inca Mummy
+</I>&gt;<i>                                           Girl
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --__--__--
+</I>&gt;<i>
+</I>&gt;<i> Message: 3
+</I>&gt;<i> Date: Wed, 21 Aug 2002 01:24:12 +0100 (BST)
+</I>&gt;<i> From: Simon Wilcox &lt;<A HREF="mailto:simonw@simonwilcox.co.uk">simonw@simonwilcox.co.uk</A>&gt;
+</I>&gt;<i> To: <A HREF="mailto:cam.pm@cam.pm.org">cam.pm@cam.pm.org</A>
+</I>&gt;<i> Subject: Re: [cam.pm] problem with multiple sort...
+</I>&gt;<i> Reply-To: <A HREF="mailto:cam.pm@cam.pm.org">cam.pm@cam.pm.org</A>
+</I>&gt;<i>
+</I>&gt;<i> On Mon, 20 Aug 2001, Richard Harrington wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi there, I'm having a problem with a type of file I deal with...
+</I>&gt;&gt;<i> here's the story...
+</I>&gt;<i>
+</I>&gt;<i> [story snipped]
+</I>&gt;<i>
+</I>&gt;<i> As Phillip pointed out, use strict; is your friend as it catches a lot
+</I>&gt;<i> of  typos and thinko's.
+</I>&gt;<i>
+</I>&gt;<i> Here's my solution to the problem. My assumption is that, in the second
+</I>&gt;<i>  part, you want to produce answers sorted by id, then start position
+</I>&gt;<i> with a  total for that combination.
+</I>&gt;<i>
+</I>&gt;<i> #! /usr/bin/perl -w
+</I>&gt;<i>
+</I>&gt;<i> use strict;
+</I>&gt;<i>
+</I>&gt;<i> my @data = ();
+</I>&gt;<i> my %ids = ();
+</I>&gt;<i> my %idpos = ();
+</I>&gt;<i>
+</I>&gt;<i> while (&lt;DATA&gt;) {
+</I>&gt;<i>
+</I>&gt;<i>    # use next rather than if for controlling execution in
+</I>&gt;<i>    # while, for &amp; foreach loops, less braces to trip you up :)
+</I>&gt;<i>    next unless /^\d/;
+</I>&gt;<i>    chomp;
+</I>&gt;<i>    my ($score, $start, $end, $id) = split /\s+/;
+</I>&gt;<i>
+</I>&gt;<i>    next unless ( $id =~ /ENSP/ &amp;&amp; $score &lt; 0.0005 );
+</I>&gt;<i>
+</I>&gt;<i>    # push an anonymous hashref onto the data array
+</I>&gt;<i>    push @data, { score =&gt; $score,
+</I>&gt;<i>                  start =&gt; $start,
+</I>&gt;<i>                  end   =&gt; $end,
+</I>&gt;<i>                  id    =&gt; $id
+</I>&gt;<i>                };
+</I>&gt;<i>
+</I>&gt;<i>    # increment total per id counter
+</I>&gt;<i>    $ids{$id}++;
+</I>&gt;<i>
+</I>&gt;<i>    # increment total per id/position counter
+</I>&gt;<i>    # This creates keys like ENSP000002180920280
+</I>&gt;<i>    # You may need to increase %04d if you expect start
+</I>&gt;<i>    # positions over 9999
+</I>&gt;<i>    $idpos{ sprintf(&quot;%15s%04d&quot;,$id, $start) }++;
+</I>&gt;<i> }
+</I>&gt;<i>
+</I>&gt;<i> # Totals for each identifier are now easy
+</I>&gt;<i>
+</I>&gt;<i> print &quot;Hits per id\n\n&quot;;
+</I>&gt;<i> foreach my $match ( sort keys %ids ) {
+</I>&gt;<i>    print &quot;$match: $ids{$match} hits.\n\n&quot;;
+</I>&gt;<i> }
+</I>&gt;<i>
+</I>&gt;<i> # Then I think you were trying to report the number of matches
+</I>&gt;<i> # for each combination of id and start position ?
+</I>&gt;<i> # You don't seem to actually count that anywhere.
+</I>&gt;<i> # Counting in the parsing loop makes it trivially easy.
+</I>&gt;<i>
+</I>&gt;<i> print &quot;Hits per start position per id\n\n&quot;;
+</I>&gt;<i> foreach my $match ( sort keys %idpos ) {
+</I>&gt;<i>    my ($id, $start) = unpack &quot;a15a4&quot;, $match;
+</I>&gt;<i>    my $s = $idpos{$match} == 1 ? '' : 's';
+</I>&gt;<i>    print &quot;$id ($start): $idpos{$match} hit$s.\n\n&quot;;
+</I>&gt;<i> }
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> # Alternatively, you could sort the @data array, then iterate
+</I>&gt;<i> # over it to do the presentation
+</I>&gt;<i>
+</I>&gt;<i> # Sort using a variant of the Schwartzian Transform
+</I>&gt;<i> my @sorted = map { $_-&gt;[0] }
+</I>&gt;<i>             sort { $a-&gt;[1] cmp $b-&gt;[1] }
+</I>&gt;<i>             map { [$_ , sprintf(&quot;%15s%04d&quot;,$_-&gt;{id}, $_-&gt;{start})] }
+</I>&gt;<i>             @data;
+</I>&gt;<i>
+</I>&gt;<i> my $displayid = '';
+</I>&gt;<i> my $displaystart = 0;
+</I>&gt;<i> my $count = 0;
+</I>&gt;<i>
+</I>&gt;<i> print &quot;Hits per start position per id (alternative)\n\n&quot;;
+</I>&gt;<i> foreach my $line (@sorted) {
+</I>&gt;<i>    my $change = 0;
+</I>&gt;<i>    $change++ if ( $displayid ne $line-&gt;{id} );
+</I>&gt;<i>    $change++ if ( $displaystart != $line-&gt;{start} );
+</I>&gt;<i>    if ($displayid &amp;&amp; $change) { # i.e. not on the first pass
+</I>&gt;<i>        my $s = $count == 1 ? '' : 's';
+</I>&gt;<i>        print &quot;$displayid ($displaystart): $count hit$s.\n\n&quot;;
+</I>&gt;<i>        $count = 0;
+</I>&gt;<i>    }
+</I>&gt;<i>    $displayid = $line-&gt;{id};
+</I>&gt;<i>    $displaystart = $line-&gt;{start};
+</I>&gt;<i>    $count++;
+</I>&gt;<i> }
+</I>&gt;<i> # Print count of final combination
+</I>&gt;<i> my $s = $count == 1 ? '' : 's';
+</I>&gt;<i> print &quot;$displayid ($displaystart): $count hit$s.\n\n&quot;;
+</I>&gt;<i>
+</I>&gt;<i> __END__
+</I>&gt;<i>
+</I>&gt;<i> __DATA__
+</I>&gt;<i> score   start  end  identifier
+</I>&gt;<i> 9e-63    285    1001 ENSP00000218091
+</I>&gt;<i> 3e-58    293    996  ENSP00000218091
+</I>&gt;<i> 1e-57    280    1003 ENSP00000218091
+</I>&gt;<i> 1e-42    280    1003 ENSP00000218091
+</I>&gt;<i> 1e-42    280    1003 ENSP00000218092
+</I>&gt;<i> 1e-42    284    1004 ENSP00000218092
+</I>&gt;<i>
+</I>&gt;<i> Note - the alternative is really just an example of sorting the array
+</I>&gt;<i> of  hashes we made in the first part of the code. It is actually quite
+</I>&gt;<i> a lot  slower than doing the count during the data parsing phase.
+</I>&gt;<i>
+</I>&gt;<i> If you were unable to count during the parsing phase, maybe you need to
+</I>&gt;<i> do  it several times with very large data sets and can't hold that many
+</I>&gt;<i> sets  in memory, you would be marginaly better off to repeat the
+</I>&gt;<i> foreach loop  to setup %idpos.
+</I>&gt;<i>
+</I>&gt;<i> Running the three approaches through Benchmark gives:
+</I>&gt;<i>
+</I>&gt;<i> Benchmark: timing 50000 iterations of Early Count, Late Count, Mid
+</I>&gt;<i> Count..
+</I>&gt;<i>              Rate  Late Count   Mid Count Early Count
+</I>&gt;<i> Late Count  1067/s          --        -11%        -30%
+</I>&gt;<i> Mid Count   1205/s         13%          --        -21%
+</I>&gt;<i> Early Count 1527/s         43%         27%          --
+</I>&gt;<i>
+</I>&gt;<i> Where Early Count is counting during parsing, Mid Count repeats the
+</I>&gt;<i> foreach loop to set up %idpos and Late Count does the maths on the fly
+</I>&gt;<i> as  per the alternate solution.
+</I>&gt;<i>
+</I>&gt;<i> Well, I've waffled on for long enough. I hope that helped somehow.
+</I>&gt;<i>
+</I>&gt;<i> Data Munging with Perl is very good for this kind of thing (and Dave
+</I>&gt;<i> didn't pay me to say so either :).
+</I>&gt;<i>
+</I>&gt;<i> Simon.
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> &quot;Do earwigs make chutney? Do spiders make gravy?&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --__--__--
+</I>&gt;<i>
+</I>&gt;<i> Message: 4
+</I>&gt;<i> Date: Wed, 21 Aug 2002 01:36:24 +0100 (BST)
+</I>&gt;<i> From: Lucy McWilliam &lt;<A HREF="mailto:lejm3@hermes.cam.ac.uk">lejm3@hermes.cam.ac.uk</A>&gt;
+</I>&gt;<i> To: <A HREF="mailto:cam.pm@cam.pm.org">cam.pm@cam.pm.org</A>
+</I>&gt;<i> Subject: Re: [cam.pm] problem with multiple sort...
+</I>&gt;<i> Reply-To: <A HREF="mailto:cam.pm@cam.pm.org">cam.pm@cam.pm.org</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Wed, 21 Aug 2002, Simon Wilcox wrote:
+</I>&gt;&gt;<i> On Mon, 20 Aug 2001, Richard Harrington wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Running the three approaches through Benchmark gives:
+</I>&gt;<i>
+</I>&gt;<i> Now you're just showing off ;p
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;&gt;<i> __DATA__
+</I>&gt;&gt;<i> score   start  end  identifier
+</I>&gt;&gt;<i> 9e-63    285    1001 ENSP00000218091
+</I>&gt;<i>
+</I>&gt;<i> This looks suspiciously like bioinformatics ;)  Richard, can I be nosy
+</I>&gt;<i> and ask what you do, seeing as the www.mrc-dunn.cam.ac.uk appears not
+</I>&gt;<i> to be working.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> L.
+</I>&gt;<i> Fruit flies like a banana.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> End of Cam.pm Digest
+</I>
+
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#871">[ date ]</a>
+              <a href="thread.html#871">[ thread ]</a>
+              <a href="subject.html#871">[ subject ]</a>
+              <a href="author.html#871">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

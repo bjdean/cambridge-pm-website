@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Recursion
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000227.html">
+   <LINK REL="Next"  HREF="000229.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Recursion
+   </H1>
+    <B>Dan Sheppard
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Recursion">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 20 Sep 2001 03:48:50 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000227.html">[cam.pm] Recursion
+</A></li>
+        <LI> Next message: <A HREF="000229.html">[cam.pm] Random stuff (was Re: Recursion)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#228">[ date ]</a>
+              <a href="thread.html#228">[ thread ]</a>
+              <a href="subject.html#228">[ subject ]</a>
+              <a href="author.html#228">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Sep 19, 2001 at 04:40:05PM +0100, Philip Kendall wrote:
+&gt;<i> * Look at point (x,y) and store its value.
+</I>&gt;<i> * If non-zero, recurse to all of
+</I>&gt;<i>     (x-1,y+1), (x,y+1), (x+1,y+1),
+</I>&gt;<i>     (x-1,y  ),          (x+1,y  ), 
+</I>&gt;<i>     (x-1,y-1), (x,y-1), (x+1,y+1)
+</I>&gt;<i>   unless they've already been done.
+</I>
+Ah, connected region analysis?
+
+If running time is important, or the image is very large, /you don't want to
+do it like that/ really.
+
+If the image is being read in incrementally and is then thrown away because
+it's too big, then the best thing to do is to create sticks of contiguous
+set pixels on each row, and then merge them into stick lists based on which
+sticks they're underneath, IYSWIM. One advantage with this representation is
+that whilst at the end you usually want to convert it into a pixmap, for
+some large strucutres with big holes in (like black borders around a page)
+the stick representation is actually smaller.
+
+If you want a cool fast algorithm, and the image at 32-bits would happily
+sit in core, then there's one that I worked on with RRW. What you do is
+first create this image (called the map) of the same size, 32-bits deep and
+blank. You also create an equivalence class. That's a thing which records
+what's equivalent to what. It's a data structure that receives assertions
+like &quot;3 is equivalent to 6&quot; and &quot;6 is equivalent to 12&quot; and can answer
+questions like &quot;is 3 equivalent to 12?&quot;. Anyway, you zoom through the
+original image and look only at the pixel above and the pixel to the left,
+and only then if your pixel is set. If the up pixel is set but not the left,
+or the left but not the up, then set the equivalent position in the map to
+the same value as the value in the map for the pixel that's set. If both up
+and left are set and they've the same value in the map, then do the same. If
+they're both set and have a different map value, set the value in the map to
+one of them and assert into your equivalence class that they're equivalent.
+If neither up or left are set, create a previously unused value for the map
+and set it to that When you've done that for each class of equivalent
+numbers choose a representive number (any of them). Then do a second pass
+across the map, and this time recolour everything to the colour of the
+representitive.
+
+What you've got then is a map where each region is a different colour. It
+kicks ass because though it's two pass it's got monster cache locality and a
+simple inner loop.
+
+One way to implement equivalence classes is with trees with only parent
+links (or the array equivalent). You have something called the canon which
+is the root of each tree (which you can use as your representitive in the
+second pass). When two things are asserted to be equivalent, you zoom down
+the tree of each of them to see what their canons are. If they're the same
+you do nothing, if different make the canon of one point to the other
+(making a bigger tree). When you find a canon from a number at some
+distance, it sometimes helps to move the link to point to the canon itself
+for speed.
+
+eg, 1=2, 1=3, 4=3, 5=6
+
+     1    5
+    / \   |
+   2   3  6
+       |
+       4
+
+6=4
+                                1
+    1                         / | \
+   /|\                      / / | \ \
+  2 3 5 can be optimised to 2 3 5 4 6 if you want
+    | |
+    4 6
+
+I'd recommend C, though.
+
+Of course, this problem might not be connected region analysis. But I like
+my rants. :)
+
+Dan (machine vision wrangler) :)
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000227.html">[cam.pm] Recursion
+</A></li>
+	<LI> Next message: <A HREF="000229.html">[cam.pm] Random stuff (was Re: Recursion)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#228">[ date ]</a>
+              <a href="thread.html#228">[ thread ]</a>
+              <a href="subject.html#228">[ subject ]</a>
+              <a href="author.html#228">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

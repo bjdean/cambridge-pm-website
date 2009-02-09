@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Perl 5.8.0 is released
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam-pm%40lists.colondot.net">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000841.html">
+   <LINK REL="Next"  HREF="000843.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Perl 5.8.0 is released
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam-pm%40lists.colondot.net"
+       TITLE="[cam.pm] Perl 5.8.0 is released">cam-pm@lists.colondot.net
+       </A><BR>
+    <I>Mon, 22 Jul 2002 14:28:17 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000841.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+        <LI> Next message: <A HREF="000843.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#842">[ date ]</a>
+              <a href="thread.html#842">[ thread ]</a>
+              <a href="subject.html#842">[ subject ]</a>
+              <a href="author.html#842">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jul 22, 2002 at 02:03:37PM +0100, Martin Keegan wrote:
+&gt;<i> On Mon, 22 Jul 2002, Ian Wells wrote:
+</I>&gt;<i> &gt; &gt; Perl 5.8.0 *and* Debian 3.0.  Mmm, toys.
+</I>&gt;<i> &gt; Or, put another way, &quot;How to render Debian 3.0 obsolete in one easy step&quot;...
+</I>&gt;<i> Anyway, should a semantic error like this (on Debian woody's perl) really
+</I>&gt;<i> give me a SEGV? Is there a good reason why the parser can't say &quot;Error,
+</I>&gt;<i> you have transfunged the first two arguments?&quot;
+</I>&gt;<i> <A HREF="mailto:mk270@ooh">mk270@ooh</A> ~&gt; perl -e 'read( $x, X, 10 )'
+</I>&gt;<i> Segmentation fault
+</I>
+That seems very bad.
+
+on 5.005_03, I get:
+|<i> [<A HREF="mailto:mbm@mallard">mbm@mallard</A>]:~$ perl -we 'read($x,X,10)'
+</I>|<i> Can't modify constant item in read at -e line 1, at end of line
+</I>|<i> Execution of -e aborted due to compilation errors.
+</I>on 5.6.0 (linux SuSE?):
+|<i> <A HREF="mailto:mbm@well">mbm@well</A>:~ &gt; perl -we 'read($x,X,10)'
+</I>|<i> Can't modify constant item in read at -e line 1, at end of line
+</I>|<i> Execution of -e aborted due to compilation errors.
+</I>and on 5.6.1, a debian build:
+|<i> [<A HREF="mailto:mbm@potato">mbm@potato</A>]:~$ perl -we 'read($x,X,10)'
+</I>|<i> Segmentation fault
+</I>5.6.1, built for FreeBSD:
+|<i> [<A HREF="mailto:mbm@colon">mbm@colon</A>]:~/tmp/perl-5.6.1$ ./perl -we 'read($x,X,10)'
+</I>|<i> Name &quot;main::X&quot; used only once: possible typo at -e line 1.
+</I>|<i> Name &quot;main::x&quot; used only once: possible typo at -e line 1.
+</I>|<i> Segmentation fault (core dumped)
+</I>
+Nick, care to clarify this? should this be one of the tests ?
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000841.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+	<LI> Next message: <A HREF="000843.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#842">[ date ]</a>
+              <a href="thread.html#842">[ thread ]</a>
+              <a href="subject.html#842">[ subject ]</a>
+              <a href="author.html#842">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

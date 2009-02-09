@@ -1,0 +1,204 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+
+
+
+ 
+ 
+
+<html>
+ <head>
+  <title>
+   CAM.PM:
+   $@ - {
+   $meets
+   -&gt; 2001
+   ; }
+  </title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <table border="0" cellpadding="2" cellspacing="2">
+   <tr>
+    <td valign="center">
+     <img src="/images/dollar-at.jpg" alt="$@" />
+    </td>
+    <td valign="center">
+     <h1>
+      <tt>require "<font color="#009900">cam</font>.<font color="#009900">pm</font>" ;</tt>
+     </h1>
+     <h1>
+      <tt>
+       {
+       $<font color="#cc0000">meets</font>
+       -&gt; <font color="#660099">2001</font>
+       ; }</tt>
+     </h1>
+    </td>
+   </tr>
+   <tr>
+    <td valign="top">
+     <!-- begin nav -->
+     <table border="0" cellpadding="0" width="128" cellspacing="1">
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/index.shtml"><b>$?</b></a></td>
+       <td valign="top"><a href="/index.shtml">about cam.pm</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/list_signup.shtml"><b>$*</b></a></td>
+       <td valign="top"><a href="/list_signup.shtml">the cam.pm list</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><b>$@</b></td>
+       <td valign="top">cam.pm meetings</td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/meets_when.shtml">when</a></td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/meets_where.shtml">where</a></td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/meets_2002.shtml">2002 meets</a></td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/meets_2001.shtml">2001 meets</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/projects_home.shtml"><b>$_</b></a></td>
+       <td valign="top"><a href="/projects_home.shtml">cam.pm projects</a></td>
+      </tr>
+
+
+     </table>
+     <!-- end nav -->
+    </td>
+    <td valign="top">
+
+<p>
+ The meetings that took place in cam.pm's first year, 2001.
+</p>
+<ul>
+ <li><a href="#20011116">Friday 2001-11-16</a></li>
+ <li><a href="#20011012">Friday 2001-10-12</a></li>
+ <li><a href="#20010905">Wednesday 2001-09-05</a></li>
+ <li><a href="#20010810">Friday 2001-08-10</a></li>
+</ul>
+<p>
+These very brief summaries generally written by <a href="mailto:pak21-campm@srcf.ucam.org">Philip Kendall</a>, unless otherwise stated. Any complaints, corrections, etc to me...
+</p>
+<p>
+ <b><a name="20011116">Friday 2001-11-16</a></b>
+</p>
+<p>
+Not particularly well attended, but that may well be a function of it
+being announced about 3 days beforehand at the bottom of a thread on
+something completely different; also not helped by Ian Phillips not
+being able to recognise us in the Castle.  We'll have to look more
+geeky next time <tt>:-)</tt>
+</p>
+<p>
+Followed the usual pattern of food, beer and other substances in the
+Castle, followed by a trip back to House! for coffee (and toast and
+mushrooms).
+</p>
+<p>
+Most notable quote of the evening was from the late arriving MBM: "Oh,
+<i>you're</i> Becky Corlett!"
+</p>
+<p>
+ <b><a name="20011012">Friday 2001-10-12</a></b>
+</p>
+<p>
+Another social meet in the Castle; this time we were graced with the
+presence of both Simon Cozens and some of <a
+href="http://london.pm.org/">london.pm</a>. Unfortunately, none of our
+lot wrote a meet report, so we'll have to make do with <a
+href="http://london.pm.org/pipermail/london.pm/Week-of-Mon-20011015/006044.html">one
+stolen from london.pm</a> and <a
+href="http://husk.org/pics/x/browse/people/cam.pm_and_after_2002-10-12">these
+photos</a> from Paul Mison.
+<p>
+ <b><a name="20010905">Wednesday 2001-09-05</a></b>
+</p>
+<p>
+Our second social meet, again in the Castle. This time no famous Perl
+personalities, but a brief summary would be that we turned up in the
+Castle, we drank beer (and related substances), we went to House!,
+people spodded until Tony stopped people spodding by pulling the ADSL
+line out of the wall, people went to home/bed (I presume).
+</p>
+<p>
+Notable moments:
+</p>
+<ul>
+ <li>"I got run over by a car, but didn't even ladder my tights"
+     (Eleanor Blair)</li>
+ <li>"I like dipping into the onion" (Tony Finch)</li>
+ <li>Tony making a comment about MBM which caused Sue to attempt the
+     nasal insertion of her Guinness.</li>
+ <li><a href="meets/camels.jpg">Tabloid newspaper headlines</a>.</li>
+ <li>The summoning of various people by the mentioning of their name (Martin
+     Cooper and Ian Jackson)</li>
+ <li>Ian's three `R's: routing, routing, and something I've forgotten. It was
+     funny at the time, OK?</li>
+ <li>Sue attempting the nasal insertion of her coffee at House!</li>
+</ul>
+<p>
+<b><a name="20010810">Friday 2001-08-10</a></b>
+</p>
+<p>
+Our very first social meet was graced with the presence of <a
+href="http://www.stonehenge.com/merlyn/">Randal L. Schwartz</a>,
+author of the Llama book (<a
+href="http://www.oreilly.com/catalog/lperl3/">Learning Perl</a>,
+O'Reilly Press). Highlights, mostly cribbed from Lucy's <a
+href="/archive/2001-August/000119.html">report to the list</a>:
+</p>
+<ul>
+<li>I think I can safely say the social on Friday night was a success.
+    About 20 people in total turned up - including many non-subscribers
+    who we managed to twist the arms of - and we crammed into the top
+    floor of the Castle between 2 other reserved tables (might try that
+    trick for next time).</li>
+<li>Lucy talked about her <a href="meets/cactus.jpg">cactus</a>.</li>
+<li>Randal was safely delivered into our company by my boss's boss
+    (hence my boss's cross-examination of me this morning) at around 9.30.
+    Incidentally, reports from my spies at the Genome Informatics meeting
+    at Hinxton say Randal talked about how perl 6 development has been
+    organised and that they were going to change everything and get it
+    done in 2 years.</li>
+<li>When MBM let him get a word in edgeways, Randal gave us a slide
+    show from his Stonehenge trip on Thursday, we all signed a <a
+    href="meets/beermat.jpg">random bit of paper</a> (for lack of beer
+    mats) and he promised to come back in November. Possibly. I can't
+    remember the details of the rest due to people buying me beer.</li>
+</ul>
+    </td>
+   </tr>
+  </table>
+  
+  <hr />
+  <small>
+   $Id: meets_2001.shtml,v 1.1 2003/05/04 16:18:56 mbm Exp $
+  </small>
+  
+ </body>
+</html>
+

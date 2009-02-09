@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Being lazy
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:m%40mjo.tc">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000661.html">
+   <LINK REL="Next"  HREF="000663.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Being lazy
+   </H1>
+    <B>Martin Oldfield
+    </B> 
+    <A HREF="mailto:m%40mjo.tc"
+       TITLE="[cam.pm] Being lazy">m@mjo.tc
+       </A><BR>
+    <I>Tue,  9 Apr 2002 15:57:18 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000661.html">[cam.pm] Being lazy
+</A></li>
+        <LI> Next message: <A HREF="000663.html">[cam.pm] Being lazy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#662">[ date ]</a>
+              <a href="thread.html#662">[ thread ]</a>
+              <a href="subject.html#662">[ subject ]</a>
+              <a href="author.html#662">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;&gt;&gt;&gt;&gt;<i> &quot;Lucy&quot; == Lucy McWilliam &lt;<A HREF="mailto:lejm3@hermes.cam.ac.uk">lejm3@hermes.cam.ac.uk</A>&gt; writes:
+</I>
+    Lucy&gt; Seeing as this isn't my job in the first place and I really
+    Lucy&gt; want to do some Drosophila sex instead, I'm trying to be
+    Lucy&gt; lazy and get one script to do some stuff and set off lots of
+    Lucy&gt; other (complex) scripts (with several different parameters
+    Lucy&gt; for each).  I've tried both system and require and neither
+    Lucy&gt; worked properly but that was probably just me messing up the
+    Lucy&gt; syntax.  Any advice is appreciated, I bow to the knowledge
+    Lucy&gt; of cam.pm.
+
+Did you try something like this:
+
+	#! /usr/bin/perl -w
+	
+	use strict;
+	
+	my $cmd = &quot;echo&quot;;
+	my @args = qw(alpha beta gamma);
+	
+	foreach my $arg (@args)
+	{
+	  system(&quot;$cmd $arg&quot;);
+	}
+
+Cheers,	
+-- 
+M.
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000661.html">[cam.pm] Being lazy
+</A></li>
+	<LI> Next message: <A HREF="000663.html">[cam.pm] Being lazy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#662">[ date ]</a>
+              <a href="thread.html#662">[ thread ]</a>
+              <a href="subject.html#662">[ subject ]</a>
+              <a href="author.html#662">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Option parsing modules
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:dot%40dotat.at">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000633.html">
+   <LINK REL="Next"  HREF="000632.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Option parsing modules
+   </H1>
+    <B>Tony Finch
+    </B> 
+    <A HREF="mailto:dot%40dotat.at"
+       TITLE="[cam.pm] Option parsing modules">dot@dotat.at
+       </A><BR>
+    <I>Wed, 13 Mar 2002 20:49:56 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000633.html">[cam.pm] Option parsing modules
+</A></li>
+        <LI> Next message: <A HREF="000632.html">[cam.pm] Option parsing modules
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#629">[ date ]</a>
+              <a href="thread.html#629">[ thread ]</a>
+              <a href="subject.html#629">[ subject ]</a>
+              <a href="author.html#629">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i>OK so suppose you're writing a small command line program which you want
+</I>&gt;<i>to take a few options, and you don't fancy doing to option handling by
+</I>&gt;<i>hand unless you really need to, what do you use?
+</I>
+My usual thing goes something like this:
+
+	use Getopt::Long;
+
+	my %option;
+	Getopt::Long::Configure 'bundling';
+	GetOptions (\%option, &quot;pipe|p!&quot;, &quot;debug|d!&quot;)
+	    or die &quot;usage: cvslog [-d] [-p] [file ...]\n&quot;,
+	           &quot;\t-d\tdebugging output\n&quot;,
+	           &quot;\t-p\tread input from pipe\n&quot;;
+
+	my $pipe;
+	if ($option{pipe}) {
+		$pipe = new_from_fd IO::Handle fileno(STDIN), &quot;r&quot;;
+		die &quot;$0: fdopen: $!\n&quot; unless defined $pipe;
+	} else {
+		$pipe = new IO::Pipe;
+		die &quot;$0: pipe: $!\n&quot; unless defined $pipe;
+		$pipe-&gt;reader(&quot;cvs&quot;, &quot;log&quot;, @ARGV);
+	}
+
+etc.
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000633.html">[cam.pm] Option parsing modules
+</A></li>
+	<LI> Next message: <A HREF="000632.html">[cam.pm] Option parsing modules
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#629">[ date ]</a>
+              <a href="thread.html#629">[ thread ]</a>
+              <a href="subject.html#629">[ subject ]</a>
+              <a href="author.html#629">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

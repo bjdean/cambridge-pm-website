@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> SQL and CGI
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000012.html">
+   <LINK REL="Next"  HREF="000014.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>SQL and CGI
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="SQL and CGI">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 5 Jul 2001 11:56:16 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000012.html">SQL and CGI
+</A></li>
+        <LI> Next message: <A HREF="000014.html">SQL and CGI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, Jul 05, 2001 at 11:28:42AM +0100, Martin Keegan wrote:
+&gt;<i> On Thu, 5 Jul 2001, Matthew Byng-Maddick wrote:
+</I>&gt;<i> &gt; &gt; A lot of the perlish stuff I do involves web-based access to SQL
+</I>&gt;<i> &gt; &gt; databases. I use the CGI and DBI modules, and am pretty happy with them.
+</I>&gt;<i> &gt; &gt; There are four things that I am missing:
+</I>&gt;<i> &gt; &gt;   a wrapper function which sprintfs correctly $dbh-&gt;quoted() arguments
+</I>&gt;<i> &gt; &gt;   into a query string
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I'm not sure I understand what you mean here... Why would you want to do
+</I>&gt;<i> &gt; this?
+</I>&gt;<i> To avoid the
+</I>&gt;<i>     $sql_statement = sprintf( &quot;INSERT INTO users VALUES (%s, %s, %s, %S)&quot;,
+</I>&gt;<i>                               	$dbh-&gt;quote( $a ),
+</I>&gt;<i> 				$dbh-&gt;quote( $b ),
+</I>&gt;<i> 				$dbh-&gt;quote( $c ),
+</I>&gt;<i> 				$dbh-&gt;quote( $d ) );
+</I>&gt;<i> Even with map { $dbh-&gt;quote( $_ ) } ( $a, $b, $c, $d ) it's still klunky.
+</I>
+sorry, namespace overload: by query string, I thought you meant
+scalar($r-&gt;args) or $ENV{&quot;QUERY_STRING&quot;} (depending on your orientation).
+
+how about:
+
+|<i> $sql=&quot;INSERT INTO users VALUES (?,?,?,?)&quot;;
+</I>|<i> my $sth=$dbh-&gt;prepare($sql);
+</I>|<i>
+</I>|<i> $sth-&gt;execute($a,$b,$c,$d);
+</I>
+?? which is a standard in the DBI implementation, and is sometimes well
+implemented in databases which do query cacheing (eg Oracle, Informix)
+
+&gt;<i> &gt; &gt;   wrapper functions for sql queries which return single values, etc
+</I>&gt;<i> &gt; eg:
+</I>&gt;<i> &gt; sub get_single {
+</I>&gt;<i> &gt;     my $dbh=shift;
+</I>&gt;<i> &gt;     my $sql=shift;
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;     my $sth=$dbh-&gt;prepare($sql);
+</I>&gt;<i> &gt;     if($sth-&gt;execute(@_) &amp;&amp; $sth-&gt;rows()) {
+</I>&gt;<i> &gt;         my($ret)=$sth-&gt;fetchrow_array();
+</I>&gt;<i> &gt;         $sth-&gt;finish();
+</I>&gt;<i> &gt;         return $ret;
+</I>&gt;<i> &gt;     }
+</I>&gt;<i> &gt;     $sth-&gt;finish();
+</I>&gt;<i> &gt;     return undef;
+</I>&gt;<i> &gt;     }
+</I>&gt;<i> Yes, precisely.
+</I>
+Personally, I'd write a library of your own to do this, I know this sounds
+like reinventing the wheel, but the different exceptions that can be raised
+etc, make this a problem where everybody's idea of a good solution will be
+different. In my example above, you can't tell the difference between no
+row, and an invalid sql query, so a different implementation, which should
+be run in eval{} is.
+
+sub get_single {
+    my $dbh=shift;
+    my $sql=shift;
+
+    my $sth=$dbh-&gt;prepare($sql);
+    if(!$sth) {
+        die &quot;Couldn't prepare \`$sql'\n&quot;;
+    }
+    if($sth-&gt;execute(@_)) {
+        if($sth-&gt;rows) {
+            my($ret)=$sth-&gt;fetchrow_array();
+            $sth-&gt;finish();
+            return $ret;
+        }
+        die &quot;No rows returned\n&quot;;
+    }
+    $sth-&gt;finish();
+    die &quot;Query \`$sql' failed\n&quot;;
+}
+
+This gives you better exception handling. You may want this, you may not.
+
+after all, you could then write a wrapper that does:
+
+sub get_single_wrapper {
+    my $ret;
+    if(eval {$ret=get_single(@_);1;}) {
+        return $ret;
+    } else {
+        mail_admin(&quot;SQL query failed: $_[1] from &quot;.caller(), $@);
+        return undef;
+    }
+}
+
+or you may want it to completely change the template, (eg, in development,
+come up with an &quot;it failed here&quot; kind of template, which then prints the
+text of the die...)
+
+&gt;<i> &gt; &gt;   a 2 dimensional SQL result -&gt; 2 dimensional HTML table + style system
+</I>&gt;<i> &gt; this is similar to the below...
+</I>&gt;<i> &gt; &gt;   a SQL table schema -&gt; CGI form system
+</I>&gt;<i> &gt; My last boss attempted to do this. It was ugly and crap.
+</I>&gt;<i> Well, there's a demand for a good one.
+</I>
+Oh, definitely, there just doesn't seem to be any nice way of doing it, I've
+seen some attempts with php etc, but certainly if you have a database that
+doesn't enforce referential integrity(, then you deserve to lose anyway, but)
+then you have other problems here.
+
+&gt;<i> &gt; &gt; I plead ignorance. Does any of these things actually exist?
+</I>&gt;<i> &gt; Well, some are trivial to write yourself, others I have yet to find an
+</I>&gt;<i> &gt; implementation of that I like, and that works in every situation (by which
+</I>&gt;<i> &gt; I mean that I have some way of tweaking it if it doesn't work).
+</I>&gt;<i> All of these things are pretty easy to write; the issue for me is that I
+</I>&gt;<i> don't to cut and paste the code from project to project, I want it in a
+</I>&gt;<i> proper perl module written by someone who understands writing perl modules
+</I>&gt;<i> which I can apt-get or download from CPAN, and I want it out there so that
+</I>&gt;<i> there's just one fewer hurdle to getting things done for people trying to
+</I>&gt;<i> write the sorts of applications which require this functionality. 
+</I>
+:<i>-)
+</I>
+&gt;<i> I guess I should probably start writing my own perl module then.
+</I>
+Very much so. :-)
+
+Bear in mind that designing good interfaces is decidedly non-trivial. Spend
+some time first thinking about the limitations of the way that you've chosen
+to do things, and see if there's any way to make sure it can handle 100% of
+cases, even if some of them take a bit more work...
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000012.html">SQL and CGI
+</A></li>
+	<LI> Next message: <A HREF="000014.html">SQL and CGI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

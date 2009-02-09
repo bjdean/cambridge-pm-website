@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Christmas Perl Programming
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam-pm%40lists.colondot.net">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000952.html">
+   <LINK REL="Next"  HREF="000954.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Christmas Perl Programming
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam-pm%40lists.colondot.net"
+       TITLE="[cam.pm] Christmas Perl Programming">cam-pm@lists.colondot.net
+       </A><BR>
+    <I>Sat, 7 Dec 2002 02:40:09 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000952.html">[cam.pm] Perl Advent Calendar
+</A></li>
+        <LI> Next message: <A HREF="000954.html">[cam.pm] Christmas Perl Programming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#953">[ date ]</a>
+              <a href="thread.html#953">[ thread ]</a>
+              <a href="subject.html#953">[ subject ]</a>
+              <a href="author.html#953">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>So, in the summer, I suggested in
+  <A HREF="http://www.cam.pm.org/archive/2002-May/000761.html">http://www.cam.pm.org/archive/2002-May/000761.html</A>
+that we should have a small programming contest. I learnt a number of things
+from this, such as appropriate amounts of time, etc. I've also been known
+to do little fun programs at christmas time, with an approximately
+christmassy theme - eg:
+  <A HREF="http://www.cam.pm.org/archive/2001-December/000489.html">http://www.cam.pm.org/archive/2001-December/000489.html</A>
+
+So, it seemed pretty obvious that I could combine the two. The rules on the
+entries will be stricter, and the prize will be more tangible.
+
+The rules are very simple:
+* a valid programme entry (such as the example below) can be overlaid by
+  the template below in such a way that the characters in the entry are
+  non-whitespace if the corresponding character in the template is a &quot;#&quot;
+  and that they are whitespace if the corresponding character is a &quot; &quot;.
+  Trailing space will be ignored.
+  (Tabs will be rendered as &quot; &quot; to the nearest tabstop, and tabstops
+  occur every 8 characters). Entries not conforming will be rejected as
+  part of the competition, but may well end up in the final summary.
+
+* Entries must be submitted to <A HREF="mailto:christmas-perl@cam.pm.org">christmas-perl@cam.pm.org</A> by
+  2003-01-01 00:00:01
+
+* Multiple entries are allowed per person
+
+* Entries should be submitted with any environment variables, such as
+  LINES or COLUMNS, that might need setting. No non-standard environment
+  variables will be allowed from the command line. Setting the tty modes
+  using stty(1) shall also be allowed, and other such I/O settings. Forms
+  of any required arguments would also be good, or files that need to be
+  opened.
+
+* Entries are considered secret by the judges until the announcement of
+  the winner and the publication of the summaries (this publication will
+  be announced on the cam.pm list). Copyright of the entry remains with
+  the original author, but the competition judges, and cam.pm are granted
+  a non-exclusive licence to be able to publish such code, and include it
+  on the cam.pm website.
+
+* Pick one or more of perl 5.005_03 / 5.6.1 / 5.8.0
+
+* The prize will be a bottle of wine, to be presented at the next available
+  opportunity after the announcement of the winner.
+
+* Open to anyone who would like to submit (except for organisers of the
+  competition, obviously)
+
+* The winner will be the most interesting programme to decipher and
+  understand. Extra credit will be given for algorithmic obfuscation,
+  interesting techniques of using the space allowed, and pretty results.
+  The judges' decision shall be final.
+
+-----BEGIN TEMPLATE-----
+            ###                          ###
+          #######                      #######
+         ###   ####  ##############  ####   ###
+          ############    ####    ############
+          ############    ####    ############
+         ##  ####   ###    ##    ###   ####  ##
+        ###    ###   ####  ##  ####   ###    ###
+       ######   ########## ## ##########   ######
+      ##     ##############################     ##
+  ####################################################
+ ####  #########  ########    ########  #########  ####
+ ###    #######    ######      ######    #######    ###
+ ####  #########  ########    ########  #########  ####
+  ####################################################
+      ##     ##############################     ##
+       ######   ########## ## ##########   ######
+        ###    ###   ####  ##  ####   ###    ###
+         ##  ####   ###    ##    ###   ####  ##
+          ############    ####    ############
+          ############    ####    ############
+         ###   ####  ##############  ####   ###
+          #######                      #######
+            ###                          ###
+-----END TEMPLATE-----
+
+In order to get people to participate in this, I've done a non-entry which
+conforms to all but the rule about competition organisers.
+
+-----BEGIN MBM ENTRY-----
+            sub                          l{$
+          r[-1]=~                      s/./-/g
+         ;a(   2,$d  );a(4,&quot;/$e\\&quot;)  ;a(3   ,$f
+          );a(5,$u.$e.    &quot;&quot;.$    u.&quot;&quot;,1);for(
+          @t){$p=&quot;(.{&quot;    .$_.    &quot;}&quot;;$r[-5]=~
+         s,  $p.)   .,$    1.    &quot;.&quot;   ,ex;  $r
+        [0-    $_]   =~s;  $p  )...   ;$1    .&quot;&quot;
+       .&quot;/$u&quot;   .qq/\\/;xe ,1 for(2..4)}   $_=$z.
+      &quot;&quot;     .join&quot;\n&quot;<A HREF="mailto:,@r">,@r</A>;print;sleep$|}sub     r{
+  int(rand$_[0])}$|=1;$u=$&quot;;$e=&quot;_&quot;x5;$a=$u.&quot;o&quot;;$b=&quot;o&quot;;
+ ;sub  a{;substr  $r[-$_[0    ]],$h,7,  $_[1]}sub  t{t(
+ 01)    if!@_;$    k=$a;$      a=$b;$    b=$k;$r    [$_
+ -01]  =~s/$a/r(  012)?$a:    $b.&quot;&quot;/eg  for(1..$r  )}$b
+  .=$u;$z=&quot;\e[H\e[J&quot;;($r,$c)=split/\s/,`stty${u}size`;
+      $v     =$&quot;x$c;$h=r($c-7);@t=map{r($c-     3)
+       }(0..r   (9));$k=$b ;$ k=~s/\s//;   for(01
+        ..$    r){   ($r[  $_  -1]=   $v)    =~#
+         s,  \s,r   (30    )?    $&quot;:   $k#&quot;  o&quot;
+          ,xeg}($f=$d=    &quot;|&quot;.    &quot;$u#$u+$u|&quot;)
+          =~y/#/+/;for    (0..    $r){l;t;@r=(
+         $v,   @r);  <A HREF="mailto:pop@r">pop@r</A>}$r[-6]=&quot;  Let&quot;   .$&quot;
+          .&quot;it$u&quot;                      .&quot;snow&quot;
+            ;l;                          $p;
+-----END MBM ENTRY-----
+
+So, while you're sitting there trying to deal with the amount of turkey
+you've eaten, then see if you can come up with a programme to fit in the
+snowflake, and get it in before the New Year. There are quite a few
+characters to play with, and it should be possible to do something
+interesting.
+
+Happy Hacking, and good luck.
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000952.html">[cam.pm] Perl Advent Calendar
+</A></li>
+	<LI> Next message: <A HREF="000954.html">[cam.pm] Christmas Perl Programming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#953">[ date ]</a>
+              <a href="thread.html#953">[ thread ]</a>
+              <a href="subject.html#953">[ subject ]</a>
+              <a href="author.html#953">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

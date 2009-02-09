@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Dynamic extensions
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000561.html">
+   <LINK REL="Next"  HREF="000564.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Dynamic extensions
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Dynamic extensions">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 12 Feb 2002 08:59:56 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000561.html">[cam.pm] Dynamic extensions
+</A></li>
+        <LI> Next message: <A HREF="000564.html">[cam.pm] CUCS talk, Wednesday 13th February, Speaker: Dave Green (fwd)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#562">[ date ]</a>
+              <a href="thread.html#562">[ thread ]</a>
+              <a href="subject.html#562">[ subject ]</a>
+              <a href="author.html#562">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Feb 12, 2002 at 12:52:49AM +0000, Tony Finch wrote:
+&gt;<i> What do people consider to be a tasteful way of implementing a dynamically
+</I>&gt;<i> extensible script? I'm thinking along the lines of a library directory
+</I>&gt;<i> which is scanned by the script, and files in that directory may attach
+</I>&gt;<i> to hooks in the script to add functionality. The user should be able to
+</I>&gt;<i> add hook files or library dirs at run-time, of course.
+</I>
+Certainly eval would probably help you here, I suspect there is probably
+some magic in DynaLoader that will help you too. CPAN.pm can do something
+similar to this (if you can find anything useful in the module), when you
+call &quot;reload cpan&quot;.
+
+The AutoLoader may be able to help you too. In Perl5.6.1, there's also a
+cunning trick with @INC, you can push a coderef onto @INC, and it returns
+the name of the file to load for a given .pm file. By doing this, and
+unsetting the relevant module in %INC, you may be able to achieve the
+effect you want, in a slightly neater way.
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000561.html">[cam.pm] Dynamic extensions
+</A></li>
+	<LI> Next message: <A HREF="000564.html">[cam.pm] CUCS talk, Wednesday 13th February, Speaker: Dave Green (fwd)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#562">[ date ]</a>
+              <a href="thread.html#562">[ thread ]</a>
+              <a href="subject.html#562">[ subject ]</a>
+              <a href="author.html#562">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

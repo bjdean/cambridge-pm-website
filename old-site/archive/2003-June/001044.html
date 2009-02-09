@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] called too early to check prototype
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="001043.html">
+   <LINK REL="Next"  HREF="001045.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] called too early to check prototype
+   </H1>
+    <B>Ian Jackson
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] called too early to check prototype">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Sun, 29 Jun 2003 15:21:58 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="001043.html">[cam.pm] Pub!
+</A></li>
+        <LI> Next message: <A HREF="001045.html">[cam.pm] called too early to check prototype
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1044">[ date ]</a>
+              <a href="thread.html#1044">[ thread ]</a>
+              <a href="subject.html#1044">[ subject ]</a>
+              <a href="author.html#1044">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>OK, I give up.  A script I wrote a while ago now says
+ main::read_config() called too early to check prototype
+   at /usr/bin/chiark-named-conf line 262.
+and the like - a dozen or two, depending on exactly how it's run.
+
+I've googled, I've RTFMd, and there is no standard answer to this
+question AFAICT.  Typing `called too early to check prototype' into
+Google is very illuminating, in fact - lots of other people have this
+problem, but the answers they seem to be getting are unhelpful at
+best.
+
+So:
+
+1. Where should I have looked to find the answer to this ?
+
+2. If the answer to 1 is `it's not properly documented', then
+   could someone please explain to me what I need to do to my script ?
+
+3. Why oh why oh why oh why do the Perl maintainers keep pulling shit
+   like this ?  I only just had them `fix' the `bug' which made $^F
+   not work, the resulting change breaking a program I wrote some time
+   before 1994.  If Perl isn't careful they'll find people writing Tcl
+   instead to take advantage of its superior API stability.
+
+For now I've grepped for all the function definitions in the script,
+turned them into declarations, and stuck them all in a big list near
+the top of the script.  This has bad the symptoms go away but is quite
+ugly.
+
+Ian.
+
+PS: The script is
+ <A HREF="http://www.chiark.greenend.org.uk/ucgi/~ijackson/cvsweb/~checkout~/chiark-utils/scripts/named-conf?rev=HEAD">http://www.chiark.greenend.org.uk/ucgi/~ijackson/cvsweb/~checkout~/chiark-utils/scripts/named-conf?rev=HEAD</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="001043.html">[cam.pm] Pub!
+</A></li>
+	<LI> Next message: <A HREF="001045.html">[cam.pm] called too early to check prototype
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1044">[ date ]</a>
+              <a href="thread.html#1044">[ thread ]</a>
+              <a href="subject.html#1044">[ subject ]</a>
+              <a href="author.html#1044">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

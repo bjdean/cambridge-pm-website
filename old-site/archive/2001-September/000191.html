@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Wake up!
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000190.html">
+   <LINK REL="Next"  HREF="000203.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Wake up!
+   </H1>
+    <B>Dan Sheppard
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Wake up!">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 5 Sep 2001 01:09:42 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000190.html">[cam.pm] Wake up!
+</A></li>
+        <LI> Next message: <A HREF="000203.html">[cam.pm] Wake up!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#191">[ date ]</a>
+              <a href="thread.html#191">[ thread ]</a>
+              <a href="subject.html#191">[ subject ]</a>
+              <a href="author.html#191">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Sep 05, 2001 at 12:01:34AM +0100, Matthew Byng-Maddick wrote:
+&gt;<i> Are you sure you want to, passed out on the landing as you were?
+</I>
+:<i>) Being passed out that's good. Can't do any harm then.
+</I>
+&gt;<i> &gt; As for anything exciting and geeky, I've only been writing a wrapper around
+</I>&gt;<i> &gt; Pg:: to do boring database stuff.
+</I>&gt;<i> &gt; &quot;INSERT INTO sentence (purpose) VALUES ($_);&quot;;
+</I>&gt;<i> 
+</I>&gt;<i> What about DBI ?
+</I>
+Pg is a DBI DBD but with different function names really. I know that seems
+evil bad and wrong but Pg is supported by Postgresql, installed, and allows
+me to use cunning Postgres specific features not in the DBI interface as far
+as I know (like directly tinkering with your backend!). The whole thing is
+Postgres specific enough that porting over to DBI wouldn't gain much, except
+I'd have to learn use a new interface well.
+
+The bit I'm writing is a wrapper so that, for a paritcular database it's
+being written for, people can do 
+
+$dbase-&gt;xsuby($x,$y);
+
+to the module, and the module can say
+
+INSERT INTO subkind SELECT b.super,a.sub,FALSE AS direct FROM ( SELECT sub
+FROM subkind WHERE super=$x UNION SELECT $x AS sub) AS a, ( SELECT super
+FROM subkind WHERE sub=$y UNION SELECT $y AS super )AS b EXCEPT SELECT
+super,sub,FALSE AS direct WHERE super=$y AND sub=$x;
+
+to Pg (DBI, whatever). And also so that the slow migration to server-side
+functions can be hidden from everyone else (not all of the examples are as
+computationally clean as that, a perl PL has been ruled out, and the database
+has a tight deadline for deployment).
+
+I've realised I'm not really very good at either Perl or SQL, tbh, I think
+I'm destined for middle management, if I'm lucky, a sideshow at the the fair
+if not! :) Still, getting a job would be cool, there's only so much fun to
+be had from SQL in your spare time. :)
+
+Dan.
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000190.html">[cam.pm] Wake up!
+</A></li>
+	<LI> Next message: <A HREF="000203.html">[cam.pm] Wake up!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#191">[ date ]</a>
+              <a href="thread.html#191">[ thread ]</a>
+              <a href="subject.html#191">[ subject ]</a>
+              <a href="author.html#191">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

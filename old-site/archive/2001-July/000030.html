@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> perl6
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000029.html">
+   <LINK REL="Next"  HREF="000031.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>perl6
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="perl6">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 17 Jul 2001 08:03:35 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000029.html">perl6
+</A></li>
+        <LI> Next message: <A HREF="000031.html">perl6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#30">[ date ]</a>
+              <a href="thread.html#30">[ thread ]</a>
+              <a href="subject.html#30">[ subject ]</a>
+              <a href="author.html#30">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jul 16, 2001 at 08:25:47PM +0100, Matthew Byng-Maddick wrote:
+&gt;<i> [1] From Damian Conway's Object Oriented Programming in Perl book:
+</I>&gt;<i>     (disclaimer: I don't have a copy to hand, and I actually prefer not to
+</I>&gt;<i>                  use private-alikes, so I may have got this wrong...)
+</I>
+                   OK, I did get it wrong.
+                   Although I think there may be some horriblenesses with this.
+
+&gt;<i> | package Foo::Bar;
+</I>&gt;<i> |
+</I>&gt;<i> | sub new {
+</I>&gt;<i> |     my $pack=shift;
+</I>&gt;<i> |     return bless {@_}, $pack;
+</I>&gt;<i> | }
+</I>&gt;<i> |
+</I>&gt;<i> | {
+</I>  |
+  | # what in fact should happen here:
+  |
+  | my $private_class_global1=$val1;
+  | my $private_class_global2=$val2;
+  | my $private_class_global3=$val3;
+  |
+  | # which then go out of scope at the end of the bracing, but
+  | # which are available to method1 and method2 below. I think
+  | # one might even put new() within the bracing too.
+  |
+  | # I think using this method, method1() and method2() become
+  | # a kind of closure, but it's too early in the morning.
+  |
+&gt;<i> |     sub method1 {
+</I>&gt;<i> |         my $self=shift;
+</I>&gt;<i> |         # some method here...
+</I>&gt;<i> |     }
+</I>&gt;<i> |
+</I>&gt;<i> |     sub method2 {
+</I>&gt;<i> |         my $self=shift;
+</I>&gt;<i> |         # a different object method here...
+</I>&gt;<i> |     }
+</I>&gt;<i> | }
+</I>
+Ignore this.
+
+&gt;<i>    the idea being that the method1 and method2 don't appear directly in
+</I>&gt;<i>    the symbol table....
+</I>
+You can still get private methods for an individual sub by defining them
+within that sub, but then they're not necessarily useful, as you can't get
+at them from another sub within the class... :-(
+
+MBM (feeling like a right arse for this... :-( )
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000029.html">perl6
+</A></li>
+	<LI> Next message: <A HREF="000031.html">perl6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#30">[ date ]</a>
+              <a href="thread.html#30">[ thread ]</a>
+              <a href="subject.html#30">[ subject ]</a>
+              <a href="author.html#30">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

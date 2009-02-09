@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] $_
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000402.html">
+   <LINK REL="Next"  HREF="000395.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] $_
+   </H1>
+    <B>Ian Phillipps
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] $_">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Mon, 12 Nov 2001 13:38:59 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000402.html">[cam.pm] $_
+</A></li>
+        <LI> Next message: <A HREF="000395.html">[cam.pm] $_
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#396">[ date ]</a>
+              <a href="thread.html#396">[ thread ]</a>
+              <a href="subject.html#396">[ subject ]</a>
+              <a href="author.html#396">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, 12 Nov 2001 at 01:20:34 +0000, Philip Kendall wrote:
+&gt;<i> Do other people find this behaviour very counter-intuitive:
+</I>
+Some do, I'm sure :-)
+
+&gt;<i> sub get_home ($) {
+</I>&gt;<i>     while( &lt;PASSWD&gt; ) {
+</I>&gt;<i> }
+</I>
+&gt;<i> my @users = ( 'root', 'bin' );
+</I>&gt;<i> my @homes = map { get_home( $_ ) } @users;
+</I>
+&gt;<i> (Yes, I know there are better ways of doing this :-) )
+</I>
+You're implicitly overwriting $_ with the &lt;&gt; operation.
+$_ also is the implicit iteration variable of &quot;map&quot; - which it localises.
+All bets are off.
+
+Simple rule: never use $_ in a sub without localising it.
+
+I learned this a few years ago by a similar process to the one you're
+using :-)
+
+Oh, and hi, all you guys. I missed the first meeting with Randal :-(
+Is there another one planned?
+
+Ian
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000402.html">[cam.pm] $_
+</A></li>
+	<LI> Next message: <A HREF="000395.html">[cam.pm] $_
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#396">[ date ]</a>
+              <a href="thread.html#396">[ thread ]</a>
+              <a href="subject.html#396">[ subject ]</a>
+              <a href="author.html#396">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

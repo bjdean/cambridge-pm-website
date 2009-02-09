@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Backup / archive format handling?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   
+   <LINK REL="Next"  HREF="001089.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Backup / archive format handling?
+   </H1>
+    <B>Peter Clay
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Backup / archive format handling?">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Mon, 12 Jul 2004 16:59:18 +0100 (BST)</I>
+    <P><UL>
+        
+        <LI> Next message: <A HREF="001089.html">[cam.pm] Backup / archive format handling?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1088">[ date ]</a>
+              <a href="thread.html#1088">[ thread ]</a>
+              <a href="subject.html#1088">[ subject ]</a>
+              <a href="author.html#1088">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello all,
+
+I'm looking at writing a backup script to replace Amanda, as Amanda is
+rather inflexible. There are some very specific requirements I'm
+trying to implement:
+
+- most of the target is source checkouts in people's home directories,
+  therefore consists of many, many identical small files;
+- but some of the files are very large (although none over 2Gb yet)
+- total area is up to about 250Gb
+- we want to fit as much of that as possible onto one 20/40Gb tape
+- we want users to be able to select what gets backed up, defaulting to on
+- we want to identify users with disproportionate backup requirements
+- maybe implement quotas on the above
+
+I had the idea to deduplicate files on the tape by e.g. MD5sum. But I
+don't know of a standard archive format that supports that. Ideally I'd
+like the tape format to be reconstructable with standard tools for obvious
+reasons. Failing that, I'll stick a copy of the restore script on the
+front of every tape.
+
+Anyone want to post their backup script that does anything like this? Or
+want to offer advice on how to proceed?
+
+Pete
+-- 
+Peter Clay                                         | Campaign for   _  _| .__
+                                                   | Digital       /  / | |
+                                                   | Rights!       \_ \_| |
+                                                   | <A HREF="http://www.ukcdr.org">http://www.ukcdr.org</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI> Next message: <A HREF="001089.html">[cam.pm] Backup / archive format handling?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1088">[ date ]</a>
+              <a href="thread.html#1088">[ thread ]</a>
+              <a href="subject.html#1088">[ subject ]</a>
+              <a href="author.html#1088">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

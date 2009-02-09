@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Beginning Perl for Bioinformatics
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000465.html">
+   <LINK REL="Next"  HREF="000467.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Beginning Perl for Bioinformatics
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Beginning Perl for Bioinformatics">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Mon, 17 Dec 2001 14:41:57 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000465.html">[cam.pm] Beginning Perl for Bioinformatics
+</A></li>
+        <LI> Next message: <A HREF="000467.html">[cam.pm] Beginning Perl for Bioinformatics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#466">[ date ]</a>
+              <a href="thread.html#466">[ thread ]</a>
+              <a href="subject.html#466">[ subject ]</a>
+              <a href="author.html#466">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Dec 17, 2001 at 02:06:12PM +0000, LNR wrote:
+&gt;<i> Philip Kendall  wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;(If the sum of two digits is greater than 10, just treat the two digits
+</I>&gt;<i> &gt; as two separate entries in the array. This can cause the the procedure
+</I>&gt;<i> &gt; not to converge...)
+</I>&gt;<i> 
+</I>&gt;<i> What you need to do now is something to stop i going on forever if it's
+</I>&gt;<i> not showing any sign of converging.
+</I>&gt;<i> 
+</I>&gt;<i> I've been picking this apart by email with Phil already :-)
+</I>&gt;<i> 
+</I>&gt;<i>  9   9   9
+</I>&gt;<i>   1 8 1 8
+</I>&gt;<i>  1 9 9 9 8
+</I>&gt;<i> 
+</I>&gt;<i> is a good example of a fragment which will never converge and get longer
+</I>&gt;<i> and longer.  Other bits get into loops where you go round the same few
+</I>&gt;<i> lines over and over again.  It's harder to just make an example of that
+</I>&gt;<i> up off the top of my head I'm afraid.
+</I>
+33333 -&gt; 6666 -&gt; 121212 -&gt; 33333
+
+Those are pretty easy to catch (something like an appropriately
+obfuscated `die 'Loop detected' if $seen{&quot;@number_array&quot;}++' in the do
+loop).
+
+Infinitely growing sequences are harder (and unfortunately, more
+common...)
+
+Phil
+
+-- 
+  Philip Kendall &lt;<A HREF="mailto:pak21@srcf.ucam.org">pak21@srcf.ucam.org</A>&gt;
+  <A HREF="http://www.srcf.ucam.org/~pak21/">http://www.srcf.ucam.org/~pak21/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000465.html">[cam.pm] Beginning Perl for Bioinformatics
+</A></li>
+	<LI> Next message: <A HREF="000467.html">[cam.pm] Beginning Perl for Bioinformatics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#466">[ date ]</a>
+              <a href="thread.html#466">[ thread ]</a>
+              <a href="subject.html#466">[ subject ]</a>
+              <a href="author.html#466">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

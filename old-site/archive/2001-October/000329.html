@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] evil regular expression wanted
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000327.html">
+   <LINK REL="Next"  HREF="000330.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] evil regular expression wanted
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] evil regular expression wanted">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 18 Oct 2001 11:49:19 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000327.html">[cam.pm] evil regular expression wanted
+</A></li>
+        <LI> Next message: <A HREF="000330.html">[cam.pm] evil regular expression wanted
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#329">[ date ]</a>
+              <a href="thread.html#329">[ thread ]</a>
+              <a href="subject.html#329">[ subject ]</a>
+              <a href="author.html#329">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Oct 17, 2001 at 04:55:56PM +0100, Ashton, Bruce wrote:
+&gt;<i> Hi,
+</I>&gt;<i> 	A regular expression brain teaser for anyone is interested  (well,
+</I>&gt;<i> it might not be a brain teaser to someone more expert than I)
+</I>&gt;<i> 	I have to parse a line of text which is a list of comma separated
+</I>&gt;<i> values.  I started out using a simple split function
+</I>&gt;<i> 
+</I>&gt;<i> @foo = split /,/, $bar;
+</I>&gt;<i> 
+</I>&gt;<i> Then I discovered that some of the values were strings of text containing
+</I>&gt;<i> commas.  They can be distinguished as single values by the fact that they
+</I>&gt;<i> are delimited by double quotes e.g.
+</I>&gt;<i> 
+</I>&gt;<i> &quot;This is a sentence, with a comma&quot;, &lt;value&gt;, &lt;value&gt;
+</I>
+Why do you have to use split() ?   A multiple-match regular expression
+handles this quite nicely:
+
+    my (@a) = /(\&quot;(?:\\.|[^\&quot;])*\&quot;|[^,\n]+),?/g;
+    
+If you want to strip out the surrounding quotes and any escaped internal
+quotes, you can follow it up with:
+
+    map  { s/^\&quot;(.*)\&quot;$/$1/; s/\\\&quot;/\&quot;/g; } @a;
+    
+See for example the following example program:
+
+#!/usr/bin/perl -w
+
+while (&lt;DATA&gt;) {
+    my (@a) = /(\&quot;(?:\\.|[^\&quot;])*\&quot;|[^,\n]+),?/g;
+    map  { s/^\&quot;(.*)\&quot;$/$1/; s/\\\&quot;/\&quot;/g; } @a;
+    print join(&quot;\n&quot;, @a, '');
+}
+
+__DATA__
+Wibble,12345,&quot;Foo, Bar&quot;,&quot;\&quot;The cat sat on the mat\&quot;, she said&quot;
+
+Which prints out:
+
+Wibble
+12345
+Foo, Bar
+&quot;The cat sat on the mat&quot;, she said
+
+I use something very similar to this to parse the output tables of ACeDB
+AQL queries (although they are whitespace separated, not commas).
+
+Tim.
+
+-- 
+Tim Cutts PhD                    Tel: +44 1223 454918
+Senior Bioinformatics Scientist
+Incyte Genomics
+Botanic House, 100 Hills Road, Cambridge, CB2 1FF, UK
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000327.html">[cam.pm] evil regular expression wanted
+</A></li>
+	<LI> Next message: <A HREF="000330.html">[cam.pm] evil regular expression wanted
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#329">[ date ]</a>
+              <a href="thread.html#329">[ thread ]</a>
+              <a href="subject.html#329">[ subject ]</a>
+              <a href="author.html#329">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Backup / archive format handling?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="001090.html">
+   <LINK REL="Next"  HREF="001092.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Backup / archive format handling?
+   </H1>
+    <B>Peter Clay
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Backup / archive format handling?">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 13 Jul 2004 13:59:19 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="001090.html">[cam.pm] Backup / archive format handling?
+</A></li>
+        <LI> Next message: <A HREF="001092.html">[cam.pm] Backup / archive format handling?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1091">[ date ]</a>
+              <a href="thread.html#1091">[ thread ]</a>
+              <a href="subject.html#1091">[ subject ]</a>
+              <a href="author.html#1091">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, 13 Jul 2004, Ian Jackson wrote:
+
+&gt;<i> Matthew Astley writes (&quot;Re: [cam.pm] Backup / archive format handling?&quot;):
+</I>&gt;<i> &gt; Will the users be happy with writing a ~/.backup-list.pl script which
+</I>&gt;<i> &gt; generates the filename list for what to include?  That's the ultimate
+</I>&gt;<i> &gt; flexibility, and trustworthy if you su per user and maybe post-filter
+</I>&gt;<i> &gt; the output.
+</I>&gt;<i>
+</I>&gt;<i> If you use userv then you could have an easy to use default
+</I>&gt;<i> implementation which users could override.
+</I>
+&quot;Could&quot; doesn't imply &quot;will&quot; - I think I'll keep it to a file listing
+directories / files which should be backed up, probably with some sort of
+include/exclude syntax, e.g.:
+
++/home/pete
+-/home/pete/bigjunk
++/home/pete/bigjunk/longpath/important_file
+
+&gt;<i> &gt; [Peter Clay:]
+</I>&gt;<i> &gt; &gt; I had the idea to deduplicate files on the tape by e.g. MD5sum. But
+</I>&gt;<i> &gt; &gt; I don't know of a standard archive format that supports that.
+</I>&gt;<i>
+</I>&gt;<i> Sorting the filename list will help here, but you'd better make sure
+</I>&gt;<i> you're using LVM snapshots or similar.  Otherwise the backups are
+</I>&gt;<i> likely to be quite skew and of course you'll get lots of errors which
+</I>&gt;<i> will be hard to tell apart from real errors.
+</I>
+I'd like to do that, but it's infeasible to switch to LVM on the relevant
+system. I don't think it will be too much of a problem given that the
+backup happens overnight. At the moment, we just use Amanda's tar mode.
+The complication I can see is that the MD5sum must be that of the exact
+data written to tape, otherwise you might restore the wrong file. Hmm, and
+there are issues if users are changing either the source or restore
+targets while this is going on (your reference file might have gone away).
+
+Basically there are two cases that I want to compress specifically:
+- source code checkouts: everyone is going to have *mostly* identical
+files
+- we have lots of VLSI design data around which consists of large,
+unchanging files; any careless duplicates of those will eat a lot of space
+
+I can't believe that there isn't software out there which addresses this,
+but if there isn't then it would clearly be a useful thing to write.
+afio is very close, but despite its 87 zillion commandline options it
+doesn't exactly do this. I suppose I could fake it by pretending to be a
+&quot;compression&quot; program.
+
+Would this be better/more reliable as a block-level deduplication program
+run on a tar (or other) archive of the relevant files?
+
+Which versions of Perl are largefile-clean? Do I need to do anything
+special to get largefiles to work?
+
+Pete
+-- 
+Peter Clay                                         | Campaign for   _  _| .__
+                                                   | Digital       /  / | |
+                                                   | Rights!       \_ \_| |
+                                                   | <A HREF="http://www.ukcdr.org">http://www.ukcdr.org</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="001090.html">[cam.pm] Backup / archive format handling?
+</A></li>
+	<LI> Next message: <A HREF="001092.html">[cam.pm] Backup / archive format handling?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1091">[ date ]</a>
+              <a href="thread.html#1091">[ thread ]</a>
+              <a href="subject.html#1091">[ subject ]</a>
+              <a href="author.html#1091">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

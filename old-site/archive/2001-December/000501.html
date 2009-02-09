@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] displacement activities...
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000500.html">
+   <LINK REL="Next"  HREF="000503.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] displacement activities...
+   </H1>
+    <B>Matthew Byng-Maddick
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] displacement activities...">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 20 Dec 2001 14:07:42 +0000</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000500.html">[cam.pm] displacement activities...
+</A></li>
+        <LI> Next message: <A HREF="000503.html">[cam.pm] displacement activities...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#501">[ date ]</a>
+              <a href="thread.html#501">[ thread ]</a>
+              <a href="subject.html#501">[ subject ]</a>
+              <a href="author.html#501">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, Dec 20, 2001 at 01:54:46PM +0000, Lucy McWilliam wrote:
+&gt;<i> On Thu, 20 Dec 2001, Colin Watson wrote:
+</I>&gt;<i> &gt; Given your choice of loop variables, you could make that quite
+</I>&gt;<i> &gt; entertaining by sticking a sort() or two inside the loop ...
+</I>&gt;<i> And again in English...? (for those of who have just had champagne and are
+</I>&gt;<i> feeling lightheaded).  I also noted a couple of camels upstairs in the new
+</I>&gt;<i> office.  Might have to recruit them.
+</I>
+My loop variables were $a and $b (although in fact, they end up being the 
+same variable, as kindly pointed out by PAK). So if you use sort, they
+end up being localised, and you can do interesting things with them.
+
+eg @foo=sort {lc($a) cmp lc($b)} @bar; to do a case-insensitive sort.
+
+or, if you want to sort on reverse domain parts, from a list of email
+addresses:
+
+@foo=sort {lc(join(&quot;.&quot;,reverse split/\./,($a=~/^[^@]+@(.*)/)[0])) cmp
+           lc(join(&quot;.&quot;,reverse split/\./,($b=~/^[^@]+@(.*)/)[0]))} @bar;
+
+MBM
+
+-- 
+Matthew Byng-Maddick         &lt;<A HREF="mailto:mbm@colondot.net">mbm@colondot.net</A>&gt;           <A HREF="http://colondot.net/">http://colondot.net/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000500.html">[cam.pm] displacement activities...
+</A></li>
+	<LI> Next message: <A HREF="000503.html">[cam.pm] displacement activities...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#501">[ date ]</a>
+              <a href="thread.html#501">[ thread ]</a>
+              <a href="subject.html#501">[ subject ]</a>
+              <a href="author.html#501">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

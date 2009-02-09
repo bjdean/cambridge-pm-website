@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Recursion
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000242.html">
+   <LINK REL="Next"  HREF="000228.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Recursion
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Recursion">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 19 Sep 2001 16:40:05 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000242.html">[cam.pm] Recursion
+</A></li>
+        <LI> Next message: <A HREF="000228.html">[cam.pm] Recursion
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#227">[ date ]</a>
+              <a href="thread.html#227">[ thread ]</a>
+              <a href="subject.html#227">[ subject ]</a>
+              <a href="author.html#227">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Sep 19, 2001 at 04:20:29PM +0100, Matthew Byng-Maddick wrote:
+&gt;<i> On Wed, Sep 19, 2001 at 04:04:36PM +0100, Philip Kendall wrote:
+</I>&gt;<i> &gt; &lt;fx: looks around. Where's everybody gone?&gt;
+</I>&gt;<i> &gt; Does anyone know if there are any artifical limits on how deep Perl
+</I>&gt;<i> &gt; subroutines can recurse? (Some of my simulations may be of the same
+</I>&gt;<i> &gt; order of magnitude as 2^16 in the near future, and I don't want them to
+</I>&gt;<i> &gt; blow up after 12 hours of runtime :-) )
+</I>&gt;<i> 
+</I>&gt;<i> Perl will certainly warn, and possibly blow up after 100 levels of
+</I>&gt;<i> stack with the same function.
+</I>
+Warn. Unless you have
+
+|<i> no warnings 'recursion'
+</I>
+at the top of your code :-)
+
+&gt;<i> Doing O(2^16) sounds incredibly worrying, and possibly better solved
+</I>&gt;<i> in some other way than recursion
+</I>
+Definitely (and in fact, trivially) solved without recursion, but I
+started thinking about this and got interested...
+
+FWIW, I've got a function which is zero across most of its domain, but
+has a few irregularly shaped (but relatively large) areas in which its
+value is non-zero. What I'd basically like is the average value of the
+function across its entire domain; hence I want to sample the bits in
+which it is non-zero. The previous ugly algorithm was:
+
+* Look at point (x,y) and store its value.
+* If non-zero, recurse to all of
+    (x-1,y+1), (x,y+1), (x+1,y+1),
+    (x-1,y  ),          (x+1,y  ), 
+    (x-1,y-1), (x,y-1), (x+1,y+1)
+  unless they've already been done.
+
+Trivial fix (in fact, what I've already done) is to just use a
+{list,stack} to store the points I'm going to need to look at, but I was
+just wondering...
+
+Phil
+
+-- 
+  Philip Kendall &lt;<A HREF="mailto:pak21@srcf.ucam.org">pak21@srcf.ucam.org</A>&gt;
+  <A HREF="http://www.srcf.ucam.org/~pak21/">http://www.srcf.ucam.org/~pak21/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000242.html">[cam.pm] Recursion
+</A></li>
+	<LI> Next message: <A HREF="000228.html">[cam.pm] Recursion
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#227">[ date ]</a>
+              <a href="thread.html#227">[ thread ]</a>
+              <a href="subject.html#227">[ subject ]</a>
+              <a href="author.html#227">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

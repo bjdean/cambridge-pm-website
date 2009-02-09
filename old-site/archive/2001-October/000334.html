@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] evil regular expression wanted
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000333.html">
+   <LINK REL="Next"  HREF="000335.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] evil regular expression wanted
+   </H1>
+    <B>Ashton, Bruce
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] evil regular expression wanted">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 18 Oct 2001 14:20:58 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000333.html">[cam.pm] evil regular expression wanted
+</A></li>
+        <LI> Next message: <A HREF="000335.html">[cam.pm] One for the bioinformaticians...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#334">[ date ]</a>
+              <a href="thread.html#334">[ thread ]</a>
+              <a href="subject.html#334">[ subject ]</a>
+              <a href="author.html#334">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks for all the suggestions, some of them worked better than others.  I
+came up with my own solution as well,
+
+@foo = split /(&quot;[^&quot;]*&quot;)?,$1/, $bar;
+
+It works as well as any others that I tested, although it did have some
+strange behaviour. if I passed $bar as an argument to a subroutine
+containing the split call in my test, it behaved differently to when I split
+in the string in the main body of the script.  This is when $bar was defined
+as,
+
+$bar = '&quot;some text&quot;,&quot;some text, with comma&quot;,0';
+
+I also noted that the reference to $1 did not depend on whether the first
+bracketed expression matched, it was equivalent to cutting and pasting the
+bracketed expression at the position of the reference.  Is that correct?
+	This solution would also have been ideal if the expression in the
+brackets wasn't pushed onto @foo at each split as well.  Is there anyway to
+modify that behaviour?
+	I didn't test all the other solutions completely.  I ended up just
+using Text::CSV as suggested (A module I wasn't previously aware of.)  I
+guess this was the answer I really wanted.
+
+
+
+Bruce Ashton
+Java Developer
+Product Development Branch
+Commercial Division
+ext. 4560
+
+&gt;<i> -----Original Message-----
+</I>&gt;<i> From:	Nicholas Clark [SMTP:<A HREF="mailto:nick@ccl4.org">nick@ccl4.org</A>]
+</I>&gt;<i> Sent:	Thursday, October 18, 2001 12:39 PM
+</I>&gt;<i> To:	<A HREF="mailto:cam.pm@cam.pm.org">cam.pm@cam.pm.org</A>
+</I>&gt;<i> Subject:	Re: [cam.pm] evil regular expression wanted
+</I>&gt;<i> 
+</I>&gt;<i> On Thu, Oct 18, 2001 at 12:12:24PM +0100, Matthew Byng-Maddick wrote:
+</I>&gt;<i> &gt; On Thu, Oct 18, 2001 at 12:03:55PM +0100, Tim Cutts wrote:
+</I>&gt;<i> &gt; &gt; Text::CSV?  Who needs it?  :-)
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Apparently, you. :-) I believe that the correct CSV `&quot;'-quoting is `&quot;&quot;'.
+</I>&gt;<i> 
+</I>&gt;<i> I thought that one of the problems with CSV was that there is no spec.
+</I>&gt;<i> Hence different incompatible ways of quoting (or not being able to quote)
+</I>&gt;<i> were all equally valid. It's just that the more common way of doing it is
+</I>&gt;<i> foo, not bar.
+</I>&gt;<i> 
+</I>&gt;<i> Still, is there good reason not to use Text::CSV?
+</I>&gt;<i> 
+</I>&gt;<i> Nicholas Clark
+</I>
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000333.html">[cam.pm] evil regular expression wanted
+</A></li>
+	<LI> Next message: <A HREF="000335.html">[cam.pm] One for the bioinformaticians...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#334">[ date ]</a>
+              <a href="thread.html#334">[ thread ]</a>
+              <a href="subject.html#334">[ subject ]</a>
+              <a href="author.html#334">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

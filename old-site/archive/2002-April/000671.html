@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Being lazy
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:pak21-campm%40srcf.ucam.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000670.html">
+   <LINK REL="Next"  HREF="000672.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Being lazy
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:pak21-campm%40srcf.ucam.org"
+       TITLE="[cam.pm] Being lazy">pak21-campm@srcf.ucam.org
+       </A><BR>
+    <I>Wed, 10 Apr 2002 10:14:55 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000670.html">[cam.pm] Being lazy
+</A></li>
+        <LI> Next message: <A HREF="000672.html">[cam.pm] Being lazy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#671">[ date ]</a>
+              <a href="thread.html#671">[ thread ]</a>
+              <a href="subject.html#671">[ subject ]</a>
+              <a href="author.html#671">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Apr 10, 2002 at 09:01:27AM +0100, Matthew Byng-Maddick wrote:
+&gt;<i> 
+</I>&gt;<i> Even if you have no shell meta-characters, you STILL invoke sh for the
+</I>&gt;<i> scalar
+</I>
+OK, I'm obviously missing something here. Are you saying that
+
+system( &quot;ls&quot; );
+
+in Perl will still call sh? If so, what's the point of the tests in
+doio.c:Perl_do_exec3 (from the 5.7.3 source) looking for shell
+metacharacters?
+
+(A quick test on a Solaris box:
+
+cass26:pak:~/tmp$ truss -f perl -e 'system(&quot;ls&quot;)' 2&gt; out
+Makefile       flock.c        out            stat.c
+Rational.pm    ls.out         prod.pl        system.pl
+fcntl2         nines.out.bz2  stack.pl       system.pl~
+fcntl2.c       nines.pl       stat           wait.c
+cass26:pak:~/tmp$ fgrep 'exec' out
+26559:  execve(&quot;/usr/bin/perl&quot;, 0xEFFFF284, 0xEFFFF294)  argc = 3
+26560:  execve(&quot;/home/pak/bin/solaris/ls&quot;, 0x00022DF8, 0xEFFFF294) Err#2
+ENOENT
+26560:  execve(&quot;/home/pak/bin/ls&quot;, 0x00022DF8, 0xEFFFF294) Err#2 ENOENT
+26560:  execve(&quot;/usr/dt/bin/ls&quot;, 0x00022DF8, 0xEFFFF294) Err#2 ENOENT
+26560:  execve(&quot;/opt/SUNWspro/bin/ls&quot;, 0x00022DF8, 0xEFFFF294) Err#2
+ENOENT
+26560:  execve(&quot;/usr/bin/ls&quot;, 0x00022DF8, 0xEFFFF294)  argc = 1
+
+)
+
+Phil
+
+-- 
+  Philip Kendall &lt;<A HREF="mailto:pak21@srcf.ucam.org">pak21@srcf.ucam.org</A>&gt;
+  <A HREF="http://www.srcf.ucam.org/~pak21/">http://www.srcf.ucam.org/~pak21/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000670.html">[cam.pm] Being lazy
+</A></li>
+	<LI> Next message: <A HREF="000672.html">[cam.pm] Being lazy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#671">[ date ]</a>
+              <a href="thread.html#671">[ thread ]</a>
+              <a href="subject.html#671">[ subject ]</a>
+              <a href="author.html#671">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

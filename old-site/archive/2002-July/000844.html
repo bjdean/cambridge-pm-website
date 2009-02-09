@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Perl 5.8.0 is released
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cjwatson%40flatline.org.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000843.html">
+   <LINK REL="Next"  HREF="000845.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Perl 5.8.0 is released
+   </H1>
+    <B>Colin Watson
+    </B> 
+    <A HREF="mailto:cjwatson%40flatline.org.uk"
+       TITLE="[cam.pm] Perl 5.8.0 is released">cjwatson@flatline.org.uk
+       </A><BR>
+    <I>Mon, 22 Jul 2002 14:45:47 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000843.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+        <LI> Next message: <A HREF="000845.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#844">[ date ]</a>
+              <a href="thread.html#844">[ thread ]</a>
+              <a href="subject.html#844">[ subject ]</a>
+              <a href="author.html#844">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jul 22, 2002 at 02:03:37PM +0100, Martin Keegan wrote:
+&gt;<i> <A HREF="mailto:mk270@ooh">mk270@ooh</A> ~&gt; perl -e 'read( $x, X, 10 )'
+</I>&gt;<i> Segmentation fault
+</I>
+Cool. Sounds like this one I found when I typoed a bareword instead of a
+glob:
+
+  $ perl -e 'sub TIEHANDLE { print &quot;tied!\n&quot;; } tie STDERR, &quot;main&quot;;'
+
+As in your case, 5.8 has fixed this.
+
+-- 
+Colin Watson                                  [<A HREF="mailto:cjwatson@flatline.org.uk">cjwatson@flatline.org.uk</A>]
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000843.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+	<LI> Next message: <A HREF="000845.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#844">[ date ]</a>
+              <a href="thread.html#844">[ thread ]</a>
+              <a href="subject.html#844">[ subject ]</a>
+              <a href="author.html#844">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

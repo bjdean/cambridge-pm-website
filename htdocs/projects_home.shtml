@@ -1,0 +1,105 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+
+
+
+ 
+ 
+
+<html>
+ <head>
+  <title>
+   CAM.PM:
+    - {
+   $projects
+   -&gt; home
+   ; }
+  </title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <table border="0" cellpadding="2" cellspacing="2">
+   <tr>
+    <td valign="center">
+     <img src="/images/dollar-underscore.jpg" alt="" />
+    </td>
+    <td valign="center">
+     <h1>
+      <tt>require "<font color="#009900">cam</font>.<font color="#009900">pm</font>" ;</tt>
+     </h1>
+     <h1>
+      <tt>
+       {
+       $<font color="#cc0000">projects</font>
+       -&gt; <font color="#660099">home</font>
+       ; }</tt>
+     </h1>
+    </td>
+   </tr>
+   <tr>
+    <td valign="top">
+     <!-- begin nav -->
+     <table border="0" cellpadding="0" width="128" cellspacing="1">
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/index.shtml"><b>$?</b></a></td>
+       <td valign="top"><a href="/index.shtml">about cam.pm</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/list_signup.shtml"><b>$*</b></a></td>
+       <td valign="top"><a href="/list_signup.shtml">the cam.pm list</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/meets_when.shtml"><b>$@</b></a></td>
+       <td valign="top"><a href="/meets_when.shtml">cam.pm meetings</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><b>$_</b></td>
+       <td valign="top">cam.pm projects</td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/projects_home.shtml">home</a></td>
+      </tr>
+
+
+     </table>
+     <!-- end nav -->
+    </td>
+    <td valign="top">
+
+<p>
+ The winner of the <a
+ href="/archive/2002-May/000761.html">Cam.Pm Beerfestival Obfuscated
+ Perl Programming Contest</a> has been announced, and the results are
+ available <a href="cpmboppc.shtml">here</a>.
+</p>
+<p>
+ The winner of the <a
+ href="/archive/2002-December/000953.html">Cam.Pm Christmas Obfuscated 
+ Perl Programming Contest</a> has been announced, and the results are
+ available <a href="christmasppc.shtml">here</a>.
+</p>
+    </td>
+   </tr>
+  </table>
+  
+  <hr />
+  <small>
+   $Id: projects_home.shtml,v 1.6 2003/01/02 12:49:30 mbm Exp $
+  </small>
+  
+ </body>
+</html>
+

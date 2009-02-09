@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Perl 5.8.0 is released
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:nick%40ccl4.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000839.html">
+   <LINK REL="Next"  HREF="000841.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Perl 5.8.0 is released
+   </H1>
+    <B>Nicholas Clark
+    </B> 
+    <A HREF="mailto:nick%40ccl4.org"
+       TITLE="[cam.pm] Perl 5.8.0 is released">nick@ccl4.org
+       </A><BR>
+    <I>Mon, 22 Jul 2002 14:20:21 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000839.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+        <LI> Next message: <A HREF="000841.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#840">[ date ]</a>
+              <a href="thread.html#840">[ thread ]</a>
+              <a href="subject.html#840">[ subject ]</a>
+              <a href="author.html#840">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jul 22, 2002 at 02:03:37PM +0100, Martin Keegan wrote:
+&gt;<i> On Mon, 22 Jul 2002, Ian Wells wrote:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; &gt; Perl 5.8.0 *and* Debian 3.0.  Mmm, toys.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Or, put another way, &quot;How to render Debian 3.0 obsolete in one easy step&quot;...
+</I>&gt;<i> 
+</I>&gt;<i> Careful, in Cambridge all criticism of Debian is (rightly, IMO) out of
+</I>&gt;<i> order.
+</I>
+&quot;Debian is perfect. there is no way to improve Debian&quot; :-)
+(Don't) discuss. (as you're just said that you're not allowed to criticise,
+therefore you can only agree).
+
+
+&gt;<i> Anyway, should a semantic error like this (on Debian woody's perl) really
+</I>&gt;<i> give me a SEGV? Is there a good reason why the parser can't say &quot;Error,
+</I>&gt;<i> you have transfunged the first two arguments?&quot;
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="mailto:mk270@ooh">mk270@ooh</A> ~&gt; perl -e 'read( $x, X, 10 )'
+</I>&gt;<i> Segmentation fault
+</I>
+$ perl5.6.1 -e 'read( $x, X, 10 )'
+Segmentation fault
+$ perl5.8.0 -e 'read( $x, X, 10 )'
+Can't modify constant item in read at -e line 1, at end of line
+Execution of -e aborted due to compilation errors.
+
+It would appear to be known and fixed in 5.8.0. :-)
+
+(SEGVing 5.8.0 can be done, but not in many of the ways that 5.6.1 can be
+SEGVed)
+
+Nicholas Clark
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000839.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+	<LI> Next message: <A HREF="000841.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#840">[ date ]</a>
+              <a href="thread.html#840">[ thread ]</a>
+              <a href="subject.html#840">[ subject ]</a>
+              <a href="author.html#840">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

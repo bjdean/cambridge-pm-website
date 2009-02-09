@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] untainting
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="001060.html">
+   <LINK REL="Next"  HREF="001063.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] untainting
+   </H1>
+    <B>Nicholas Clark
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] untainting">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 9 Oct 2003 22:57:42 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="001060.html">[cam.pm] [JOB] Perl developer required
+</A></li>
+        <LI> Next message: <A HREF="001063.html">[cam.pm] untainting
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1062">[ date ]</a>
+              <a href="thread.html#1062">[ thread ]</a>
+              <a href="subject.html#1062">[ subject ]</a>
+              <a href="author.html#1062">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I've left the original message in, as it may bounce before pm.org DNS
+delegation returns, and plum can manage a host lookup on cam.pm.org
+
+On Thu, Oct 09, 2003 at 10:05:30PM +0100, Nicholas Clark wrote:
+&gt;<i> On Tue, Oct 07, 2003 at 11:04:11PM +0100, Colin Watson wrote:
+</I>&gt;<i> &gt; On Tue, Oct 07, 2003 at 07:38:46PM +0100, Tony Finch wrote:
+</I>&gt;<i> &gt; &gt; So we have some old code that does this:
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; 	die &quot;Invalid list name\n&quot;
+</I>&gt;<i> &gt; &gt; 	  unless ($ENV{'LOCAL_PART'} =~ /^($listname_regexp)$/);
+</I>&gt;<i> &gt; &gt; 	$listname = $1;
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; The idea being that $listname is untainted. This works fine on perl-5.6.1
+</I>&gt;<i> &gt; &gt; etc. However, on perl-5.8.0 it leaves $listname tainted. Is this a
+</I>&gt;<i> &gt; &gt; know bug?
+</I>&gt;<i> 
+</I>&gt;<i> Strangely I find that Colin's example does work on vanilla 5.8.0.
+</I>&gt;<i> Is your 5.8.0 a vendor 5.8.0 with patches?
+</I>&gt;<i> 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Curious. The following succeeds for me using Debian perl 5.8.0-21:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;   LOCAL_PART=foo perl -Twe '
+</I>&gt;<i> &gt;     $ENV{PATH} = &quot;/usr/bin:/bin&quot;;
+</I>&gt;<i> &gt;     $listname_regexp = qr/foo/;
+</I>&gt;<i> &gt;     die &quot;Invalid list name\n&quot; unless ($ENV{LOCAL_PART} =~ /^($listname_regexp)$/);
+</I>&gt;<i> &gt;     $listname = $1;
+</I>&gt;<i> &gt;     system(&quot;echo $listname&quot;);'
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I haven't tried virgin upstream 5.8.0 or 5.8.1, though.
+</I>&gt;<i> 
+</I>&gt;<i> upstream 5.8.0 passes (ie outputs foo)
+</I>&gt;<i> upstream 5.8.1 fails (Insecure dependency)
+</I>&gt;<i> 
+</I>&gt;<i> you don't need the qr// or the anchors in the second regexp:
+</I>&gt;<i> 
+</I>&gt;<i> $ perl5.8.0 -Twe '$ENV{PATH} = &quot;/usr/bin:/bin&quot;; $r = &quot;foo&quot;; $ARGV[0] =~ /($r)/; $l = $1; system(&quot;echo $l&quot;);' foo
+</I>&gt;<i> foo
+</I>&gt;<i> $ perl5.8.1 -Twe '$ENV{PATH} = &quot;/usr/bin:/bin&quot;; $r = &quot;foo&quot;; $ARGV[0] =~ /($r)/; $l = $1; system(&quot;echo $l&quot;);' foo
+</I>&gt;<i> Insecure dependency in system while running with -T switch at -e line 1.
+</I>&gt;<i> 
+</I>&gt;<i> I think that the 5.8.1 behaviour is a bug, but I've asked for a second
+</I>&gt;<i> opinion (ie justify why on earth it isn't one)
+</I>
+Second and third opinion is that this is a bug. Would you like to report it?
+Or shall I?
+
+Nicholas Clark
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="001060.html">[cam.pm] [JOB] Perl developer required
+</A></li>
+	<LI> Next message: <A HREF="001063.html">[cam.pm] untainting
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1062">[ date ]</a>
+              <a href="thread.html#1062">[ thread ]</a>
+              <a href="subject.html#1062">[ subject ]</a>
+              <a href="author.html#1062">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

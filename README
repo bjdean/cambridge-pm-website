@@ -1,49 +1,51 @@
-Mon Feb  9 17:11:45 GMT 2009
+Welcome to the Cambridge(UK) Perl-Mongers Website source code project
+=====================================================================
 
-This is going to be the place that the cambridge-pm website source is maintained.
-
-I'm just setting things up at the moment. When I have a dump of the source I'll
-import it and we'll be underway.
+In February 2009 we migrated the existing http://cam.pm.org/ contents onto
+github more or less in tact (stored in the old-site directory) and then
+started work on updating the site contents (less the old mailing list
+archives) in the htdocs and cgi-bin directories.
 
 This project uses git for change control. To work on the source code:
 
-    * Register for an account on http://github.com/
+ * Register for an account on http://github.com/
 
-    * Grab the latest copy of the repository.  With git you can
-      use:
+ * Grab the latest copy of the repository.  With git you can
+   use:
 
-        git clone git://github.com/bjdean/cambridge-pm-website.git 
+     git clone git://github.com/bjdean/cambridge-pm-website.git 
 
-      If you've got your commit-bit already, you can use:
+   If you've got your commit-bit already, you can use:
 
-        git clone git@github.com:bjdean/cambridge-pm-website.git 
+     git clone git@github.com:bjdean/cambridge-pm-website.git 
 
-      If you're working without git, you can download the master
-      branch files at:
+   If you're working without git, you can download the master
+   branch files at:
 
-        http://github.com/bjdean/cambridge-pm-website/tarball/master
+     http://github.com/bjdean/cambridge-pm-website/tarball/master
 
-    * Do all your work on the a branch.
+ * Do all your work on the a branch.
 
-      If you're working on an already existing branch check it out
-      as follows:
+   If you're working on an already existing branch check it out
+   as follows:
 
-        git checkout -b branch-name origin/branch-name
-        git merge master
-        git push origin branch-name
+     git checkout -b branch-name origin/branch-name
+     git merge master
+     git push origin branch-name
 
-      Replace branch-name with the branch name.  The 'git merge master' will
-      make sure you've got the latest changes.  The push line will make sure
-      your changes go back to the main repo.
+   Replace branch-name with the branch name.  The 'git merge master' will
+   make sure you've got the latest changes.  The push line will make sure
+   your changes go back to the main repo.
 
-      To create a new branch:
+   To create a new branch:
 
-        git checkout master
-        git pull
-        git branch branch-name
-        git push origin branch-name
+     git checkout master
+     git pull
+     git branch branch-name
+     git push origin branch-name
 
-References:
+References
+==========
 
  * The site:
    http://cam.pm.org/
@@ -54,7 +56,11 @@ References:
  * Ohloh:
    http://www.ohloh.net/projects/cambridge-pm-website
 
-Bradley Dean <bjdean@bjdean.id.au>
-
 (With thanks to Paul Fenwick for a place to start on this README - big
 chunks copied from http://github.com/pfenwick/perl589delta)
+
+Authors
+=======
+
+ Robbie Bow    - robbie AT robbiebow.co.uk
+ Bradley Dean  - bjdean AT bjdean.id.au

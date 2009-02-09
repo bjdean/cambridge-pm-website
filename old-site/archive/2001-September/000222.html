@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Parrot...
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000221.html">
+   <LINK REL="Next"  HREF="000223.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Parrot...
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Parrot...">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 12 Sep 2001 12:19:42 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000221.html">[cam.pm] Parrot...
+</A></li>
+        <LI> Next message: <A HREF="000223.html">[cam.pm] Recursion
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#222">[ date ]</a>
+              <a href="thread.html#222">[ thread ]</a>
+              <a href="subject.html#222">[ subject ]</a>
+              <a href="author.html#222">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Sep 11, 2001 at 12:07:35PM +0100, Nicholas Clark wrote:
+&gt;<i> On Tue, Sep 11, 2001 at 11:59:29AM +0100, Philip Kendall wrote:
+</I>
+[Parrot interpreter]
+
+&gt;<i> &gt; Has anyone else tried this yet? I can some results from test.pasm, but
+</I>&gt;<i> &gt; test2.pasm and test3.pasm both coredump on me:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; cass30:pak:~/data2/parrot$ perl assemble.pl t/test2.pasm &gt; test2.pbc 
+</I>&gt;<i> &gt; cass30:pak:~/data2/parrot$ ./test_prog test2.pbc 
+</I>&gt;<i> &gt; Bus Error (core dumped)
+</I>
+[snip]
+
+&gt;<i> Without having actually looked at the parrot code my 2 stock answers would be
+</I>&gt;<i> 
+</I>&gt;<i> 1: I think that they were talking about it always threading.
+</I>&gt;<i>    IIRC bus errors on Solaris can be due to bugs in Sun's threading libraries
+</I>&gt;<i> 
+</I>&gt;<i> or
+</I>&gt;<i> 
+</I>&gt;<i> 2: You may well be the first person to compile on an architecture that
+</I>&gt;<i>    objects to non-word-aligned access. (Dan has VMS alpha, Simon I think
+</I>&gt;<i>    has x86 Linux). In which case your build experience would be useful.
+</I>&gt;<i>    (I really must compile my arm linux kernel to SIGBUS a process on
+</I>&gt;<i>     misaligned reads/writes. And then hassle 'till the bugs are fixed)
+</I>
+That'd be (2), then. The padding for string constants was being doing as
+length % sizeof(IV), rather than sizeof(IV) - (length % sizeof(IV). Now
+fixed in the Parrot CVS (although not by me).
+
+test3.pbc is still segfaulting, though...
+
+Phil
+
+-- 
+  Philip Kendall &lt;<A HREF="mailto:pak21@srcf.ucam.org">pak21@srcf.ucam.org</A>&gt;
+  <A HREF="http://www.srcf.ucam.org/~pak21/">http://www.srcf.ucam.org/~pak21/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000221.html">[cam.pm] Parrot...
+</A></li>
+	<LI> Next message: <A HREF="000223.html">[cam.pm] Recursion
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#222">[ date ]</a>
+              <a href="thread.html#222">[ thread ]</a>
+              <a href="subject.html#222">[ subject ]</a>
+              <a href="author.html#222">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

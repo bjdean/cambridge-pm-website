@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Being lazy
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:campm%40leda.demon.co.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000666.html">
+   <LINK REL="Next"  HREF="000674.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Being lazy
+   </H1>
+    <B>campm@leda.demon.co.uk
+    </B> 
+    <A HREF="mailto:campm%40leda.demon.co.uk"
+       TITLE="[cam.pm] Being lazy">campm@leda.demon.co.uk
+       </A><BR>
+    <I>Tue, 09 Apr 2002 21:17:15 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000666.html">[cam.pm] Being lazy
+</A></li>
+        <LI> Next message: <A HREF="000674.html">[cam.pm] Being lazy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#667">[ date ]</a>
+              <a href="thread.html#667">[ thread ]</a>
+              <a href="subject.html#667">[ subject ]</a>
+              <a href="author.html#667">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE><A HREF="mailto:lejm3@hermes.cam.ac.uk">lejm3@hermes.cam.ac.uk</A> wrote:
+&gt;<i> 
+</I>&gt;<i> On Tue, 9 Apr 2002, Matthew Astley wrote:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Also you should know that system(&quot;string with spaces&quot;) is equivalent
+</I>&gt;<i> &gt; to system(qw(string with spaces)) .
+</I>
+ No, it isn't.
+
+ qw(string with spaces) is a list, so system(qw(string with spaces))
+is actually equivalent to system('string', 'with', 'spaces').
+
+ How is this different? Well, if you call system with the single
+string, shell-like processing is done on it, whereas if you call
+it with a list, the arguments are passed through literally.
+
+ Compare:  perl -e 'system(&quot;echo *&quot;)'
+     and:  perl -e 'system(&quot;echo&quot;, &quot;*&quot;)'
+
+ The other difference is that a double-quoted string does variable
+interpolation, whereas qw doesn't.
+ 
+ HTH
+
+ Tony
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000666.html">[cam.pm] Being lazy
+</A></li>
+	<LI> Next message: <A HREF="000674.html">[cam.pm] Being lazy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#667">[ date ]</a>
+              <a href="thread.html#667">[ thread ]</a>
+              <a href="subject.html#667">[ subject ]</a>
+              <a href="author.html#667">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

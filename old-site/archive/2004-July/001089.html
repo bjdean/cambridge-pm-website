@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Backup / archive format handling?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="001088.html">
+   <LINK REL="Next"  HREF="001090.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Backup / archive format handling?
+   </H1>
+    <B>Matthew Astley
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Backup / archive format handling?">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Mon, 12 Jul 2004 22:38:49 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="001088.html">[cam.pm] Backup / archive format handling?
+</A></li>
+        <LI> Next message: <A HREF="001090.html">[cam.pm] Backup / archive format handling?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1089">[ date ]</a>
+              <a href="thread.html#1089">[ thread ]</a>
+              <a href="subject.html#1089">[ subject ]</a>
+              <a href="author.html#1089">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jul 12, 2004 at 04:59:18PM +0100, Peter Clay wrote:
+
+&gt;<i> I'm looking at writing a backup script to replace Amanda, as Amanda
+</I>&gt;<i> is rather inflexible. There are some very specific requirements I'm
+</I>&gt;<i> trying to implement:
+</I>
+Haven't played with Amanda.
+
+&gt;<i> - most of the target is source checkouts in people's home
+</I>&gt;<i> directories, therefore consists of many, many identical small files;
+</I>
+This might help a bit with that...
+<A HREF="http://www.t8o.org/~mca1001/cgi/viewcvs/bin/sort_revname.pl">http://www.t8o.org/~mca1001/cgi/viewcvs/bin/sort_revname.pl</A>
+
+The basic plan is to sort the list of filenames before you make the
+tarball.  Put all the CVS/Root files together, all the Makefiles
+together, more specifically all the fooproj/Makefiles closer than the
+other ones...
+
+It could be generally useful for repeated copies of files when they
+have the same names.  For CVS working copies, maybe you could do
+clever stuff to record only the differences from a clean checkout, but
+this sounds like Work.
+
+&gt;<i> - but some of the files are very large (although none over 2Gb yet)
+</I>
+Filename sorting won't help much here!  Maybe some filter between tar
+and gzip that can do rolling checksums the way rsync does...
+
+&gt;<i> - total area is up to about 250Gb
+</I>&gt;<i> - we want to fit as much of that as possible onto one 20/40Gb tape
+</I>
+Do you define &quot;much&quot; by uncompressed size, number of files, number of
+users with complete copies...?
+
+&gt;<i> - we want users to be able to select what gets backed up, defaulting
+</I>&gt;<i> to on
+</I>
+Another filename filter then?  Configured by dotfiles per directory or
+one off?
+
+Will the users be happy with writing a ~/.backup-list.pl script which
+generates the filename list for what to include?  That's the ultimate
+flexibility, and trustworthy if you su per user and maybe post-filter
+the output.
+
+&gt;<i> - we want to identify users with disproportionate backup requirements
+</I>&gt;<i> - maybe implement quotas on the above
+</I>
+Quota by compressed size?  Ouch.  8-/
+
+Especially if the files are sorted to put ~fred/cvswork/wibble.dat
+right next to ~bill/cvswork/wibble.dat .
+
+&gt;<i> I had the idea to deduplicate files on the tape by e.g. MD5sum. But
+</I>&gt;<i> I don't know of a standard archive format that supports that.
+</I>
+Nor me.  You could big-bodge it by pretending the identical files are
+hard linked, but then there's chaos if you unpack the thing without
+undoing that.
+
+&gt;<i> Ideally I'd like the tape format to be reconstructable with standard
+</I>&gt;<i> tools for obvious reasons. Failing that, I'll stick a copy of the
+</I>&gt;<i> restore script on the front of every tape.
+</I>
+An rsync-algorithm based stream de-duper sounds quite useful.  If you
+made a good one it could be a standard.  8-)
+
+&gt;<i> Anyone want to post their backup script that does anything like
+</I>&gt;<i> this? Or want to offer advice on how to proceed?
+</I>
+Advice not entirely from my armchair.  I hope you can find something
+useful in there.
+
+
+Matthew  #8-)
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="001088.html">[cam.pm] Backup / archive format handling?
+</A></li>
+	<LI> Next message: <A HREF="001090.html">[cam.pm] Backup / archive format handling?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1089">[ date ]</a>
+              <a href="thread.html#1089">[ thread ]</a>
+              <a href="subject.html#1089">[ subject ]</a>
+              <a href="author.html#1089">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

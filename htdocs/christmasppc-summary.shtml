@@ -1,0 +1,1617 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+
+
+
+ 
+ 
+
+<html>
+ <head>
+  <title>
+   CAM.PM:
+    - {
+   $projects
+   -&gt; Christmas_PPC
+   ; }
+  </title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <table border="0" cellpadding="2" cellspacing="2">
+   <tr>
+    <td valign="center">
+     <img src="/images/dollar-underscore.jpg" alt="" />
+    </td>
+    <td valign="center">
+     <h1>
+      <tt>require "<font color="#009900">cam</font>.<font color="#009900">pm</font>" ;</tt>
+     </h1>
+     <h1>
+      <tt>
+       {
+       $<font color="#cc0000">projects</font>
+       -&gt; <font color="#660099">Christmas_PPC</font>
+       ; }</tt>
+     </h1>
+    </td>
+   </tr>
+   <tr>
+    <td valign="top">
+     <!-- begin nav -->
+     <table border="0" cellpadding="0" width="128" cellspacing="1">
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/index.shtml"><b>$?</b></a></td>
+       <td valign="top"><a href="/index.shtml">about cam.pm</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/list_signup.shtml"><b>$*</b></a></td>
+       <td valign="top"><a href="/list_signup.shtml">the cam.pm list</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/meets_when.shtml"><b>$@</b></a></td>
+       <td valign="top"><a href="/meets_when.shtml">cam.pm meetings</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><b>$_</b></td>
+       <td valign="top">cam.pm projects</td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/projects_home.shtml">home</a></td>
+      </tr>
+
+
+     </table>
+     <!-- end nav -->
+    </td>
+    <td valign="top">
+
+<a name="top"/>
+<p>
+ This was not the easiest of templates to fit things in, in particular,
+ there were all sorts of holes in horrid places to work with (or work
+ around, if you prefer). The runs, such as they were were often not long
+ enough to do useful things with them, however, entries were produced,
+ and they did do interesting things.
+</p>
+<p>
+ The entries as submitted were from:<br/>
+ <a href="#Matthew_Byng-Maddick">Matthew Byng-Maddick <i>(non-entry)</i></a><br/>
+ <a href="#Phil_Kendall">Phil Kendall</a> <a href="#Phil_Kendall_2">[2]</a><br/>
+ <a href="#Andrew_Savige">Andrew Savige</a> <a href="#Andrew_Savige_2">[2]</a> <a href="#Andrew_Savige_3">[3]</a> <a href="#Andrew_Savige_4">[4]</a> <a href="#Andrew_Savige_5">[5]</a> <a href="#Andrew_Savige_6">[6]</a><br/>
+ <a href="#Pete_Clay">Pete Clay</a><br/>
+</p>
+<p>
+ The winner, though it's a close one between <a href="#Andrew_Savige_6">Andrew's
+ snowscape</a> and Pete's single entry, is <a href="#Pete_Clay">the PPM snowflake</a>.
+</p>
+<p>
+ The entries can all be downloaded from <a href="christmas-ppc.tar.gz">here</a>
+ as a .tar.gz, including the test programme that was used to verify the entries.
+</p>
+<a name="Matthew_Byng-Maddick"/>
+<p><b>Matthew Byng-Maddick</b></p>
+<p><a href="#top">Back to top</a></p>
+<p>
+ Matthew B-M opened the competition with this single snowscape, in the hope of
+ getting people to enter and produce interesting solutions. This was an idea
+ that was brought up at a <a href="http://www.london.pm.org/">london.pm</a>
+ social meeting just before the competition was posted. This does, of course,
+ not count as a real entry, due to him having judged the competition.
+</p>
+
+<p>
+ <b>Requirements</b>: ANSI Terminal
+</p>
+
+<pre>
+            <font color="blue">sub</font>                          l{<b>$
+          r</b>[-1]=~                      <i><font color="red">s/./-/g</font></i>
+         ;a(   2,<b>$d</b>  );a(4,<font color="purple">"/<b>$e</b>\\"</font>)  ;a(3   ,<b>$f</b>
+          );a(5,<b>$u</b>.<b>$e</b>.    <font color="purple">""</font>.<b>$    u</b>.<font color="purple">""</font>,1);<font color="blue">for</font>(
+          <b>@t</b>){<b>$p</b>=<font color="purple">"(.{"</font>    .<b>$_</b>.    <font color="purple">"}"</font>;<b>$r</b>[-5]=~
+         <i><font color="red">s,  <b>$p</b>.)   .,<b>$    1</b>.    "."   ,ex</font></i>;  <b>$r</b>
+        [0-    <b>$_</b>]   =~<i><font color="red">s;  <b>$p</b>  )...   ;<b>$1</b>    .""
+       ."/<b>$u</b>"   .qq/\\/;xe</font></i> ,1 <font color="blue">for</font>(2..4)}   <b>$_</b>=<b>$z</b>.
+      <font color="purple">""</font>     .<font color="blue">join</font><font color="purple">"\n"</font>,<b>@r</b>;<font color="blue">print</font>;<font color="blue">sleep</font><b>$|</b>}<font color="blue">sub</font>     r{
+  <font color="blue">int</font>(<font color="blue">rand</font><b>$_</b>[0])}<b>$|</b>=1;<b>$u</b>=<b>$"</b>;<b>$e</b>=<font color="purple">"_"</font>x5;<b>$a</b>=<b>$u</b>.<font color="purple">"o"</font>;<b>$b</b>=<font color="purple">"o"</font>;
+ ;<font color="blue">sub</font>  a{;<font color="blue">substr</font>  <b>$r</b>[-<b>$_</b>[0    ]],<b>$h</b>,7,  <b>$_</b>[1]}<font color="blue">sub</font>  t{t(
+ 01)    <font color="blue">if</font>!<b>@_</b>;<b>$    k</b>=<b>$a</b>;<b>$      a</b>=<b>$b</b>;<b>$    b</b>=<b>$k</b>;<b>$r</b>    [<b>$_</b>
+ -01]  =~<i><font color="red">s/<b>$a</b>/r(  012)?<b>$a</b>:    <b>$b</b>.""/eg</font></i>  <font color="blue">for</font>(1..<b>$r</b>  )}<b>$b</b>
+  .=<b>$u</b>;<b>$z</b>=<font color="purple">"\e[H\e[J"</font>;(<b>$r</b>,<b>$c</b>)=<font color="blue">split</font><i><font color="green">/\s/</font></i>,<u><font color="purple">`stty<b>${u}</b>size`</font></u>;
+      <b>$v</b>     =<b>$"</b>x<b>$c</b>;<b>$h</b>=r(<b>$c</b>-7);<b>@t</b>=<font color="blue">map</font>{r(<b>$c</b>-     3)
+       }(0..r   (9));<b>$k</b>=<b>$b</b> ;<b>$ k</b>=~<i><font color="red">s/\s//</font></i>;   <font color="blue">for</font>(01
+        ..<b>$    r</b>){   (<b>$r</b>[  <b>$_</b>  -1]=   <b>$v</b>)    =~<font color="green">#</font>
+         <i><font color="red">s,  \s,r   (30    )?    <b>$"</b>:   <b>$k</b>#"  o"
+          ,xeg</font></i>}(<b>$f</b>=<b>$d</b>=    <font color="purple">"|"</font>.    <font color="purple">"<b>$u</b>#<b>$u</b>+<b>$u</b>|"</font>)
+          =~<i><font color="purple">y/#/+/</font></i>;<font color="blue">for</font>    (0..    <b>$r</b>){l;t;<b>@r</b>=(
+         <b>$v</b>,   <b>@r</b>);  <font color="blue">pop</font><b>@r</b>}<b>$r</b>[-6]=<font color="purple">"  Let"</font>   .<b>$"</b>
+          .<font color="purple">"it<b>$u</b>"</font>                      .<font color="purple">"snow"</font>
+            ;l;                          <b>$p</b>;
+</pre>
+
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+<p>
+ This prints a snowscape with a house and some trees. The snow falls gently,
+ occasionally being pertured from side to side as it goes. It's a fairly
+ simple program once you see it having been reformatted and spaced out
+ sensibly. It calls `stty size` to find out how big it's supposed to be, and
+ then fills the screen with snow, finally overlaying the other bits.
+</p>
+</td></tr></table>
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+# This function is better called "render"
+sub l {
+    # set out the base.
+    $r[-1] =~ s/./-/g;
+    ;
+
+    # set out the house
+    # at this point, $d is "| # + |"
+    #                $f is "| + + |"
+    #                $e is  "_____"
+    a(2, $d);
+    a(4, "/$e\\");
+    a(3, $f);
+    a(5, $u . $e . "" . $u . "", 1);
+
+    # set out the trees
+    for(@t) {
+        $p="(.{".$_."}";
+        $r[-5] =~ s,$p.).,$1.".",ex;
+        $r[0-$_] =~ s;$p)...;$1.""."/$u".qq/\\/;xe,1 for(2..4)
+    }
+
+    # $_ contains the screen, including the "clear screen" code
+    $_=$z . "" . join "\n", @r;
+
+    print;
+
+    # $| is set to 1 so this is a "sleep 1"
+    sleep $|
+}
+
+# r() returns a random integer between 0 and &lt;arg&gt;-1
+sub r {
+    int(rand $_[0])
+}
+
+# set autoflush
+$|=1;
+
+# $u and $" both contain ' ' by default.
+$u=$";
+
+# $e now contains "_____"
+$e="_" x 5;
+
+# $a will contain " o"
+$a=$u . "o";
+
+# $b contains "o"
+$b="o";
+;
+
+# this is a replace specifically for drawing the house.
+# it does a substitution for the line &lt;arg1&gt; from the bottom
+# position $h for 7 characters with &lt;arg2&gt;
+sub a {
+    ;
+    substr $r[-$_[0]], $h, 7, $_[1]
+}
+
+# this function is better called perturb. It occasionally swaps " o" for "o "
+# and vice versa. It does this recursively, by calling itself with an
+# argument.
+sub t {
+    # recurse if we haven't already
+    t(01) if ! @_;
+    # swap $a and $b
+    $k=$a;
+    $a=$b;
+    $b=$k;
+    # do the swap across all the rows for whatever is in $a with $a or $b
+    # on a 1 in 10 chance.
+    $r[$_-01] =~ s/$a/r(012) ? $a : $b . ""/eg for(1..$r)
+}
+
+# $b="o ";
+$b.=$u;
+
+# this is the clear screen code
+$z="\e[H\e[J";
+
+# get the number of rows and columns rows =&gt; $r and cols =&gt; $c
+($r,$c) = split/\s/, `stty${u}size`;
+
+# $v contains a blank line as wide as the screen.
+$v=$" x $c;
+
+# $h is the left-hand position of the house
+$h=r($c-7);
+
+# @t contains the left hand positions of the trees there are between 1 and 9
+# of them and they're each random
+@t=map {r($c-3)} (0..r(9));
+
+# set up $k="o "
+$k=$b;
+# $k="o"
+$k=~s/\s//;
+
+# for each row on the screen, set it to a blank line, and then randomly
+# (1 in 30 chance) put snow in each position instead.
+for(01..$r) {
+    ($r[$_-1]=$v) =~ s,\s,r(30) ? $" : $k,xeg
+}
+
+# $f is "| + + |"
+# $d is "| # + |"
+($f=$d="|" . "$u#$u+$u|") =~ y/#/+/;
+
+# run the frames
+for(0..$r) {
+    # draw the frame
+    l;
+
+    # perturb the snow
+    t;
+
+    # get the next frame, by putting a blank line at the top, and
+    # removing the bottom line
+    @r=($v, @r);
+    pop @r
+}
+
+# set $r[-6] to "  Let it snow"
+$r[-6]="  Let" . $" . "it$u" . "snow";
+
+# render the frame
+l;
+
+# space filler.
+$p;
+</pre>
+</td></tr></table>
+
+<a name="Phil_Kendall"/>
+<p><b>Phil Kendall</b></p>
+<p><a href="#top">Back to top</a></p>
+<p>
+ Phil Kendall was the first to submit a real entry, and also, in fact the
+ last, for his second, revised version. His program was based on checking
+ the snowflakes for compliance to the rules of the competition (there was
+ a test programme applied to all entries, but this one was more helpful
+ for development). It stores its own copy of the template, encoded, of
+ course, and produces an output that is basically a character (rather than
+ line) diff of the program in its argument against the template.
+</p>
+
+<p>Version 1</p>
+<p>
+ <b>Requirements</b>: filename as argument
+</p>
+
+<pre>
+            <font color="blue">for</font>                          (()
+          ,<font color="blue">split</font>+                      <font color="purple">''</font>,(<font color="purple">'C'</font>
+         .<font color="purple">''</font>   .<font color="purple">'3'</font>  .<font color="purple">'Q3!A7M7!93'</font>.  <font color="purple">'3'</font>.   <font color="purple">'4'</font>
+          .<font color="purple">'2E2433!A'</font>.    <font color="purple">'C4'</font>    .<font color="purple">'44C!AC444'</font>
+          .<font color="purple">'C!922433'</font>.    <font color="purple">'42'</font>    .<font color="purple">'433422!8'</font>.
+         <font color="purple">''</font>  .<font color="purple">''</font>.   <font color="purple">''</font>.    <font color="purple">''</font>    .<font color="purple">''</font>   .<font color="purple">''</font>.  <font color="purple">''</font>
+        .<font color="purple">''</font>    .<font color="purple">''</font>   .<font color="purple">''</font>.  <font color="purple">''</font>  .<font color="purple">''</font>.   <font color="purple">'3'</font>    .<font color="purple">''</font>
+       .<font color="purple">'433'</font>   .<font color="purple">'422243'</font>. <font color="purple">''</font> .<font color="purple">'343!763'</font>   .<font color="purple">'A1'</font>.
+      <font color="purple">''</font>     .<font color="purple">'21A36!625U52!2k!1429284829'</font>.     <font color="purple">''</font>
+  .<font color="purple">'24!134746664743'</font>)){<b>$t</b>.=<b>$/</b>,<font color="blue">next</font>,<font color="blue">if</font><font color="purple">"!"</font><font color="blue">eq</font><b>$_</b>;<b>$t</b>.=(<b>$|</b>--
+ ?<font color="purple">'#'</font>  :<font color="blue">chr</font>(32))  x(<font color="blue">ord</font><b>$_</b>&gt;    57?(-55+  <font color="blue">ord</font><b>$_</b>):<b>$_</b>  );};
+ <b>@l</b>=    ((<font color="blue">split</font>    <font color="purple">"\n"</font>,(      <b>$t</b>)));    <b>$nn</b>=<b>@l</b>;    ();
+ <font color="blue">push</font>  <b>@l</b>,<b>$l</b>[<b>$nn</b>  -<b>$_</b>]<font color="blue">for</font>(    2..<b>@l</b>);;  <font color="blue">undef</font>(<b>$/</b>)  ;<b>@p</b>=
+  <font color="blue">map</font>{<i><font color="red">s/[^\s]/#/g</font></i>;<b>$_</b>}<font color="blue">split</font><font color="purple">"\n"</font>,&lt;&gt;;<font color="blue">foreach</font>(0..(<b>@l</b>&gt;<b>@p</b>?<b>@l</b>
+      -1     :<b>$#p</b>)){<b>@a</b>=<font color="blue">split</font><font color="purple">''</font>,<b>$l</b>[<b>$_</b>]||<font color="purple">''</font>;;     <b>@b</b>
+       =<font color="blue">split</font>   <font color="purple">''</font>,<b>$p</b>[<b>$_</b>.<font color="purple">" "</font>] ||<font color="purple">""</font>;<font color="blue">for</font>(0   ..(<b>@a</b>&gt;
+        <b>@b</b>?    <b>$#a</b>   :<b>$#b</b>  ))  {<b>$c</b>=   <b>$a</b>[    <b>$_</b>]
+         ||  <font color="blue">chr</font>(   32)    ;;    ;<b>$d</b>   =<b>$b</b>[  <b>$_</b>
+          ]||<font color="blue">chr</font>(32);;    ;;;;    <font color="blue">print</font>+(<b>$c</b>)<font color="blue">eq</font>
+          <b>$d</b>?<b>$c</b>:<font color="blue">chr</font>(32    )<font color="blue">eq</font>(    <b>$c</b>)?<font color="purple">"-"</font>:<font color="purple">"+"</font>}
+         <i><font color="red">s;#   ;;g</font></i>;  <font color="blue">print</font><font color="purple">"\n"</font>}<font color="green">#cam  -pm.   '02</font>
+          <font color="green">#.Xmas.                      Tourney</font>
+            <font color="green">#by                          PAK</font>
+</pre>
+
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+<p>
+ Phil's entry has been discussed above, in essence it's pretty simple, though
+ there are obviously some slight nasties, anyone who has done any golfing will
+ be familiar with the <tt>$|--</tt> trick, which is that the return value from
+ that expression will always be 1 or 0, and it will flip. Phil is also fond of
+ the <tt>?:</tt> ternary operator, which he seems to use an awful lot.
+</p>
+<p>
+ You should run the program as:
+</p>
+<p>
+ <tt>perl pak.pl <i>/path/to/filename/to/test.pl</i>
+</p>
+<p>
+ If all is well, then you will see the snowflake as printed in the original
+ template, if not then there will be +s and -s where non-whitespace needs to
+ be added or removed.
+</p>
+</td></tr></table>
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+# for each character in:
+# C3Q3!A7M7!93342E2433!AC444C!AC444C!92243342433422!83433422243343!763
+# A121A36!625U52!2k!142928482924!134746664743
+# do:
+for ((), split +'', ('C' . '' . '3' . 'Q3!A7M7!93' . '3' . '4' . '2E2433!A' .
+                     'C4' . '44C!AC444' . 'C!922433' . '42' . '433422!8' .
+                     '' . '' .  '' . '' . '' . '' . '' . '' . '' . '' . ''
+                     . '' . '3' . '' . '433' . '422243' . '' . '343!763' .
+                     'A1' . '' . '21A36!625U52!2k!1429284829' . '' .
+                     '24!134746664743'
+                     )) {
+# if the character is a "!" then print a newline
+$t.=$/ , next , if "!" eq $_;
+# otherwise, it's a space or hash (switching) for
+# (if it's a number, that number, otherwise the ascii value - 55)
+# characters
+$t.=( $|-- ? '#' : chr(32) ) x ( ord $_ &gt; 57 ? ( -55 + ord $_ ) : $_ );
+}
+
+# we now have a representation of the top half of the snowflake in #'s
+
+;
+
+# @l contains the lines of our now expanded template.
+@l=((split "\n", ($t)));
+
+# $nn contains the number of lines
+$nn=@l;
+
+();
+
+# mirror all but the last line on the end of the array, going outwards.
+push  @l, $l[$nn-$_] for(2..@l);
+
+# at this point, join("\n",@l) would have a full snowflake layout.
+
+;
+
+# set our record separator to undef, so when we do &lt;&gt; it will read the
+# entire file.
+undef($/);
+
+# get each line of the file into @p, converting all the non-whitespace to
+# "#"
+@p=map {s/[^\s]/#/g ; $_} split "\n", &lt;&gt;;
+
+# generate numbers to the bigger of @l and @p
+foreach (0..(@l&gt;@p?@l-1:$#p)) {
+    # split the iteration line of the template into characters, making sure
+    # to cope in the case where it's undefined.
+    @a=split '', $l[$_] || '';
+
+    ;
+
+    # do the same for the line of the input. the $_." " is a pointless
+    # stringification and then back again, but it uses up characters and
+    # whitespace.
+    @b=split '', $p[$_." "] || "";
+
+    # for the bigger of a and b (note that we have these loaded and the
+    # $_ is localised. iterate for that number of characters.
+    for(0 .. (@a&gt;@b ? $#a : $#b )) {
+        # $c will contain the value at this point of the template, or if
+        # it's not there then a space - this copes with trailing whitespace.
+        $c=$a[$_] || chr(32);
+
+        ;;
+
+        # similarly for $d and the input
+        $d=$b[$_] || chr(32);
+
+        ;;;;;
+
+        # print the appropriate character, the value from the template if
+        # they are the same, a "-" if $c thinks there should be whitespace
+        # and a "+" if $c thinks there should be text.
+        print +($c) eq $d ? $c : chr(32) eq ($c) ? "-" : "+"
+    }
+    # this is a useless substitution, since $_ is a number at this point.
+    s;#   ;;g;
+
+    # we've reached the end of the line, so print the newline.
+    print "\n"
+}
+</pre>
+</td></tr></table>
+
+<a name="Phil_Kendall_2"/>
+<p><a href="#top">Back to top</a></p>
+<p>Version 2</p>
+<p>
+ <b>Requirements</b>: filename as argument
+</p>
+
+<pre>
+            <b>$t</b>=                          <font color="purple">'3'</font>
+          .<font color="purple">'*A*'</font>.                      <font color="purple">'!1.='</font>.
+         <font color="purple">'.'</font>   .<font color="purple">'!'</font>  .<font color="purple">'0**+)5)+**'</font>.  <font color="purple">'!'</font>.   <font color="purple">'1'</font>
+          .<font color="purple">'3+++3!13'</font>.    <font color="purple">'++'</font>    .<font color="purple">'+3!0))+**'</font>
+          .<font color="purple">'+)+**+))'</font>.    <font color="purple">'!/'</font>    .<font color="purple">'*+**+)))+'</font>
+         .+  <font color="purple">'*'</font>.   <font color="purple">'*'</font>    .+    <font color="purple">'+'</font>   .<font color="purple">'*'</font>  .+
+        <font color="purple">'!'</font>    .~~   <font color="purple">'.-'</font>  .+  <font color="purple">'*1'</font>   .~~    <font color="purple">'('</font>
+       .<font color="purple">')(1'</font>   .<font color="purple">'*-!-),E'</font> .+ <font color="purple">',)!)[!(+'</font>   .<font color="purple">')0)'</font>
+      .+     <font color="purple">'/+/)0)+!(*+.+---+.+*!'</font>;<b>$w</b>=<font color="blue">chr</font>     32
+  ;<b>$t</b>=~<i><font color="red">s;.;<b>$&amp;</b>=~/!/?<b>$/</b>:(<b>$|</b>--?'#':$w)x(-39+ord<b>$&amp;</b>);eg</font></i>;<b>$n</b>=
+ +<b>$/</b>;  <b>$/</b>=<b>$1</b>;<b>@p</b>=  <font color="blue">grep</font>{~<i><font color="purple">y~    ~#~c</font></i>+23}  <font color="blue">split</font>+<b>$n</b>,  &lt;&gt;;;
+ <b>@l</b>=    <font color="blue">split</font>~~    <b>$n</b>,<b>$t</b>;      <font color="blue">push</font><b>@l</b>    ,<b>$l[10-    $_]</b>
+ <font color="blue">for</font>(  -0..012);  <font color="blue">for</font>(0...    (23&gt;<b>@p</b>?+  23:<b>$#p</b>)){  +<b>@a</b>=
+  <font color="blue">split</font>'',<b>$l</b>[<b>$_</b>]||'';<b>@b</b>=<font color="blue">split</font>'',<b>$p</b>[<b>$_</b>]||'';<font color="blue">for</font>(0...(<b>@a</b>
+      &gt;+     <b>@b</b>?<b>$#a</b>:<b>$#b</b>)){<b>$c</b>=<b>$a</b>[<b>$_</b>]||<b>$w</b>;<b>$d</b>=     <b>$b
+       [$_]</b>||   <b>$w</b>;<b>$s</b>.=+<b>$c</b> <font color="blue">eq</font> <b>$d</b>?<b>$c</b>:(<b>$w</b>)   <font color="blue">eq</font><b>$c</b>?+
+        <font color="purple">'-'</font>    :~~   <font color="purple">'+'</font>}  <b>$s</b>  .=<b>$n</b>   }<b>$m</b>    =<b>$s</b>
+         .+  <font color="purple">'E'</font>.   <font color="purple">'r'</font>    .+    <font color="purple">'r'</font>   .<font color="purple">'o'</font>  .+
+          <font color="purple">"rs:"</font>.<b>$s</b>=~+<i><font color="purple">y    .+-.    .</font></i>.<b>$n</b>;<font color="blue">print</font><b>$m</b>
+          <font color="green">#Have.Golfed    Code    TooMuch.Must</font>
+         <font color="green">###   Fill  WithComment.Oh  Well   ###</font>
+          <font color="green">#Happy#                      NewYear</font>
+            <font color="green">###                          PAK</font>
+</pre>
+
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+ <p>
+  This is pretty similar, though the encoding string is different, and shorter, the
+  <tt>chr(32)</tt>s have been replaced by a variable, and it's a slightly neater programme.
+  It is run in the same way as the one above, and reports the number of errors found.
+ </p>
+</td></tr></table>
+
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+# + and ~~ are noops in this (~~ because you get "bitwise complement
+# of bitwise complement")
+$t = '3' . '*A*' . '!1.=' . '.' . '!' . '0**+)5)+**' . '!' . '1' .
+     '3+++3!13' . '++' . '+3!0))+**' . '+)+**+))' . '!/' .
+     '*+**+)))+' . +'*' . '*' . +'+' . '*' . +'!' . ~~'.-' . +'*1' .
+     ~~'(' . ')(1' . '*-!-),E' . +',)!)[!(+' . ')0)' .
+     +'/+/)0)+!(*+.+---+.+*!';
+
+# $w is " "
+$w=chr 32;
+
+# in the above string substitute every character for either
+#   \n if it is a "!"
+#   run of alternate "#" and " " to the ascii value of the character
+#     minus 39
+# $t therefore contains the top half of template after this.
+$t =~ s;.; $&amp; =~ /!/ ? $/ : ($|--?'#':$w) x (-39 + ord $&amp;) ;eg;
+
+# $n is "\n"
+$n= +$/;
+
+# set $/=undef
+$/=$1;
+
+# &lt;&gt; will be the whole file ($/==undef)
+# split it per line
+# translate all of the nonwhitespace characters into "#", returning
+# all of the lines (I can't see a situation where ~y~    ~#~c+23 is
+# false)
+@p=grep{~y~    ~#~c+23} split+$n, &lt;&gt;;
+
+;
+
+# @l is the template version of the above, being also split on \n
+#    (~~$n eq "\n")
+@l = split ~~$n , $t;
+
+# reflect the template about its midpoint
+push @l, $l[10-$_] for (-0..012);
+
+# $s is going to be our output
+# So for each line or the whole of the input (whichever is greater)
+for(0...( 23 &gt; @p ? +23 : $#p ) ) {
+    # @a contains the characters on this line from the template
+    +@a = split '', $l[$_] || '';
+
+    # @b contains the characters on this line from the input
+    @b = split '', $p[$_] || '';
+
+    # for each character on the longest line.
+    for(0...(@a &gt; +@b ? $#a : $#b)) {
+        # $c is the character from the template on this line, or
+        #    a whitespace if it doesn't exist
+        $c = $a[$_] || $w;
+
+        # $d is the character from the input on this line, or
+        #    a whitespace if it doesn't exist
+        $d = $b[$_] || $w;
+
+        # The above code makes sure that trailing whitespaces work.
+
+        # This code puts the template character if both are the same
+        # (ie " " or "#", and a "-" if they're different and the template
+        # says whitespace, or a "+" if they're different and the template
+        # has a "#"
+        $s .= +$c eq $d ?
+                          $c
+                        : 
+                          ($w) eq $c ?
+                                       +'-'
+                                     :
+                                       ~~'+'
+    }
+    # add a newline to our output before processing the next line.
+    $s .= $n
+}
+
+# $m is the output then "Errors:" and a count of the number of "+" and "-"
+# characters in $s and then a newline.
+$m = $s . +'E' . 'r' . +'r' . 'o' . +"rs:" . $s =~ +y.+-.    . . $n;
+# print it.
+print $m
+</pre>
+</td></tr></table>
+
+<a name="Andrew_Savige"/>
+<p><b>Andrew Savige</b></p>
+<p><a href="#top">Back to top</a></p>
+<p>
+ So, the man who made his name with
+ <a href="http://search.cpan.org/author/ASAVIGE/Acme-EyeDrops-1.18/lib/Acme/EyeDrops.pm"
+ ><tt>Acme::EyeDrops</tt></a>, and as Santa in one of the first big FWP golf tournaments
+ submitted no fewer than <b>6</b> entries to this. Andrew Savige is either insane or a
+ genius. It seemed reasonable to allow the EyeDrops-based entry, given that he was also
+ the author of the automated code generation tool.
+</p>
+
+<p><b>Requirements</b>: large terminal, programme in a file</p>
+
+<pre>
+            <font color="purple">'?'</font>                          =~(
+          <font color="purple">'(?{'</font>.(                      <font color="purple">'`'</font>|<font color="purple">'%'</font>
+         ).(   <font color="purple">'['</font>^  <font color="purple">'-'</font>).(<font color="purple">'`'</font>|<font color="purple">'!'</font>)  .<font color="purple">''</font>.   (((
+          <font color="purple">'`'</font>))|<font color="red">"\,"</font>).    <font color="purple">'"'</font>.    (<font color="purple">'`'</font>|<font color="red">"\/"</font>).(
+          <font color="purple">'['</font>^(<font color="purple">'+'</font>)).(    <font color="purple">'`'</font>|    <font color="purple">'%'</font>).((<font color="purple">'`'</font>)|
+         ((  <font color="purple">'.'</font>)   )).    ((    (((   <font color="purple">'\\'</font>  ))
+        )))    .((   <font color="purple">'$'</font>)  ).  <font color="purple">'%;'</font>   .((    (((
+       <font color="purple">'\\'</font>))   ))).<font color="purple">'@~='</font>. +( <font color="purple">'`'</font>|<font color="purple">'-'</font>).(   (<font color="purple">'`'</font>)|
+      ((     <font color="purple">'!'</font>))).(<font color="purple">'['</font>^<font color="purple">'+'</font>).<font color="purple">'\\{'</font>.((<font color="purple">'['</font>)^     ((
+  <font color="purple">'"'</font>))).<font color="purple">';!-~;.;;\\$_\\}&lt;'</font>.(<font color="purple">'^'</font>^(<font color="purple">'`'</font>|<font color="purple">'.'</font>)).<font color="purple">'&gt;;'</font>.(<font color="purple">'`'</font>|
+ <font color="purple">'-'</font>)  .(<font color="purple">'`'</font>|<font color="purple">'!'</font>  ).(<font color="red">"\["</font>^    <font color="purple">'+'</font>).<font color="purple">''</font>.  <font color="purple">'\\{`'</font>.+(  <font color="purple">'`'</font>|
+ <font color="purple">'#'</font>    ).(<font color="purple">'`'</font>|    <font color="purple">','</font>).(      (<font color="purple">'`'</font>)|    <font color="red">"\%"</font>).(    <font color="purple">'`'</font>
+ |<font color="purple">'!'</font>  ).((<font color="purple">'['</font>)^  <font color="purple">')'</font>).<font color="purple">'&gt;'</font>    .(<font color="purple">'&amp;'</font>).(  <font color="purple">'^'</font>^(<font color="purple">'`'</font>|  <font color="purple">','</font>)
+  ).<font color="purple">'`;'</font>.(<font color="purple">'{'</font>^<font color="purple">'['</font>).(<font color="purple">'['</font>^<font color="purple">','</font>).(<font color="purple">'`'</font>|<font color="purple">'!'</font>).(<font color="purple">'['</font>^<font color="purple">')'</font>).(<font color="purple">'`'</font>|
+      ((     <font color="purple">'.'</font>))).<font color="purple">'\\$/'</font>.(<font color="purple">'['</font>^<font color="purple">'#'</font>).<font color="purple">'(\\$'</font>     .+
+       <font color="purple">'_+\\'</font>   .<font color="purple">'$_),\\@'</font> .+ <font color="purple">'~;'</font>.(<font color="purple">'{'</font>^   <font color="purple">'['</font>).(
+        <font color="purple">'['</font>    ^((   <font color="purple">'('</font>)  ))  .<font color="purple">''</font>.   (((    <font color="purple">'`'</font>
+         ))  |<font color="purple">','</font>   ).(    ((    <font color="purple">'`'</font>   ))|+  ((
+          <font color="purple">'%'</font>))).(<font color="purple">'`'</font>|    <font color="purple">'%'</font>)    .(<font color="purple">'['</font>^<font color="red">"\+"</font>).
+          <font color="purple">'!\\$%\\}\\'</font>    .<font color="purple">'$'</font>    .<font color="purple">'%'</font>.((<font color="purple">'{'</font>)^
+         <font color="purple">'['</font>   ).((  <font color="purple">'.'</font>)).<font color="purple">'.'</font>.(<font color="purple">'{'</font>  ^<font color="purple">'['</font>   ).(
+          <font color="purple">';'</font>&amp;<font color="purple">'='</font>                      ).<font color="purple">'"}'</font>.
+            <font color="purple">')'</font>                          );;
+</pre>
+
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+ <p>
+  Andrew's first programme produces a falling snowflake by opening $0 and substituting a
+  "." for every non-whitespace character. It adds newlines at the top, and then clears the
+  screen and prints a frame each time. I cheated with this, and read the source using
+  <tt>B::Deparse</tt>.
+ </p>
+</td></tr></table>
+
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+# STAGE 1 : run through Deparse
+#
+# '?' =~ m[(?{eval"open\$%;\@~=map\{y;!-~;.;;\$_\}&lt;0&gt;;map\{`clear&gt;&amp;2`; warn\$/x(\$_+\$_),\@~; sleep!\$%\}\$% .. 9"})];
+#
+# STAGE 2 : reduce by getting rid of the eval (it's the only thing that
+#           is run by the regexp eval, and doesn't return anything)
+# this is a function of the way that EyeDropper works. In effect, it's
+# a null regexp and an eval within the regexp. The string you see above
+# and below is formed by doing bitwise operations on constant strings.
+'?' =~ m[(?{
+    # the following line is equivalent to:
+    #  open 0, $0;
+    open $%;
+
+    # map yourself ($0) translating all the characters to "." as we go into
+    # the array @~
+    @~ = map { y;!-~;.; ; $_ } &lt;0&gt;;
+
+    # equivalent to a "for (0..9) {"
+    map {
+        # clear the screen
+        `clear &gt;&amp;2` ;
+
+        # print out 2n "\n"s (the value of $/) and then our translated
+        # snowflake
+        warn $/ x ($_+$_), @~;
+
+        # sleep 1 (1 is the !0 and $%==0)
+        sleep !$%
+    } $%..9
+
+    # end our eval
+    })];
+</pre>
+</td></tr></table>
+
+<a name="Andrew_Savige_2"/>
+<p><a href="#top">Back to top</a></p>
+
+<p>Then came the second entry</p>
+
+<p><b>Requirements</b>: large terminal</p>
+
+<pre>
+            <b>$_</b>=                          <font color="purple">'33
+          01Z2101                      0701Z27
+         010   901Z  16010401090112  01Z3   901
+          Z13010601070    1040    110010401Z29
+          02Z160106010    6030    301040105010
+         30  1Z11   011    80    5Z1   8011  00
+        811    01Z   2301  04  0903   010    401
+       Z16011   109Z290602 01 0304Z22010   401040
+      10     508Z32010211Z2916Z2422Z2026Z20     26
+  Z2025Z2025Z2026Z1927Z1828Z1826Z1826Z2123Z2123Z2123Z2
+ 123Z  2123Z2123  Z2123Z21    23Z2123Z  03011723Z  0009
+ 122    3080105    01Z021      306230    2010410    Z03
+ 1701  230317Z03  02033602    20Z09020  2120335Z1  5040
+  41601030102030105010501Z160109060105Z2214Z1818Z1618Z
+      18     0302030303Z'</font>;<i><font color="red">s/\s//g</font></i>;<b>$f</b>=<font color="purple">'*'</font>;;;     ;;
+       <font color="blue">print</font>+   <font color="blue">map</font>(((<b>$f</b>^= <b>$/</b> )x((<b>$_</b>))),   <i><font color="green">/../g</font></i>)
+        ,<b>$/</b>    <font color="blue">for</font>   ((((  ((  ((((   (((    (((
+         ((  ((((   (((    ((    (((   ((((  ((
+          <font color="blue">split</font>+Z)))))    ))))    ))))))))))))
+          ))))))))))))    )))<font color="green">#    ############</font>
+         <font color="green">###   ####  ##############  ####   ###</font>
+          <font color="green">#######                      #######</font>
+            <font color="green">###                          ###</font>
+</pre>
+
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+ <p>
+  The second entry produces a static picture of a candle, the data for which is run-length
+  encoded in pairs in the data at the top. I, personally, thought it was a pretty picture,
+  though this is just the first version of the it, and it definitely gets better. The trick
+  of using <tt>"*"^"\n" eq " "</tt> is very clever, and all the following programmes use it.
+ </p>
+</td></tr></table>
+
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+# Set up $_ to be our data string. This means that all of the // operations
+# will work sensibly.
+
+# The data has been reformatted as the next operation removes all \s
+# characters. I feel this is ok to aid the readability of this program.
+$_='3301Z
+    21010701Z
+    27010901Z
+    1601040109011201Z
+    3901Z
+    130106010701040110010401Z
+    2902Z
+    1601060106030301040105010301Z
+    11011805Z
+    180110081101Z
+    2301040903010401Z
+    16011109Z
+    290602010304Z
+    2201040104010508Z
+    32010211Z
+    2916Z
+    2422Z
+    2026Z
+    2026Z
+    2025Z
+    2025Z
+    2026Z
+    1927Z
+    1828Z
+    1826Z
+    1826Z
+    2123Z
+    2123Z
+    2123Z
+    2123Z
+    2123Z
+    2123Z
+    2123Z
+    2123Z
+    2123Z
+    03011723Z
+    0009122308010501Z
+    0213062302010410Z
+    031701230317Z
+    030203360220Z
+    090202120335Z
+    1504041601030102030105010501Z
+    160109060105Z
+    2214Z
+    1818Z
+    1618Z
+    180302030303Z';
+
+# get rid of the spaces in the data.
+s/\s//g;
+
+# set $f to be "*". Worth noting at this point that "*" ^ "\n" = " ".
+$f='*';
+
+;;;;
+
+# take off two characters from the stream (so we get double figures)
+# and use them to alternately print spaces and "*"s (because of the
+# XOR property above. Do this for each of the parts in between split/Z/
+# Note that there are 3 different uses of $_ here. In the outside, the
+# full data string, then the part in the for() loop that's split by the
+# "Z" characters, then the current 2 numbers in the map. This is fine
+# because they're implicitly localised at each level.
+print +map ( ( ( $f ^= $/ ) x (($_)) ), /../g), $/
+    for ((((((((((((((((((((((((((((((((((((
+        # worth noting at this point that "+" stringifies the bareword
+        # so this is morally equivalent to ``split/Z/''
+        split+Z
+        ))))))))))))))))))))))))))))))))))))
+</pre>
+</td></tr></table>
+
+<a name="Andrew_Savige_3"/>
+<p><a href="#top">Back to top</a></p>
+
+<p>And a third</p>
+
+<p><b>Requirements</b>: large terminal</p>
+
+<pre>
+            <b>$:</b>=                          <font color="purple">q^A
+          "#,Z&gt;1Z                      97Z5;Z5
+         ;Z5   :Z5:  Z5;Z4&lt;Z3=Z3;Z3  ;Z68   Z68
+          Z68Z68Z68Z68    Z68Z    68Z68Z$"28Z!
+          *-8)"&amp;"Z#.'8    #"%+    Z$2"8$2Z$#$E
+         #5  Z*##   -$D    Z0    %%1   "$"#  $"
+        &amp;"&amp;    "Z1   "*'"  &amp;Z  7/Z3   3Z1    3Z3
+       $#$$$Z   ^</font>;<b>$;</b>=<font color="purple">q^B"Z 6" ("Z&lt;"*"Z1"   %"*"-"
+      ZH     "Z."'"("%"+"%"Z&gt;#Z1"'"'$$"%"&amp;"     $"
+  Z,"3&amp;Z3"+),"Z8"%*$"%"Z1",*Z&gt;'#"$%Z7"%"%"&amp;)Z^</font>;<b>$^</b>=<font color="purple">q^@"
+ Z8"*  "Z="*"Z2"  &amp;"*"*"ZF    "Z/"%")"  &amp;")"%"Z&gt;#  Z2"'
+ "&amp;$    %"%"$"$    "Z-"2&amp;      Z4"*)+    "Z7"&amp;*%    "#"
+ Z0"-  *Z&gt;'$"#%Z  6"%"&amp;"&amp;)    Z^</font>;;;<font color="blue">sub</font>  _{<i><font color="red">s}\s}}g</font></i>  ;<b>$.</b>=
+  <font color="purple">'*'</font>;<font color="blue">system</font><b>$^O</b>=~<font color="purple">Win</font>?<font color="purple">CLS</font>:<font color="purple">'clear'</font>;<font color="blue">print</font>+<font color="blue">map</font>(((<b>$.</b>^=<b>$/</b>)x(
+      ((     <font color="blue">ord</font>))-33)),<i><font color="green">/./g</font></i>),<b>$/</b><font color="blue">for</font>+<font color="blue">split</font color="blue">+Z     ;;
+       <font color="blue">sleep</font>!   <b>$%</b>}_(<b>$_</b>=<b>$;</b> .<b>$ :</b>),_<b>$_</b>=<b>$^</b>.   <b>$:</b>,<font color="blue">for</font>
+        !<b>$%</b>    ..4   ;<b>$_</b>=  <font color="purple">'M  erry   60C    hri
+         st  mas6   0to    60    a60   snow  bo
+          und60cam.pm6    0fro    m60a60Sydney
+          60sunbather!    '</font>;<b>$\</b>    =<b>$/</b>;<i><font color="red">s;\s;;g</font></i>;
+         ;;;   <i><font color="red">s;<b>$=</b>  ;<b>$"</b>;gsex</font></i>;<font color="blue">print</font>  ;<i><font color="red">s;k   ara
+          te;chop                      ;eggs</font></i>;;
+            <font color="green">#by                          /-\</font>
+</pre>
+
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+ <p>
+  This was an evolution on the first entry. The data encoding was single characters, giving
+  a lot more space, and there were two heads to the candle used in alternation, to make it
+  flicker. The end prints "Merry Christmas to a snowbound cam.pm from a Sydney sunbather!",
+  which was only stifled by the fact that for once, it didn't snow in Cambridge. Even
+  better, this version of Andrew's programme will work under Windows too.
+ </p>
+</td></tr></table>
+
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+#           111111111122222222223333333333
+# 0123456789012345678901234567890123456789
+# !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGH
+# 
+# $: contains the data for the bottom half of the candle, the bit that doesn't
+# move.
+$: = q^
+       A"#,Z
+       &gt;1Z
+       97Z
+       5;Z
+       5;Z
+       5:Z
+       5:Z
+       5;Z
+       4&lt;Z
+       3=Z
+       3;Z
+       3;Z
+       68Z
+       68Z
+       68Z
+       68Z
+       68Z
+       68Z
+       68Z
+       68Z
+       68Z
+       $"28Z
+       !*-8)"&amp;"Z
+       #.'8#"%+Z
+       $2"8$2Z
+       $#$E#5Z
+       *##-$DZ
+       0%%1"$"#$"&amp;"&amp;"Z
+       1"*'"&amp;Z
+       7/Z
+       33Z
+       13Z
+       3$#$$$Z
+      ^;
+
+# $; and $^ contain the two alternate top halves.
+$; = q^
+       B"Z
+       6"("Z
+       &lt;"*"Z
+       1"%"*"-"Z
+       H"Z
+       ."'"("%"+"%"Z
+       &gt;#Z
+       1"'"'$$"%"&amp;"$"Z
+       ,"3&amp;Z
+       3"+),"Z
+       8"%*$"%"Z
+       1",*Z
+       &gt;'#"$%Z
+       7"%"%"&amp;)Z
+      ^;
+
+$^ = q^
+       @"Z
+       8"*"Z
+       ="*"Z
+       2"&amp;"*"*"Z
+       F"Z
+       /"%")"&amp;")"%"Z
+       &gt;#Z
+       2"'"&amp;$%"%"$"$"Z
+       -"2&amp;Z
+       4"*)+"Z
+       7"&amp;*%"#"Z
+       0"-*Z
+       &gt;'$"#%Z
+       6"%"&amp;"&amp;)Z
+      ^;
+;;
+
+# define a sub "_"
+sub  _ {
+
+    # which gets rid of spaces in $_
+    s}\s}}g;
+
+    # $. is a "*", this is useful because:
+    # $. ^ $/ eq " "
+    # and of course, $. ^ $/ ^ $/ eq "*"
+    $. = '*';
+
+    # run "CLS" or "clear" depending on what system we're on.
+    system
+        $^O =~ Win ?
+                 CLS : 
+                 'clear';
+
+    # note 3 different uses of $_ here:
+    # 1. the global data
+    # 2. that data split by "Z" from the for() below
+    # 3. each character mapped to be the multiplier, when passed
+    #    through ord() and then having 33 subtracted.
+    #
+    # so this prints alternate " " and "*" for each character in the data,
+    # with "Z" marking line splits
+    print + map ((( $. ^= $/ ) x ( ((ord)) -33) ) , /./g ), $/
+        for + split +Z;
+
+    ;
+
+    # sleep "not 0" == 1
+    sleep !$%
+}
+
+# this is a fake, the argument isn't used, but it's evaluated before the
+# function is called. So, we call &amp;_ with ($_ eq $; . $:), and then with
+# ($_ eq $^ . $:), which we do 4 times each.
+_ ( $_ = $; . $: ) , _ $_ = $^ . $: , for !$% .. 4;
+
+# define a new string to print.
+$_ = 'Merry60Christmas60to60a60snowbound60cam.pm60from60a60Sydney60sunbather!';
+
+# make sure that print will automatically put a newline on the end.
+$\ = $/;
+
+# get rid of spaces in the above string
+s;\s;;g;
+
+;;;
+
+# $= is our current format page length (defaults to 60). $" defaults to a
+# space. The evaluation doesn't really matter, because it would get
+# substituted anyway...
+s;$=;$";gsex;
+
+# print out the string
+print;
+
+# random filler noop substitution
+s;k   ara
+          te;chop                      ;eggs;;
+</pre>
+</td></tr></table>
+
+<a name="Andrew_Savige_4"/>
+<p><a href="#top">Back to top</a></p>
+
+<p>
+ He didn't stop there, though. I swear the man didn't do anything else
+ over christmas.
+</p>
+
+<p><b>Requirements</b>: large terminal</p>
+
+<pre>
+            <b>$;</b>=                          <font color="purple">q]A
+          "#,Z&gt;1Z                      97Z5;Z5
+         ;Z5   :Z5:  Z5;Z4&lt;Z3=Z3;Z3  ;Z68   Z68
+          Z68Z68Z68Z68    Z68Z    68Z$"28Z!*-8
+          )"&amp;"Z#.'8(+Z    $1#8    $2Z&amp;^Z*##SZ0
+         %$  6-"Z   ;-Z    7/    Z33   Z13Z  3$
+        $$]</font>    ;<b>$~</b>   =<font color="purple">'Qi  vv  }$Gl   vmw    xqe
+       w'</font>;<font color="blue">sub</font>   _{<i><font color="red">s}\s}}g</font></i>; <b>$.</b> =<font color="purple">'*'</font>;<font color="blue">print</font>   <font color="blue">join</font><font color="purple">""</font>
+      ,(     !!<font color="blue">system</font><b>$^O</b>=~Win3?CLS:<font color="purple">'clear'</font>)     ,(
+  <font color="blue">map</font>{<font color="blue">map</font>(((<b>$.</b>^=<b>$/</b>)x(-33+<font color="blue">ord</font>)),<i><font color="green">m).)g</font></i>),<b>$/</b>}<font color="blue">split</font>+Z),<b>@,</b>;;
+ <font color="blue">push</font>  (+<b>@,</b>,<b>$~</b>=~  <i><font color="green">/.*?\$/g</font></i>    ?<font color="blue">map</font>{<font color="blue">chr</font>  (-4+<font color="blue">ord</font>)}  <b>$&amp;</b>=~
+ (((    <i><font color="green">m).)g</font></i>))    ):<b>$/</b>);      <font color="blue">sleep</font>!    <b>$%</b>}<b>$:</b>=<font color="purple">q    ^B"
+ Z6"(  "Z&lt;"*"Z1"  %"*"-"ZH    "Z."'"("  %"+"%"Z&gt;#  Z1"'
+  "'$$"%"&amp;"$"Z,"3&amp;Z3"+),"Z8"%*$"%"Z1",*Z&gt;'#"$%Z7"%"%"&amp;
+      )Z     ^</font>;<b>$^</b>=<font color="purple">q^@"Z8"*"Z="*"Z2"&amp;"*"*"ZF     "Z
+       /"%")"   &amp;")"%"Z&gt;#Z 2" '"&amp;$%"%"$"   $"Z-"2
+        &amp;Z4    "*)   +"Z7  "&amp;  *%"#   "Z0    "-*
+         Z&gt;  '$"#   %Z6    "%    "&amp;"   &amp;)Z^</font>  ;;
+          ;<b>$~</b>.=<font color="purple">'$xs$e$    wrs{    fsyrh$geq2tq
+          $jvsq$e$W}hr    i}$w    yrfexliv%$'</font>;
+         <b>$|</b>=   1;<b>$~</b>  =~<i><font color="red">s~\s~~g</font></i>;_(<b>$_</b>  =<b>$:</b>.   <b>$;</b>)
+          ,_<b>$_</b>=<b>$^</b>                      .<b>$;</b>,<font color="blue">for</font>
+            !<b>$%</b>                          ..6
+</pre>
+
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+ <p>
+  Yet another evolution, this one managed to encode the "Merry Christmas" message, and
+  display it, one word at a time as the frame advanced. The <tt>map</tt>s that were
+  used made my brain hurt, and some clever techniques to make it hard to read were
+  evident.
+ </p>
+</td></tr></table>
+
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+# The data for the bottom of the candle
+$; = q]
+       A"#,Z
+       &gt;1Z
+       97Z
+       5;Z
+       5;Z
+       5:Z
+       5:Z
+       5;Z
+       4&lt;Z
+       3=Z
+       3;Z
+       3;Z
+       68Z
+       68Z
+       68Z
+       68Z
+       68Z
+       68Z
+       68Z
+       68Z
+       $"28Z
+       !*-8)"&amp;"Z
+       #.'8(+Z
+       $1#8$2Z
+       &amp;^Z
+       *##SZ
+       0%$6-"Z
+       ;-Z
+       7/Z
+       33Z
+       13Z
+       3$$$
+      ];
+$~ = 'Qivv}$Glvmwxqew';
+
+sub _ {
+    # get rid of the spaces in $_
+    s}\s}}g;
+
+    $. = '*';
+
+    print join"", (!!system $^O =~ Win3 ? CLS : 'clear'),
+                  (
+                     # this map splits per line
+                     map { 
+                           # this one splits per character, and signals
+                           # the run length
+                           map ( ( ($.^=$/) x (-33+ord) ), m).)g ), $/
+                         }
+                         split+Z
+                  ),
+                  # @, contains the text for the Happy Christmas message
+                  @,;
+    ;
+
+    # the /g makes sure that the next time, we retain our current position
+    # so each time this is called, we push a new word, at the end, we push
+    # a newline. The words are taken from $~
+    push( +@, , $~ =~ /.*?\$/g ?
+                                 # the word themselves need to have 4
+                                 # subtracted from the ascii value of each
+                                 # character.
+                                 map { chr(-4 + ord) } $&amp;=~ ((( m).)g )))
+                               :
+                                 $/
+        );
+
+    # sleep 1
+    sleep !$%
+}
+
+# the data for one of the tops
+
+$: = q^
+      B"Z
+      6"("Z
+      &lt;"*"Z
+      1"%"*"-"Z
+      H"Z."'"("%"+"%"Z
+      &gt;#Z
+      1"'"'$$"%"&amp;"$"Z
+      ,"3&amp;Z
+      3"+),"Z
+      8"%*$"%"Z
+      1",*Z
+      &gt;'#"$%Z
+      7"%"%"&amp;)Z
+     ^;
+
+# and the other
+
+$^ = q^
+       @"Z
+       8"*"Z
+       ="*"Z
+       2"&amp;"*"*"Z
+       F"Z
+       /"%")"&amp;")"%"Z
+       &gt;#Z
+       2"'"&amp;$%"%"$"$"Z
+       -"2&amp;Z
+       4"*)+"Z
+       7"&amp;*%"#"Z
+       0"-*Z
+       &gt;'$"#%Z
+       6"%"&amp;"&amp;)Z
+      ^;
+;;
+
+$~ .= '$xs$e$wrs{fsyrh$geq2tq$jvsq$e$W}hri}$wyrfexliv%$';
+
+# set autoflush
+$|=1;
+
+# get rid of the spaces in $~
+$~ =~ s~\s~~g;
+
+# run each individual top 6 times.
+_( $_ = $: . $; ), _ $_ = $^ . $; , for !$% .. 6
+</pre>
+</td></tr></table>
+
+<a name="Andrew_Savige_5"/>
+<p><a href="#top">Back to top</a></p>
+
+<p>
+ This programme was the fifth submitted, and took some ideas from the
+ example <a href="#Matthew_Byng-Maddick">at the top</a>
+</p>
+
+<p><b>Requirements</b>: large terminal</p>
+
+<pre>
+            <b>$_</b>=                          <font color="purple">q~v
+          ZvZ&amp;%('                      $&amp;"'"&amp;(
+         &amp;"&amp;   $&amp;"'  "&amp;$Z$#$$$#$%$&amp;  "'"&amp;   (&amp;#
+          %$&amp;"'"&amp;#Z#$$    $#%#    %$%$%$%(%%%#
+          %$%$%#Z"%*#$    %$%$    %$%(%%%#%$%$
+         %#  Z"%,   ($%    $%    $%(   %%%#  %$
+        %$%    #Z"   %*%"  %$  %$%$   %(%    %%#
+       %$%$%#   Z#%%"#%#%$ %$ %$%$##&amp;#%$   %$%$%#
+      Z$     &amp;""$%"&amp;$%$%$%#%"%"&amp;%%$%$%#Z%&amp;%     &amp;#
+  %"'"'"'###%*'"'"'"ZT%?ZT%?ZS'&gt;Zv~</font>;<i><font color="red">s;\s;;g</font></i>;<b>$;</b>=<font color="purple">'@,=map
+ {$.=  $";join""  ,map((($    .^=O)x(-  33+ord)),  /./g
+ ),$    /}split    +Z;s/.      /(rand    )&lt;.2?"o    ":$
+ "/eg  for@;=((5  x84).$/)    x30;map{  system$^O  =~W?
+  CLS:"clear";print@;;splice@;,-$_,2,pop@,;@;=($/,@;);
+      sl     eep!$%}2..17'</font>;<b>$;</b>=~<i><font color="red">s;\s;;g</font></i>;<font color="blue">eval</font>     <b>$;</b>
+       <font color="green">######   ########## ## ##########   ######</font>
+        <font color="green">###    ###   ####  ##  ####   ###    ###</font>
+         <font color="green">##  ####   ###    ##    ###   ####  ##</font>
+          <font color="green">############    ####    ############</font>
+          <font color="green">############    ####    ############</font>
+         <font color="green">###   ####  ##############  ####   ###</font>
+          <font color="green">#######                      #######</font>
+            <font color="green">#by                          /-\</font>
+</pre>
+
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+ <p>
+  This was a different programme, and used something similar to my snowscape to fall on
+  the ground to spell out cam.pm in a block. I liked this entry, and typical to Andrew's
+  golfing history, he had nearly half the space just in comments. Most of the code was
+  <tt>eval</tt>led, and it's pretty amazing that there didn't need to be whitespace in
+  any of that bit.
+ </p>
+</td></tr></table>
+
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+$_ = q~
+       vZ
+       vZ
+       &amp;%('$&amp;"'"&amp;(&amp;"&amp;$&amp;"'"&amp;$Z
+       $#$$$#$%$&amp;"'"&amp;(&amp;#%$&amp;"'"&amp;#Z
+       #$$$#%#%$%$%$%(%%%#%$%$%#Z
+       "%*#$%$%$%$%(%%%#%$%$%#Z
+       "%,($%$%$%(%%%#%$%$%#Z
+       "%*%"%$%$%$%(%%%#%$%$%#Z
+       #%%"#%#%$%$%$%$##&amp;#%$%$%$%#Z
+       $&amp;""$%"&amp;$%$%$%#%"%"&amp;%%$%$%#Z
+       %&amp;%&amp;#%"'"'"'###%*'"'"'"Z
+       T%?Z
+       T%?Z
+       S'&gt;Z
+       v
+      ~;
+s;\s;;g;
+
+# the following bit of code is basically:
+#  @, ends up containing the cam.pm text, which is extracted from the RLE
+#     data in $_
+#  @; is filled with snow on 30 rows
+#  each frame is printed in the map, which prints the current "@;" (screen)
+#  the splice then takes off a row of snow and turns it into the cam.pm
+#     body.
+#  finally a newline is pushed on at the top.
+$; = '
+      @, = map { $.=$" ; join "" , map((($.^=O)x(-33+ord)),/./g) , $/ }
+                  split +Z;
+
+      s/./(rand)&lt;.2 ? "o" : $"/eg for @; = ((5x84).$/)x30;
+
+      map { system $^O =~ W ? CLS :"clear" ;
+            print @;
+            ;
+            splice @; , -$_ , 2 , pop @, ;
+            @; = ( $/ , @; );
+            sleep !$%
+          } 2..17
+     ';
+
+# eval the above code with no spaces in it.
+$; =~ s;\s;;g;
+eval $;
+</pre>
+</td></tr></table>
+
+<a name="Andrew_Savige_6"/>
+<p><a href="#top">Back to top</a></p></p>
+
+<p>
+ This last programme came hot on the tail of the one above, and is an
+ evolution of it. It adds a snowman that appears on the last frame.
+</p>
+
+<p><b>Requirements</b>: large terminal</p>
+
+<pre>
+            <b>$_</b>=                          <font color="purple">q~v
+          ZvZ&amp;%('                      $&amp;"'"&amp;(
+         &amp;"&amp;   $&amp;"'  "&amp;$Z$#$$$#$%$&amp;  "'"&amp;   (&amp;#
+          %$&amp;"'"&amp;#Z#$$    $#%#    %$%$%$%(%%%#
+          %$%$%#Z"%*#$    %$%$    %$%(%%%#%$%$
+         %#  Z"%,   ($%    $%    $%(   %%%#  %$
+        %$%    #Z"   %*%"  %$  %$%$   %(%    %%#
+       %$%$%#   Z#%%"#%#%$ %$ %$%$##&amp;#%$   %$%$%#
+      Z$     &amp;""$%"&amp;$%$%$%#%"%"&amp;%%$%$%#Z%&amp;%     &amp;#
+  %"'"'"'###%*'"'"'"ZT%?ZT%?ZS'&gt;Zv~</font>;<i><font color="red">s;\s;;g</font></i>;<b>$~</b>=<font color="purple">q~ZZZJ_
+ #_ZH  /'\\ZG|#o  #o#|ZG|$    &lt;%|ZH\\"  \\!_!_!/"  /ZG/
+ )\\    ZF/+\\Z    E|-|ZE      |-|ZE|    -|ZF\\+    /ZG
+ \\)/  ~</font>;;<b>@x</b>=<b>@,</b>=  +<font color="blue">map</font>{<b>$.</b>=    <b>$"</b>;;<font color="blue">join</font>  <font color="purple">""</font>,<font color="blue">map</font>(((  <b>$.</b>^=
+  O)x(-33+<font color="blue">ord</font>)),<i><font color="green">/./g</font></i>)}<font color="blue">split</font>+Z;<b>$~</b>=~<i><font color="red">s~\s~~g</font></i>;;<i><font color="red">s/./(rand)&lt;
+      .2     ?"o":$"/egx</font></i><font color="blue">for</font><b>@;</b>=(5x84)x30;<font color="blue">map</font>     {<font color="green">#</font>
+       <font color="blue">system</font>   <b>$^O</b>=~W?CLS :+ <font color="purple">"clear"</font>;;;   ;<font color="blue">print</font>
+        <b>$_</b>.    <b>$/</b>,   ,<font color="blue">for</font>  <b>$_</b>  -18?   <b>@;</b>:    <font color="green">###</font>
+         ((  <font color="blue">map</font>{   <b>$|</b>=    1;    ;;;   <font color="blue">join</font>  <font color="purple">""</font>
+          ,<font color="blue">map</font>(<b>$|</b>--?<b>$"</b>    x(-3    *11+<font color="blue">ord</font>):<b>$_</b>,
+          <i><font color="green">/./g</font></i>)}<font color="blue">split</font>+    Z,<b>$~</b>    ),<b>@x</b>);<font color="blue">splice</font>
+         <b>@;</b>,   -<b>$_</b>,  2,<font color="blue">pop</font><b>@,</b>;<b>@;</b>=(<font color="purple">""</font>  ,<b>@;</b>)   ;;;
+          ;<font color="blue">sleep</font>!                      <b>$%</b>}+2..
+            18<font color="green">#                          /-\</font>
+</pre>
+
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+ <p>
+  This got rid of the horrid eval above, and had some more brain-wrenching mapping.
+  <tt>$_</tt> contains the cam.pm block, and <tt>$~</tt> the snowman
+ </p>
+</td></tr></table>
+
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+$_ = q~
+       vZ
+       vZ
+       &amp;%('$&amp;"'"&amp;(&amp;"&amp;$&amp;"'"&amp;$Z
+       $#$$$#$%$&amp;"'"&amp;(&amp;#%$&amp;"'"&amp;#Z
+       #$$$#%#%$%$%$%(%%%#%$%$%#Z
+       "%*#$%$%$%$%(%%%#%$%$%#Z
+       "%,($%$%$%(%%%#%$%$%#Z
+       "%*%"%$%$%$%(%%%#%$%$%#Z
+       #%%"#%#%$%$%$%$##&amp;#%$%$%$%#Z
+       $&amp;""$%"&amp;$%$%$%#%"%"&amp;%%$%$%#Z
+       %&amp;%&amp;#%"'"'"'###%*'"'"'"Z
+       T%?Z
+       T%?Z
+       S'&gt;Z
+       v
+      ~;
+
+# get rid of the spaces in $_
+s;\s;;g;
+
+$~=q~
+     Z
+     Z
+     Z
+     J_#_Z
+     H/'\\Z
+     G|#o#o#|Z
+     G|$&lt;%|Z
+     H\\"\\!_!_!/"/Z
+     G/)\\Z
+     F/+\\Z
+     E|-|Z
+     E|-|Z
+     E|-|Z
+     F\\+/Z
+     G\\)/
+    ~;
+;
+
+# Fill @x and @, with the RLE encoded "cam.pm" block from $_
+@x = @, = +map {
+                $. = $";
+                ;
+                join "", map( ( ( $. ^= O ) x (-33+ord) ), /./g )
+               } split +Z;
+
+# get rid of the spaces in $~ (the snowman)
+$~ =~ s~\s~~g;
+;
+
+# fill @; with snow
+s/./(rand)&lt;.2?"o":$"/egx for @; =(5x84)x30;
+
+# run our frames
+map {
+     # clear the screen
+     system $^O =~ W ? CLS : +"clear";
+     ;;;
+
+     # print "$_\n"
+     print $_ . $/,, for $_-18 ?
+                                 # the snowscape
+                                 @;
+                               :
+                                 ((
+                                 # this map draws the snowman
+                                 map {
+                                     $| = 1;
+                                     ;;;
+                                     join "",
+                                       # alternate characters are RLE number
+                                       # of spaces, or the character itself
+                                       map( $|-- ? $" x (-3*11+ord) : $_, /./g)
+                                     } split +Z, $~),
+                                       # @x contains the block
+                                       @x);
+     # advance the snowscape pushing the snow and block
+     splice @; , -$_ , 2 , pop @, ;
+     @; = ( "" , @; );
+     ;;;
+     # sleep
+     sleep !$%
+    } +2..18
+</pre>
+</td></tr></table>
+
+<a name="Pete_Clay"/>
+<p><b>Pete Clay</b></p>
+<p><a href="#top">Back to top</a></p>
+<p>
+ So, this competition's Colin Watson came in at the 11th hour and used nice
+ vector maths and quasi-Affine Transformations to produce a snowflake but
+ as a PPM file.
+</p>
+
+<pre>
+            <b>$w</b>=                          100
+          ;<b>$w</b>*=5;                      ;<b>$W</b>=<b>$w</b>*
+         <b>$w</b>;   <font color="purple">q--</font>;  <b>$p</b>=<font color="blue">atan2</font>(1,0)*  2;3;   <b>@P</b>=
+          (<font color="purple">"\000"</font>x3)x(    <b>$W</b>);    <font color="blue">BEGIN</font>{<b>$"</b>;<font color="blue">sub</font>
+          S{<b>$_</b>.=<font color="purple">'fhoq'</font>    }<font color="blue">sub</font>    K{<b>$_</b>.=<font color="purple">'s'</font>.((
+         <b>$n</b>  ++))   .((    <font color="purple">''</font>    .<font color="purple">''</font>   .<font color="purple">'{'</font>  ))
+        ;};    <font color="blue">sub</font>   Y{<b>$_</b>  .=  <b>$_[0   ]</b>};    S;K
+       ;Y(<font color="purple">''</font>.   <font color="purple">'$k/=2;$'</font>. <font color="purple">''</font> .<font color="purple">'l/=2}'</font>);   S;K;0;
+      Y(     <font color="purple">'$k/=3;$l/=3;$k+=$j/4}fhoqh{'</font>.     <font color="purple">''</font>
+  .<font color="purple">'cevq"P6\a$jq$j\a255\a",q@P}'</font>);S;K;Y(<font color="purple">'$g=$c/3;e}'</font>);
+ S;K;  Y(<font color="purple">q.$g=$.</font>  .<font color="purple">'c/-3;'</font>    .<font color="purple">'e}'</font>);S  ;K;Y(<font color="purple">'$'</font>.  <font color="purple">'g'</font>.
+ <font color="purple">'='</font>    .<font color="purple">'$c*2'</font>    .<font color="purple">'/3}'</font>      );;<i><font color="red">s/v    /vag/x</font></i>;    <font color="blue">sub</font>
+ p{<b>$P</b>  [<b>$x</b>+<b>$w</b>/2+  <font color="blue">int</font>(<b>$y</b>)*    <b>$w</b>+<b>$W</b>/2]  =<font color="purple">"\377"</font>x3  }<font color="blue">sub</font>
+  r{<b>$z</b>=<b>$x</b>*<font color="blue">cos</font>(<b>$t</b>)+<b>$y</b>*<font color="blue">sin</font>(<b>$t</b>);<b>$y</b>=<b>$x</b>*<font color="blue">sin</font>(<b>$t</b>)-<b>$y</b>*<font color="blue">cos</font>(<b>$t</b>);
+      <b>$x</b>     =<b>$z</b>};<i><font color="purple">tr/a-z/n-za-m/</font></i>;<i><font color="red">s/d/$"/gx</font></i>;     <b>$x</b>
+       ++;<b>$y</b>=   4;<font color="blue">eval</font><b>$_</b>}; <i><font color="red">s/ /japh/</font></i>;<font color="blue">sub</font>   T{;<b>$a</b>= 
+        <b>$_[    0]</b>;   ;<b>$b</b>=  ((  <b>$a</b>&amp;(   (<b>$a</b>    |(+
+         <b>$a</b>  &lt;&lt;1)   )&lt;&lt;    1)    )&gt;&gt;   2)|(  <b>$a</b>
+          &gt;&gt;3);<font color="blue">if</font>(<b>$b</b>){    <b>$_[0    ]</b>=<font color="purple">""</font>}<font color="blue">else</font>{<b>$_
+          [0]</b>=<font color="purple">"f<b>$a</b>;p;"</font>    }};;    <font color="blue">for</font>(1..20000
+         *10   ){<b>$_</b>  =<font color="blue">int</font>(<font color="blue">rand</font>(20))  ;T<b>$_</b>   ;0;
+          <font color="blue">eval</font><b>$_</b>}                      u<font color="green">#byPJC</font>
+            <font color="green">#JA                          PH#</font>
+</pre>
+
+<table border="0" cellpadding="0" cellspacing="5"><tr><td>&nbsp;</td><td bgcolor="#ffffcc">
+ <p>
+  Pete's entry was the only one which used no data at all. The data that is there
+  is code that gets rot-13ed and evalled. The code itself confuses Deparse in a
+  couple of places, and contains some real nasties. The circuit reduction for
+  the effective: <tt>$b=$a&gt;4</tt> within <tt>T</tt> is, erm, interesting. The
+  fact that it produces the output it does is also impressive, but is a function
+  of the way such transformations work, and doing the iteration that many times
+  makes it likely to work.
+ </p>
+ <p>
+  Pete's recommendation was to run this programme as:
+ </p>
+ <p>
+  <tt>perl pjc.pl | xloadimage stdin</tt>
+ </p>
+ <p>
+  though any PPM (Portable PixMap) viewer should work
+ </p>
+ <p>
+  The output should look something like that below:
+ </p>
+ <p>
+  <img src="pjc.png" alt="[snowflake]" width="500" height="500" />
+ </p>
+</td></tr></table>
+
+<table border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="#ffccff">
+<pre>
+# $w=500 - The width and height of our canvas
+$w = 100;
+$w *= 5;
+;
+
+# $W=250000 = number of pixels
+$W = $w*$w;
+
+# ''
+q--;
+
+# $p = \pi
+$p = atan2(1,0)*2;
+3;
+
+# fill each pixel with 0x000000
+@P=("\000"x3) x ($W);
+
+BEGIN {
+    $";
+
+    # $_ is going to be (lc only) rot-13'ed, and "d" is used as a space
+    # separator so:
+
+    # S adds "sub " to the code we're building
+    sub S {
+        $_ .= 'fhoq'
+    }
+
+    # K keeps track of a number, and adds "f&lt;n&gt;{" to the stream, where
+    # &lt;n&gt; is replaced by an incrementing counter
+    sub K {
+        $_ .= 's' . (( $n++ )) . (('' . '' . '{' ));
+    }
+
+    ;
+
+    # Y adds its argument onto the stream.
+    sub Y {
+        $_ .= $_ [0]
+    }
+
+    ;
+
+    # sub f0{$x/=2;$y/=2}
+    S;K;
+    Y ( '' . '$k/=2;$' . '' . 'l/=2}');
+
+    # sub f1{$x/=3;$y/=3;$x+=$w/4}sub u{pri "P6\n$w $w\n255\a", @P}
+    # note that below the "i" gets expanded to "int"
+    S;K;
+    0;
+    Y( '$k/=3;$l/=3;$k+=$j/4}fhoqh{' . '' . 'cevq"P6\a$jq$j\a255\a",q@P}');
+
+    # sub f2{$t=$p/3;r}
+    S;K;
+    Y('$g=$c/3;e}');
+
+    # sub f3{$t=$p/-3;r}
+    S;K;
+    Y(q.$g=$.  .'c/-3;'    .'e}');
+
+    # sub f4{$t=$p*2/3}
+    S;K;
+    Y( '$' . 'g'. '=' . '$c*2' . '/3}');
+    ;
+
+    # turn "i" into "int"
+    s/v/vag/x;
+
+    # p turns a pixel ($x-$w/2 , $y-$w/2) to white
+    # ie, the origin for x and y is in the middle
+    sub p {
+        $P[ $x + $w/2 + int($y)*$w + $W/2 ] = "\377" x 3
+    }
+
+    # r rotates the cursor vector by $t
+    sub r {
+        $z = $x * cos($t) + $y * sin($t);
+        $y = $x * sin($t) - $y * cos($t);
+        $x = $z
+    }
+
+    ;
+
+    # rot13
+    tr/a-z/n-za-m/;
+
+    # substitute d (q before the rot) with " "
+    s/d/$"/gx;
+
+    $x++;
+    $y=4;
+    
+    # the finished code that will be run is:
+    #   # move the cursor closer in by a factor of 2
+    #   sub f0 {
+    #       $x /= 2;
+    #       $y /= 2
+    #   }
+    #
+    #   # f1 moves the cursor inwards by a factor of 3 (to the centre)
+    #   # and then move it out by a quarter of the canvas along the x-axis
+    #   # this gives a lot of the filament structure
+    #   sub f1 {
+    #       $x /= 3;
+    #       $y /= 3;
+    #       $x += $w/4
+    #   }
+    #
+    #   # print out our canvas as a PPM
+    #   sub u {
+    #       print "P6\n$w $w\n255\n", @P
+    #   }
+    #
+    #   # Theta = pi/3 ; rotate
+    #   sub f2 {
+    #       $t=$p/3;
+    #       r
+    #   }
+    #
+    #   # Theta = -pi/3 ; rotate
+    #   sub f3 {
+    #       $t = $p/-3;
+    #       r
+    #   }
+    #
+    #   # This does nothing
+    #   sub f4 {
+    #       $t = $p*2/3
+    #   }
+
+    eval $_
+}
+
+;
+s/ /japh/;
+
+sub T {
+    ;
+    # $a is our argument
+    $a = $_[0];
+    ;
+    # $b &gt; 0 if $a not element of [0,4]
+    # I did this by doing:
+    # perl -e 'map { $b=(($_ &amp; (($_|($_&lt;&lt;1))&lt;&lt;1))&gt;&gt;2)|($_&gt;&gt;3); print "\$a=$_ \$b=$b\n" } (0..20)'
+
+    $b=(( $a &amp; (( $a | (+$a&lt;&lt;1) ) &lt;&lt;1 )) &gt;&gt; 2 ) | ( $a&gt;&gt;3 );
+
+    if($b) {
+        # note this is a reassign back to our argument
+        # does nothing
+        $_[0] = ""
+    }
+    else {
+        # note this is a reassign back to our argument
+        # calls f0,f1,f2,f3,f4 as appropriate, and then puts the pixel
+        $_[0] = "f$a;p;"
+    }
+}
+
+;;
+
+# apply lots of potential transformations using T.
+for(1 .. 20000*10) {
+    $_ = int(rand(20));
+    T $_;
+    0;
+    # since T reassigns back in its argument, we eval that
+    eval $_
+}
+
+# u prints out the ppm
+u
+</pre>
+</td></tr></table>
+    </td>
+   </tr>
+  </table>
+  
+  <hr />
+  <small>
+   $Id: christmasppc-summary.shtml,v 1.2 2003/01/03 00:08:50 mbm Exp $
+  </small>
+  
+ </body>
+</html>
+

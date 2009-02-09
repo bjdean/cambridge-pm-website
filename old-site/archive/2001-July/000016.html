@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> map
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000010.html">
+   <LINK REL="Next"  HREF="000009.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>map
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="map">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 5 Jul 2001 16:00:33 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000010.html">map
+</A></li>
+        <LI> Next message: <A HREF="000009.html">SQL and CGI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, Jul 05, 2001 at 10:50:59AM +0100, Stephen Turner wrote:
+&gt;<i> On Wed, 4 Jul 2001, Tim Cutts wrote:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I have C code to do the same thing which is a couple of hundred lines
+</I>&gt;<i> &gt; long
+</I>&gt;<i> 
+</I>&gt;<i> While I of course agree that Perl is the only choice for your task, I think
+</I>&gt;<i> that you're being a _bit_ unfair on C. Here's a first pass:
+</I>
+Yes, indeed, it's possible to write a fairly short C version like that,
+but it's quite slow owing to a large amount of conditional code.  It
+also only translates one reading frame.
+
+The long code I was talking about translates all six reading frames in a
+single pass.  It's pretty ugly, but those who are interested will find
+it in the file translate.c in my tpatterns program, which you can
+download from:
+
+<A HREF="http://www.cyclin.demon.co.uk/software/tpatterns">http://www.cyclin.demon.co.uk/software/tpatterns</A>
+
+It includes such lovely bits of code as:
+
+  for (n = 0; n&lt;64; n++)
+    {
+      r = (~((n &amp; 0x0C) |
+	  ((n &amp; 0x03) &lt;&lt; 4) |
+	  ((n &gt;&gt; 4) &amp; 0x03))) &amp; 0x3F;
+
+      ((char *)dest)[r] = ((char*)source)[n];
+
+    }
+
+You'll have to look at the original if you want to know what that's for.
+The original is commented.  :-)
+
+Some of the loops are unrolled, too, which makes it longer.
+
+Tim.
+
+-- 
+Tim Cutts PhD                    Tel: +44 1223 454918
+Senior Bioinformatics Scientist
+Incyte Genomics
+Botanic House, 100 Hills Road, Cambridge, CB2 1FF, UK
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000010.html">map
+</A></li>
+	<LI> Next message: <A HREF="000009.html">SQL and CGI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

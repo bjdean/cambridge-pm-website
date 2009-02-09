@@ -1,0 +1,104 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+
+
+
+ 
+ 
+
+<html>
+ <head>
+  <title>
+   CAM.PM:
+   $? - {
+   $cam_pm
+   -&gt; what
+   ; }
+  </title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <table border="0" cellpadding="2" cellspacing="2">
+   <tr>
+    <td valign="center">
+     <img src="/images/dollar-qmark.jpg" alt="$?" />
+    </td>
+    <td valign="center">
+     <h1>
+      <tt>require "<font color="#009900">cam</font>.<font color="#009900">pm</font>" ;</tt>
+     </h1>
+     <h1>
+      <tt>
+       {
+       $<font color="#cc0000">cam_pm</font>
+       -&gt; <font color="#660099">what</font>
+       ; }</tt>
+     </h1>
+    </td>
+   </tr>
+   <tr>
+    <td valign="top">
+     <!-- begin nav -->
+     <table border="0" cellpadding="0" width="128" cellspacing="1">
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><b>$?</b></td>
+       <td valign="top">what is cam.pm</td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/index.shtml">about cam.pm</a></td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/why.shtml">why the name</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/list_signup.shtml"><b>$*</b></a></td>
+       <td valign="top"><a href="/list_signup.shtml">the cam.pm list</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/meets_when.shtml"><b>$@</b></a></td>
+       <td valign="top"><a href="/meets_when.shtml">cam.pm meetings</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/projects_home.shtml"><b>$_</b></a></td>
+       <td valign="top"><a href="/projects_home.shtml">cam.pm projects</a></td>
+      </tr>
+
+
+     </table>
+     <!-- end nav -->
+    </td>
+    <td valign="top">
+
+Cam.pm is an adhoc group of <a href="perl.shtml">Perl</a>
+programmers in the city of Cambridge (UK). It is not
+restricted to the University, and anyone can join in. The
+grouping is mainly to encourage discussion of
+<a href="perl.shtml">Perl</a>, however this is not an
+exclusive topic, and we are often to be
+found discussing beer and other such distractions.
+    </td>
+   </tr>
+  </table>
+  
+  <hr />
+  <small>
+   $Id: index.shtml,v 1.4 2002/03/04 21:45:58 mbm Exp $
+  </small>
+  
+ </body>
+</html>
+

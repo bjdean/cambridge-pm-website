@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Being lazy
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:timothy.cutts%40ntlworld.com">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000673.html">
+   <LINK REL="Next"  HREF="000666.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Being lazy
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:timothy.cutts%40ntlworld.com"
+       TITLE="[cam.pm] Being lazy">timothy.cutts@ntlworld.com
+       </A><BR>
+    <I>Thu, 11 Apr 2002 23:09:27 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000673.html">[cam.pm] Being lazy
+</A></li>
+        <LI> Next message: <A HREF="000666.html">[cam.pm] Being lazy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#690">[ date ]</a>
+              <a href="thread.html#690">[ thread ]</a>
+              <a href="subject.html#690">[ subject ]</a>
+              <a href="author.html#690">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Apr 09, 2002 at 07:27:52PM +0100, Philip Kendall wrote:
+&gt;<i> What's wrong with backticks?
+</I>
+Quite a lot, if the program is going to produce a lot of output.  The
+number of times I've seen people do this:
+
+$foo=`some command`;  # or array context if they have a tad more clue
+
+@stuff = split(/\n/, $foo);
+
+foreach (@stuff) {
+}
+
+is really scary.  The main problem with backticks is that your perl
+script has to gather all the data before it can act on any of it.  This
+(a) consumes lots of memory and (b) destroys any parallelism you might
+be able to get out of the pipe.
+
+Far nicer to do something like this:
+
+use IO::File;
+
+my $fh = new IO::File;
+
+$fh-&gt;open(&quot;some command|&quot;) or die &quot;Could not open pipe : $!\n&quot;;
+
+while (&lt;$fh&gt;) {
+}
+
+$fh-&gt;close;
+
+If you need to fire of several of these then you need to either fork
+your perl process, or use select() to poll for which file handles have
+data available to read.  See the perlipc man page for details (as has
+been suggested elsewhere).
+
+Tim.
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000673.html">[cam.pm] Being lazy
+</A></li>
+	<LI> Next message: <A HREF="000666.html">[cam.pm] Being lazy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#690">[ date ]</a>
+              <a href="thread.html#690">[ thread ]</a>
+              <a href="subject.html#690">[ subject ]</a>
+              <a href="author.html#690">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

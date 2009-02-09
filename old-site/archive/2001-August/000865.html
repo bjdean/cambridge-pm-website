@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] problem with multiple sort...
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:rah%40mrc-dunn.cam.ac.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000156.html">
+   <LINK REL="Next"  HREF="000167.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] problem with multiple sort...
+   </H1>
+    <B>Richard Harrington
+    </B> 
+    <A HREF="mailto:rah%40mrc-dunn.cam.ac.uk"
+       TITLE="[cam.pm] problem with multiple sort...">rah@mrc-dunn.cam.ac.uk
+       </A><BR>
+    <I>Mon, 20 Aug 2001 18:28:48 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000156.html">[cam.pm] Oops - please ignore my last article
+</A></li>
+        <LI> Next message: <A HREF="000167.html">[cam.pm] Never mind the cactus
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#865">[ date ]</a>
+              <a href="thread.html#865">[ thread ]</a>
+              <a href="subject.html#865">[ subject ]</a>
+              <a href="author.html#865">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi there, I'm having a problem with a type of file I deal with... here's the
+story...
+
+file example
+##########################################################
+score   start  end  identifier
+9e-63    285    1001 ENSP00000218091
+3e-58    293    996  ENSP00000218091
+1e-57    280    1003 ENSP00000218091
+1e-42    280    1003 ENSP00000218091
+1e-42    280    1003 ENSP00000218092
+1e-42    284    1004 ENSP00000218092
+##########################################################
+
+code:
+##########################################################
+while (&lt;IN&gt;){
+  @array = ();
+  if(/^\d/){
+    chomp $_;
+    @fields = split(/\s+/,$_);
+    if ($fields[3] =~ /ENSP/ &amp;&amp; $fields[0] &lt; 0.0005){
+     push (@array, $fields[0],
+              $fields[1],
+              $fields[2],
+              $fields[3],);
+    $match = $fields[8];
+    push (@{$hash{$match}}, [@array]);
+    }#end if
+  }#end if
+close (IN);
+
+############################################################
+This gives me a hash with each identifier as a new key.  In each value for
+the key is an array of arrays.  In this case, there are 2 array, one holding
+4 array (of the values in the file fields) for all rows that match
+ENSP00000218091, the other holding 2 arrays for matches to ENSP00000218092.
+
+I'm trying to sort firstly by identifier.  This works with:
+
+############
+code:
+
+foreach $match (sort keys %hash){
+ print &quot;\n\n$match: &quot;, scalar(@{$hash{$match}}), &quot;hits.&quot;;
+}#end foreach.
+
+######################
+
+But I'm trying to sort by firstly identifier, and then start position.  I
+used the following code, but it doesn't seem to work.  Can anyone help me?
+
+######################
+
+foreach (sort {@{$hash{$match}}-&gt;[$b]-&gt;[1] &lt;=&gt; @{$hash{$match}}-&gt;[$a]-&gt;[1]}
+keys %hash){
+  print &quot;\n$match: &quot;, scalar(@{$hash{$match}}), &quot;hits.&quot;;
+}#end foreach
+
+###########################
+
+Is it possible to use the 'or' operator to fit both of these into one
+command?
+Thanks
+
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000156.html">[cam.pm] Oops - please ignore my last article
+</A></li>
+	<LI> Next message: <A HREF="000167.html">[cam.pm] Never mind the cactus
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#865">[ date ]</a>
+              <a href="thread.html#865">[ thread ]</a>
+              <a href="subject.html#865">[ subject ]</a>
+              <a href="author.html#865">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

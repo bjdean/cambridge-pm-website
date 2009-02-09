@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Perl 5.8.0 is released
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:nick%40unfortu.net">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000835.html">
+   <LINK REL="Next"  HREF="000837.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Perl 5.8.0 is released
+   </H1>
+    <B>Nicholas Clark
+    </B> 
+    <A HREF="mailto:nick%40unfortu.net"
+       TITLE="[cam.pm] Perl 5.8.0 is released">nick@unfortu.net
+       </A><BR>
+    <I>Fri, 19 Jul 2002 22:16:58 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000835.html">[cam.pm] Social dates
+</A></li>
+        <LI> Next message: <A HREF="000837.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#836">[ date ]</a>
+              <a href="thread.html#836">[ thread ]</a>
+              <a href="subject.html#836">[ subject ]</a>
+              <a href="author.html#836">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>In case you've not read use.perl, slashdot, the london.pm list or anything
+else carrying the news, Perl 5.8.0 is out.
+
+It has now escaped to various CPAN mirrors (although not ftp.demon.net last
+time I checked.)
+
+However, the fine folks at flirble.org have it on their mirror (located in
+Soho, and well connected), accessible via both http and ftp:
+
+    <A HREF="http://cpan.m.flirble.org/src/perl-5.8.0.tar.gz">http://cpan.m.flirble.org/src/perl-5.8.0.tar.gz</A>
+    <A HREF="ftp://cpan.m.flirble.org/pub/lang/perl/CPAN/src/perl-5.8.0.tar.gz">ftp://cpan.m.flirble.org/pub/lang/perl/CPAN/src/perl-5.8.0.tar.gz</A>
+
+You can use IPv6 to get it, or IPv4 if you really must. :-)
+
+$ host -t aaaa cpan.m.flirble.org
+cpan.m.flirble.org      CNAME   philes.flirble.org
+philes.flirble.org      AAAA    2001:6F8:604:0:0:0:0:1
+$ host cpan.m.flirble.org
+cpan.m.flirble.org      CNAME   philes.flirble.org
+philes.flirble.org      A       194.70.3.50
+
+The release announcement is at <A HREF="http://dev.perl.org/perl5/">http://dev.perl.org/perl5/</A> in English, Chinese
+(both simplified and traditional) Japanese and Korean.
+
+[Time to test how well your browser displays 16 bit fonts]
+
+Nicholas Clark
+
+----- Forwarded message from Jarkko Hietaniemi &lt;<A HREF="mailto:jhi@iki.fi">jhi@iki.fi</A>&gt; -----
+
+Mailing-List: contact <A HREF="mailto:perl5-porters-help@perl.org">perl5-porters-help@perl.org</A>; run by ezmlm
+list-help: &lt;mailto:<A HREF="mailto:perl5-porters-help@perl.org">perl5-porters-help@perl.org</A>&gt;
+list-unsubscribe: &lt;mailto:<A HREF="mailto:perl5-porters-unsubscribe@perl.org">perl5-porters-unsubscribe@perl.org</A>&gt;
+list-post: &lt;mailto:<A HREF="mailto:perl5-porters@perl.org">perl5-porters@perl.org</A>&gt;
+From: Jarkko Hietaniemi &lt;<A HREF="mailto:jhi@iki.fi">jhi@iki.fi</A>&gt;
+To: <A HREF="mailto:perl5-porters@perl.org">perl5-porters@perl.org</A>
+Subject: Perl 5.8.0
+
+    There was the faint sound of footsteps.
+    &quot;Chap with a whip got as far as the big sharp spikes last week,&quot;
+    said the low priest.
+    There was a sound like the flushing of a very old dry lavatory.
+    The footsteps stopped.  The High Priest smiled to himself.
+    &quot;Right,&quot; he said.  &quot;See your two pebbles and raise you two pebbles.&quot;
+    The low priest threw down his cards.  &quot;Double Onion,&quot; he said.
+    The High Priest looked down suspiciously.
+    The low priest consulted a scrap of paper.  &quot;That's three hundred
+    thousand, nine hundred and sixty-four pebbles you owe me,&quot; he said.
+    There was the sound of footsteps.  The priests exchanged glances.
+    &quot;Haven't had one for poisoned-dart alley for quite some time,&quot;
+    said the High Priest.
+    &quot;Five says he makes it&quot;, said the low priest.  &quot;You're on.&quot;
+    There was a faint clatter of metal points on stone.
+    &quot;It's a shame to take your pebbles.&quot;
+    There were footsteps again.
+    -- Terry Pratchett, &quot;Reaper Man&quot;
+
+This is the Perl 5.8.0.
+
+The official announcement (for use.perl.org, for dev.perl.org/perl5,
+comp.lang.perl.announce, etc.) will go out soon as enough mirrors
+have picked up the tar.gz.  I'll ask the mirror sites to expedite
+their mirrors.  (Yes, please, don't use.perl this yet.)
+
+If your CPAN does not have it yet, you can pick up the release as the
+snapshot 17638: <A HREF="ftp://ftp.funet.fi/pub/languages/perl/snap/perl@17638.tgz">ftp://ftp.funet.fi/pub/languages/perl/snap/perl@17638.tgz</A>
+(note that this, as snapshots do, unpacks as directory perl/,
+not as perl-5.8.0/)
+
+As discussed, the plan is to have a Perl 5.8.1, but not before Perl
+5.9.0.  I'll take some time off from p5p, to cool down my &quot;Thanks,
+applied&quot; reflexes, and to have a life, but most importantly, to let
+Hugo to grab the helm.
+
+My thanks go to:
+
+- Hugo van der Sanden for lacking enough self preservation
+  instincts to refuse the Perl 5.9 pumpkinship
+  (The pumpking is dead! Long live the pumpking!)
+
+- perl5-porters without whom no Perl release would ever be done
+
+- Perl users on non-mainstream platforms who helped to get Perl
+  running from the tiniest PDAs to the most hulking big iron
+
+- Nokia Research Center, Helsinki University of Technology
+  Computing Center, and Center for Scientific Computing and FUNET
+  for giving me resources to develop and maintain Perl
+
+and last but foremost, my lovely wife Elaine will hopefully be glad to
+have me back after two years of virtual widowhood.
+
+&lt;ahnold img=&quot;<A HREF="http://www.iki.fi/jhi/vacation.jpg"">http://www.iki.fi/jhi/vacation.jpg&quot;</A>&gt;I need a vacation.&lt;/ahnold&gt;
+
+-- 
+$jhi++; # <A HREF="http://www.iki.fi/jhi/">http://www.iki.fi/jhi/</A>
+        # There is this special biologist word we use for 'stable'.
+        # It is 'dead'. -- Jack Cohen
+
+----- End forwarded message -----
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000835.html">[cam.pm] Social dates
+</A></li>
+	<LI> Next message: <A HREF="000837.html">[cam.pm] Perl 5.8.0 is released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#836">[ date ]</a>
+              <a href="thread.html#836">[ thread ]</a>
+              <a href="subject.html#836">[ subject ]</a>
+              <a href="author.html#836">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

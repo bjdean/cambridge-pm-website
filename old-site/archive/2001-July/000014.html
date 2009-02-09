@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> SQL and CGI
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000013.html">
+   <LINK REL="Next"  HREF="000015.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>SQL and CGI
+   </H1>
+    <B>Martin Keegan
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="SQL and CGI">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 5 Jul 2001 13:15:06 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000013.html">SQL and CGI
+</A></li>
+        <LI> Next message: <A HREF="000015.html">SQL and CGI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#14">[ date ]</a>
+              <a href="thread.html#14">[ thread ]</a>
+              <a href="subject.html#14">[ subject ]</a>
+              <a href="author.html#14">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, 5 Jul 2001, Matthew Byng-Maddick wrote:
+
+&gt;<i> sorry, namespace overload: by query string, I thought you meant
+</I>&gt;<i> scalar($r-&gt;args) or $ENV{&quot;QUERY_STRING&quot;} (depending on your orientation).
+</I>
+Yeah, sorry.
+ 
+&gt;<i> | $sql=&quot;INSERT INTO users VALUES (?,?,?,?)&quot;;
+</I>&gt;<i> | my $sth=$dbh-&gt;prepare($sql);
+</I>&gt;<i> |
+</I>&gt;<i> | $sth-&gt;execute($a,$b,$c,$d);
+</I>&gt;<i> 
+</I>&gt;<i> ?? which is a standard in the DBI implementation, and is sometimes well
+</I>&gt;<i> implemented in databases which do query cacheing (eg Oracle, Informix)
+</I>
+What if I want
+&quot;INSERT INTO users (username, password, snood, offog) VALUES (%s, %s, %s,
+%s)&quot;?
+
+&gt;<i> Oh, definitely, there just doesn't seem to be any nice way of doing it, I've
+</I>&gt;<i> seen some attempts with php etc, but certainly if you have a database that
+</I>&gt;<i> doesn't enforce referential integrity(, then you deserve to lose anyway, but)
+</I>&gt;<i> then you have other problems here.
+</I>
+What is referential integrity (I Am Not A Compsci) and how is it relevant
+here?
+
+&gt;<i> Bear in mind that designing good interfaces is decidedly non-trivial. Spend
+</I>
+Strangely, I am already aware of that.
+
+&gt;<i> some time first thinking about the limitations of the way that you've chosen
+</I>&gt;<i> to do things, and see if there's any way to make sure it can handle 100% of
+</I>&gt;<i> cases, even if some of them take a bit more work...
+</I>
+Not following from your points above: is there a HelloWorld.pm?
+
+Mk
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000013.html">SQL and CGI
+</A></li>
+	<LI> Next message: <A HREF="000015.html">SQL and CGI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#14">[ date ]</a>
+              <a href="thread.html#14">[ thread ]</a>
+              <a href="subject.html#14">[ subject ]</a>
+              <a href="author.html#14">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

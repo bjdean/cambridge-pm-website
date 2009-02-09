@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] called too early to check prototype
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="001044.html">
+   <LINK REL="Next"  HREF="001046.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] called too early to check prototype
+   </H1>
+    <B>Colin Watson
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] called too early to check prototype">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Sun, 29 Jun 2003 16:53:22 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="001044.html">[cam.pm] called too early to check prototype
+</A></li>
+        <LI> Next message: <A HREF="001046.html">[cam.pm] called too early to check prototype
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1045">[ date ]</a>
+              <a href="thread.html#1045">[ thread ]</a>
+              <a href="subject.html#1045">[ subject ]</a>
+              <a href="author.html#1045">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sun, Jun 29, 2003 at 03:21:58PM +0100, Ian Jackson wrote:
+&gt;<i> OK, I give up.  A script I wrote a while ago now says
+</I>&gt;<i>  main::read_config() called too early to check prototype
+</I>&gt;<i>    at /usr/bin/chiark-named-conf line 262.
+</I>&gt;<i> and the like - a dozen or two, depending on exactly how it's run.
+</I>&gt;<i> 
+</I>&gt;<i> I've googled, I've RTFMd, and there is no standard answer to this
+</I>&gt;<i> question AFAICT.  Typing `called too early to check prototype' into
+</I>&gt;<i> Google is very illuminating, in fact - lots of other people have this
+</I>&gt;<i> problem, but the answers they seem to be getting are unhelpful at
+</I>&gt;<i> best.
+</I>&gt;<i> 
+</I>&gt;<i> So:
+</I>&gt;<i> 
+</I>&gt;<i> 1. Where should I have looked to find the answer to this ?
+</I>
+perldiag(1):
+
+       %s() called too early to check prototype
+           (W prototype) You've called a function that has a prototype
+           before the parser saw a definition or declaration for it,
+           and Perl could not check that the call conforms to the pro-
+           totype.  You need to either add an early prototype declara-
+           tion for the subroutine in question, or move the subroutine
+           definition ahead of the call to get proper prototype check-
+           ing.  Alternatively, if you are certain that you're calling
+           the function correctly, you may put an ampersand before the
+           name to avoid the warning.  See perlsub.
+
+Alternatively you can dump the error message into splain(1).
+
+&gt;<i> 3. Why oh why oh why oh why do the Perl maintainers keep pulling shit
+</I>&gt;<i>    like this ?  I only just had them `fix' the `bug' which made $^F
+</I>&gt;<i>    not work, the resulting change breaking a program I wrote some time
+</I>&gt;<i>    before 1994.  If Perl isn't careful they'll find people writing Tcl
+</I>&gt;<i>    instead to take advantage of its superior API stability.
+</I>
+It's an extra optional warning. I don't see how adding extra optional
+warnings for dubious constructs (in this case functions with prototypes
+that aren't being checked; presumably if you added a prototype then you
+wanted it to be checked rather than silently ignored?) counts as broken.
+
+&gt;<i> For now I've grepped for all the function definitions in the script,
+</I>&gt;<i> turned them into declarations, and stuck them all in a big list near
+</I>&gt;<i> the top of the script.  This has bad the symptoms go away but is quite
+</I>&gt;<i> ugly.
+</I>
+I would suggest simply putting function definitions before their uses so
+that Perl can check their prototypes in the obvious way, adding extra
+forward declarations only where necessary (mutual recursion). I
+generally find this to be a clearer style anyway.
+
+-- 
+Colin Watson                                  [<A HREF="mailto:cjwatson@flatline.org.uk">cjwatson@flatline.org.uk</A>]
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="001044.html">[cam.pm] called too early to check prototype
+</A></li>
+	<LI> Next message: <A HREF="001046.html">[cam.pm] called too early to check prototype
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1045">[ date ]</a>
+              <a href="thread.html#1045">[ thread ]</a>
+              <a href="subject.html#1045">[ subject ]</a>
+              <a href="author.html#1045">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

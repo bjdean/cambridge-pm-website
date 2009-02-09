@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> Simon Cozens' Perl6 emulator
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>Simon Cozens' Perl6 emulator
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="Simon Cozens' Perl6 emulator">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 3 Jul 2001 12:58:35 +0100</I>
+    <P><UL>
+        
+        <LI> Next message: <A HREF="000001.html">Simon Cozens' Perl6 emulator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Jun 26, 2001 at 10:12:49AM +0100, Matthew Byng-Maddick wrote:
+
+&gt;<i> I don't know how many people have played with this, but it's available from:
+</I>&gt;<i> [simon wrote in perl6-internals]
+</I>&gt;<i> &gt;    <A HREF="http://simon-cozens.org/hacks/perl6.tar.gz">http://simon-cozens.org/hacks/perl6.tar.gz</A>
+</I>&gt;<i> &gt;and run Configure in the usual way - then &quot;make miniperl&quot;.
+</I>
+OK, finally got it working (at least with the version from 30 June); if
+it helps anyone else, I had to create an `ext' subdirectory under the
+main build directory to get things to work.
+
+Let's see if I've grokked these correctly:
+
+&gt;<i> | #!miniperl
+</I>&gt;<i> | s;;\n.rekcaH lreP rehtonA tsuJ;;sub
+</I>&gt;<i> | f{print chop;return *f}f().().().()
+</I>&gt;<i> | .().().().().().().().().().().().(
+</I>&gt;<i> | ).().().().().().().().().().()
+</I>
+Just the same as Perl 5, apart from s/-&gt;/./g;
+
+&gt;<i> | #!miniperl
+</I>&gt;<i> | print &quot;hello&quot; ~ &quot;, &quot; ~ &quot;world.\n&quot;;  
+</I>
+Pretty trivial :-)
+
+&gt;<i> | #!miniperl
+</I>&gt;<i> | @a=(1,2,3,4,5,6,7,8); print @a[0] ~ &quot;\n&quot;;
+</I>
+As Perl 5, apart from array elements are now accessed with @, rather
+than $ (what's being done about array slices? I'm sure I've seen
+something on this somewhere...)
+
+&gt;<i> | #!miniperl
+</I>&gt;<i> | @a=(1,2,3,4,5,6,7,8); $a=@a; print $a[0] ~ &quot;\n&quot;;
+</I>
+`$a = @a' makes the scalar $a be a reference to the array @a, and $a[0]
+then automatically dereferences that and takes the 0th element?
+
+When are references automatically made and dereferenced?
+
+Phil
+
+-- 
+  Philip Kendall &lt;<A HREF="mailto:pak@ast.cam.ac.uk">pak@ast.cam.ac.uk</A>&gt;
+  <A HREF="http://www.srcf.ucam.org/~pak21/">http://www.srcf.ucam.org/~pak21/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI> Next message: <A HREF="000001.html">Simon Cozens' Perl6 emulator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

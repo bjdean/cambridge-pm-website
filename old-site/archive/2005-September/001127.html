@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] ICMP script without module Net::Ping
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   
+   <LINK REL="Next"  HREF="001128.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] ICMP script without module Net::Ping
+   </H1>
+    <B>zach
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] ICMP script without module Net::Ping">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 27 Sep 2005 12:38:05 -0700 (PDT)</I>
+    <P><UL>
+        
+        <LI> Next message: <A HREF="001128.html">[cam.pm] ICMP script without module Net::Ping
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1127">[ date ]</a>
+              <a href="thread.html#1127">[ thread ]</a>
+              <a href="subject.html#1127">[ subject ]</a>
+              <a href="author.html#1127">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi..
+
+I am trying to send a single icmp packet with this
+code : <A HREF="http://www.perlmonks.org/?node_id=488226">http://www.perlmonks.org/?node_id=488226</A> .
+
+Since i have no idea why this script wont work in my
+LAN, i asked ny friend (in chat) to test it, and he
+said the script's working fine.
+
+So I re-checked all lines in this code, and seems its
+fine, so i remade a script (shorter than before),
+here's the code:
+
+use Socket;
+socket(SOCK,PF_INET,SOCK_RAW,getprotobyname('icmp'))
+||<i> die &quot;Error: $! \n&quot;; 
+</I>$msg = pack(&quot;C2 n3&quot;,8,0,32127,0,1); 
+print &quot;the value of checksum is:&quot;, unpack('H4',
+pack('n',32127)), &quot;\n&quot;; 
+print &quot;[And you should see this in your tcpdump -i lo
+icmp -xxx]\n&quot;;
+send(SOCK,$msg,0,sockaddr_in(0,inet_aton('localhost')))
+||<i> die &quot;Error: $! \n&quot;;
+</I>
+As you can see, there's no subroutine to calculate
+checksum, yea, because im going to try it to LOCALHOST
+and as far as i know, no 'valid checksum' needed for
+localhost (so i add 32127 for checksum).
+
+I ran this script, i got the response (echo reply) and
+i can see '32127' or '0x7d7f' (in hex) in tcpdump,
+here's tcpdump log :
+
+01:55:23.930771 zacko &gt; zacko: icmp: echo request (DF)
+4500 001c 0000 4000 4001 3cdf 7f00 0001
+7f00 0001 0800 [7d7f] 0000 0001
+
+everything's work normal.
+let's try to change the checksum value, change all
+32127 (in code above) to 32128, well i still got the
+response (echo reply), but when i look closer into
+tcpdump log, i feel something wrong there, there's no
+32128 or '0x7d80' (in hex) , here's tcpdump log :
+
+02:09:11.912392 zacko &gt; zacko: icmp: echo request (DF)
+4500 001d 0000 4000 4001 3cde 7f00 0001
+7f00 0001 0800 [7dc2] 8000 0000 01
+
+There's no 0x7d80 but 7dc2 (and i think 7dc2 is
+32194).
+If ICMP_ECHO=8, SUBCODE=0, $pid=0, and $seq=1, and
+then we pass these variables to subroutine checksum,
+we'll get 63486, and of course if i send icmp packet
+to another host, with checksum value=63486, i'll get
+no response back (as long as checksum value &gt; 32127).
+
+Well, i have no idea, what's going on here, by the
+way, i am using Redhat Kernel 2.4.20-8, libcap version
+0.7.2
+
+I wish, i can explain this problem in better english,
+i'll ask my friend to translate this question :[
+
+
+
+
+thanks, zac
+
+
+
+
+
+		
+__________________________________ 
+Yahoo! Mail - PC Magazine Editors' Choice 2005 
+<A HREF="http://mail.yahoo.com">http://mail.yahoo.com</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI> Next message: <A HREF="001128.html">[cam.pm] ICMP script without module Net::Ping
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1127">[ date ]</a>
+              <a href="thread.html#1127">[ thread ]</a>
+              <a href="subject.html#1127">[ subject ]</a>
+              <a href="author.html#1127">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

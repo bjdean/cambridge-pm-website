@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Selecting array elements based on another array
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <LINK REL="Previous"  HREF="001052.html">
+   <LINK REL="Next"  HREF="001054.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Selecting array elements based on another array
+   </H1>
+    <B>Andrew Savige
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Selecting array elements based on another array">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Tue, 15 Jul 2003 19:12:43 +1000 (EST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="001052.html">[cam.pm] Selecting array elements based on another array
+</A></li>
+        <LI> Next message: <A HREF="001054.html">[cam.pm] Llama
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1053">[ date ]</a>
+              <a href="thread.html#1053">[ thread ]</a>
+              <a href="subject.html#1053">[ subject ]</a>
+              <a href="author.html#1053">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dave Cross &lt;<A HREF="mailto:dave@dave.org.uk">dave@dave.org.uk</A>&gt; wrote:
+&gt;<i> my @valid = @data[ grep { $selector[$_] } 0 .. $#selector ];
+</I>
+For cheap thrills, two more:
+
+my $i=0;
+my @valid = grep $selector[$i++], @data;
+
+my $i=0;
+my @valid = map( ($data[$i++]) x $_, @selector );
+
+/-\
+
+
+<A HREF="http://mobile.yahoo.com.au">http://mobile.yahoo.com.au</A> - Yahoo! Mobile
+- Check &amp; compose your email via SMS on your Telstra or Vodafone mobile.
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="001052.html">[cam.pm] Selecting array elements based on another array
+</A></li>
+	<LI> Next message: <A HREF="001054.html">[cam.pm] Llama
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1053">[ date ]</a>
+              <a href="thread.html#1053">[ thread ]</a>
+              <a href="subject.html#1053">[ subject ]</a>
+              <a href="author.html#1053">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

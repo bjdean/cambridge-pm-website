@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Perl poser
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:lejm3%40hermes.cam.ac.uk">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000792.html">
+   <LINK REL="Next"  HREF="000794.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Perl poser
+   </H1>
+    <B>Lucy McWilliam
+    </B> 
+    <A HREF="mailto:lejm3%40hermes.cam.ac.uk"
+       TITLE="[cam.pm] Perl poser">lejm3@hermes.cam.ac.uk
+       </A><BR>
+    <I>Wed, 5 Jun 2002 06:13:28 +0100 (BST)</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000792.html">[cam.pm] CPMBOPPC - Summary
+</A></li>
+        <LI> Next message: <A HREF="000794.html">[cam.pm] Perl poser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#793">[ date ]</a>
+              <a href="thread.html#793">[ thread ]</a>
+              <a href="subject.html#793">[ subject ]</a>
+              <a href="author.html#793">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>And the next Cam.pm obfuscated programming contest is....(drum
+roll)...my homework.  Only kidding.  This is a simple problem which has
+been giving me a headache for a while.
+
+I have a (large!) file containing pairwise scores for a number of genes.
+Whereas the example below shows 3 genes, in real life there are thousands of
+genes, hence I keep running out of memory.
+
+Gene1	Gene2	Score
+Alice	Alice	1
+Alice	Bob	0.8
+Alice	Carl	0.9
+Bob	Bob	1
+Bob	Carl	0.2
+Carl	Carl	1
+
+
+For each gene, I want to rank all other genes depending on their pairwise
+scores:
+
+Alice:	1st = Carl (0.9)	2nd = Bob (0.8)
+Bob:	1st = Alice (0.8)	2nd = Carl (0.2)
+Carl:	1st = Alice (0.9)	2nd = Bob (0.2)
+
+
+Thus outputting a list of genes pairs, scores and ranks to a file:
+
+Gene1   Gene1   Score	Rank1	Rank2
+Alice	Alice	1	n/a	n/a
+Alice   Bob	0.8	2	1
+Alice   Carl	0.9	1	1
+Bob	Bob	1	n/a	n/a
+Bob	Carl	0.2	2	2
+Carl	Carl	1	n/a	n/a
+
+where:
+Rank1 = rank of gene2 in list for gene1
+Rank2 = rank of gene1 in list for gene2
+
+
+Soooo. I've tried putting it all in a hash, but there's too much data.
+My current mediocre approach is to go throught the file once for each gene
+and print to n intermediary files (where n is total number of genes), which
+frankly takes far too long.  Shall swap beer for useful ideas.
+
+
+L.
+5am and all swell.
+
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000792.html">[cam.pm] CPMBOPPC - Summary
+</A></li>
+	<LI> Next message: <A HREF="000794.html">[cam.pm] Perl poser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#793">[ date ]</a>
+              <a href="thread.html#793">[ thread ]</a>
+              <a href="subject.html#793">[ subject ]</a>
+              <a href="author.html#793">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

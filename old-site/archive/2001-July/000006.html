@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> map
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000005.html">
+   <LINK REL="Next"  HREF="000007.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>map
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="map">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 4 Jul 2001 16:14:42 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000005.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+        <LI> Next message: <A HREF="000007.html">map
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thinking about map has just enabled me to write an absolute gem.  A
+routine to translate DNA sequence into its protein equivalent using
+three lines of code and one lookup table:
+
+my %convert = ( &quot;AAA&quot;, &quot;K&quot;, &quot;AAC&quot;, &quot;N&quot;, &quot;AAG&quot;, &quot;K&quot;, &quot;AAT&quot;, &quot;N&quot;,
+		&quot;ACA&quot;, &quot;T&quot;, &quot;ACC&quot;, &quot;T&quot;, &quot;ACG&quot;, &quot;T&quot;, &quot;ACT&quot;, &quot;T&quot;,
+		&quot;AGA&quot;, &quot;R&quot;, &quot;AGC&quot;, &quot;S&quot;, &quot;AGG&quot;, &quot;R&quot;, &quot;AGT&quot;, &quot;S&quot;,
+		&quot;ATA&quot;, &quot;I&quot;, &quot;ATC&quot;, &quot;I&quot;, &quot;ATG&quot;, &quot;M&quot;, &quot;ATT&quot;, &quot;I&quot;,
+		
+		&quot;CAA&quot;, &quot;Q&quot;, &quot;CAC&quot;, &quot;H&quot;, &quot;CAG&quot;, &quot;Q&quot;, &quot;CAT&quot;, &quot;H&quot;,
+		&quot;CCA&quot;, &quot;P&quot;, &quot;CCC&quot;, &quot;P&quot;, &quot;CCG&quot;, &quot;P&quot;, &quot;CCT&quot;, &quot;P&quot;,
+		&quot;CGA&quot;, &quot;R&quot;, &quot;CGC&quot;, &quot;R&quot;, &quot;CGG&quot;, &quot;R&quot;, &quot;CGT&quot;, &quot;R&quot;,
+		&quot;CTA&quot;, &quot;L&quot;, &quot;CTC&quot;, &quot;L&quot;, &quot;CTG&quot;, &quot;L&quot;, &quot;CTT&quot;, &quot;L&quot;,
+		
+		&quot;GAA&quot;, &quot;E&quot;, &quot;GAC&quot;, &quot;D&quot;, &quot;GAG&quot;, &quot;E&quot;, &quot;GAT&quot;, &quot;D&quot;,
+		&quot;GCA&quot;, &quot;A&quot;, &quot;GCC&quot;, &quot;A&quot;, &quot;GCG&quot;, &quot;A&quot;, &quot;GCT&quot;, &quot;A&quot;,
+		&quot;GGA&quot;, &quot;G&quot;, &quot;GGC&quot;, &quot;G&quot;, &quot;GGG&quot;, &quot;G&quot;, &quot;GGT&quot;, &quot;G&quot;,
+		&quot;GTA&quot;, &quot;V&quot;, &quot;GTC&quot;, &quot;V&quot;, &quot;GTG&quot;, &quot;V&quot;, &quot;GTT&quot;, &quot;V&quot;,
+		
+		&quot;TAA&quot;, &quot;*&quot;, &quot;TAC&quot;, &quot;Y&quot;, &quot;TAG&quot;, &quot;*&quot;, &quot;TAT&quot;, &quot;Y&quot;,
+		&quot;TCA&quot;, &quot;S&quot;, &quot;TCC&quot;, &quot;S&quot;, &quot;TCG&quot;, &quot;S&quot;, &quot;TCT&quot;, &quot;S&quot;,
+		&quot;TGA&quot;, &quot;*&quot;, &quot;TGC&quot;, &quot;C&quot;, &quot;TGG&quot;, &quot;W&quot;, &quot;TGT&quot;, &quot;C&quot;,
+		&quot;TTA&quot;, &quot;L&quot;, &quot;TTC&quot;, &quot;F&quot;, &quot;TTG&quot;, &quot;L&quot;, &quot;TTT&quot;, &quot;F&quot; ) ;
+
+sub translate {
+  my $seq = uc(shift);
+  my @codons = $seq =~ /\G.../g;
+  join('', map { $convert{$_} || 'X' } @codons);
+}
+
+I'm quite pleased with that.  :-)  There are probably faster but more
+long-winded methods though.
+
+I have C code to do the same thing which is a couple of hundred lines
+long (although it does use various tricks to translate all six reading
+frames simultaneously - the above routine only translates the first
+forward frame).
+
+Ooh, I can go home a happy man today.
+
+Tim.
+
+On Wed, Jul 04, 2001 at 10:37:55AM +0100, Matthew Byng-Maddick wrote:
+
+[map]
+
+&gt;<i> I often use it for dereferencing things:
+</I>&gt;<i> 
+</I>&gt;<i>  $foo= [
+</I>&gt;<i>          {
+</I>&gt;<i>            bar =&gt; &quot;d&quot;,
+</I>&gt;<i>            baz =&gt; &quot;f&quot; 
+</I>&gt;<i>          },
+</I>&gt;<i>          {
+</I>&gt;<i>            bar =&gt; &quot;a&quot;,
+</I>&gt;<i>            baz =&gt; &quot;b&quot; 
+</I>&gt;<i>          },
+</I>&gt;<i>          {
+</I>&gt;<i>            bar =&gt; &quot;z&quot;,
+</I>&gt;<i>            baz =&gt; &quot;x&quot; 
+</I>&gt;<i>          }
+</I>&gt;<i>        ];
+</I>&gt;<i> @z = map { $_-&gt;{&quot;bar&quot;} } @$foo;
+</I>
+-- 
+Tim Cutts PhD                    Tel: +44 1223 454918
+Senior Bioinformatics Scientist
+Incyte Genomics
+Botanic House, 100 Hills Road, Cambridge, CB2 1FF, UK
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000005.html">Personal perl irritations (Re: Web application survey)
+</A></li>
+	<LI> Next message: <A HREF="000007.html">map
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] problem with multiple sort...
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:pak21-campm%40srcf.ucam.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000864.html">
+   <LINK REL="Next"  HREF="000867.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] problem with multiple sort...
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:pak21-campm%40srcf.ucam.org"
+       TITLE="[cam.pm] problem with multiple sort...">pak21-campm@srcf.ucam.org
+       </A><BR>
+    <I>Tue, 20 Aug 2002 23:21:48 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000864.html">[cam.pm] Reminder: social
+</A></li>
+        <LI> Next message: <A HREF="000867.html">[cam.pm] problem with multiple sort...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#866">[ date ]</a>
+              <a href="thread.html#866">[ thread ]</a>
+              <a href="subject.html#866">[ subject ]</a>
+              <a href="author.html#866">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Aug 20, 2001 at 06:28:48PM +0100, Richard Harrington wrote:
+                ****
+
+You would appear to have a small error with your clock :-)
+
+&gt;<i> code:
+</I>&gt;<i> ##########################################################
+</I>&gt;<i> while (&lt;IN&gt;){
+</I>&gt;<i>   @array = ();
+</I>&gt;<i>   if(/^\d/){
+</I>&gt;<i>     chomp $_;
+</I>&gt;<i>     @fields = split(/\s+/,$_);
+</I>&gt;<i>     if ($fields[3] =~ /ENSP/ &amp;&amp; $fields[0] &lt; 0.0005){
+</I>&gt;<i>      push (@array, $fields[0],
+</I>&gt;<i>               $fields[1],
+</I>&gt;<i>               $fields[2],
+</I>&gt;<i>               $fields[3],);
+</I>&gt;<i>     $match = $fields[8];
+</I>
+&gt;<i>From the data you gave, $fields[8] is not defined. Should this be
+</I>$fields[3]?
+
+&gt;<i>     push (@{$hash{$match}}, [@array]);
+</I>
+Why not just do ' push (@{$hash{$match}}, [@fields]); '?
+
+&gt;<i>     }#end if
+</I>&gt;<i>   }#end if
+</I>
+You're missing a close brace, I presueme here.
+
+&gt;<i> close (IN);
+</I>&gt;<i> 
+</I>&gt;<i> ############################################################
+</I>
+[...]
+
+&gt;<i> But I'm trying to sort by firstly identifier, and then start position.  I
+</I>&gt;<i> used the following code, but it doesn't seem to work.  Can anyone help me?
+</I>
+Yes. 'use strict;' is your friend :-)
+
+&gt;<i> ######################
+</I>&gt;<i> 
+</I>&gt;<i> foreach (sort {@{$hash{$match}}-&gt;[$b]-&gt;[1] &lt;=&gt; @{$hash{$match}}-&gt;[$a]-&gt;[1]}
+</I>&gt;<i> keys %hash){
+</I>&gt;<i>   print &quot;\n$match: &quot;, scalar(@{$hash{$match}}), &quot;hits.&quot;;
+</I>&gt;<i> }#end foreach
+</I>&gt;<i> 
+</I>&gt;<i> ###########################
+</I>
+The instant problem with the above is that $match is not defined when you
+do your sort comparision; after that, it all gets a bit bizarre.
+
+Try something like:
+
+--- cut here ---
+foreach my $match ( keys %hash ) {
+
+    my @entries = @{ $hash{$match} };
+
+    foreach my $data ( sort { $a-&gt;[1] &lt;=&gt; $b-&gt;[1] } @entries ) {
+	print &quot;$match $data-&gt;[1]\n&quot;;
+    }
+
+}
+--- cut here ---
+
+&gt;<i> Is it possible to use the 'or' operator to fit both of these into one
+</I>&gt;<i> command?
+</I>
+I'm not sure quite why you're trying to combine all this into one
+command; that way tends to lend to highly unreadable Perl...
+
+Hope this helps -- please feel free to ask any further questions!
+
+Phil
+
+-- 
+&quot;That's great! You're not a praying mantis, are you? Sorry, someone
+else.&quot;
+                                           Xander: Buffy: Inca Mummy Girl
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000864.html">[cam.pm] Reminder: social
+</A></li>
+	<LI> Next message: <A HREF="000867.html">[cam.pm] problem with multiple sort...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#866">[ date ]</a>
+              <a href="thread.html#866">[ thread ]</a>
+              <a href="subject.html#866">[ subject ]</a>
+              <a href="author.html#866">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

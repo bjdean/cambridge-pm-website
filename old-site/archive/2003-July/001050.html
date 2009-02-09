@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Selecting array elements based on another array
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="001049.html">
+   <LINK REL="Next"  HREF="001051.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Selecting array elements based on another array
+   </H1>
+    <B>Philip Kendall
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Selecting array elements based on another array">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Mon, 14 Jul 2003 12:58:26 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="001049.html">[cam.pm] Re: Stupid question?
+</A></li>
+        <LI> Next message: <A HREF="001051.html">[cam.pm] Selecting array elements based on another array
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1050">[ date ]</a>
+              <a href="thread.html#1050">[ thread ]</a>
+              <a href="subject.html#1050">[ subject ]</a>
+              <a href="author.html#1050">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>[ Bit quiet in here, isn't it? ]
+
+Assume I have an array containing data, an (equally-sized) array containing
+whether each data point is valid or not and I wish to select all
+elements from the data for which the selector is true
+
+eg from 
+
+@data = ( 1, 2, 3, 4 )
+@selector = ( 0, 1, 1, 0 )
+
+I wish to obtain @valid = ( 2, 3 )
+
+Obviously there are lots of ways of doing this, but are there any which
+don't involve use of a temporary variable (or trashing the contents of
+@data or @valid)? The closest I can get is
+
+{
+  my $i = 0;
+  @valid = map { $_-&gt;[0] } grep { $_-&gt;[1] } map { [$_, $selector[$i++]] } @data;
+}
+
+use Language::Functional also springs to mind...
+
+Cheers,
+
+Phil
+
+-- 
+&quot;Just call me back. You are not going to believe the day I had.&quot;
+&quot;Me too.&quot;
+                                 Francie and Sydney: Alias: Truth Be Told
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="001049.html">[cam.pm] Re: Stupid question?
+</A></li>
+	<LI> Next message: <A HREF="001051.html">[cam.pm] Selecting array elements based on another array
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1050">[ date ]</a>
+              <a href="thread.html#1050">[ thread ]</a>
+              <a href="subject.html#1050">[ subject ]</a>
+              <a href="author.html#1050">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

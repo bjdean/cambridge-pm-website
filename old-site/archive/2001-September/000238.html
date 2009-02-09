@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] Recursion
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000236.html">
+   <LINK REL="Next"  HREF="000239.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] Recursion
+   </H1>
+    <B>Richard Kettlewell
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] Recursion">cam.pm@cam.pm.org
+       </A><BR>
+    <I>23 Sep 2001 17:56:36 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000236.html">[cam.pm] Recursion
+</A></li>
+        <LI> Next message: <A HREF="000239.html">[cam.pm] Recursion
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#238">[ date ]</a>
+              <a href="thread.html#238">[ thread ]</a>
+              <a href="subject.html#238">[ subject ]</a>
+              <a href="author.html#238">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Tony Finch &lt;<A HREF="mailto:dot@dotat.at">dot@dotat.at</A>&gt; writes:
+
+&gt;<i> Unless you have a compiler (or language) that explicitly advertises
+</I>&gt;<i> tail recursion optimization as a feature, don't expect to get it.
+</I>&gt;<i> In particular, gcc doesn't do it. (ncc on the Arm does, though)
+</I>
+Actually gcc 3 can do tail call optimization (not just for recursion,
+either; notice the &quot;jmp printf&quot; at the end).
+
+lyonesse$ cat f.c
+int ff(int n, int m) {
+  return n == 0 ? m : ff(n - 1, n * m);
+}
+
+int main(int argc, char **argv) {
+  printf(&quot;%d\n&quot;, ff(atoi(argv[1]), 1));
+}
+lyonesse$ /usr/local/gcc-3.0/bin/gcc -S -O2 f.c
+lyonesse$ cat f.s
+        .file   &quot;f.c&quot;
+        .text
+        .align 16
+.globl ff
+        .type   <A HREF="mailto:ff,@function">ff,@function</A>
+ff:
+        pushl   %ebp
+        movl    %esp, %ebp
+        movl    8(%ebp), %edx
+        movl    12(%ebp), %ecx
+.L3:
+        testl   %edx, %edx
+        je      .L2
+        movl    %edx, %eax
+        decl    %edx
+        imull   %ecx, %eax
+        movl    %eax, %ecx
+        jmp     .L3
+        .p2align 4,,7
+.L2:
+        popl    %ebp
+        movl    %ecx, %eax
+        ret
+.Lfe1:
+        .size   ff,.Lfe1-ff
+        .section        .rodata
+.LC0:
+        .string &quot;%d\n&quot;
+        .text
+        .align 16
+.globl main
+        .type   <A HREF="mailto:main,@function">main,@function</A>
+main:
+        pushl   %ebp
+        movl    %esp, %ebp
+        subl    $16, %esp
+        pushl   $1
+        movl    12(%ebp), %eax
+        movl    4(%eax), %eax
+        pushl   %eax
+        call    atoi
+        movl    %eax, (%esp)
+        call    ff
+        movl    $.LC0, 8(%ebp)
+        addl    $16, %esp
+        movl    %eax, 12(%ebp)
+        movl    %ebp, %esp
+        popl    %ebp
+        jmp     printf
+.Lfe2:
+        .size   main,.Lfe2-main
+        .ident  &quot;GCC: (GNU) 3.0&quot;
+
+-- 
+<A HREF="http://www.greenend.org.uk/rjk/">http://www.greenend.org.uk/rjk/</A>
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000236.html">[cam.pm] Recursion
+</A></li>
+	<LI> Next message: <A HREF="000239.html">[cam.pm] Recursion
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#238">[ date ]</a>
+              <a href="thread.html#238">[ thread ]</a>
+              <a href="subject.html#238">[ subject ]</a>
+              <a href="author.html#238">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

@@ -1,0 +1,281 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+
+
+
+ 
+ 
+
+<html>
+ <head>
+  <title>
+   CAM.PM:
+   $@ - {
+   $meets
+   -&gt; 2002
+   ; }
+  </title>
+ </head>
+ <body bgcolor="#ffffff" text="#000000">
+  <table border="0" cellpadding="2" cellspacing="2">
+   <tr>
+    <td valign="center">
+     <img src="/images/dollar-at.jpg" alt="$@" />
+    </td>
+    <td valign="center">
+     <h1>
+      <tt>require "<font color="#009900">cam</font>.<font color="#009900">pm</font>" ;</tt>
+     </h1>
+     <h1>
+      <tt>
+       {
+       $<font color="#cc0000">meets</font>
+       -&gt; <font color="#660099">2002</font>
+       ; }</tt>
+     </h1>
+    </td>
+   </tr>
+   <tr>
+    <td valign="top">
+     <!-- begin nav -->
+     <table border="0" cellpadding="0" width="128" cellspacing="1">
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/index.shtml"><b>$?</b></a></td>
+       <td valign="top"><a href="/index.shtml">about cam.pm</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/list_signup.shtml"><b>$*</b></a></td>
+       <td valign="top"><a href="/list_signup.shtml">the cam.pm list</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><b>$@</b></td>
+       <td valign="top">cam.pm meetings</td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/meets_when.shtml">when</a></td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/meets_where.shtml">where</a></td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/meets_2002.shtml">2002 meets</a></td>
+      </tr>
+      <tr bgcolor="#cccccc">
+       <td valign="top">&nbsp;</td>
+       <td valign="top"><a href="/meets_2001.shtml">2001 meets</a></td>
+      </tr>
+
+
+
+      <tr bgcolor="#cccccc">
+       <td valign="top"><a href="/projects_home.shtml"><b>$_</b></a></td>
+       <td valign="top"><a href="/projects_home.shtml">cam.pm projects</a></td>
+      </tr>
+
+
+     </table>
+     <!-- end nav -->
+    </td>
+    <td valign="top">
+
+<p>
+ The meetings that took place in cam.pm's first full year, 2002.
+</p>
+<ul>
+ <li><a href="#20021211">Wednesday 2002-12-11</a></li>
+ <li><a href="#20021115">Friday 2002-11-15</a></li>
+ <li><a href="#20021011">Friday 2002-10-11</a></li>
+ <li><a href="#20020909">Monday 2002-09-09</a></li>
+ <li><a href="#20020814">Wednesday 2002-08-14</a></li>
+ <li><a href="#20020712">Friday 2002-07-12</a></li>
+ <li><a href="#20020612">Wednesday 2002-06-12</a></li>
+ <li><a href="#20020510">Friday 2002-05-10</a></li>
+ <li><a href="#20020410">Wednesday 2002-04-10</a></li>
+ <li><a href="#20020308">Friday 2002-03-08</a></li>
+ <li><a href="#20020227">Wednesday 2002-02-27</a></li>
+ <li><a href="#20020213">Wednesday 2002-02-13</a></li>
+ <li><a href="#20020125">Friday 2002-01-25</a></li>
+ <li><a href="meets_2001.shtml">Meets from 2001</a></li>
+</ul>
+<p>
+These very brief summaries generally written by <a href="mailto:pak21-campm@srcf.ucam.org">Philip Kendall</a>, unless otherwise stated. Any complaints, corrections, etc to me...
+</p>
+<p>
+ <b><a name="20021211">Wednesday 2002-12-11</a></b>
+</p>
+<p>
+I was ill and in bed. I presume other people went though.
+</p>
+<p>
+ <b><a name="20021115">Friday 2002-11-15</a></b>
+</p>
+<p>
+A change of pub saw us relocate across the road from the <a
+href="http://www.streetmap.co.uk/streetmap.dll?G2M?X=544565&Y=259148&A=Y&Z=1">Castle</a>
+to the <a
+href="http://www.streetmap.co.uk/streetmap.dll?P2M?P=CB30AH&Z=1">County
+Arms</a>. This was not deemed to be the greatest success of all time
+due to their oven not working (leading to all sorts of confusion over
+food) and their beer running out at inopportune moments. Some of us
+went for a curry, some of us didn't, the curry party returned, a
+spring was played with (and eventually fixed, I think), we returned to
+House!/Heresy and then I went home for an early night.
+</p>
+<p>
+ <b><a name="20021011">Friday 2002-10-11</a></b>
+</p>
+<p>
+Don't know. I wasn't there and nobody else wrote a report. Also, there
+is no truth whatsoever in the rumours that I was singing Karaoke in
+college instead.
+</p>
+<p>
+ <b><a name="20020909">Monday 2002-09-09</a></b>
+</p>
+<p>
+In an attempt to meet Dan `<a
+href="http://archive.develooper.com/perl6-internals@perl.org/">perl6-internals</a>'
+Sugalski whilst he was in Cambridge, we rearranged to a Monday
+night. Unfortunately, last minute changes in plans meant Dan couldn't
+make it, so we were left with the locals and a couple of raiders from
+London and Australia. Quotes of the evening:
+</p>
+<ul>
+ <li>"So I had an interesting time at the Brazilian Consulate on
+     Friday..." (Stephen Turner)</li>
+ <li>"It's not en croute, more croute on the side." (Stephen Turner
+     again)</li>
+ <li>"I'm deprived." (Lucy McWilliam. Probably funnier at the time...)
+</ul>
+<p>
+Fun was had, and many hangovers acquired thanks to Ian's
+post-Post-Pizza presence at House! with port...
+</p>
+<p>
+ <b><a name="20020814">Wednesday 2002-08-14</a></b>
+</p>
+<p>
+To celebrate one year's worth of cam.pm social meets, we returned to
+our old haunt of The Castle, where we were joined by one new face in
+the form of Simon Burr. Other than that, things were much as
+usual. Memo to self: must think of more interesting things to say in
+meet reports.
+</p>
+<p>
+ <b><a name="20020712">Friday 2002-07-12</a></b>
+</p>
+<p>
+Once again in the Maypole, we congregated around a small table and
+attempted to analyse Damien Conway's "Extreme Perl". We concluded that
+Damien was a very clever man. After that, lots of people turned up and
+we couldn't fit them all round the table. However, <a
+href="http://slashdot.org/article.pl?sid=02/07/13/2348209">figuring
+you can never get too much Ian Jackson</a> (<tt>:-)</tt>), we obtained
+him a stool from a mysterious pile in the corner and carried
+on. Later, the traditional trip from the pub to House! was interrupted
+only by a brief interlude whilst Markus Kuhn followed the wrong bike
+at the traffic lights and almost got lost, prompting the formation of
+an impromptu search party. It was quickly determined that he had been
+collected by the walking party, and we were joined by Colin's
+<i>very</i> nice whisky...
+</p>
+<p>
+ <b><a name="20020612">Wednesday 2002-06-12</a></b>
+</p>
+<p>
+In a radical break with tradition, we moved from the Castle to <a
+href="http://www.streetmap.co.uk/streetmap.dll?P2M?P=CB58AF&Z=1">The
+Maypole</a>. Pretty quiet really, but this may be more to do with a cold
+outbreak that was going round Cambridge at the time, rather than
+anything to do with our choice of pub.
+</p>
+<p>
+ <b><a name="20020510">Friday 2002-05-10</a></b>
+</p>
+<p>
+This one began with the same people as usual, but seemed to be dominated
+more and more by people I hadn't met before (one of whom seemed to have
+been told various stories about me...) as the evening went on, and I'm not
+sure how many of them are actually subscribed to the list anyway. Not
+that we're complaining, as it was fun anyway...
+</p>
+<p>
+ <b><a name="20020410">Wednesday 2002-04-10</a></b>
+</p>
+<p>
+In keeping with the norm, the usual suspects turned up to the Castle,
+partook of food and beverages, retired to House! and generally had
+fun. There was a <a href="archive/2002-April/000681.html">brief
+discussion</a> (apologies for Mailman's sucky threading) on the list
+about alternatives to the Castle for meets, but nobody came up with
+any concrete suggestions...
+</p>
+<p>
+ <b><a name="20020308">Friday 2002-03-08</a></b>
+</p>
+<p>
+Well, this one must have happened but nobody wrote a report on it, and
+it's now a month later and I've completely forgotten if anything
+interesting happened. Oh well...
+</p>
+<p>
+ <b><a name="20020227">Wednesday 2002-02-27</a></b>
+</p>
+<p>
+An impromptu meet inspired by <a
+href="archive/2002-February/000578.html">Tony's post</a>, we went to the
+Castle to meet Simon Wilcox. Unfortunately, he couldn't find us (this
+appears to be a recurring theme <tt>:-(</tt>), so we had to make do with
+the company of <a href="http://www.cucs.ucam.org/">CUCS</a> who were
+(not <i>entirely</i> coincidentally) also having a social meet in the
+Castle. Much was discussed, much was consumed and I got to bed too late
+again.
+</p>
+<p>
+ <b><a name="20020213">Wednesday 2002-02-13</a></b>
+</p>
+<p>
+A slightly different plan for this social: due to the fact that Dave
+Green (of <a href="http://www.ntk.net/">NTK</a> fame) was speaking to
+the <a href="http://www.cucs.ucam.org/">Cambridge University Computer
+Society</a> on this evening, we planned to meet in the <a
+href="http://www.streetmap.co.uk/streetmap.dll?G2M?X=544553&Y=257960&A=Y&Z=1">Anchor,
+Silver Street</a>, head off to see Dave's talk and then to adjourn to
+a public house afterwards.
+</p>
+<p>
+What actually happened, I don't know as I wasn't there and nobody
+posted any details to the list...
+</p>
+<p>
+ <b><a name="20020125">Friday 2002-01-25</a></b>
+</p>
+<p>
+It happened. Nobody wrote a report, so you'll just have to turn up to
+the next one if you want see what they're like.
+</p>
+    </td>
+   </tr>
+  </table>
+  
+  <hr />
+  <small>
+   $Id: meets_2002.shtml,v 1.1 2003/05/04 16:18:56 mbm Exp $
+  </small>
+  
+ </body>
+</html>
+

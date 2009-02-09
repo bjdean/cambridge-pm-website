@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] evil regular expression wanted
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000329.html">
+   <LINK REL="Next"  HREF="000331.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] evil regular expression wanted
+   </H1>
+    <B>Tim Cutts
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] evil regular expression wanted">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Thu, 18 Oct 2001 12:03:55 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000329.html">[cam.pm] evil regular expression wanted
+</A></li>
+        <LI> Next message: <A HREF="000331.html">[cam.pm] evil regular expression wanted
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#330">[ date ]</a>
+              <a href="thread.html#330">[ thread ]</a>
+              <a href="subject.html#330">[ subject ]</a>
+              <a href="author.html#330">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hmm.  just realised my solution doesn't handle empty fields properly.
+
+&lt;thinks&gt;
+
+Ah.  This seems to work:
+
+#!/usr/bin/perl -w
+
+while (&lt;DATA&gt;) {
+    my (@a) = /(\&quot;(?:\\.|[^\&quot;])*\&quot;|[^,\n]*)[,\n]/g;
+    map  { s/^\&quot;(.*)\&quot;$/$1/; s/\\\&quot;/\&quot;/g; } @a;
+    print join(&quot;\n&quot;, @a, '');
+}
+
+__DATA__
+Wibble,12345,,&quot;Foo, Bar&quot;,&quot;\&quot;The cat sat on the mat\&quot;, she said&quot;
+
+i.e. every non-quoted field *has* to be terminated either with a comma
+or a new line.
+
+Text::CSV?  Who needs it?  :-)
+
+-- 
+Tim Cutts PhD                    Tel: +44 1223 454918
+Senior Bioinformatics Scientist
+Incyte Genomics
+Botanic House, 100 Hills Road, Cambridge, CB2 1FF, UK
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000329.html">[cam.pm] evil regular expression wanted
+</A></li>
+	<LI> Next message: <A HREF="000331.html">[cam.pm] evil regular expression wanted
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#330">[ date ]</a>
+              <a href="thread.html#330">[ thread ]</a>
+              <a href="subject.html#330">[ subject ]</a>
+              <a href="author.html#330">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>

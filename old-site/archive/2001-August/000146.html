@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cam.pm] LALR(1) parser for Perl?
+   </TITLE>
+   <LINK REL="Index" HREF="index.html" >
+   <LINK REL="made" HREF="mailto:cam.pm%40cam.pm.org">
+   <META NAME="robots" CONTENT="index,nofollow">
+   
+   <LINK REL="Previous"  HREF="000137.html">
+   <LINK REL="Next"  HREF="000138.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cam.pm] LALR(1) parser for Perl?
+   </H1>
+    <B>Simon J. Rowe
+    </B> 
+    <A HREF="mailto:cam.pm%40cam.pm.org"
+       TITLE="[cam.pm] LALR(1) parser for Perl?">cam.pm@cam.pm.org
+       </A><BR>
+    <I>Wed, 15 Aug 2001 20:02:25 +0100</I>
+    <P><UL>
+        <LI> Previous message: <A HREF="000137.html">[cam.pm] LALR(1) parser for Perl?
+</A></li>
+        <LI> Next message: <A HREF="000138.html">[cam.pm] Crossing a Yacc with a Camel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#146">[ date ]</a>
+              <a href="thread.html#146">[ thread ]</a>
+              <a href="subject.html#146">[ subject ]</a>
+              <a href="author.html#146">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> I've got a Perl script that needs to parse a LALR(1) language. In C I'd
+</I>use
+&gt;<i> lex and yacc, what's the best way to do this in Perl? I realise that there
+</I>&gt;<i> are other weird parsing methods more suited to perl (like bag grammars,
+</I>and
+&gt;<i> so on) but it would be nice if there was something that would just take a
+</I>&gt;<i> BNF grammar and do the right thing. Is there something people can
+</I>&gt;<i> recommend in the standard distribution or on CPAN?
+</I>
+&lt;Lurk off&gt;
+
+There's a byacc that creates perl parsers, it's not the standard byacc and
+it is hard to track down. I've put a copy on my web site,
+<A HREF="http://www.mose.org.uk/Perl-byacc.tar.gz">http://www.mose.org.uk/Perl-byacc.tar.gz</A>
+
+Just a note, it's quite elderly and has no knowledge of perl objects, like
+the YACC of yore it expects yyerror, yylex etc but apart from that it does
+the job.
+
+&lt;Lurk on&gt;
+
+    Simon
+
+
+
+
+</PRE>
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI> Previous message: <A HREF="000137.html">[cam.pm] LALR(1) parser for Perl?
+</A></li>
+	<LI> Next message: <A HREF="000138.html">[cam.pm] Crossing a Yacc with a Camel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#146">[ date ]</a>
+              <a href="thread.html#146">[ thread ]</a>
+              <a href="subject.html#146">[ subject ]</a>
+              <a href="author.html#146">[ author ]</a>
+         </LI>
+       </UL>
+</body></html>
